@@ -6,11 +6,12 @@ import androidx.fragment.app.Fragment
 import com.will.habit.BR
 import com.will.habit.R
 import com.will.habit.databinding.ActivityTabBarBinding
-import com.will.habit.ui.tab_bar.fragment.TabBar1Fragment
-import com.will.habit.ui.tab_bar.fragment.TabBar2Fragment
-import com.will.habit.ui.tab_bar.fragment.TabBar3Fragment
-import com.will.habit.ui.tab_bar.fragment.TabBar4Fragment
 import com.will.habit.base.BaseActivity
+import com.will.habit.ui.main.TabBarViewModel
+import com.will.play.home.ui.fragment.TabBar1Fragment
+import com.will.play.home.ui.fragment.TabBar2Fragment
+import com.will.play.home.ui.fragment.TabBar3Fragment
+import com.will.play.home.ui.fragment.TabBar4Fragment
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener
 import java.util.*
 

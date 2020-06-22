@@ -1,4 +1,4 @@
-package com.will.habit.ui.tab_bar.activity
+package com.will.habit.ui.main
 
 import android.app.Application
 import com.will.habit.repository.AppRepository

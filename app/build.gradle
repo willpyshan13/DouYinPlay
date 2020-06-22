@@ -37,15 +37,12 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //support
     implementation rootProject.ext.support["design"]
-    //下拉刷新,上拉加载
-    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+
     //底部tabBar
     implementation('me.majiajie:pager-bottom-tab-strip:2.2.5') {
         exclude group: 'com.android.support'
     }
-    //MVVMHabit
-    implementation project(':mvvmwill')
-//    implementation rootProject.ext.dependencies.MVVMHabit
+    implementation project(':play_home')
     //内存泄漏测试
     compile 'com.android.support:multidex:1.0.3'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'

@@ -29,11 +29,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import com.will.habit.R
 import com.will.habit.crash.CustomActivityOnCrash.closeApplication
 import com.will.habit.crash.CustomActivityOnCrash.getAllErrorDetailsFromIntent
 import com.will.habit.crash.CustomActivityOnCrash.getConfigFromIntent
 import com.will.habit.crash.CustomActivityOnCrash.restartApplication
-import me.goldze.mvvmhabit.R
 
 class DefaultErrorActivity : AppCompatActivity() {
     @SuppressLint("PrivateResource")

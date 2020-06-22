@@ -9,7 +9,7 @@ import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.GravityEnum
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.Theme
-import me.goldze.mvvmhabit.R
+import com.will.habit.R
 
 /**
  * @author will

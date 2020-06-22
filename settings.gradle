@@ -1,1 +1,3 @@
+include ':play_base'
+include ':play_home'
 include ':app', ':mvvmwill'

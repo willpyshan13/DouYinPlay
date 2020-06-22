@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-import me.goldze.mvvmhabit.R;
+import com.will.habit.R;
 
 /**
  * Created by goldze on 2017/3/16.
