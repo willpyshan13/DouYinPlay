@@ -7,7 +7,7 @@ import com.will.play.BR
 import com.will.play.R
 import com.will.habit.base.BaseActivity
 import com.will.play.databinding.ActivityTabBarBinding
-import com.will.play.home.ui.fragment.TabBar1Fragment
+import com.will.play.home.ui.fragment.HomeFragment
 import com.will.play.home.ui.fragment.TabBar2Fragment
 import com.will.play.home.ui.fragment.TabBar3Fragment
 import com.will.play.home.ui.fragment.TabBar4Fragment
@@ -46,7 +46,7 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
 
     private fun initFragment() {
         mFragments = ArrayList()
-        mFragments!!.add(TabBar1Fragment())
+        mFragments!!.add(HomeFragment())
         mFragments!!.add(TabBar2Fragment())
         mFragments!!.add(TabBar3Fragment())
         mFragments!!.add(TabBar4Fragment())
