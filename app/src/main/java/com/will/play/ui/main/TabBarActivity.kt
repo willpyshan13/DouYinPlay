@@ -15,9 +15,17 @@ import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener
 import java.util.*
 
 /**
- * 底部tab按钮的例子
- * 所有例子仅做参考,理解如何使用才最重要。
- * Created by goldze on 2018/7/18.
+ *
+ * Desc:首页
+ * <p>
+ * Date: 2020-06-22
+ * Copyright: Copyright (c) 2018 - 2020
+ * Updater:
+ * Update Time:
+ * Update Comments:
+ * @property mFragments MutableList<Fragment>?
+ *
+ * Author: pengyushan
  */
 class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
     private var mFragments: MutableList<Fragment>? = null
@@ -48,9 +56,9 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
 
     private fun initBottomTab() {
         val navigationController = binding!!.pagerBottomTab.material()
-                .addItem(R.mipmap.yingyong, "应用")
-                .addItem(R.mipmap.huanzhe, "工作")
-                .addItem(R.mipmap.xiaoxi_select, "消息")
+                .addItem(R.mipmap.yingyong, "首页")
+                .addItem(R.mipmap.huanzhe, "数据")
+                .addItem(R.mipmap.xiaoxi_select, "选品")
                 .addItem(R.mipmap.wode_select, "我的")
                 .setDefaultColor(ContextCompat.getColor(this, R.color.textColorVice))
                 .build()
