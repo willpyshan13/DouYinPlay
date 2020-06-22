@@ -1,4 +1,4 @@
-package com.will.habit.ui.tab_bar.activity
+package com.will.habit.ui.main
 
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -7,7 +7,6 @@ import com.will.habit.BR
 import com.will.habit.R
 import com.will.habit.databinding.ActivityTabBarBinding
 import com.will.habit.base.BaseActivity
-import com.will.habit.ui.main.TabBarViewModel
 import com.will.play.home.ui.fragment.TabBar1Fragment
 import com.will.play.home.ui.fragment.TabBar2Fragment
 import com.will.play.home.ui.fragment.TabBar3Fragment
