@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.will.habit.data.DemoRepository;
-import com.will.habit.ui.main.DemoActivity;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
@@ -109,7 +108,6 @@ public class LoginViewModel extends BaseViewModel<DemoRepository> {
                         model.saveUserName(userName.get());
                         model.savePassword(password.get());
                         //进入DemoActivity页面
-                        startActivity(DemoActivity.class);
                         //关闭页面
                         finish();
                     }

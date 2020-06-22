@@ -19,15 +19,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.will.habit.ui.login.LoginActivity">
+        <activity android:name="com.will.habit.ui.tab_bar.activity.TabBarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.will.habit.ui.main.DemoActivity"></activity>
-        <activity android:name="com.will.habit.ui.tab_bar.activity.TabBarActivity"></activity>
         <activity android:name="com.will.habit.ui.viewpager.activity.ViewPagerActivity"></activity>
     </application>
 
