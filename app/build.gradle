@@ -43,6 +43,9 @@ dependencies {
         exclude group: 'com.android.support'
     }
     implementation project(':play_home')
+    implementation project(':play_data')
+    implementation project(':play_pick')
+    implementation project(':play_mine')
     //内存泄漏测试
     compile 'com.android.support:multidex:1.0.3'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'

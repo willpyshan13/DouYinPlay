@@ -1,3 +1,6 @@
+include ':play_data'
+include ':play_mine'
+include ':play_pick'
 include ':play_base'
 include ':play_home'
 include ':app', ':mvvmwill'
