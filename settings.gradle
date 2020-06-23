@@ -1,3 +1,7 @@
+include ':module_common_res'
+include ':module_base'
+include ':module_widget'
+include ':module_aop'
 include ':play_data'
 include ':play_mine'
 include ':play_pick'
