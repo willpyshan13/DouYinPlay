@@ -26,5 +26,4 @@ android {
 
 dependencies {
     api project(':mvvmwill')
-
 }
