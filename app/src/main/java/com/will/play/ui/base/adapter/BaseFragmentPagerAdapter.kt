@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter
  * FragmentPager适配器
  */
 class BaseFragmentPagerAdapter //使用构造方法来将数据传进去
-(fm: FragmentManager?, //ViewPager要填充的fragment列表
+(fm: FragmentManager, //ViewPager要填充的fragment列表
  private val list: List<Fragment>, //tab中的title文字列表
  private val title: List<String>) : FragmentPagerAdapter(fm) {
 

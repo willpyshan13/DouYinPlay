@@ -71,6 +71,8 @@ android {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //组件依赖基础库
-    api project(':mvvmwill')
+    api project(':module_common_res')
+    api project(':module_widget')
+    api project(':module_pay')
+    api project(':module_aop')
 }
