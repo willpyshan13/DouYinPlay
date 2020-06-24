@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="toolbarViewModel"
-            type="com.will.play.ui.base.viewmodel.ToolbarViewModel" />
+            name="viewModel"
+            type="com.will.habit.base.BaseViewModel" />
     </data>
 
     <androidx.appcompat.widget.Toolbar
@@ -29,7 +29,7 @@
                 android:background="?selectableItemBackground"
                 android:padding="12dp"
                 android:src="@mipmap/back"
-                binding:onClickCommand="@{toolbarViewModel.backOnClick}" />
+                binding:onClickCommand="@{viewModel.backOnClick}" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:maxEms="12"
                 android:singleLine="true"
-                android:text="@{toolbarViewModel.titleText}"
+                android:text="@{viewModel.titleText}"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
 
@@ -54,11 +54,11 @@
                 android:background="?selectableItemBackground"
                 android:gravity="center"
                 android:padding="12dp"
-                android:text="@{toolbarViewModel.rightText}"
+                android:text="@{viewModel.rightText}"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
-                android:visibility="@{toolbarViewModel.rightTextVisibleObservable}"
-                binding:onClickCommand="@{toolbarViewModel.rightTextOnClick}" />
+                android:visibility="@{viewModel.rightTextVisibleObservable}"
+                binding:onClickCommand="@{viewModel.rightTextOnClick}" />
 
             <ImageView
                 android:id="@+id/iv_right_icon"
@@ -70,8 +70,8 @@
                 android:gravity="center"
                 android:padding="12dp"
                 android:src="@mipmap/toolbar_more"
-                android:visibility="@{toolbarViewModel.rightIconVisibleObservable}"
-                binding:onClickCommand="@{toolbarViewModel.rightIconOnClick}" />
+                android:visibility="@{viewModel.rightIconVisibleObservable}"
+                binding:onClickCommand="@{viewModel.rightIconOnClick}" />
 
             <View
                 style="@style/ViewLineStyle"

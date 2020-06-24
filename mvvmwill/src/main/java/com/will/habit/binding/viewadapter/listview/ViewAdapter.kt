@@ -5,7 +5,7 @@ import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
 import androidx.databinding.BindingAdapter
 import com.will.habit.binding.command.BindingCommand
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
 
 /**

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemAnimator
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.binding.viewadapter.recyclerview.LineManagers.LineManagerFactory
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
 
 /**

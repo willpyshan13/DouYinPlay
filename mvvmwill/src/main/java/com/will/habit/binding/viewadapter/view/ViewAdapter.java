@@ -2,13 +2,14 @@ package com.will.habit.binding.viewadapter.view;
 
 import android.view.View;
 
-import com.jakewharton.rxbinding2.view.RxView;
-
 import java.util.concurrent.TimeUnit;
 
 import androidx.databinding.BindingAdapter;
-import io.reactivex.functions.Consumer;
+
+import com.jakewharton.rxbinding4.view.RxView;
 import com.will.habit.binding.command.BindingCommand;
+
+import io.reactivex.rxjava3.functions.Consumer;
 
 /**
  * Created by goldze on 2017/6/16.

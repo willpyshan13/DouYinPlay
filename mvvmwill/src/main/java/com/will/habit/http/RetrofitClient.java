@@ -1,18 +1,9 @@
-package com.will.play.utils;
+package com.will.habit.http;
 
 import android.content.Context;
 import android.text.TextUtils;
 
 import com.will.habit.BuildConfig;
-
-import java.io.File;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import com.will.habit.http.cookie.CookieJarImpl;
 import com.will.habit.http.cookie.store.PersistentCookieStore;
 import com.will.habit.http.interceptor.BaseInterceptor;
@@ -22,12 +13,20 @@ import com.will.habit.http.interceptor.logging.LoggingInterceptor;
 import com.will.habit.utils.KLog;
 import com.will.habit.utils.Utils;
 
+import java.io.File;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.Cache;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import okhttp3.internal.platform.Platform;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -104,7 +103,7 @@ public class RetrofitClient {
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .baseUrl(url)
                 .build();
 

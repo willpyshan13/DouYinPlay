@@ -1,6 +1,6 @@
 package com.will.habit.binding.command
 
-import io.reactivex.functions.Function
+import io.reactivex.rxjava3.functions.Function
 
 /**
  * About : kelin的ResponseCommand

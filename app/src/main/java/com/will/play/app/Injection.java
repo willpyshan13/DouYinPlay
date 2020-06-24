@@ -1,12 +1,12 @@
 package com.will.play.app;
 
+import com.will.habit.http.RetrofitClient;
 import com.will.play.data.DemoRepository;
 import com.will.play.data.source.HttpDataSource;
 import com.will.play.data.source.LocalDataSource;
 import com.will.play.data.source.http.HttpDataSourceImpl;
 import com.will.play.data.source.http.service.DemoApiService;
 import com.will.play.data.source.local.LocalDataSourceImpl;
-import com.will.play.utils.RetrofitClient;
 
 
 /**

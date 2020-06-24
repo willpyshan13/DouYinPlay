@@ -15,7 +15,7 @@ class BaseInterceptor(private val headers: Map<String, String>?) : Interceptor {
         if (headers != null && headers.size > 0) {
             val keys = headers.keys
             for (headerKey in keys) {
-                builder.addHeader(headerKey, headers[headerKey]).build()
+                headers[headerKey]?.let { builder.addHeader(headerKey, it).build() }
             }
         }
         //请求信息

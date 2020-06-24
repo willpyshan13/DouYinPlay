@@ -6,7 +6,7 @@ import com.will.habit.utils.KLog.d
 import com.will.habit.utils.KLog.e
 import com.will.habit.utils.ToastUtils
 import com.will.habit.utils.Utils
-import io.reactivex.observers.DisposableObserver
+import io.reactivex.rxjava3.observers.DisposableObserver
 
 /**
  * Created by goldze on 2017/5/10.

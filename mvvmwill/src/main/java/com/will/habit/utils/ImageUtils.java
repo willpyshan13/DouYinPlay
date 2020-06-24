@@ -44,14 +44,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
 import com.will.habit.utils.compression.Luban;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableSource;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static com.will.habit.utils.Utils.getContext;
 
@@ -413,8 +414,9 @@ public class ImageUtils {
         // 原始图片bitmap
         Bitmap cur_bitmap = getBitmapByPath(largeImagePath, opts);
 
-        if (cur_bitmap == null)
+        if (cur_bitmap == null) {
             return;
+        }
 
         // 原始图片的高宽
         int[] cur_img_size = new int[] { cur_bitmap.getWidth(),

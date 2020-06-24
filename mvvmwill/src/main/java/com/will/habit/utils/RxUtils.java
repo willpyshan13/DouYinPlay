@@ -2,17 +2,18 @@ package com.will.habit.utils;
 
 import android.content.Context;
 
-import com.trello.rxlifecycle2.LifecycleProvider;
-import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import androidx.fragment.app.Fragment;
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.ObservableTransformer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableSource;
+import io.reactivex.rxjava3.core.ObservableTransformer;
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+import com.trello.rxlifecycle4.LifecycleProvider;
+import com.trello.rxlifecycle4.LifecycleTransformer;
 import com.will.habit.http.BaseResponse;
 import com.will.habit.http.ExceptionHandle;
 
@@ -91,8 +92,9 @@ public class RxUtils {
     private static class HandleFuc<T> implements Function<BaseResponse<T>, T> {
         @Override
         public T apply(BaseResponse<T> response) {
-            if (!response.isOk())
+            if (!response.isOk()) {
                 throw new RuntimeException(!"".equals(response.code + "" + response.message) ? response.message : "");
+            }
             return response.getResult();
         }
     }

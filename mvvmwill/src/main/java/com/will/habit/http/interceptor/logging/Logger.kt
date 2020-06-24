@@ -11,7 +11,7 @@ interface Logger {
     companion object {
         val DEFAULT: Logger = object : Logger {
             override fun log(level: Int, tag: String?, message: String?) {
-                Platform.get().log(level, message, null)
+                message?.let { Platform.get().log(level = level,message = it) }
             }
         }
     }

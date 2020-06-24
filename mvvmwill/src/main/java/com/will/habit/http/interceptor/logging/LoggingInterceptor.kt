@@ -15,29 +15,29 @@ class LoggingInterceptor private constructor(private val builder: Builder) : Int
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
-        if (builder.headers.size() > 0) {
-            val headers = request.headers()
+        if (builder.headers.size > 0) {
+            val headers = request.headers
             val names = headers.names()
             val iterator: Iterator<String> = names.iterator()
             val requestBuilder = request.newBuilder()
             requestBuilder.headers(builder.headers)
             while (iterator.hasNext()) {
                 val name = iterator.next()
-                requestBuilder.addHeader(name, headers[name])
+                headers[name]?.let { requestBuilder.addHeader(name, it) }
             }
             request = requestBuilder.build()
         }
         if (!isDebug || builder.level === Level.NONE) {
             return chain.proceed(request)
         }
-        val requestBody = request.body()
+        val requestBody = request.body
         var rContentType: MediaType? = null
         if (requestBody != null) {
-            rContentType = request.body()!!.contentType()
+            rContentType = request.body!!.contentType()
         }
         var rSubtype: String? = null
         if (rContentType != null) {
-            rSubtype = rContentType.subtype()
+            rSubtype = rContentType.subtype
         }
         if (rSubtype != null && (rSubtype.contains("json")
                         || rSubtype.contains("xml")
@@ -49,17 +49,17 @@ class LoggingInterceptor private constructor(private val builder: Builder) : Int
         }
         val st = System.nanoTime()
         val response = chain.proceed(request)
-        val segmentList = (request.tag() as Request).url().encodedPathSegments()
+        val segmentList = (request.tag() as Request).url.encodedPathSegments
         val chainMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - st)
-        val header = response.headers().toString()
-        val code = response.code()
+        val header = response.headers.toString()
+        val code = response.code
         val isSuccessful = response.isSuccessful
-        val responseBody = response.body()
+        val responseBody = response.body
         val contentType = responseBody!!.contentType()
         var subtype: String? = null
         val body: ResponseBody
         if (contentType != null) {
-            subtype = contentType.subtype()
+            subtype = contentType.subtype
         }
         body = if (subtype != null && (subtype.contains("json")
                         || subtype.contains("xml")
@@ -106,7 +106,9 @@ class LoggingInterceptor private constructor(private val builder: Builder) : Int
          * Add a field with the specified value
          */
         fun addHeader(name: String?, value: String?): Builder {
-            builder[name] = value
+            if (value != null && name != null) {
+                builder[name] = value
+            }
             return this
         }
 

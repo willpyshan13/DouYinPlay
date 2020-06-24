@@ -2,15 +2,20 @@ package com.will.habit.base
 
 import android.app.Application
 import android.os.Bundle
+import android.view.View
+import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.trello.rxlifecycle2.LifecycleProvider
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
+import com.trello.rxlifecycle4.LifecycleProvider
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.functions.Consumer
 import java.lang.ref.WeakReference
 import java.util.*
 
@@ -20,6 +25,18 @@ import java.util.*
  */
 open class BaseViewModel<M : BaseModel?> @JvmOverloads constructor(application: Application, @JvmField var model: M? = null) : AndroidViewModel(application), IBaseViewModel, Consumer<Disposable?> {
     private var uc: UIChangeLiveData? = null
+
+    //标题文字
+    var titleText = ObservableField("")
+
+    //右边文字
+    var rightText = ObservableField("更多")
+
+    //右边文字的观察者
+    var rightTextVisibleObservable = ObservableInt(View.GONE)
+
+    //右边图标的观察者
+    var rightIconVisibleObservable = ObservableInt(View.GONE)
 
     //弱引用持有
     private var lifecycle: WeakReference<LifecycleProvider<*>>? = null
@@ -141,10 +158,8 @@ open class BaseViewModel<M : BaseModel?> @JvmOverloads constructor(application: 
         addSubscribe(disposable)
     }
 
-    inner class UIChangeLiveData : SingleLiveEvent<Any?>() {
-        var showDialogEvent: SingleLiveEvent<String>? = null
-            get() = createLiveData(field).also { field = it }
-            private set
+    class UIChangeLiveData : SingleLiveEvent<Any?>() {
+        val showDialogEvent by lazy(LazyThreadSafetyMode.NONE) { SingleLiveEvent<String>() }
         var dismissDialogEvent: SingleLiveEvent<Void>? = null
             get() = createLiveData(field).also { field = it }
             private set
@@ -173,6 +188,72 @@ open class BaseViewModel<M : BaseModel?> @JvmOverloads constructor(application: 
             super.observe(owner, observer)
         }
     }
+
+    /**
+     * 设置标题
+     *
+     * @param text 标题文字
+     */
+    open fun setTitleText(text: String?) {
+        titleText.set(text)
+    }
+
+    /**
+     * 设置右边文字
+     *
+     * @param text 右边文字
+     */
+    open fun setRightText(text: String?) {
+        rightText.set(text)
+    }
+
+    /**
+     * 设置右边文字的显示和隐藏
+     *
+     * @param visibility
+     */
+    open fun setRightTextVisible(visibility: Int) {
+        rightTextVisibleObservable.set(visibility)
+    }
+
+    /**
+     * 设置右边图标的显示和隐藏
+     *
+     * @param visibility
+     */
+    open fun setRightIconVisible(visibility: Int) {
+        rightIconVisibleObservable.set(visibility)
+    }
+
+    /**
+     * 返回按钮的点击事件
+     */
+    val backOnClick: BindingCommand<*> = BindingCommand<Any?>(object : BindingAction {
+        override fun call() {
+            finish()
+        }
+    })
+
+    var rightTextOnClick: BindingCommand<*> = BindingCommand<Any?>(object : BindingAction {
+        override fun call() {
+            rightTextOnClick()
+        }
+    })
+    var rightIconOnClick: BindingCommand<*> = BindingCommand<Any?>(object : BindingAction {
+        override fun call() {
+            rightIconOnClick()
+        }
+    })
+
+    /**
+     * 右边文字的点击事件，子类可重写
+     */
+    protected open fun rightTextOnClick() {}
+
+    /**
+     * 右边图标的点击事件，子类可重写
+     */
+    protected open fun rightIconOnClick() {}
 
     object ParameterField {
         @JvmField

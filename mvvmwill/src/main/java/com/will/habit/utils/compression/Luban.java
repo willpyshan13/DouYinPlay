@@ -16,13 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.functions.Predicate;
-import io.reactivex.schedulers.Schedulers;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.functions.Predicate;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class Luban {
 
@@ -91,15 +91,19 @@ public class Luban {
     }
 
     public static Luban get(Context context) {
-        if (INSTANCE == null) INSTANCE = new Luban(Luban.getPhotoCacheDir(context));
+        if (INSTANCE == null) {
+            INSTANCE = new Luban(Luban.getPhotoCacheDir(context));
+        }
         return INSTANCE;
     }
 
     public Luban launch() {
         Preconditions.checkNotNull(mFile, "the image file cannot be null, please call .load() before this method!");
 
-        if (compressListener != null) compressListener.onStart();
-        if (gear == Luban.FIRST_GEAR)
+        if (compressListener != null) {
+            compressListener.onStart();
+        }
+        if (gear == Luban.FIRST_GEAR) {
             Observable.just(mFile)
                     .map(new Function<String, File>() {
                         @Override
@@ -113,10 +117,11 @@ public class Luban {
                     .doOnError(new Consumer<Throwable>() {
                         @Override
                         public void accept(Throwable throwable) throws Exception {
-                            if (compressListener != null) compressListener.onError(throwable);
+                            if (compressListener != null) {
+                                compressListener.onError(throwable);
+                            }
                         }
                     })
-                    .onErrorResumeNext(Observable.<File>empty())
                     .filter(new Predicate<File>() {
                         @Override
                         public boolean test(File file) throws Exception {
@@ -129,7 +134,7 @@ public class Luban {
                             if (compressListener != null) compressListener.onSuccess(file);
                         }
                     });
-        else if (gear == Luban.THIRD_GEAR)
+        } else if (gear == Luban.THIRD_GEAR) {
             Observable.just(mFile)
                     .map(new Function<String, File>() {
                         @Override
@@ -143,10 +148,11 @@ public class Luban {
                     .doOnError(new Consumer<Throwable>() {
                         @Override
                         public void accept(Throwable throwable) throws Exception {
-                            if (compressListener != null) compressListener.onError(throwable);
+                            if (compressListener != null) {
+                                compressListener.onError(throwable);
+                            }
                         }
                     })
-                    .onErrorResumeNext(Observable.<File>empty())
                     .filter(new Predicate<File>() {
                         @Override
                         public boolean test(File file) throws Exception {
@@ -156,9 +162,12 @@ public class Luban {
                     .subscribe(new Consumer<File>() {
                         @Override
                         public void accept(File file) throws Exception {
-                            if (compressListener != null) compressListener.onSuccess(file);
+                            if (compressListener != null) {
+                                compressListener.onSuccess(file);
+                            }
                         }
                     });
+        }
         return this;
     }
 
@@ -192,7 +201,7 @@ public class Luban {
     }
 
     public Observable<File> asObservable() {
-        if (gear == FIRST_GEAR)
+        if (gear == FIRST_GEAR) {
             return Observable.just(mFile).map(new Function<String, File>() {
                 @Override
                 public File apply(String s) throws Exception {
@@ -208,7 +217,7 @@ public class Luban {
                     }
                 }
             });
-        else if (gear == THIRD_GEAR)
+        } else if (gear == THIRD_GEAR) {
             return Observable.just(mFile).map(new Function<String, File>() {
                 @Override
                 public File apply(String s) throws Exception {
@@ -224,11 +233,13 @@ public class Luban {
                     }
                 }
             });
-        else return Observable.empty();
+        } else {
+            return Observable.empty();
+        }
     }
 
     public Observable<File> asListObservable() {
-        if (gear == FIRST_GEAR)
+        if (gear == FIRST_GEAR) {
             return Observable.fromIterable(mListFile).map(new Function<String, File>() {
                 @Override
                 public File apply(String s) throws Exception {
@@ -244,7 +255,7 @@ public class Luban {
                     }
                 }
             });
-        else if (gear == THIRD_GEAR)
+        } else if (gear == THIRD_GEAR) {
             return Observable.fromIterable(mListFile).map(new Function<String, File>() {
                 @Override
                 public File apply(String s) throws Exception {
@@ -260,7 +271,9 @@ public class Luban {
                     }
                 }
             });
-        else return Observable.empty();
+        } else {
+            return Observable.empty();
+        }
     }
 
     private File thirdCompress(@NonNull File file) {
@@ -305,7 +318,9 @@ public class Luban {
                 size = size < 100 ? 100 : size;
             }
         } else if (scale <= 0.5625 && scale > 0.5) {
-            if (height < 1280 && file.length() / 1024 < 200) return file;
+            if (height < 1280 && file.length() / 1024 < 200) {
+                return file;
+            }
 
             int multiple = height / 1280 == 0 ? 1 : height / 1280;
             thumbW = width / multiple;
@@ -504,7 +519,9 @@ public class Luban {
 
         File result = new File(filePath.substring(0, filePath.lastIndexOf("/")));
 
-        if (!result.exists() && !result.mkdirs()) return null;
+        if (!result.exists() && !result.mkdirs()) {
+            return null;
+        }
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         int options = 100;

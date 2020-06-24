@@ -43,13 +43,13 @@ internal class Printer protected constructor() {
             val requestBody = LINE_SEPARATOR + BODY_TAG + LINE_SEPARATOR + bodyToString(request)
             val tag = builder.getTag(true)
             if (builder.logger == null) log(builder.type, tag, REQUEST_UP_LINE)
-            logLines(builder.type, tag, arrayOf(URL_TAG + request.url()), builder.logger, false)
+            logLines(builder.type, tag, arrayOf(URL_TAG + request.url), builder.logger, false)
             logLines(builder.type, tag, getRequest(request, builder.level), builder.logger, true)
-            if (request.body() is FormBody) {
+            if (request.body is FormBody) {
                 val formBody = StringBuilder()
-                val body = request.body() as FormBody?
-                if (body != null && body.size() != 0) {
-                    for (i in 0 until body.size()) {
+                val body = request.body as FormBody?
+                if (body != null && body.size != 0) {
+                    for (i in 0 until body.size) {
                         formBody.append(body.encodedName(i) + "=" + body.encodedValue(i) + "&")
                     }
                     formBody.delete(formBody.length - 1, formBody.length)
@@ -78,13 +78,13 @@ internal class Printer protected constructor() {
         fun printFileRequest(builder: LoggingInterceptor.Builder, request: Request) {
             val tag = builder.getTag(true)
             if (builder.logger == null) log(builder.type, tag, REQUEST_UP_LINE)
-            logLines(builder.type, tag, arrayOf(URL_TAG + request.url()), builder.logger, false)
+            logLines(builder.type, tag, arrayOf(URL_TAG + request.url), builder.logger, false)
             logLines(builder.type, tag, getRequest(request, builder.level), builder.logger, true)
-            if (request.body() is FormBody) {
+            if (request.body is FormBody) {
                 val formBody = StringBuilder()
-                val body = request.body() as FormBody?
-                if (body != null && body.size() != 0) {
-                    for (i in 0 until body.size()) {
+                val body = request.body as FormBody?
+                if (body != null && body.size != 0) {
+                    for (i in 0 until body.size) {
                         formBody.append(body.encodedName(i) + "=" + body.encodedValue(i) + "&")
                     }
                     formBody.delete(formBody.length - 1, formBody.length)
@@ -109,9 +109,9 @@ internal class Printer protected constructor() {
 
         private fun getRequest(request: Request, level: Level): Array<String?> {
             val message: String
-            val header = request.headers().toString()
+            val header = request.headers.toString()
             val loggableHeader = level === Level.HEADERS || level === Level.BASIC
-            message = METHOD_TAG + request.method() + DOUBLE_SEPARATOR +
+            message = METHOD_TAG + request.method + DOUBLE_SEPARATOR +
                     if (isEmpty(header)) "" else if (loggableHeader) HEADERS_TAG + LINE_SEPARATOR + dotHeaders(header) else ""
             return message.split(LINE_SEPARATOR!!).toTypedArray()
         }
@@ -180,8 +180,8 @@ internal class Printer protected constructor() {
             return try {
                 val copy = request.newBuilder().build()
                 val buffer = Buffer()
-                if (copy.body() == null) return ""
-                copy.body()!!.writeTo(buffer)
+                if (copy.body == null) return ""
+                copy.body!!.writeTo(buffer)
                 getJsonString(buffer.readUtf8())
             } catch (e: IOException) {
                 "{\"err\": \"" + e.message + "\"}"

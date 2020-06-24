@@ -8,11 +8,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import com.will.habit.bus.RxBus;
 import com.will.habit.bus.RxSubscriptions;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
 import okhttp3.ResponseBody;
 
 /**
@@ -67,8 +68,12 @@ public abstract class ProgressCallBack<T> {
             e.printStackTrace();
         } finally {
             try {
-                if (is != null) is.close();
-                if (fos != null) fos.close();
+                if (is != null) {
+                    is.close();
+                }
+                if (fos != null) {
+                    fos.close();
+                }
                 unsubscribe();
             } catch (IOException e) {
                 Log.e("saveFile", e.getMessage());

@@ -9,8 +9,6 @@ import com.will.play.data.DemoRepository;
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableInt;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import com.will.habit.base.BaseViewModel;
 import com.will.habit.binding.command.BindingAction;
 import com.will.habit.binding.command.BindingCommand;
@@ -18,6 +16,9 @@ import com.will.habit.binding.command.BindingConsumer;
 import com.will.habit.bus.event.SingleLiveEvent;
 import com.will.habit.utils.RxUtils;
 import com.will.habit.utils.ToastUtils;
+
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 /**
  * Created by goldze on 2017/7/17.
