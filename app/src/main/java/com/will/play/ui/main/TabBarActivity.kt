@@ -37,6 +37,10 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
         return BR.viewModel
     }
 
+    override fun needToolBar(): Boolean {
+        return false
+    }
+
     override fun initData() {
         //初始化Fragment
         initFragment()

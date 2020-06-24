@@ -2,6 +2,8 @@ package com.will.habit.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.FragmentActivity
@@ -10,8 +12,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.afollestad.materialdialogs.MaterialDialog
 import com.trello.rxlifecycle4.components.support.RxAppCompatActivity
+import com.will.habit.R
+import com.will.habit.BR
 import com.will.habit.base.BaseViewModel.ParameterField
 import com.will.habit.bus.Messenger
+import com.will.habit.databinding.ActivityLayoutToolbarBinding
 import com.will.habit.utils.MaterialDialogUtils
 import java.lang.reflect.ParameterizedType
 
@@ -23,6 +28,11 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
     protected lateinit var viewModel: VM
     private var viewModelId = 0
     private var dialog: MaterialDialog? = null
+
+    /**
+     * toolsbar  如果有添加的话
+     */
+    private var bindingToolBar: ActivityLayoutToolbarBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //页面接受的参数方法
@@ -47,14 +57,15 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
         if (::binding.isInitialized) {
             binding.unbind()
         }
+
+        if (bindingToolBar != null) {
+            bindingToolBar!!.unbind()
+        }
     }
 
-    /**
-     * 注入绑定
-     */
-    private fun initViewDataBinding(savedInstanceState: Bundle?) {
+    override fun setContentView(layoutResID: Int) {
+        super.setContentView(layoutResID)
         //DataBindingUtil类需要在project的build中配置 dataBinding {enabled true }, 同步后会自动关联android.databinding包
-        binding = DataBindingUtil.setContentView(this, initContentView(savedInstanceState))
         viewModelId = initVariableId()
         var viewModel = initViewModel()
         if (viewModel == null) {
@@ -69,9 +80,6 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
         }
         this.viewModel = viewModel
         //关联ViewModel
-        binding.setVariable(viewModelId, viewModel)
-        //支持LiveData绑定xml，数据改变，UI自动会更新
-        binding.lifecycleOwner = this
         //让ViewModel拥有View的生命周期感应
         this.viewModel.let {
             lifecycle.addObserver(this.viewModel)
@@ -81,9 +89,51 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
         this.viewModel.injectLifecycleProvider(this)
     }
 
+    /**
+     * 注入绑定
+     */
+    private fun initViewDataBinding(savedInstanceState: Bundle?) {
+        if (needToolBar()){
+            /*
+             * toolBar 动态设置
+             */
+            bindingToolBar = DataBindingUtil.setContentView(this, R.layout.activity_layout_toolbar)
+            //通过binding拿到toolbar控件, 设置给Activity
+            // setSupportActionBar(bindingBar.baseToolbar.toolbar);
+            bindingToolBar!!.setVariable(BR.viewModel, viewModel)
+            val base = window.decorView.findViewById<ConstraintLayout>(R.id.base_layout)
+            binding = DataBindingUtil.inflate(LayoutInflater.from(this), initContentView(null), base, false)
+            binding.setVariable(viewModelId, viewModel)
+
+            val layoutParams = ConstraintLayout.LayoutParams(0, 0)
+            layoutParams.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID
+            layoutParams.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID
+            layoutParams.topToBottom = R.id.toolbar
+            layoutParams.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
+            base.addView(binding.root, layoutParams)
+        }else {
+            //DataBindingUtil类需要在project的build中配置 dataBinding {enabled true }, 同步后会自动关联android.databinding包
+            binding = DataBindingUtil.setContentView(this, initContentView(savedInstanceState))
+            binding.setVariable(viewModelId, viewModel)
+        }
+        binding.lifecycleOwner = this
+    }
+
     //刷新布局
     fun refreshLayout() {
         binding.setVariable(viewModelId, viewModel)
+    }
+
+    /**
+     *
+     * Desc:是否需要使用toolbar
+     * <p>
+     * Author: pengyushan
+     * Date: 2020-06-24
+     * @return Boolean
+     */
+    protected open fun needToolBar():Boolean{
+        return true
     }
 
     /**
