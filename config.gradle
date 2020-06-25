@@ -63,6 +63,11 @@ ext {
             //沉浸式布局
             "immersionbar"                         : "com.gyf.immersionbar:immersionbar:3.0.0",
             "immersionbar-ktx"                     : "com.gyf.immersionbar:immersionbar-ktx:3.0.0",
+
+            //拍照
+            "photoview"                            :"com.github.HuanTanSheng:EasyPhotos:3.0.6"
+
+
     ]
 }
 

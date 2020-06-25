@@ -71,6 +71,7 @@ android {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api rootProject.ext.dependencies["photoview"]
     api project(':module_common_res')
     api project(':module_widget')
     api project(':module_pay')

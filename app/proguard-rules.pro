@@ -286,5 +286,8 @@
 -keepclassmembers class * extends android.webkit.WebViewClient {
     public void *(android.webkit.WebView, jav.lang.String);
 }
+
+#拍照
+-keep class com.huantansheng.easyphotos.models.** { *; }
 #----------------------------------------------------------------------------
 #----------------------------------------------------------------------------
