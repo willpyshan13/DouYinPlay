@@ -76,5 +76,9 @@ dependencies {
     //Google LiveData和ViewModel组件
     api rootProject.ext.dependencies["lifecycle-extensions"]
     api rootProject.ext.dependencies["smart-refresh"]
+
+    //协程库
+    api rootProject.ext.dependencies["coroutines-android"]
     annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
+    api rootProject.ext.dependencies["lifecycle-viewmodel-ktx"]
 }

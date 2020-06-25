@@ -9,4 +9,8 @@
     <string name="customactivityoncrash_error_activity_error_details_copy">复制日志</string>
     <string name="customactivityoncrash_error_activity_error_details_copied">复制日志</string>
     <string name="customactivityoncrash_error_activity_error_details_clipboard_label">错误信息</string>
+
+
+    <string name="network_error_timeout">request timeout</string>
+    <string name="network_error_login">no login</string>
 </resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--原点类型Indicator-->
+    <declare-styleable name="PointIndicator">
+
+        <!--原点半径-->
+        <attr name="point_radius" format="dimension" />
+        <!--原点间距-->
+        <attr name="point_offset" format="dimension" />
+        <!--原点数量-->
+        <attr name="point_count" format="integer" />
+        <!--原点选中颜色-->
+        <attr name="point_select_color" format="color" />
+        <!--原点未选中颜色-->
+        <attr name="point_unselect_color" format="color" />
+        <!--原点选中时宽度-->
+        <attr name="point_select_point_width" format="dimension" />
+        <!--选中的点是否是圆形-->
+        <attr name="indicator_select_circle" format="boolean" />
+
+    </declare-styleable>
+
+    <!--线类型Indicator-->
+    <declare-styleable name="LineIndicator">
+
+        <!--指示器数量-->
+        <attr name="line_count" format="integer" />
+        <!--线高-->
+        <attr name="line_height" format="dimension" />
+        <!--线颜色-->
+        <attr name="line_color" format="color" />
+        <!--线选中颜色-->
+        <attr name="line_select_color" format="color" />
+        <!--线选中宽（整条线的宽=线选中宽x指示器数量）-->
+        <attr name="line_select_width" format="dimension" />
+        <!--线圆角-->
+        <attr name="line_corner" format="dimension" />
+
+    </declare-styleable>
+
+</resources>

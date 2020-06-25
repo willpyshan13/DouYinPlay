@@ -1,11 +1,22 @@
 package com.will.habit.utils
 
+import com.will.habit.base.BaseApplication
+
 /**
  * Created by goldze on 2017/5/14.
  * 字符串相关工具类
  */
 class StringUtils private constructor() {
     companion object {
+
+        fun getStringResource(resourceId: Int): String {
+            return if (BaseApplication.instance?.resources!=null) {
+                BaseApplication.instance?.resources!!.getString(resourceId)
+            }else{
+                ""
+            }
+        }
+
         /**
          * 判断字符串是否为null或长度为0
          *
