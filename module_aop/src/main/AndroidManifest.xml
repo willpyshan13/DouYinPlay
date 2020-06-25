@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.will.play.aop">
 
-    /
+    <application>
+        <activity
+            android:name="com.will.play.aop.permission.PermissionRequestActivity"
+            android:theme="@style/translucent" />
+    </application>
 </manifest>
