@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.afollestad.materialdialogs.MaterialDialog
-import com.gyf.immersionbar.ImmersionBar
 import com.gyf.immersionbar.ktx.immersionBar
 import com.trello.rxlifecycle4.components.support.RxAppCompatActivity
 import com.will.habit.R
@@ -129,6 +128,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
             immersionBar {
                 statusBarColor(R.color.translate)
                 navigationBarColor(R.color.translate)
+                statusBarDarkFont(true)
             }
         }
     }
