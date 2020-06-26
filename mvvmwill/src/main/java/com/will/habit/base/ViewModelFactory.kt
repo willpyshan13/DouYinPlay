@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException
 class ViewModelFactory private constructor(private val mApplication: Application) : NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return if (modelClass.isAssignableFrom(BaseViewModel::class.java)) {
-            BaseViewModel<BaseModel?>(mApplication) as T
+            BaseViewModel<BaseModel<*>?>(mApplication) as T
         } else try {
             val className = modelClass.canonicalName
             val classViewModel = Class.forName(className!!)

@@ -13,5 +13,5 @@ import com.will.habit.base.BaseModel
  *
  * @Author: pengyushan
  */
-class HomeRepository : BaseModel() {
+class HomeRepository : BaseModel<Any>() {
 }

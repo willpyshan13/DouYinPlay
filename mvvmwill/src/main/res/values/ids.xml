@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="RefreshControlId" type="id"/>
+    <item name="PreLoadScrollListenerId" type="id"/>
+
+</resources>

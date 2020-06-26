@@ -23,7 +23,7 @@ import java.util.*
  * @author will
  *
  */
-open class BaseViewModel<M : BaseModel?> @JvmOverloads constructor(application: Application, @JvmField var model: M? = null) : AndroidViewModel(application), IBaseViewModel, Consumer<Disposable?> {
+open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(application: Application, @JvmField var model: M? = null) : AndroidViewModel(application), IBaseViewModel, Consumer<Disposable?> {
     private var uc: UIChangeLiveData? = null
 
     //标题文字
