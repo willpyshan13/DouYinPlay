@@ -1,6 +1,7 @@
 package com.will.play.home.ui.viewmodel
 
 import android.app.Application
+import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel

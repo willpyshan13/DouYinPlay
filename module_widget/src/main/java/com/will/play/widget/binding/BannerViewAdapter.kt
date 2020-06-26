@@ -26,7 +26,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
         BindingMethod(type = BannerView::class, attribute = "onPageScrollStateChangedCommand", method = "onScrollChangeCommand"),
         BindingMethod(type = BannerView::class, attribute = "currentItem", method = "setCurrentItem"),
         BindingMethod(type = PointIndicator::class, attribute = "indicatorCount", method = "setIndicatorCount"),
-        BindingMethod(type = PointIndicator::class, attribute = "indicatorIndex", method = "indicatorIndex")
+        BindingMethod(type = PointIndicator::class, attribute = "indicatorIndex", method = "setIndicatorIndex")
 )
 class BannerViewAdapter
 

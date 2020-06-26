@@ -51,6 +51,8 @@
         <com.will.play.widget.banner.BannerView
             android:id="@+id/home_banner"
             android:layout_marginTop="@dimen/dp12"
+            app:itemBinding="@{viewModel.bannerItemBinding}"
+            app:items="@{viewModel.bannerItems}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_image_search"
