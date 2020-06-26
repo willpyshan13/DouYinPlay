@@ -81,4 +81,7 @@ dependencies {
     api rootProject.ext.dependencies["coroutines-android"]
     annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
     api rootProject.ext.dependencies["lifecycle-viewmodel-ktx"]
+
+    api rootProject.ext.dependencies["immersionbar"]
+    api rootProject.ext.dependencies["immersionbar-ktx"]
 }

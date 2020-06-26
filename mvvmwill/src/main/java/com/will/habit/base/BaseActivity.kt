@@ -11,6 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.afollestad.materialdialogs.MaterialDialog
+import com.gyf.immersionbar.ImmersionBar
+import com.gyf.immersionbar.ktx.immersionBar
 import com.trello.rxlifecycle4.components.support.RxAppCompatActivity
 import com.will.habit.R
 import com.will.habit.BR
@@ -87,13 +89,19 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
 
         //注入RxLifecycle生命周期
         this.viewModel.injectLifecycleProvider(this)
+
+    }
+
+    //沉浸式布局
+    protected fun needImmersion(): Boolean {
+        return true
     }
 
     /**
      * 注入绑定
      */
     private fun initViewDataBinding(savedInstanceState: Bundle?) {
-        if (needToolBar()){
+        if (needToolBar()) {
             /*
              * toolBar 动态设置
              */
@@ -111,12 +119,18 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
             layoutParams.topToBottom = R.id.toolbar
             layoutParams.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
             base.addView(binding.root, layoutParams)
-        }else {
+        } else {
             //DataBindingUtil类需要在project的build中配置 dataBinding {enabled true }, 同步后会自动关联android.databinding包
             binding = DataBindingUtil.setContentView(this, initContentView(savedInstanceState))
             binding.setVariable(viewModelId, viewModel)
         }
         binding.lifecycleOwner = this
+        if (needImmersion()) {
+            immersionBar {
+                statusBarColor(R.color.translate)
+                navigationBarColor(R.color.translate)
+            }
+        }
     }
 
     //刷新布局
@@ -132,7 +146,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
      * Date: 2020-06-24
      * @return Boolean
      */
-    protected open fun needToolBar():Boolean{
+    protected open fun needToolBar(): Boolean {
         return true
     }
 
