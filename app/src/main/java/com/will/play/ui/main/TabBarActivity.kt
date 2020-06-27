@@ -7,10 +7,10 @@ import com.will.play.BR
 import com.will.play.R
 import com.will.habit.base.BaseActivity
 import com.will.play.databinding.ActivityTabBarBinding
+import com.will.play.data.ui.fragment.DataFragment
 import com.will.play.home.ui.fragment.HomeFragment
-import com.will.play.home.ui.fragment.TabBar2Fragment
-import com.will.play.home.ui.fragment.TabBar3Fragment
-import com.will.play.home.ui.fragment.TabBar4Fragment
+import com.will.play.mine.ui.fragment.MineFragment
+import com.will.play.pick.ui.fragment.PickFragment
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener
 import java.util.*
 
@@ -51,15 +51,15 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
     private fun initFragment() {
         mFragments = ArrayList()
         mFragments!!.add(HomeFragment())
-        mFragments!!.add(TabBar2Fragment())
-        mFragments!!.add(TabBar3Fragment())
-        mFragments!!.add(TabBar4Fragment())
+        mFragments!!.add(DataFragment())
+        mFragments!!.add(PickFragment())
+        mFragments!!.add(MineFragment())
         //默认选中第一个
         commitAllowingStateLoss(0)
     }
 
     private fun initBottomTab() {
-        val navigationController = binding!!.pagerBottomTab.material()
+        val navigationController = binding.pagerBottomTab.material()
                 .addItem(R.mipmap.yingyong, "首页")
                 .addItem(R.mipmap.huanzhe, "数据")
                 .addItem(R.mipmap.xiaoxi_select, "选品")
