@@ -6,14 +6,6 @@ import com.will.habit.widget.recycleview.paging.LoadKeyCallback
 /**
  * Desc: 使用Key加载
  * <p>
- * Date: 2020/3/26
- * Copyright: Copyright (c) 2010-2019
- * Company: @微微科技有限公司
- * Updater:
- * Update Time:
- * Update Comments:
- *
- * @author: linjiaqiang
  */
 interface PagingKeyLoader<ITEM : ItemViewModel<*>, KEY> {
 

@@ -12,14 +12,6 @@ import com.will.habit.widget.recycleview.preload.OnLoadMoreListener
 /**
  * Desc: 修复一些场景下无法上拉加载的问题
  * <p>
- * Date: 2019/12/4
- * Copyright: Copyright (c) 2010-2019
- * Company: @微微科技有限公司
- * Updater:
- * Update Time: 2019/12/4
- * Update Comments:
- *
- * @author: linjiaqiang
  */
 @SuppressLint("ClickableViewAccessibility")
 internal class PullFromBottomHelper(private val recyclerView: RecyclerView, private val onLoadMoreListener: OnLoadMoreListener) {
@@ -36,8 +28,6 @@ internal class PullFromBottomHelper(private val recyclerView: RecyclerView, priv
     /**
      * Desc: 判断是否可以立即触发上拉加载
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     private fun invokePullFromEnd(): Boolean {
         if (recyclerView.visibility == View.VISIBLE && !canScrollDown()) {
@@ -93,9 +83,6 @@ internal class PullFromBottomHelper(private val recyclerView: RecyclerView, priv
 
     /**
      * Desc: 判断当前是否可以继续上滑加载列表
-     * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     private fun canScrollDown(): Boolean {
         return recyclerView.canScrollVertically(1)

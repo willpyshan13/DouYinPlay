@@ -61,6 +61,91 @@
             android:layout_marginEnd="@dimen/dp14"
             android:layout_height="@dimen/dp132"/>
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/data_top_layout"
+            app:layout_constraintTop_toBottomOf="@+id/home_banner"
+            android:src="@mipmap/base_data_top_bg"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginEnd="@dimen/dp16"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            app:layout_constraintTop_toTopOf="@+id/data_top_layout"
+            app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            android:src="@mipmap/base_data_top_right_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toTopOf="@+id/data_top_layout"
+            app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            android:text="抖音数据"
+            android:textSize="@dimen/sp12"
+            android:textColor="@color/color_FFFFFF"
+            android:layout_marginEnd="@dimen/dp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/data_top_icon_taobao"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginStart="@dimen/dp32"
+            app:layout_constraintTop_toTopOf="@+id/data_top_layout"
+            app:layout_constraintStart_toStartOf="@+id/data_top_layout"
+            android:src="@mipmap/base_data_taobao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toTopOf="@+id/data_top_icon_taobao"
+            app:layout_constraintBottom_toBottomOf="@+id/data_top_icon_taobao"
+            app:layout_constraintStart_toEndOf="@+id/data_top_icon_taobao"
+            android:text="订单数据"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/dp4"
+            android:textSize="@dimen/sp16"
+            android:layout_marginEnd="@dimen/dp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/data_top_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/data_top_layout"
+            app:layout_constraintStart_toStartOf="@+id/data_top_layout"
+            app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            android:src="@mipmap/base_data_top_empty"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/data_top_layout"
+            app:layout_constraintStart_toStartOf="@+id/data_top_layout"
+            app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            android:src="@mipmap/base_data_top_binding_btn"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            android:drawableStart="@mipmap/base_bg_title"
+            android:drawablePadding="@dimen/dp4"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp14"
+            app:layout_constraintTop_toBottomOf="@+id/data_top_layout"
+            android:id="@+id/home_item_title"
+            android:text="@string/data_title"
+            android:textSize="@dimen/sp15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

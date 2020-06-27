@@ -14,14 +14,6 @@ import com.will.habit.widget.recycleview.preload.PreLoadScrollListener
 /**
  * Desc: smartRefreshLayout及recyclerView 下拉刷新及上拉加载状态处理
  * <p>
- * Date: 2019/12/25 0025
- * Copyright: Copyright (c) 2010-2019
- * Company: @微微科技有限公司
- * Updater:
- * Update Time:
- * Update Comments:
- *
- * @author: linjiaqiang
  *
  * @param supportRefresh 是否支持下拉刷新
  * @param supportLoadMore 是否支持上拉加载
@@ -61,8 +53,6 @@ internal class RefreshControl(private val smartRefreshLayout: SmartRefreshLayout
     /**
      * Desc: 设置上拉加载状态
      * <p>
-     * @author: linjiaqiang
-     * Date: 2019/12/26
      *
      * @param loadStatus 状态
      */
@@ -77,9 +67,6 @@ internal class RefreshControl(private val smartRefreshLayout: SmartRefreshLayout
     /**
      * Desc: 设置刷新状态
      * <p>
-     * @author: linjiaqiang
-     * Date: 2019-12-26
-     *
      * @param refreshStatus 状态
      */
     fun setRefreshStatus(@RefreshStatus refreshStatus: Int) {
@@ -96,8 +83,6 @@ internal class RefreshControl(private val smartRefreshLayout: SmartRefreshLayout
     /**
      * Desc: 判断是否可下拉刷新，优先判断是否支持下拉刷新
      * <p>
-     * @author: linjiaqiang
-     * Date: 2019-12-26
      *
      * @param enable 是否可下拉刷新
      */
@@ -109,9 +94,6 @@ internal class RefreshControl(private val smartRefreshLayout: SmartRefreshLayout
 
     /**
      * Desc: 判断是否可上拉加载，优先判断是否支持上拉加载
-     * <p>
-     * @author: linjiaqiang
-     * Date: 2019-12-26
      *
      * @param enable 是否可上拉加载
      */

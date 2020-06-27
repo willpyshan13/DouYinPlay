@@ -15,14 +15,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 /**
  * Desc: 支持加载更多样式的Adapter
  * <p>
- * Date: 2019/12/3
- * Copyright: Copyright (c) 2010-2019
- * Company: @微微科技有限公司
- * Updater:
- * Update Time: 2019/12/3
- * Update Comments:
- *
- * @author: linjiaqiang
  */
 open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>() {
 
@@ -90,9 +82,6 @@ open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>
 
     /**
      * Desc: 设置Footer状态
-     * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     fun setFooterStatus(@FooterStatus status: Int) {
         if (itemCount == 0 || footerStatus.get() == status) {
@@ -136,9 +125,6 @@ open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>
 
     /**
      * Desc: footer回收
-     * <p>
-     * @author: linjiaqiang
-     * Date: 2020-01-03
      */
     private fun detachedFooter() {
         loadingFooter.onDetached()
@@ -149,9 +135,6 @@ open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>
 
     /**
      * Desc: 获取Footer状态
-     * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     fun getFooterStatus(): Int {
         return footerStatus.get()
@@ -159,9 +142,6 @@ open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>
 
     /**
      * Desc: 是否可上拉加载
-     * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/11
      */
     fun setLoadMoreEnable(loadMoreEnable: Boolean) {
         this.enableLoadMore = loadMoreEnable
@@ -169,9 +149,6 @@ open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>
 
     /**
      * Desc: 当前是否可加载更多
-     * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     fun canLoadMore(): Boolean {
         return footerStatus.get() == FooterStatus.STATUS_NONE && enableLoadMore
@@ -179,9 +156,6 @@ open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>
 
     /**
      * Desc: 是否显示Footer
-     * <p>
-     * @author: linjiaqiang
-     * Date: 2020-01-03
      */
     fun hasFooter(): Boolean {
         if (footerStatus.get() == STATUS_LOADING) {
@@ -201,9 +175,6 @@ open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>
 
     /**
      * Desc: 获取数据ItemCount
-     * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     fun getBaseItemCount() = if (hasFooter()) itemCount - 1 else itemCount
 
@@ -239,9 +210,6 @@ open class LoadMoreBindingRecyclerViewAdapter<T> : BindingRecyclerViewAdapter<T>
 
     /**
      * Desc: 是否需要展示无更多数据的样式
-     * <p>
-     * @author: linjiaqiang
-     * Date: 2020-01-03
      */
     fun setEnableShowNoMore(enableShowNoMore: Boolean) {
         this.enableShowNoMore = enableShowNoMore
