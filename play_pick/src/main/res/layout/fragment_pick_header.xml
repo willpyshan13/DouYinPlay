@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -14,8 +14,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/dp12"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp12">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,8 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp22"
-            android:layout_marginEnd="@dimen/dp22"
             android:layout_marginTop="@dimen/dp48"
+            android:layout_marginEnd="@dimen/dp22"
             android:src="@mipmap/base_bg_search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,28 +41,110 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp22"
             android:scaleType="centerCrop"
             android:src="@mipmap/base_bg_search_icon"
-            android:layout_marginStart="@dimen/dp22"
-            app:layout_constraintStart_toStartOf="@id/home_image_search"
             app:layout_constraintBottom_toBottomOf="@id/home_image_search"
+            app:layout_constraintStart_toStartOf="@id/home_image_search"
             app:layout_constraintTop_toTopOf="@id/home_image_search"
             tools:ignore="RtlCompat" />
 
         <com.will.play.widget.banner.BannerView
             android:id="@+id/home_banner"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp132"
+            android:layout_marginStart="@dimen/dp14"
             android:layout_marginTop="@dimen/dp12"
+            android:layout_marginEnd="@dimen/dp14"
             app:itemBinding="@{viewModel.bannerItemBinding}"
             app:items="@{viewModel.bannerItems}"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_image_search"
-            android:layout_width="0dp"
-            android:layout_marginStart="@dimen/dp14"
-            android:layout_marginEnd="@dimen/dp14"
-            android:layout_height="@dimen/dp132"/>
-        
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_image_search" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pick_top_bg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp8"
+            android:layout_marginEnd="@dimen/dp14"
+            android:background="@mipmap/base_pick_top_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_banner" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pick_top_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp12"
+            android:src="@mipmap/base_pick_top_one"
+            app:layout_constraintStart_toStartOf="@+id/pick_top_bg"
+            app:layout_constraintTop_toTopOf="@+id/pick_top_bg"
+            app:layout_goneMarginStart="@dimen/dp26"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pick_top_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp14"
+            android:src="@mipmap/base_pick_top_two"
+            app:layout_constraintStart_toEndOf="@+id/pick_top_one"
+            app:layout_constraintTop_toTopOf="@+id/pick_top_bg"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pick_top_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp14"
+            android:src="@mipmap/base_pick_top_three"
+            app:layout_constraintStart_toEndOf="@+id/pick_top_two"
+            app:layout_constraintTop_toTopOf="@+id/pick_top_bg"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pick_top_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp12"
+            android:src="@mipmap/base_pick_top_three"
+            app:layout_constraintStart_toEndOf="@+id/pick_top_three"
+            app:layout_constraintTop_toTopOf="@+id/pick_top_bg"
+            tools:ignore="RtlCompat" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pick_top_list"
+            android:layout_margin="@dimen/dp12"
+            app:layout_constraintStart_toStartOf="@+id/pick_top_bg"
+            app:layout_constraintEnd_toEndOf="@+id/pick_top_bg"
+            app:layout_constraintTop_toBottomOf="@+id/pick_top_four"
+            android:layout_width="0dp"
+            app:items="@{viewModel.items}"
+            app:itemBinding="@{viewModel.itemBinding}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="5"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            android:drawableStart="@mipmap/base_bg_title"
+            android:drawablePadding="@dimen/dp4"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp14"
+            app:layout_constraintTop_toBottomOf="@+id/pick_top_bg"
+            android:id="@+id/home_item_title"
+            android:text="达人出单爆款"
+            android:textSize="@dimen/sp15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

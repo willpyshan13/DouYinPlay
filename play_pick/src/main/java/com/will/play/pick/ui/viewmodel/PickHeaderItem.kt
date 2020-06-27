@@ -10,11 +10,24 @@ class PickHeaderItem(viewModel: PickViewModel) :ItemViewModel<PickViewModel>(vie
     /**
      * banner列表
      */
+    val itemBinding = ItemBinding.of<PickTopItem>(BR.viewModel, R.layout.fragment_pick_top_item)
+    val items = ObservableArrayList<PickTopItem>()
+
+    /**
+     * banner列表
+     */
     val bannerItemBinding = ItemBinding.of<PickBannerItem>(BR.viewModel, R.layout.fragment_pick_banner_item)
     val bannerItems = ObservableArrayList<PickBannerItem>()
 
+
     init {
-        bannerItems.add(PickBannerItem(viewModel))
+        for ( i in 0..9) {
+            items.add(PickTopItem(viewModel))
+        }
+
+        for ( i in 0..3) {
+            bannerItems.add(PickBannerItem(viewModel))
+        }
     }
 
 }
