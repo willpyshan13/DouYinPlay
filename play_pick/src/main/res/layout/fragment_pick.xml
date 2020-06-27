@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -9,7 +10,7 @@
 
     </data>
 
-    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_F0F0F0">
@@ -27,6 +28,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp22"
                 app:itemBinding="@{viewModel.itemBinding}"
                 app:items="@{viewModel.items}"
                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
@@ -34,7 +36,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/picker_top_layout"
-                app:spanCount="2" />
+                app:spanCount="2"
+                android:layout_marginEnd="@dimen/dp22" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

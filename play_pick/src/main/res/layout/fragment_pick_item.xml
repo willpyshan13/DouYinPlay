@@ -13,19 +13,138 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp2"
         android:background="@drawable/home_item_bg"
-        android:layout_margin="@dimen/dp12"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/data_icon_goods"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
+            android:layout_width="0dp"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@mipmap/base_default_icon"
+            android:src="@mipmap/base_pick_item_image_bg"
             android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/data_icon_goods_title"
+            android:layout_width="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/data_icon_goods"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@mipmap/base_pick_item_image_title_bg"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_item_title"
+            app:layout_constraintTop_toBottomOf="@+id/data_icon_goods"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:maxLines="2"
+            android:layout_marginTop="@dimen/dp4"
+            android:layout_marginStart="@dimen/dp14"
+            android:layout_marginEnd="@dimen/dp14"
+            android:ellipsize="end"
+            android:text="意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_item_get_video"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/sp10"
+            android:padding="@dimen/dp2"
+            app:layout_constraintStart_toStartOf="@+id/pick_item_title"
+            app:layout_constraintTop_toBottomOf="@+id/pick_item_title"
+            android:background="@mipmap/base_pick_item_get_bg"
+            android:text="可领取视频"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            app:layout_constraintStart_toStartOf="@+id/pick_item_title"
+            app:layout_constraintTop_toBottomOf="@+id/pick_item_get_video"
+            android:background="@mipmap/base_pick_item_get_bg"
+            android:padding="@dimen/dp2"
+            android:text="可领取实物"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/sp10"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_item_money"
+            android:layout_width="wrap_content"
+            android:text="￥25"
+            android:textSize="@dimen/sp14"
+            android:layout_marginTop="@dimen/dp12"
+            android:textColor="@color/text_sticker_red_easy_photos"
+            android:layout_marginEnd="@dimen/dp14"
+            app:layout_constraintTop_toBottomOf="@+id/pick_item_get_video"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:text="佣金:"
+            android:textSize="@dimen/sp10"
+            android:layout_marginEnd="@dimen/dp4"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_item_money"
+            app:layout_constraintEnd_toStartOf="@+id/pick_item_money"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_item_money_percent"
+            android:layout_width="wrap_content"
+            android:text="88%"
+            android:textSize="@dimen/sp8"
+            android:layout_marginTop="@dimen/dp6"
+            android:layout_marginEnd="@dimen/dp14"
+            app:layout_constraintTop_toBottomOf="@+id/pick_item_money"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:text="佣金比例:"
+            android:textSize="@dimen/sp8"
+            android:layout_marginEnd="@dimen/dp4"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_item_money_percent"
+            app:layout_constraintEnd_toStartOf="@+id/pick_item_money_percent"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_item_price"
+            android:layout_width="wrap_content"
+            android:text="￥25"
+            android:textColor="@color/text_sticker_red_easy_photos"
+            android:layout_marginStart="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp2"
+            app:layout_constraintTop_toBottomOf="@+id/pick_item_money"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:text="888人付款"
+            android:layout_marginEnd="@dimen/dp4"
+            android:textSize="@dimen/sp8"
+            android:layout_marginStart="@dimen/dp4"
+            app:layout_constraintTop_toTopOf="@+id/pick_item_price"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_item_price"
+            app:layout_constraintStart_toEndOf="@+id/pick_item_price"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
