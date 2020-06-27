@@ -63,6 +63,9 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
             val viewModels = mutableListOf<ItemViewModel<*>>()
             viewModels.add(HomeHeaderItem(this))
             viewModels.add(HomeDataItem(this))
+            viewModels.add(HomeDataItem(this))
+            viewModels.add(HomeDataItem(this))
+            viewModels.add(HomeDataItem(this))
             items.addAll(viewModels)
         },{
 

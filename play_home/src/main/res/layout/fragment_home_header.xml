@@ -276,7 +276,7 @@
             android:layout_marginStart="@dimen/dp14"
             app:layout_constraintTop_toBottomOf="@+id/home_sub_trade_count_total"
             android:id="@+id/home_item_title"
-            android:text="@string/app_name"
+            android:text="@string/home_national"
             android:textSize="@dimen/sp15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
