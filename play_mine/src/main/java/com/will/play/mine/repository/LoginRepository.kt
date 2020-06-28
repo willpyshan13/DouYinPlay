@@ -1,18 +1,18 @@
-package com.will.play.data
+package com.will.play.mine.repository
 
 import androidx.annotation.VisibleForTesting
 import com.will.habit.base.BaseModel
 import com.will.habit.http.BaseResponse
-import com.will.play.data.source.HttpDataSource
-import com.will.play.data.source.LocalDataSource
-import com.will.play.entity.DemoEntity
+import com.will.play.mine.entity.DemoEntity
+import com.will.play.mine.repository.source.HttpDataSource
+import com.will.play.mine.repository.source.LocalDataSource
 import io.reactivex.rxjava3.core.Observable
 
 /**
  * MVVM的Model层，统一模块的数据仓库，包含网络数据和本地数据（一个应用可以有多个Repositor）
  */
-class DemoRepository private constructor(private val mHttpDataSource: HttpDataSource,
-                                         private val mLocalDataSource: LocalDataSource) : BaseModel<Any>(), HttpDataSource, LocalDataSource {
+class LoginRepository private constructor(private val mHttpDataSource: HttpDataSource,
+                                          private val mLocalDataSource: LocalDataSource) : BaseModel<Any>(), HttpDataSource, LocalDataSource {
     override fun login(): Observable<Any> {
         return mHttpDataSource.login()
     }
@@ -47,14 +47,14 @@ class DemoRepository private constructor(private val mHttpDataSource: HttpDataSo
 
     companion object {
         @Volatile
-        private var INSTANCE: DemoRepository? = null
+        private var INSTANCE: LoginRepository? = null
         @JvmStatic
         fun getInstance(httpDataSource: HttpDataSource,
-                        localDataSource: LocalDataSource): DemoRepository? {
+                        localDataSource: LocalDataSource): LoginRepository? {
             if (INSTANCE == null) {
-                synchronized(DemoRepository::class.java) {
+                synchronized(LoginRepository::class.java) {
                     if (INSTANCE == null) {
-                        INSTANCE = DemoRepository(httpDataSource, localDataSource)
+                        INSTANCE = LoginRepository(httpDataSource, localDataSource)
                     }
                 }
             }

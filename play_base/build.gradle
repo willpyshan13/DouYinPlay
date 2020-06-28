@@ -72,6 +72,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     api rootProject.ext.dependencies["photoview"]
+    api rootProject.ext.dependencies["magic-indicator"]
+    api rootProject.ext.dependencies["PickerView"]
     api project(':module_common_res')
     api project(':module_widget')
     api project(':module_pay')
