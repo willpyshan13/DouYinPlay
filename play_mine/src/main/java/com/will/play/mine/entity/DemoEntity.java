@@ -1,4 +1,4 @@
-package com.will.play.entity;
+package com.will.play.mine.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;

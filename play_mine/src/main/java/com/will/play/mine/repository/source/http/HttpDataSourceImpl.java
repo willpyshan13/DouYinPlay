@@ -1,14 +1,13 @@
-package com.will.play.data.source.http;
-
-import com.will.play.data.source.HttpDataSource;
-import com.will.play.data.source.http.service.DemoApiService;
-import com.will.play.entity.DemoEntity;
+package com.will.play.mine.repository.source.http;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import com.will.habit.http.BaseResponse;
+import com.will.play.mine.entity.DemoEntity;
+import com.will.play.mine.repository.source.HttpDataSource;
+import com.will.play.mine.repository.source.http.service.DemoApiService;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.ObservableEmitter;

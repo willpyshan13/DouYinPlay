@@ -1,15 +1,16 @@
-package com.will.play.ui.login
+package com.will.play.mine.ui.activity
 
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.will.play.BR
-import com.will.play.R
-import com.will.play.app.AppViewModelFactory
 import com.will.habit.base.BaseActivity
-import com.will.play.databinding.ActivityLoginBinding
+import com.will.play.mine.R
+import com.will.play.mine.BR
+import com.will.play.mine.databinding.ActivityLoginBinding
+import com.will.play.mine.factory.AppViewModelFactory
+import com.will.play.mine.ui.viewmodel.LoginViewModel
 
 /**
  * 一个MVVM模式的登陆界面

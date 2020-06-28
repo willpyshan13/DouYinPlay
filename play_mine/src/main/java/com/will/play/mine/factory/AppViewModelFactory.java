@@ -1,15 +1,15 @@
-package com.will.play.app;
+package com.will.play.mine.factory;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
-
-import com.will.play.data.DemoRepository;
-import com.will.play.ui.login.LoginViewModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.will.play.mine.repository.LoginRepository;
+import com.will.play.mine.ui.viewmodel.LoginViewModel;
 
 /**
  * Created by goldze on 2019/3/26.
@@ -18,7 +18,7 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
     @SuppressLint("StaticFieldLeak")
     private static volatile AppViewModelFactory INSTANCE;
     private final Application mApplication;
-    private final DemoRepository mRepository;
+    private final LoginRepository mRepository;
 
     public static AppViewModelFactory getInstance(Application application) {
         if (INSTANCE == null) {
@@ -36,7 +36,7 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
         INSTANCE = null;
     }
 
-    private AppViewModelFactory(Application application, DemoRepository repository) {
+    private AppViewModelFactory(Application application, LoginRepository repository) {
         this.mApplication = application;
         this.mRepository = repository;
     }
