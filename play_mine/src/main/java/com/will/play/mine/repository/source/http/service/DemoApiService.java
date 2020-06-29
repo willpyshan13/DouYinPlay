@@ -1,8 +1,7 @@
-package com.will.play.data.source.http.service;
-
-import com.will.play.entity.DemoEntity;
+package com.will.play.mine.repository.source.http.service;
 
 import com.will.habit.http.BaseResponse;
+import com.will.play.mine.entity.DemoEntity;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.Field;

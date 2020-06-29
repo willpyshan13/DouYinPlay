@@ -1,10 +1,8 @@
-package com.will.play.ui.login;
+package com.will.play.mine.ui.viewmodel;
 
 import android.app.Application;
 import android.text.TextUtils;
 import android.view.View;
-
-import com.will.play.data.DemoRepository;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
@@ -16,6 +14,7 @@ import com.will.habit.binding.command.BindingConsumer;
 import com.will.habit.bus.event.SingleLiveEvent;
 import com.will.habit.utils.RxUtils;
 import com.will.habit.utils.ToastUtils;
+import com.will.play.mine.repository.LoginRepository;
 
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Consumer;
@@ -24,7 +23,7 @@ import io.reactivex.rxjava3.functions.Consumer;
  * Created by goldze on 2017/7/17.
  */
 
-public class LoginViewModel extends BaseViewModel<DemoRepository> {
+public class LoginViewModel extends BaseViewModel<LoginRepository> {
     //用户名的绑定
     public ObservableField<String> userName = new ObservableField<>("");
     //密码的绑定
@@ -39,7 +38,7 @@ public class LoginViewModel extends BaseViewModel<DemoRepository> {
         public SingleLiveEvent<Boolean> pSwitchEvent = new SingleLiveEvent<>();
     }
 
-    public LoginViewModel(@NonNull Application application, DemoRepository repository) {
+    public LoginViewModel(@NonNull Application application, LoginRepository repository) {
         super(application, repository);
         //从本地取得数据绑定到View层
         userName.set(model.getUserName());

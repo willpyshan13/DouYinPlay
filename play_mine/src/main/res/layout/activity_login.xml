@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.will.play.ui.login.LoginViewModel" />
+            type="com.will.play.mine.ui.viewmodel.LoginViewModel" />
     </data>
 
     <RelativeLayout

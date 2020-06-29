@@ -1,12 +1,12 @@
-package com.will.play.app;
+package com.will.play.mine.factory;
 
 import com.will.habit.http.RetrofitClient;
-import com.will.play.data.DemoRepository;
-import com.will.play.data.source.HttpDataSource;
-import com.will.play.data.source.LocalDataSource;
-import com.will.play.data.source.http.HttpDataSourceImpl;
-import com.will.play.data.source.http.service.DemoApiService;
-import com.will.play.data.source.local.LocalDataSourceImpl;
+import com.will.play.mine.repository.source.local.LocalDataSourceImpl;
+import com.will.play.mine.repository.LoginRepository;
+import com.will.play.mine.repository.source.HttpDataSource;
+import com.will.play.mine.repository.source.LocalDataSource;
+import com.will.play.mine.repository.source.http.HttpDataSourceImpl;
+import com.will.play.mine.repository.source.http.service.DemoApiService;
 
 
 /**
@@ -14,7 +14,7 @@ import com.will.play.data.source.local.LocalDataSourceImpl;
  * Created by goldze on 2019/3/26.
  */
 public class Injection {
-    public static DemoRepository provideDemoRepository() {
+    public static LoginRepository provideDemoRepository() {
         //网络API服务
         DemoApiService apiService = RetrofitClient.getInstance().create(DemoApiService.class);
         //网络数据源
@@ -22,6 +22,6 @@ public class Injection {
         //本地数据源
         LocalDataSource localDataSource = LocalDataSourceImpl.getInstance();
         //两条分支组成一个数据仓库
-        return DemoRepository.getInstance(httpDataSource, localDataSource);
+        return LoginRepository.getInstance(httpDataSource, localDataSource);
     }
 }
