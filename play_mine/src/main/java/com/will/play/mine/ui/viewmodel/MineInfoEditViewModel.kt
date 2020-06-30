@@ -14,7 +14,7 @@ import com.will.play.mine.repository.MineRepository
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
- * Desc:我的钱包
+ * Desc:我的地址页面
  *
  * Date: 2020-06-22
  * Copyright: Copyright (c) 2018-2020
@@ -24,4 +24,6 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class MineWalletViewModel(application: Application) :BaseViewModel<MineRepository>(application)
+class MineInfoEditViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
+
+}
