@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -14,16 +14,130 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/dp12"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp12">
+
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
+            android:id="@+id/mine_header_icon"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/base_background_home"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/dp20"
+            android:src="@mipmap/base_mine_header_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="注册/登陆"
+            app:layout_constraintEnd_toEndOf="@id/mine_header_icon"
+            app:layout_constraintStart_toStartOf="@+id/mine_header_icon"
+            app:layout_constraintTop_toBottomOf="@+id/mine_header_icon" />
+
+        <TextView
+            android:id="@+id/mine_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp20"
+            android:text="will"
+            app:layout_constraintStart_toEndOf="@+id/mine_header_icon"
+            app:layout_constraintTop_toTopOf="@+id/mine_header_icon"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/mine_tv_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp20"
+            android:text="完善信息"
+            app:layout_constraintStart_toEndOf="@+id/mine_header_icon"
+            app:layout_constraintTop_toBottomOf="@+id/mine_username"
+            tools:ignore="RtlCompat" />
+
+
+        <TextView
+            android:id="@+id/mine_tv_bottom_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20"
+            android:text="8"
+            android:textSize="@dimen/sp20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/mine_tv_bottom_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20"
+            android:text="8"
+            android:textSize="@dimen/sp20"
+            app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_right"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/mine_tv_bottom_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20"
+            android:text="8"
+            android:textSize="@dimen/sp20"
+            app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_center"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/mine_tv_bottom_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20"
+            android:text="8"
+            android:textSize="@dimen/sp20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/mine_tv_bottom_title_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20"
+            android:text="8"
+            android:textSize="@dimen/sp20"
+            app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_right"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/mine_tv_bottom_title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20"
+            android:text="8"
+            android:textSize="@dimen/sp20"
+            app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_center"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_vip_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/base_mine_vip_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_title_left" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_vip_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/base_mine_vip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mine_vip_bg" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
