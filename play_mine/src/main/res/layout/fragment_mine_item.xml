@@ -13,10 +13,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/color_FFFFFF"
         android:orientation="vertical">
 
         <TextView
+            android:drawablePadding="@dimen/dp20"
             android:text="item"
+            android:textSize="@dimen/sp14"
             android:drawableStart="@mipmap/base_mine_contact"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

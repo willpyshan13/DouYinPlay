@@ -14,8 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/dp12">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_header_icon"
@@ -27,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/mine_login_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
@@ -60,10 +60,10 @@
             android:id="@+id/mine_tv_bottom_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp20"
             android:text="8"
-            android:textSize="@dimen/sp20"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/sp30"
+            app:layout_constraintEnd_toEndOf="@+id/mine_tv_bottom_title_right"
+            app:layout_constraintStart_toStartOf="@+id/mine_tv_bottom_title_right"
             app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
             tools:ignore="RtlCompat" />
 
@@ -71,10 +71,10 @@
             android:id="@+id/mine_tv_bottom_center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp20"
             android:text="8"
-            android:textSize="@dimen/sp20"
-            app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_right"
+            android:textSize="@dimen/sp30"
+            app:layout_constraintStart_toStartOf="@+id/mine_tv_bottom_title_center"
+            app:layout_constraintEnd_toEndOf="@+id/mine_tv_bottom_title_center"
             app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
             tools:ignore="RtlCompat" />
 
@@ -82,10 +82,10 @@
             android:id="@+id/mine_tv_bottom_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp20"
             android:text="8"
-            android:textSize="@dimen/sp20"
-            app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_center"
+            android:textSize="@dimen/sp30"
+            app:layout_constraintStart_toStartOf="@+id/mine_tv_bottom_title_left"
+            app:layout_constraintEnd_toEndOf="@+id/mine_tv_bottom_title_left"
             app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
             tools:ignore="RtlCompat" />
 
@@ -94,10 +94,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp20"
-            android:text="8"
-            android:textSize="@dimen/sp20"
+            android:text="喜欢"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_right"
             tools:ignore="RtlCompat" />
 
         <TextView
@@ -105,10 +104,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp20"
-            android:text="8"
-            android:textSize="@dimen/sp20"
+            android:text="实物"
             app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_right"
-            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_right"
             tools:ignore="RtlCompat" />
 
         <TextView
@@ -116,28 +114,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp20"
-            android:text="8"
-            android:textSize="@dimen/sp20"
+            android:text="领取实物"
             app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_center"
-            app:layout_constraintTop_toBottomOf="@+id/mine_tv_complete"
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_right"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_vip_bg"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:scaleType="centerCrop"
             android:layout_height="wrap_content"
             android:src="@mipmap/base_mine_vip_bg"
+            android:layout_marginTop="@dimen/dp20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_title_left" />
+            app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_title_right" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_vip_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp12"
             android:src="@mipmap/base_mine_vip"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/mine_vip_bg" />
+            app:layout_constraintBottom_toBottomOf="@+id/mine_vip_bg"
+            app:layout_constraintStart_toStartOf="@+id/mine_vip_bg"
+            app:layout_constraintTop_toTopOf="@+id/mine_vip_bg"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/mine_tv_vip_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/yellow"
+            android:layout_marginBottom="@dimen/dp8"
+            android:layout_marginEnd="@dimen/dp12"
+            android:text="升级vip专享超值权益"
+            app:layout_constraintEnd_toEndOf="@+id/mine_vip_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_vip_bg"
+            tools:ignore="RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
