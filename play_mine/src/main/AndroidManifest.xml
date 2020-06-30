@@ -4,5 +4,9 @@
     <application>
         <activity android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".ui.activity.MineAddressActivity"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".ui.activity.MineWalletActivity"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
     </application>
 </manifest>

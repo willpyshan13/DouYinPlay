@@ -61,7 +61,14 @@ class MineViewModel(application: Application) :BaseListViewModel<MineRepository,
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
             viewModels.add(MineHeaderItem(this))
-            viewModels.add(MineDataItem(this))
+            viewModels.add(MineDataItem(this,R.mipmap.base_mine_wallet,"我的钱包"))
+            viewModels.add(MineDataItem(this,R.mipmap.base_mine_course,"我的消息"))
+            viewModels.add(MineDataItem(this,R.mipmap.base_mine_taobao,"绑定淘宝"))
+            viewModels.add(MineDataItem(this,R.mipmap.base_mine_douyin,"绑定抖音"))
+            viewModels.add(MineDataItem(this,R.mipmap.base_mine_course,"我的课程"))
+            viewModels.add(MineDataItem(this,R.mipmap.base_mine_guide,"新手指引"))
+            viewModels.add(MineDataItem(this,R.mipmap.base_mine_contact,"联系我们"))
+            viewModels.add(MineDataItem(this,R.mipmap.base_mine_custom,"工人客服"))
             items.addAll(viewModels)
         },{
 
