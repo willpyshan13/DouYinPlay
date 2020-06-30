@@ -9,7 +9,7 @@ import com.will.play.mine.ui.viewmodel.MineAddressViewModel
 import com.will.play.mine.ui.viewmodel.MineLoginViewModel
 
 /**
- * Desc:登陆
+ * Desc:登陆页面
  *
  * Date: 2020-06-30
  * Update Time:

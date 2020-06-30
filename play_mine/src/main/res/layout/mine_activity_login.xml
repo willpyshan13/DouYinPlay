@@ -15,5 +15,162 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
+            android:background="@mipmap/base_background_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_icon_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp60"
+            android:src="@mipmap/base_icon_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登陆"
+            android:id="@+id/mine_login_title"
+            app:layout_constraintBottom_toBottomOf="@id/mine_icon_left"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mine_icon_left" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_login_bg"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_login_title"
+            android:src="@mipmap/base_mine_login_bg"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:src="@mipmap/base_mine_login_ok"
+            android:layout_marginStart="@dimen/dp10"
+            app:layout_constraintTop_toTopOf="@+id/mine_login_account"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_login_account"
+            app:layout_constraintStart_toStartOf="@+id/mine_login_account"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:src="@mipmap/base_mine_login_cancel"
+            android:layout_marginEnd="@dimen/dp10"
+            app:layout_constraintTop_toTopOf="@+id/mine_login_account"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_login_account"
+            app:layout_constraintEnd_toEndOf="@+id/mine_login_account"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="0dp"
+            android:id="@+id/mine_login_account"
+            android:hint="请输入账号"
+            android:paddingStart="@dimen/dp40"
+            android:layout_marginTop="@dimen/dp30"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="@+id/mine_login_bg"
+            app:layout_constraintStart_toStartOf="@+id/mine_login_bg"
+            app:layout_constraintEnd_toEndOf="@+id/mine_login_bg"
+            android:layout_height="48dp"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/mine_login_code_image"
+            android:src="@mipmap/base_mine_login_phone"
+            android:layout_marginStart="@dimen/dp10"
+            app:layout_constraintTop_toTopOf="@+id/mine_login_code"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_login_code"
+            app:layout_constraintStart_toStartOf="@id/mine_login_bg"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/mine_login_code"
+            android:layout_width="0dp"
+            android:hint="请输入验证码"
+            android:paddingStart="@dimen/dp20"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/mine_login_account"
+            app:layout_constraintStart_toEndOf="@+id/mine_login_code_image"
+            app:layout_constraintEnd_toStartOf="@+id/mine_login_code_btn"
+            android:layout_height="48dp"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_login_code_btn"
+            app:layout_constraintEnd_toEndOf="@id/mine_login_bg"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/mine_login_code"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_login_code"
+            android:text="获取验证码"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_login_code_login_btn"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_margin="@dimen/dp10"
+            app:layout_constraintStart_toStartOf="@id/mine_login_bg"
+            app:layout_constraintTop_toBottomOf="@+id/mine_login_code"
+            android:text="手机验证码登陆"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_login_btn"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            android:background="@mipmap/base_mine_login_btn"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="@id/mine_login_bg"
+            app:layout_constraintEnd_toEndOf="@id/mine_login_bg"
+            app:layout_constraintTop_toBottomOf="@+id/mine_login_code_login_btn"
+            android:text="登陆"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_third_login_title"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            app:layout_constraintStart_toStartOf="@id/mine_login_bg"
+            app:layout_constraintEnd_toEndOf="@id/mine_login_bg"
+            app:layout_constraintTop_toBottomOf="@+id/mine_login_bg"
+            android:text="第三方登陆"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_third_login_wechat"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            android:src="@mipmap/base_mine_wechat"
+            app:layout_constraintStart_toStartOf="@+id/mine_third_login_title"
+            app:layout_constraintEnd_toStartOf="@id/mine_third_login_douyin"
+            app:layout_constraintTop_toBottomOf="@+id/mine_third_login_title"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_third_login_douyin"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            android:src="@mipmap/base_mine_douyin_login"
+            app:layout_constraintStart_toEndOf="@id/mine_third_login_wechat"
+            app:layout_constraintTop_toBottomOf="@+id/mine_third_login_title"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
