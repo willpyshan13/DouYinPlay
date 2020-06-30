@@ -1,5 +1,6 @@
 package com.will.habit.utils
 
+import androidx.core.content.ContextCompat
 import com.will.habit.base.BaseApplication
 
 /**
@@ -54,6 +55,19 @@ class StringUtils private constructor() {
                 ++i
             }
             return true
+        }
+
+        /**
+         * Desc:通过resid 获取颜色值方法
+         *
+         *
+         * Author: [pengyushan]
+         *
+         * @param resourceId
+         * @return int
+         */
+        fun getColorResource(resourceId: Int): Int {
+            return ContextCompat.getColor(Utils.getContext(), resourceId)
         }
 
         /**
