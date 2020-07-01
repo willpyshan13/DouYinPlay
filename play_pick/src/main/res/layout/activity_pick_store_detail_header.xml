@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.pick.ui.viewmodel.PickHeaderItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp12">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pick_store_head_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:src="@mipmap/base_default_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_store_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pick_store_head_icon"
+            tools:text="哔哩哔哩服装店" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_store_take_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pick_store_name"
+            tools:text="通过平台累计带货量:" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_sticker_red_easy_photos"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_store_take_title"
+            app:layout_constraintStart_toEndOf="@+id/pick_store_take_title"
+            app:layout_constraintTop_toTopOf="@id/pick_store_take_title"
+            tools:text="8888件" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
