@@ -6,7 +6,7 @@ import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityAddressBinding
 import com.will.play.mine.ui.viewmodel.MineAddressViewModel
-import com.will.play.mine.ui.viewmodel.MineDouyinAddViewModel
+import com.will.play.mine.ui.viewmodel.MineDouyinBindingViewModel
 
 /**
  * Desc:抖音账号绑定
@@ -17,9 +17,9 @@ import com.will.play.mine.ui.viewmodel.MineDouyinAddViewModel
  *
  * @Author: pengyushan
  */
-class MineAddDouyinActivity : BaseActivity<MineActivityAddressBinding, MineDouyinAddViewModel>() {
+class MineDouyinBindingActivity : BaseActivity<MineActivityAddressBinding, MineDouyinBindingViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
-        return R.layout.mine_activity_douyin_add
+        return R.layout.mine_activity_douyin_binding
     }
 
     override fun initVariableId(): Int {

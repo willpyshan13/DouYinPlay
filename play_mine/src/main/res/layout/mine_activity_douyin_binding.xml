@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.will.play.mine.ui.viewmodel.MineAddressViewModel" />
+            type="com.will.play.mine.ui.viewmodel.MineDouyinBindingViewModel" />
 
     </data>
 
@@ -16,32 +16,90 @@
         android:layout_margin="@dimen/dp16"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:id="@+id/mine_binding_head"
-            android:src="@mipmap/base_mine_header_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_height="wrap_content"/>
         <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toTopOf="@id/mine_binding_head"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/mine_binding_head"
             app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
-            android:id="@+id/mine_address_tv_name"
+            android:id="@+id/mine_douyin_binding"
             android:layout_marginTop="@dimen/dp10"
-            android:text="用户名"
+            android:text="绑定抖音过程中请勿关闭此页面"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/mine_address_et"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/mine_binding_qrcode"
+            android:src="@mipmap/base_mine_header_icon"
+            app:layout_constraintTop_toBottomOf="@+id/mine_douyin_binding"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="0dp"
-            android:src="@mipmap/base_icon_del"
-            android:gravity="end|center_vertical"
-            android:layout_height="48dp"/>
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@id/mine_binding_qrcode"
+            app:layout_constraintBottom_toBottomOf="@id/mine_binding_qrcode"
+            app:layout_constraintStart_toEndOf="@+id/mine_binding_qrcode"
+            android:id="@+id/mine_douyin_refresh"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="点击刷新"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@id/mine_binding_qrcode"
+            app:layout_constraintStart_toEndOf="@+id/mine_douyin_refresh"
+            android:id="@+id/mine_douyin_refresh_time"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="30s后过期"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@id/mine_douyin_refresh_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/mine_douyin_qrcode_downloading"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="下载二维码"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@id/mine_douyin_qrcode_downloading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/mine_douyin_notice"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="如何使用二维码绑定抖音号"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@id/mine_douyin_notice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/mine_douyin_notice1"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="1、截图保留火下载二维码到相册"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@id/mine_douyin_notice1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/mine_douyin_notice2"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="2、打开抖音APP，进入我的页面，点击右上角【更多】按钮"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
