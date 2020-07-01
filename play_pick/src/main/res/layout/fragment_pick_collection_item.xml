@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.pick.ui.viewmodel.PickCollectionItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp2"
+        android:background="@drawable/home_item_bg"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/data_icon_goods"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/base_pick_item_image_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp4"
+            android:layout_marginEnd="@dimen/dp14"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏"
+            app:layout_constraintEnd_toStartOf="@+id/pick_item_money"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_icon_goods" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_item_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginEnd="@dimen/dp14"
+            android:text="￥25"
+            android:textColor="@color/text_sticker_red_easy_photos"
+            android:textSize="@dimen/sp24"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_item_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pick_item_title"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp4"
+            android:text="佣金:"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_item_title"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_collection_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp4"
+            android:text="佣金比例:"
+            android:textSize="@dimen/sp8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_item_title"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_collection_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp4"
+            android:text="领取时间:\n2020-12-30"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintEnd_toStartOf="@+id/pick_collection_goods"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_collection_percent"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_collection_goods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp4"
+            android:text="领取实物"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pick_collection_time"
+            app:layout_constraintTop_toBottomOf="@+id/pick_collection_percent"
+            tools:ignore="RtlCompat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
