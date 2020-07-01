@@ -5,6 +5,7 @@ import com.will.habit.base.BaseActivity
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityAddressBinding
+import com.will.play.mine.databinding.MineActivitySettingBinding
 import com.will.play.mine.ui.viewmodel.MineAddressViewModel
 import com.will.play.mine.ui.viewmodel.MineSettingViewModel
 
@@ -17,9 +18,9 @@ import com.will.play.mine.ui.viewmodel.MineSettingViewModel
  *
  * @Author: pengyushan
  */
-class MineSettingActivity : BaseActivity<MineActivityAddressBinding, MineSettingViewModel>() {
+class MineSettingActivity : BaseActivity<MineActivitySettingBinding, MineSettingViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
-        return R.layout.mine_activity_douyin_binding
+        return R.layout.mine_activity_setting
     }
 
     override fun initVariableId(): Int {
