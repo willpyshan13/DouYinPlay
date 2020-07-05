@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -14,13 +15,86 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/base_background_wallet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_icon_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp44"
+            android:src="@mipmap/base_icon_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的钱包"
+            app:layout_constraintBottom_toBottomOf="@id/mine_icon_left"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mine_icon_left" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp36"
+            android:id="@+id/mine_wallet_head_icon"
+            android:layout_marginTop="@dimen/dp20"
+            android:src="@mipmap/base_wallet_head_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_icon_left"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toTopOf="@+id/mine_wallet_head_icon"
+            app:layout_constraintStart_toEndOf="@+id/mine_wallet_head_icon"
+            android:text="will"
+            android:id="@+id/mine_wallet_name"
+            android:layout_marginStart="@dimen/dp20"
+            android:textSize="@dimen/sp25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@+id/mine_wallet_name"
+            app:layout_constraintStart_toEndOf="@+id/mine_wallet_head_icon"
+            android:text="will"
+            android:id="@+id/mine_wallet_activity"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp36"
+            android:layout_marginTop="@dimen/dp20"
+            android:src="@mipmap/base_wallet_red_bag"
+            android:layout_marginEnd="@dimen/dp36"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_icon_left"
+            tools:ignore="RtlCompat" />
+
+
         <net.lucode.hackware.magicindicator.MagicIndicator
             android:id="@+id/mine_wallet_indicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/mine_wallet_activity" />
 
         <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
