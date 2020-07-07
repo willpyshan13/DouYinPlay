@@ -46,6 +46,10 @@ h5
 1、设置-使用条款
 2、设置-隐私
 3、注册成功选择行业
+
+签名
+will1313
+
 用到的技术点
 1、mvvm kotlin 协程+okhttp+retofit +jetpack
 
