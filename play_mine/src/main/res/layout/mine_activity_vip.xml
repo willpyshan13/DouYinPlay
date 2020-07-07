@@ -114,7 +114,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mine_vip_list"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@mipmap/base_vip_bottom_bg"
             android:paddingTop="@dimen/dp40"
@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="mine_vip_list" />
+            app:layout_constraintTop_toTopOf="@id/mine_vip_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

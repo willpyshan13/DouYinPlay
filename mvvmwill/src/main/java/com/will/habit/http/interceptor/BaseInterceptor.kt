@@ -12,7 +12,7 @@ class BaseInterceptor(private val headers: Map<String, String>?) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request()
                 .newBuilder()
-        if (headers != null && headers.size > 0) {
+        if (headers != null && headers.isNotEmpty()) {
             val keys = headers.keys
             for (headerKey in keys) {
                 headers[headerKey]?.let { builder.addHeader(headerKey, it).build() }

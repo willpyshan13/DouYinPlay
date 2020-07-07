@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.will.habit.base.BaseActivity
 import com.will.play.pick.BR
 import com.will.play.pick.R
+import com.will.play.pick.databinding.ActivityPickCollectionBinding
 import com.will.play.pick.ui.viewmodel.PickCollectionViewModel
 
 /**

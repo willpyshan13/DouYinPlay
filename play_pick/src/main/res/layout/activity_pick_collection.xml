@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.will.play.pick.ui.viewmodel.PickStoreDetailViewModel" />
+            type="com.will.play.pick.ui.viewmodel.PickCollectionViewModel" />
 
     </data>
 
