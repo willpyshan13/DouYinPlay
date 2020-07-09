@@ -42,9 +42,6 @@ import javax.tools.JavaFileObject;
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class ProtocolProcessor extends AbstractProcessor {
-
-    private static final String OBJECT = "java.lang.Object";
-
     Elements elementUtils;
     Types typeUtils;
     Filer filer;
@@ -99,7 +96,7 @@ public class ProtocolProcessor extends AbstractProcessor {
                 if (group != null && !"".equals(group)){
                     path = group + (path.startsWith("/") ? path : "/" + path);
                 }else if(path != null && !"".equals(path)){
-                    group = URI.create("Router://" + path).getHost();
+                    group = URI.create("WRouter://" + path).getHost();
                 }
                 if (group != null && !"".equals(group)){
                     HashMap temp = classHashMap.get(group);
