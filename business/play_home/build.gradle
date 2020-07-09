@@ -1,0 +1,37 @@
+apply from: '../../module.build.gradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    // 优化编译速度 如果有用到kapt添加如下配置
+    kapt {
+        useBuildCache = true
+        javacOptions {
+            option("-Xmaxerrs", 500)
+        }
+    }
+
+    defaultConfig {
+        //如果是独立模块，则使用当前组件的包名
+        if (isBuildModule.toBoolean()) {
+            applicationId "com.will.play.home"
+        }
+    }
+    //统一资源前缀，规范资源引用
+//    resourcePrefix "store_detail_"
+
+    androidExtensions {
+        experimental = true
+    }
+
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    api project(':business:play_base')
+
+//    implementation project(':compile:router')
+//    kapt project(':compile:routerCompiler')
+}
