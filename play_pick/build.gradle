@@ -31,4 +31,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     api project(':play_base')
+    implementation project(':router')
+    kapt project(':routerCompiler')
 }

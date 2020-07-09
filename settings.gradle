@@ -1,4 +1,5 @@
-include ':play_main'
+include ':routerCompiler'
+include ':router'
 include ':module_pay'
 include ':module_common_res'
 include ':module_widget'
