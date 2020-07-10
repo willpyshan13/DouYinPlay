@@ -9,7 +9,7 @@ class BindingCommand<T> {
     private var consumer: BindingConsumer<T>? = null
     private var canExecute0: BindingFunction<Boolean>? = null
 
-    constructor(execute: BindingAction?) {
+    constructor(execute: BindingAction) {
         this.execute = execute
     }
 
