@@ -7,39 +7,239 @@
 
         <variable
             name="viewModel"
-            type="com.will.play.pick.ui.viewmodel.PickStoreDetailViewModel" />
+            type="com.will.play.pick.ui.viewmodel.PickGoodsDetailViewModel" />
 
     </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_F0F0F0">
+        android:layout_height="match_parent">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include
-                android:id="@+id/picker_top_layout"
-                layout="@layout/activity_pick_store_detail_header" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <ImageView
+                android:id="@+id/pick_goods_detail_iv_top"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/dp201"
+                android:background="@color/color_BFBFBF"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/pick_goods_detail_view_top_bg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp43"
+                android:background="@color/color_FFFFFF"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/pick_ic_tip"
+                android:drawablePadding="@dimen/dp6"
+                android:gravity="center"
+                android:text="@string/pick_good_detail_top_txt"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/sp13"
+                app:layout_constraintBottom_toBottomOf="@+id/pick_goods_detail_view_top_bg"
+                app:layout_constraintEnd_toEndOf="@+id/pick_goods_detail_view_top_bg"
+                app:layout_constraintStart_toStartOf="@+id/pick_goods_detail_view_top_bg"
+                app:layout_constraintTop_toTopOf="@+id/pick_goods_detail_view_top_bg" />
+
+
+            <TextView
+                android:id="@+id/pick_good_detail_tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp22"
-                app:itemBinding="@{viewModel.itemBinding}"
-                app:items="@{viewModel.items}"
-                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp56"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/sp13"
+                app:layout_constraintEnd_toStartOf="@+id/pick_good_detail_tv_copy"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/picker_top_layout"
-                app:spanCount="2"
-                android:layout_marginEnd="@dimen/dp22" />
+                app:layout_constraintTop_toBottomOf="@+id/pick_goods_detail_iv_top"
+                tools:text="2020春夏季新款情侣装大码短袖T恤女百搭女装学生宽松大衣" />
+
+
+            <TextView
+                android:id="@+id/pick_good_detail_tv_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp15"
+                android:background="@drawable/pick_shape_round_ffe742_6"
+                android:padding="@dimen/dp10"
+                android:text="@string/pick_good_detail_copy"
+                android:textSize="@dimen/sp15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pick_goods_detail_iv_top" />
+
+
+            <TextView
+                android:id="@+id/pick_good_detail_tv_sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp22"
+                android:layout_marginTop="@dimen/dp46"
+                android:drawableStart="@mipmap/pick_ic_sales"
+                android:drawablePadding="@dimen/dp3"
+                android:gravity="bottom"
+                android:includeFontPadding="false"
+                android:text="@string/pick_good_detail_sales"
+                android:textColor="@color/color_7D7D7D"
+                android:textSize="@dimen/sp9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_title" />
+
+
+            <TextView
+                android:id="@+id/pick_good_detail_tv_people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/pick_ic_people"
+                android:drawablePadding="@dimen/dp3"
+                android:gravity="bottom"
+                android:includeFontPadding="false"
+                android:text="@string/pick_good_detail_people"
+                android:textColor="@color/color_7D7D7D"
+                android:textSize="@dimen/sp9"
+                app:layout_constraintBottom_toBottomOf="@+id/pick_good_detail_tv_sales"
+                app:layout_constraintEnd_toStartOf="@+id/pick_good_detail_tv_video_count"
+                app:layout_constraintStart_toEndOf="@+id/pick_good_detail_tv_sales" />
+
+            <TextView
+                android:id="@+id/pick_good_detail_tv_video_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp15"
+                android:drawableStart="@mipmap/pick_ic_video"
+                android:drawablePadding="@dimen/dp3"
+                android:gravity="bottom"
+                android:includeFontPadding="false"
+                android:text="@string/pick_good_detail_video_surplus"
+                android:textColor="@color/color_7D7D7D"
+                android:textSize="@dimen/sp9"
+                app:layout_constraintBottom_toBottomOf="@+id/pick_good_detail_tv_sales"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pick_good_detail_vip_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp7"
+                android:background="@drawable/pick_shape_round_ffc546_14"
+                app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_sales">
+
+
+                <TextView
+                    android:id="@+id/pick_good_detail_tv_vip_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp7"
+                    android:text="@string/pick_good_detail_qu_fen_vip"
+                    android:textColor="@color/color_313131"
+                    android:textSize="@dimen/sp14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/pick_good_detail_tv_vip_for_free"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp25"
+                    android:layout_marginTop="@dimen/dp6"
+                    android:text="@string/pick_good_detail_vip_for_free"
+                    android:textColor="@color/color_313131"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_vip_title" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp4"
+                    android:background="@drawable/pick_shape_round_ffffff_10"
+                    android:paddingStart="@dimen/dp10"
+                    android:paddingEnd="@dimen/dp10"
+                    android:text="@string/pick_good_detail_limit_for_get"
+                    android:textColor="@color/color_313131"
+                    android:textSize="@dimen/sp9"
+                    app:layout_constraintBottom_toBottomOf="@+id/pick_good_detail_tv_vip_for_free"
+                    app:layout_constraintStart_toEndOf="@+id/pick_good_detail_tv_vip_for_free"
+                    app:layout_constraintTop_toTopOf="@+id/pick_good_detail_tv_vip_for_free" />
+
+
+                <TextView
+                    android:id="@+id/pick_good_detail_vip_tv_get_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginEnd="@dimen/dp14"
+                    android:layout_marginBottom="@dimen/dp16"
+                    android:background="@drawable/base_shape_round_ffffff_6"
+                    android:paddingStart="@dimen/dp5"
+                    android:paddingTop="@dimen/dp7"
+                    android:paddingEnd="@dimen/dp5"
+                    android:paddingBottom="@dimen/dp7"
+                    android:text="领取视频"
+                    android:textSize="@dimen/sp15"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/pick_good_detail_vip_tv_get_good"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_vip_for_free" />
+
+                <TextView
+                    android:id="@+id/pick_good_detail_vip_tv_get_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp14"
+                    android:layout_marginEnd="@dimen/dp14"
+                    android:background="@drawable/base_shape_round_ffffff_6"
+                    android:paddingStart="@dimen/dp5"
+                    android:paddingTop="@dimen/dp7"
+                    android:paddingEnd="@dimen/dp5"
+                    android:paddingBottom="@dimen/dp7"
+                    android:text="领取实物"
+                    android:textSize="@dimen/sp15"
+                    app:layout_constraintEnd_toStartOf="@+id/pick_good_detail_vip_tv_share_weChat_circle"
+                    app:layout_constraintStart_toEndOf="@+id/pick_good_detail_vip_tv_get_video"
+                    app:layout_constraintTop_toTopOf="@+id/pick_good_detail_vip_tv_get_video" />
+
+
+                <TextView
+                    android:id="@+id/pick_good_detail_vip_tv_share_weChat_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp14"
+                    android:background="@drawable/base_shape_round_ffffff_6"
+                    android:paddingStart="@dimen/dp5"
+                    android:paddingTop="@dimen/dp7"
+                    android:paddingEnd="@dimen/dp5"
+                    android:paddingBottom="@dimen/dp7"
+                    android:text="分享朋友圈"
+                    android:textSize="@dimen/sp15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/pick_good_detail_vip_tv_get_good"
+                    app:layout_constraintTop_toTopOf="@+id/pick_good_detail_vip_tv_get_video" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.core.widget.NestedScrollView>
+
 </layout>

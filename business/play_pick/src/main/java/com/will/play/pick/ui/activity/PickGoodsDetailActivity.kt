@@ -6,6 +6,7 @@ import com.will.habit.base.BaseActivity
 import com.will.play.pick.BR
 import com.will.play.pick.R
 import com.will.play.pick.databinding.ActivityPickGoodsDetailBinding
+import com.will.play.pick.ui.viewmodel.PickGoodsDetailViewModel
 import com.will.play.pick.ui.viewmodel.PickStoreDetailViewModel
 
 /**
@@ -18,7 +19,7 @@ import com.will.play.pick.ui.viewmodel.PickStoreDetailViewModel
  * @Author: pengyushan
  */
 @Route("pick")
-class PickGoodsDetailActivity : BaseActivity<ActivityPickGoodsDetailBinding, PickStoreDetailViewModel>() {
+class PickGoodsDetailActivity : BaseActivity<ActivityPickGoodsDetailBinding, PickGoodsDetailViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.activity_pick_goods_detail
     }
