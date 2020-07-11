@@ -24,4 +24,6 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class MineWalletViewModel(application: Application) :BaseViewModel<MineRepository>(application)
+class MineWalletViewModel(application: Application) :BaseViewModel<MineRepository>(application){
+
+}

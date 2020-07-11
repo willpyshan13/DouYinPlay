@@ -28,15 +28,18 @@
             android:id="@+id/mine_icon_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
             android:layout_marginTop="@dimen/dp44"
             android:src="@mipmap/base_icon_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的钱包"
+            android:textSize="@dimen/sp18"
             app:layout_constraintBottom_toBottomOf="@id/mine_icon_left"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

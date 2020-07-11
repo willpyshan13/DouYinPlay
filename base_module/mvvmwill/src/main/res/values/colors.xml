@@ -6,6 +6,7 @@
     <color name="yellow">#FFFF00</color>
     <color name="green">#008000</color>
     <color name="blue">#0000FF</color>
+    <color name="red">#FF0000</color>
     <color name="orange">#FFA500</color>
     <color name="translate">#00FFFFFF</color>
     <color name="textColor">#202020</color>

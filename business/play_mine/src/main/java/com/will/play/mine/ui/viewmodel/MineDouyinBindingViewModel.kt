@@ -28,6 +28,5 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 class MineDouyinBindingViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
     init {
         setTitleText("抖音账号绑定")
-        setRightIconVisible(View.VISIBLE)
     }
 }

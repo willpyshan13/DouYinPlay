@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -13,91 +13,110 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp16"
+        android:background="@color/color_F0F0F0"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/mine_binding_head"
-            app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
             android:id="@+id/mine_douyin_binding"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="绑定抖音过程中请勿关闭此页面"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="#f9f9f9"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="绑定抖音过程中请勿关闭此页面"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
             android:id="@+id/mine_binding_qrcode"
-            android:src="@mipmap/base_mine_header_icon"
-            app:layout_constraintTop_toBottomOf="@+id/mine_douyin_binding"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="@dimen/dp212"
+            android:layout_height="@dimen/dp212"
+            android:layout_marginTop="@dimen/dp36"
+            android:src="@mipmap/base_douyin_binding_bg"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_height="wrap_content"/>
-        <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toBottomOf="@id/mine_binding_qrcode"
-            app:layout_constraintBottom_toBottomOf="@id/mine_binding_qrcode"
-            app:layout_constraintStart_toEndOf="@+id/mine_binding_qrcode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_douyin_binding" />
+
+        <LinearLayout
             android:id="@+id/mine_douyin_refresh"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="点击刷新"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:ignore="RtlCompat" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toBottomOf="@id/mine_binding_qrcode"
-            app:layout_constraintStart_toEndOf="@+id/mine_douyin_refresh"
-            android:id="@+id/mine_douyin_refresh_time"
+            android:gravity="center"
             android:layout_marginTop="@dimen/dp10"
-            android:text="30s后过期"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="RtlCompat" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toBottomOf="@id/mine_douyin_refresh_time"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mine_binding_qrcode">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/base_binding_refresh"
+                android:drawablePadding="@dimen/dp10"
+                android:text="点击刷新"
+                android:textColor="@color/red"
+                app:layout_constraintStart_toEndOf="@+id/mine_douyin_refresh_time"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mine_binding_qrcode"
+                tools:ignore="RtlCompat" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_douyin_refresh_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30s后过期"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/mine_douyin_refresh"
+                app:layout_constraintTop_toBottomOf="@id/mine_binding_qrcode"
+                tools:ignore="RtlCompat" />
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/mine_douyin_qrcode_downloading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
             android:text="下载二维码"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@mipmap/base_binding_download_refresh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mine_douyin_refresh"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toBottomOf="@id/mine_douyin_qrcode_downloading"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/mine_douyin_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
+            android:layout_marginStart="@dimen/dp24"
             android:text="如何使用二维码绑定抖音号"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mine_douyin_qrcode_downloading"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toBottomOf="@id/mine_douyin_notice"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/mine_douyin_notice1"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="1、截图保留火下载二维码到相册"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginStart="@dimen/dp24"
+            android:text="1、截图保留火下载二维码到相册"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mine_douyin_notice"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toBottomOf="@id/mine_douyin_notice1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/mine_douyin_notice2"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="2、打开抖音APP，进入我的页面，点击右上角【更多】按钮"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginStart="@dimen/dp24"
+            android:text="2、打开抖音APP，进入我的页面，点击右上角【更多】按钮"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mine_douyin_notice1"
             tools:ignore="RtlCompat" />
 
 

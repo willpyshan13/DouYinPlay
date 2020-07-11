@@ -25,4 +25,8 @@ class MineWalletActivity : BaseActivity<MineActivityAddressBinding, MineWalletVi
     override fun initVariableId(): Int {
         return BR.viewModel
     }
+
+    override fun needToolBar(): Boolean {
+        return false
+    }
 }

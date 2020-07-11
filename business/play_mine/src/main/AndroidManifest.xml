@@ -22,5 +22,7 @@
             android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity android:name=".ui.activity.MineSettingActivity"
             android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".ui.activity.MineDouyinBindingActivity"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
     </application>
 </manifest>
