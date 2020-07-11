@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
+import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
@@ -12,6 +13,7 @@ import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineRepository
 import me.tatarka.bindingcollectionadapter2.ItemBinding
+import java.util.*
 
 /**
  * Desc:我的地址页面
@@ -25,5 +27,8 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * @Author: pengyushan
  */
 class MineAddressViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
-
+    val userName = ObservableField("")
+    val userPhone = ObservableField("")
+    val userArea = ""
+    val userAddress = ObservableField("")
 }
