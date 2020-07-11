@@ -6,15 +6,25 @@
 
         <variable
             name="viewModel"
-            type="com.will.play.mine.ui.viewmodel.MineAddressViewModel" />
+            type="com.will.play.mine.ui.viewmodel.MineInfoEditViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/color_F0F0F0">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp16"
-        android:orientation="vertical">
+        android:background="@drawable/home_item_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/dp10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
             app:layout_constraintTop_toTopOf="@id/mine_edit_header_title_image"
@@ -47,8 +57,15 @@
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
+        <View
+            style="@style/ViewLineStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mine_address_et" />
+
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/mine_address_et"
+            android:background="@null"
             app:layout_constraintTop_toBottomOf="@+id/mine_edit_header_title_image"
             app:layout_constraintStart_toEndOf="@id/mine_address_tv_name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +73,11 @@
             android:gravity="end|center_vertical"
             android:hint="请输入昵称"
             android:layout_height="48dp"/>
-
+        <View
+            style="@style/ViewLineStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_address_et" />
         <androidx.appcompat.widget.AppCompatTextView
             app:layout_constraintTop_toTopOf="@id/mine_phone_et"
             app:layout_constraintBottom_toBottomOf="@id/mine_phone_et"
@@ -77,7 +98,11 @@
             android:gravity="end|center_vertical"
             android:text="请选择性别"
             android:layout_height="48dp"/>
-
+        <View
+            style="@style/ViewLineStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_phone_et" />
         <androidx.appcompat.widget.AppCompatTextView
             app:layout_constraintTop_toTopOf="@id/mine_area_et"
             app:layout_constraintBottom_toBottomOf="@id/mine_area_et"
@@ -98,7 +123,11 @@
             android:gravity="end|center_vertical"
             android:text="请选择地区"
             android:layout_height="48dp"/>
-
+        <View
+            style="@style/ViewLineStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_area_et" />
         <androidx.appcompat.widget.AppCompatTextView
             app:layout_constraintTop_toTopOf="@id/mine_info_qq_et"
             app:layout_constraintBottom_toBottomOf="@id/mine_info_qq_et"
@@ -116,10 +145,15 @@
             app:layout_constraintStart_toEndOf="@id/mine_address_tv_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
+            android:background="@null"
             android:gravity="end|center_vertical"
             android:hint="请输入qq账号"
             android:layout_height="48dp"/>
-
+        <View
+            style="@style/ViewLineStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_info_qq_et" />
         <androidx.appcompat.widget.AppCompatTextView
             app:layout_constraintTop_toTopOf="@id/mine_info_wechat_et"
             app:layout_constraintBottom_toBottomOf="@id/mine_info_wechat_et"
@@ -138,9 +172,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:gravity="end|center_vertical"
+            android:background="@null"
             android:hint="请输入微信账号"
             android:layout_height="48dp"/>
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -62,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp20"
                 android:text="完善信息"
+                app:onClickCommand="@{viewModel.onMineInfoEditClick}"
                 app:layout_constraintStart_toEndOf="@+id/mine_header_icon"
                 app:layout_constraintTop_toBottomOf="@+id/mine_username"
                 tools:ignore="RtlCompat" />
