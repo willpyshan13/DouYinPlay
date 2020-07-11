@@ -13,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp16"
+        android:layout_margin="@dimen/dp8"
+        android:background="@drawable/home_item_bg"
         android:orientation="vertical">
 
 
@@ -21,9 +22,11 @@
             android:layout_width="wrap_content"
             android:id="@+id/mine_binding_head"
             android:src="@mipmap/base_mine_header_icon"
+            android:layout_marginStart="@dimen/dp10"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
         <androidx.appcompat.widget.AppCompatTextView
             app:layout_constraintTop_toTopOf="@id/mine_binding_head"
             app:layout_constraintBottom_toBottomOf="@id/mine_binding_head"
@@ -41,8 +44,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:src="@mipmap/base_icon_del"
+            android:layout_marginEnd="@dimen/dp10"
             android:gravity="end|center_vertical"
-            android:layout_height="48dp"/>
+            android:layout_height="48dp"
+            tools:ignore="RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

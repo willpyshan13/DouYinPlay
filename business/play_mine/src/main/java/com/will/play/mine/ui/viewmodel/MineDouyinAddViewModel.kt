@@ -17,7 +17,7 @@ import com.will.play.mine.ui.activity.MineDouyinBindingActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
- * Desc:我的地址页面
+ * Desc:添加抖音账号
  *
  * Date: 2020-06-22
  * Copyright: Copyright (c) 2018-2020
@@ -32,6 +32,7 @@ class MineDouyinAddViewModel(application: Application) :BaseListViewModel<MineRe
     init {
         setRightIconVisible(View.VISIBLE)
         setTitleText(StringUtils.getStringResource(R.string.mine_douyin_add))
+        loadInit()
     }
 
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<MineAddDouyinItem> {
@@ -56,7 +57,7 @@ class MineDouyinAddViewModel(application: Application) :BaseListViewModel<MineRe
 
     override fun getItemBinding(): ItemBinding<MineAddDouyinItem> {
         return ItemBinding.of { binding, _, _ ->
-            binding.set(BR.viewModel, R.layout.mine_activity_douyin_add)
+            binding.set(BR.viewModel, R.layout.mine_activity_douyin_add_item)
         }
     }
 
@@ -66,9 +67,11 @@ class MineDouyinAddViewModel(application: Application) :BaseListViewModel<MineRe
 
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<MineAddDouyinItem>) {
         launch({
-            items.add(MineAddDouyinItem(this))
-            items.add(MineAddDouyinItem(this))
-            items.add(MineAddDouyinItem(this))
+            val itemList = mutableListOf<MineAddDouyinItem>()
+            itemList.add(MineAddDouyinItem(this))
+            itemList.add(MineAddDouyinItem(this))
+            itemList.add(MineAddDouyinItem(this))
+            items.submit(itemList,false)
         })
     }
 
