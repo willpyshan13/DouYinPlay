@@ -105,8 +105,6 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
              * toolBar 动态设置
              */
             bindingToolBar = DataBindingUtil.setContentView(this, R.layout.activity_layout_toolbar)
-            //通过binding拿到toolbar控件, 设置给Activity
-            // setSupportActionBar(bindingBar.baseToolbar.toolbar);
             bindingToolBar!!.setVariable(BR.viewModel, viewModel)
             val base = window.decorView.findViewById<ConstraintLayout>(R.id.base_layout)
             binding = DataBindingUtil.inflate(LayoutInflater.from(this), initContentView(null), base, false)

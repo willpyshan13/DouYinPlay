@@ -18,6 +18,7 @@
             android:id="@+id/mine_change_role_image"
             android:layout_width="wrap_content"
             android:src="@mipmap/base_change_role"
+            android:layout_marginTop="@dimen/dp66"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +27,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:text="你现在是达人"
             android:layout_marginTop="@dimen/dp10"
+            android:textSize="@dimen/sp18"
             android:id="@+id/mine_change_role_notice"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +38,10 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:text="点击切换成商家"
             android:layout_marginTop="@dimen/dp10"
+            android:background="@mipmap/base_partner_btn"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/sp20"
             app:layout_constraintTop_toBottomOf="@+id/mine_change_role_notice"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

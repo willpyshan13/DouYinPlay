@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -14,79 +15,80 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <androidx.appcompat.widget.Toolbar
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toolbar"
-            binding:layout_constraintTop_toTopOf="parent"
-            binding:layout_constraintStart_toStartOf="parent"
-            binding:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp48"
-            android:background="@color/white"
-            binding:contentInsetStart="0dp">
+            android:layout_height="@dimen/dp82"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toTopOf="parent">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@mipmap/base_top_background"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/iv_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:background="?selectableItemBackground"
-                    android:padding="12dp"
-                    android:src="@mipmap/back"
-                    binding:onClickCommand="@{viewModel.backOnClick}" />
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxEms="12"
+                android:singleLine="true"
+                android:text="@{viewModel.titleText}"
+                android:textColor="@color/textColor"
+                android:textSize="18sp"
+                binding:layout_constraintBottom_toBottomOf="@+id/iv_back"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toTopOf="@+id/iv_back"
+                tools:text="标题" />
 
-                <TextView
-                    android:id="@+id/tv_title"
-                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxEms="12"
-                    android:singleLine="true"
-                    android:text="@{viewModel.titleText}"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tv_right_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{viewModel.rightText}"
+                android:textColor="@color/textColor"
+                android:textSize="18sp"
+                android:visibility="@{viewModel.rightTextVisibleObservable}"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintTop_toTopOf="parent"
+                binding:onClickCommand="@{viewModel.rightTextOnClick}" />
 
-                <TextView
-                    android:id="@+id/tv_right_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:background="?selectableItemBackground"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:text="@{viewModel.rightText}"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp"
-                    android:visibility="@{viewModel.rightTextVisibleObservable}"
-                    binding:onClickCommand="@{viewModel.rightTextOnClick}" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_right_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp16"
+                android:gravity="center"
+                android:padding="12dp"
+                android:src="@mipmap/toolbar_more"
+                android:visibility="@{viewModel.rightIconVisibleObservable}"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintTop_toTopOf="@+id/iv_back"
+                binding:onClickCommand="@{viewModel.rightIconOnClick}"
+                tools:ignore="RtlCompat" />
 
-                <ImageView
-                    android:id="@+id/iv_right_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:background="?selectableItemBackground"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:src="@mipmap/toolbar_more"
-                    android:visibility="@{viewModel.rightIconVisibleObservable}"
-                    binding:onClickCommand="@{viewModel.rightIconOnClick}" />
-
-                <View
-                    style="@style/ViewLineStyle"
-                    android:layout_alignParentBottom="true" />
-            </RelativeLayout>
-        </androidx.appcompat.widget.Toolbar>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp34"
+                android:padding="@dimen/dp12"
+                android:src="@mipmap/icon_back"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toTopOf="parent"
+                binding:onClickCommand="@{viewModel.backOnClick}"
+                tools:ignore="RtlCompat" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
