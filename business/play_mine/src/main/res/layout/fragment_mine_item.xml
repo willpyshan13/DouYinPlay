@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -17,16 +17,26 @@
         android:background="@color/color_FFFFFF"
         android:orientation="vertical">
 
-        <TextView
-            android:drawablePadding="@dimen/dp20"
-            android:text="@{viewModel.title}"
-            android:textSize="@dimen/sp14"
-            android:drawableStart="@mipmap/base_mine_contact"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_item_res"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:ignore="RtlCompat" />
+            android:src="@color/color_FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/base_mine_douyin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp20"
+            android:text="@{viewModel.title}"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintStart_toEndOf="@+id/mine_item_res"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat"
+            tools:text="hello" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
