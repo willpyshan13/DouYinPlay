@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.will.play.mine.ui.viewmodel.MineDataItem" />
+            type="com.will.play.mine.ui.viewmodel.MineHomeDataItem" />
 
     </data>
 

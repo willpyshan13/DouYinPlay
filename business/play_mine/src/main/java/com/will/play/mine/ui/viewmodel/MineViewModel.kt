@@ -12,14 +12,17 @@ import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineRepository
-import com.will.play.mine.ui.viewmodel.MineDataItem.Companion.item_type_binding_douyin
-import com.will.play.mine.ui.viewmodel.MineDataItem.Companion.item_type_binding_taobao
-import com.will.play.mine.ui.viewmodel.MineDataItem.Companion.item_type_contract
-import com.will.play.mine.ui.viewmodel.MineDataItem.Companion.item_type_course
-import com.will.play.mine.ui.viewmodel.MineDataItem.Companion.item_type_custom_service
-import com.will.play.mine.ui.viewmodel.MineDataItem.Companion.item_type_guide
-import com.will.play.mine.ui.viewmodel.MineDataItem.Companion.item_type_message
-import com.will.play.mine.ui.viewmodel.MineDataItem.Companion.item_type_wallet
+import com.will.play.mine.ui.activity.MineChangeRoleActivity
+import com.will.play.mine.ui.activity.MineSettingActivity
+import com.will.play.mine.ui.activity.MineWalletActivity
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_binding_douyin
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_binding_taobao
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_contract
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_course
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_custom_service
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_guide
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_message
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_wallet
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
@@ -53,14 +56,14 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
 
     val leftClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-
+            startActivity(MineChangeRoleActivity::class.java)
         }
 
     })
 
     val rightCLick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-
+            startActivity(MineSettingActivity::class.java)
         }
 
     })
@@ -71,8 +74,8 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
     override fun getItemBinding(): ItemBinding<ItemViewModel<*>> {
         return ItemBinding.of { binding, _, item ->
             when (item) {
-                is MineDataItem -> binding.set(BR.viewModel, R.layout.fragment_mine_item)
-                is MineHeaderItem -> binding.set(BR.viewModel, R.layout.fragment_mine_header)
+                is MineHomeDataItem -> binding.set(BR.viewModel, R.layout.fragment_mine_item)
+                is MineHomeHeaderItem -> binding.set(BR.viewModel, R.layout.fragment_mine_header)
             }
         }
     }
@@ -84,15 +87,15 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            viewModels.add(MineHeaderItem(this))
-            viewModels.add(MineDataItem(this, R.mipmap.base_mine_wallet, "我的钱包", item_type_wallet))
-            viewModels.add(MineDataItem(this, R.mipmap.base_mine_course, "我的消息", item_type_message))
-            viewModels.add(MineDataItem(this, R.mipmap.base_mine_taobao, "绑定淘宝", item_type_binding_taobao))
-            viewModels.add(MineDataItem(this, R.mipmap.base_mine_douyin, "绑定抖音", item_type_binding_douyin))
-            viewModels.add(MineDataItem(this, R.mipmap.base_mine_course, "我的课程", item_type_course))
-            viewModels.add(MineDataItem(this, R.mipmap.base_mine_guide, "新手指引", item_type_guide))
-            viewModels.add(MineDataItem(this, R.mipmap.base_mine_contact, "联系我们", item_type_contract))
-            viewModels.add(MineDataItem(this, R.mipmap.base_mine_custom, "工人客服", item_type_custom_service))
+            viewModels.add(MineHomeHeaderItem(this))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_wallet, "我的钱包", item_type_wallet))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_course, "我的消息", item_type_message))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_taobao, "绑定淘宝", item_type_binding_taobao))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_douyin, "绑定抖音", item_type_binding_douyin))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_course, "我的课程", item_type_course))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_guide, "新手指引", item_type_guide))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_contact, "联系我们", item_type_contract))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_custom, "工人客服", item_type_custom_service))
             items.addAll(viewModels)
         }, {
 

@@ -13,7 +13,7 @@ import com.will.play.mine.ui.activity.MineWalletActivity
 /**
  * 设置中心，item
  */
-class MineDataItem(viewModel: MineViewModel, private val resIcon: Int, val title: String, itemType: Int) : ItemViewModel<MineViewModel>(viewModel) {
+class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val title: String, itemType: Int) : ItemViewModel<MineViewModel>(viewModel) {
     val imageDrawable = ObservableField<Drawable>()
 
     init {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -31,30 +31,30 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp32"
             android:layout_marginTop="@dimen/dp44"
-            app:onClickCommand="@{viewModel.leftClick}"
             android:src="@mipmap/base_mine_left_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:onClickCommand="@{viewModel.leftClick}"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_icon_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp32"
             android:layout_marginTop="@dimen/dp44"
-            app:onClickCommand="@{viewModel.rightCLick}"
+            android:layout_marginEnd="@dimen/dp32"
             android:src="@mipmap/base_mine_setting"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:onClickCommand="@{viewModel.rightCLick}"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的信息"
-            android:textSize="@dimen/sp18"
             android:textColor="@color/color_535353"
+            android:textSize="@dimen/sp18"
             app:layout_constraintBottom_toBottomOf="@id/mine_icon_left"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,9 +74,9 @@
             android:layout_marginStart="@dimen/dp32"
             android:layout_marginTop="@dimen/dp20"
             android:layout_marginEnd="@dimen/dp32"
+            android:background="@drawable/home_item_bg"
             app:itemBinding="@{viewModel.itemBinding}"
             app:items="@{viewModel.items}"
-            android:background="@drawable/home_item_bg"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
