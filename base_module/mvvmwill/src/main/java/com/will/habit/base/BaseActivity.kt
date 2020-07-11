@@ -33,7 +33,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
     /**
      * toolsbar  如果有添加的话
      */
-    private var bindingToolBar: ActivityLayoutToolbarBinding? = null
+    protected var bindingToolBar: ActivityLayoutToolbarBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //页面接受的参数方法

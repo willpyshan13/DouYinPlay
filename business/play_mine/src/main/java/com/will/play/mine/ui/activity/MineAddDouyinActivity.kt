@@ -5,7 +5,6 @@ import com.will.habit.base.BaseActivity
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityAddressBinding
-import com.will.play.mine.ui.viewmodel.MineAddressViewModel
 import com.will.play.mine.ui.viewmodel.MineDouyinAddViewModel
 
 /**
@@ -24,5 +23,10 @@ class MineAddDouyinActivity : BaseActivity<MineActivityAddressBinding, MineDouyi
 
     override fun initVariableId(): Int {
         return BR.viewModel
+    }
+
+    override fun initData() {
+        super.initData()
+        bindingToolBar?.ivRightIcon?.setImageResource(R.mipmap.base_mine_add_douyin)
     }
 }

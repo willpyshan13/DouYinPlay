@@ -7,6 +7,7 @@ import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.utils.Utils
+import com.will.play.mine.ui.activity.MineAddDouyinActivity
 import com.will.play.mine.ui.activity.MineDouyinBindingActivity
 import com.will.play.mine.ui.activity.MineWalletActivity
 
@@ -26,7 +27,7 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
                 item_type_wallet -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_message -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_binding_taobao -> viewModel.startActivity(MineWalletActivity::class.java)
-                item_type_binding_douyin -> viewModel.startActivity(MineDouyinBindingActivity::class.java)
+                item_type_binding_douyin -> viewModel.startActivity(MineAddDouyinActivity::class.java)
                 item_type_course -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_guide -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_contract -> viewModel.startActivity(MineWalletActivity::class.java)
