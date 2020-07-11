@@ -15,7 +15,7 @@ import com.will.play.mine.repository.MineRepository
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
- * Desc:我的地址页面
+ * Desc:我的信息界面
  *
  * Date: 2020-06-22
  * Copyright: Copyright (c) 2018-2020
