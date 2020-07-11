@@ -2,4 +2,5 @@
 <resources>
     <string name="mine_change_role">身份切换</string>
     <string name="mine_setting_title">设置</string>
+    <string name="mine_volume_setting_title">声音设置</string>
 </resources>
