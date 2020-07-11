@@ -13,75 +13,132 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp16"
-        android:orientation="vertical">
+        android:background="@color/color_F0F0F0">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_setting_notification"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="系统通知栏"
+            android:layout_margin="@dimen/dp16"
+            android:background="@drawable/home_item_bg"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="RtlCompat" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_volumn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="声音设置"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mine_setting_notification"
-            tools:ignore="RtlCompat" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_setting_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="系统通知栏"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlCompat" />
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:src="@mipmap/base_mine_setting_notification_on"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_check_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="检查更新"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mine_volumn"
-            tools:ignore="RtlCompat" />
+            <View
+                style="@style/ViewLineStyle"
+                android:layout_marginTop="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_setting_notification" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_volumn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:drawableEnd="@mipmap/base_icon_right"
+                android:text="声音设置"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mine_setting_notification"
+                tools:ignore="RtlCompat" />
 
+            <View
+                style="@style/ViewLineStyle"
+                android:layout_marginTop="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_volumn" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_private"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="隐私"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mine_check_update"
-            tools:ignore="RtlCompat" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_check_update"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:drawableEnd="@mipmap/base_icon_right"
+                android:text="检查更新"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mine_volumn"
+                tools:ignore="RtlCompat" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_notice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="抖趣拍使用条款"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mine_private"
-            tools:ignore="RtlCompat" />
+            <View
+                style="@style/ViewLineStyle"
+                android:layout_marginTop="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_check_update" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_private"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:drawableEnd="@mipmap/base_icon_right"
+                android:text="隐私"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mine_check_update"
+                tools:ignore="RtlCompat" />
 
+            <View
+                style="@style/ViewLineStyle"
+                android:layout_marginTop="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_private" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_about"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="关于我们"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mine_notice"
-            tools:ignore="RtlCompat" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_notice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:drawableEnd="@mipmap/base_icon_right"
+                android:text="抖趣拍使用条款"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mine_private"
+                tools:ignore="RtlCompat" />
 
+            <View
+                style="@style/ViewLineStyle"
+                android:layout_marginTop="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_notice" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_about"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:drawableEnd="@mipmap/base_icon_right"
+                android:text="关于我们"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mine_notice"
+                tools:ignore="RtlCompat" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

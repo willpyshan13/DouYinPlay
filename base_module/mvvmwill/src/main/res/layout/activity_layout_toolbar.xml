@@ -19,6 +19,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp82"
+            android:background="#F0F0F0"
             binding:layout_constraintEnd_toEndOf="parent"
             binding:layout_constraintStart_toStartOf="parent"
             binding:layout_constraintTop_toTopOf="parent">
