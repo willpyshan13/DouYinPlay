@@ -43,6 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@mipmap/base_mine_header_icon"
             android:layout_width="0dp"
+            app:onClickCommand="@{viewModel.onHeadClick}"
             android:gravity="end|center_vertical"
             android:layout_height="48dp"/>
 

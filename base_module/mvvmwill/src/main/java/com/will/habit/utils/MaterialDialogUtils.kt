@@ -174,12 +174,12 @@ class MaterialDialogUtils {
          * @param
          * @return MaterialDialog.Builder
          */
-        fun showBasicListDialog(context: Context?, title: String?, content: List<*>?): MaterialDialog.Builder {
-            return MaterialDialog.Builder(context!!)
+        fun showBasicListDialog(context: Context?, title: String?, content: List<*>?) {
+            MaterialDialog.Builder(context!!)
                     .title(title!!)
                     .items(content!!)
                     .itemsCallback { dialog, itemView, position, text -> }
-                    .negativeText("取消")
+                    .negativeText("取消").show()
         }
 
         /***

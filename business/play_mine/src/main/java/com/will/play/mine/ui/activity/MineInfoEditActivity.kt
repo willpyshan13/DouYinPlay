@@ -1,7 +1,12 @@
 package com.will.play.mine.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.lifecycle.Observer
+import com.huantansheng.easyphotos.EasyPhotos
 import com.will.habit.base.BaseActivity
+import com.will.habit.utils.GlideEngine
+import com.will.habit.utils.MaterialDialogUtils
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityAddressBinding
@@ -19,11 +24,30 @@ import com.will.play.mine.ui.viewmodel.MineInfoEditViewModel
  * @Author: pengyushan
  */
 class MineInfoEditActivity : BaseActivity<MineActivityInfoEditBinding, MineInfoEditViewModel>() {
+
+    private val request = 100
+
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.mine_activity_info_edit
     }
 
     override fun initVariableId(): Int {
         return BR.viewModel
+    }
+
+    override fun initViewObservable() {
+        super.initViewObservable()
+        viewModel.takePhone.observe(this, Observer {
+//            EasyPhotos.createAlbum(this, true, GlideEngine.getInstance())
+//                    .start(request);
+            MaterialDialogUtils.showBasicListDialog(this,"", mutableListOf("1","2"))
+        })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == request){
+
+        }
     }
 }
