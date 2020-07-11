@@ -13,18 +13,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp10"
         android:background="@color/color_FFFFFF"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:onClickCommand="@{viewModel.itemClick}"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp10">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_item_res"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp18"
+            android:layout_height="@dimen/dp18"
+            android:layout_marginTop="@dimen/dp10"
             android:src="@color/color_FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:resDrawable="@{viewModel.imageDrawable}"
             tools:src="@mipmap/base_mine_douyin" />
 
         <TextView
@@ -33,11 +36,19 @@
             android:layout_marginStart="@dimen/dp20"
             android:text="@{viewModel.title}"
             android:textSize="@dimen/sp14"
+            app:layout_constraintBottom_toBottomOf="@id/mine_item_res"
             app:layout_constraintStart_toEndOf="@+id/mine_item_res"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mine_item_res"
             tools:ignore="RtlCompat"
             tools:text="hello" />
 
-
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@color/color_F0F0F0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mine_item_res" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

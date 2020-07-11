@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/color_F0F0F0"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp32"
             android:layout_marginTop="@dimen/dp44"
+            app:onClickCommand="@{viewModel.leftClick}"
             android:src="@mipmap/base_mine_left_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp32"
             android:layout_marginTop="@dimen/dp44"
+            app:onClickCommand="@{viewModel.rightCLick}"
             android:src="@mipmap/base_mine_setting"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -69,10 +72,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/dp32"
-            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp20"
             android:layout_marginEnd="@dimen/dp32"
             app:itemBinding="@{viewModel.itemBinding}"
             app:items="@{viewModel.items}"
+            android:background="@drawable/home_item_bg"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
