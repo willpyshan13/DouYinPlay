@@ -9,4 +9,5 @@
     <string name="pick_good_detail_qu_fen_vip">趣粉VIP专区</string>
     <string name="pick_good_detail_vip_for_free">免费申请</string>
     <string name="pick_good_detail_limit_for_get">数量有限,先到先得</string>
+    <string name="pick_good_detail_title">商品详情</string>
 </resources>

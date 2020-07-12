@@ -1,15 +1,19 @@
 package com.will.play.pick.ui.viewmodel
 
 import android.app.Application
+import androidx.recyclerview.widget.DiffUtil
 import com.will.habit.base.BaseViewModel
+import com.will.habit.binding.collection.DiffObservableArrayList
+import com.will.habit.utils.StringUtils
+import com.will.play.pick.R
+import com.will.play.pick.BR
 import com.will.play.pick.repository.PickRepository
+import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
- * Desc:
+ * Desc:商品详情页
  *
  * Date: 2020-07-11 18:03
- * Copyright: Copyright (c) 2018-2020
- * Company: @微微科技有限公司
  * Updater:
  * Update Time:
  * Update Comments:
@@ -17,4 +21,35 @@ import com.will.play.pick.repository.PickRepository
  * @Author: zhuanghongzhan
  */
 class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRepository>(application) {
+
+    val itemList = DiffObservableArrayList(object : DiffUtil.ItemCallback<PickDataItem>() {
+        override fun areItemsTheSame(oldItem: PickDataItem, newItem: PickDataItem): Boolean {
+            return true
+        }
+
+        override fun areContentsTheSame(oldItem: PickDataItem, newItem: PickDataItem): Boolean {
+            return true
+        }
+    })
+
+    val itemBinding = ItemBinding.of<PickDataItem> { binding, _, item ->
+        when (item) {
+            is PickDataItem -> binding.set(BR.viewModel, R.layout.fragment_pick_item)
+        }
+    }
+
+    init {
+        val list= mutableListOf<PickDataItem>()
+        for(i in 1..2){
+            list.add(PickDataItem(this))
+        }
+        itemList.submit(list,false)
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        setTitleText(StringUtils.getStringResource(R.string.pick_good_detail_title))
+
+    }
+
 }

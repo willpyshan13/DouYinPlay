@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/vip_content_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp30"
+        android:background="@mipmap/pick_ic_vip_dialog_content_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/vip_title_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/pick_ic_vip_dialog_title_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/vip_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp26"
+        android:src="@mipmap/pick_ic_vip_big"
+        app:layout_constraintBottom_toBottomOf="@+id/vip_title_bg"
+        app:layout_constraintStart_toStartOf="@+id/vip_title_bg"
+        app:layout_constraintTop_toTopOf="@+id/vip_title_bg" />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp20"
+        android:text="开通VIP立即领取原创带货视频！ 专业团队制作的视频成品 无需自己拿商品拍摄、剪辑 下载后可直接发布抖音 视频不重复、有创意、有卖点 轻松上热门，佣金赚不停！"
+        android:textSize="@dimen/sp13"
+        app:layout_constraintEnd_toEndOf="@+id/vip_content_bg"
+        app:layout_constraintStart_toStartOf="@+id/vip_content_bg"
+        app:layout_constraintTop_toBottomOf="@+id/vip_title_bg" />
+
+
+    <TextView
+        android:id="@+id/dialog_tv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp10"
+        android:text="暂不领取"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_center_space"
+        app:layout_constraintStart_toStartOf="@+id/vip_content_bg" />
+
+
+    <View
+        android:id="@+id/dialog_center_space"
+        android:layout_width="1px"
+        android:layout_height="@dimen/dp20"
+        android:layout_marginBottom="@dimen/dp7"
+        android:background="@color/color_000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/dialog_tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp10"
+        android:text="开通VIP领取"
+        android:textColor="@color/color_FF0000"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/vip_content_bg"
+        app:layout_constraintStart_toEndOf="@+id/dialog_center_space" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

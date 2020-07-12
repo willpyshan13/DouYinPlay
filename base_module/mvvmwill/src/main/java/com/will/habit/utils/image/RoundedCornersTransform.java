@@ -27,7 +27,6 @@ import java.security.MessageDigest;
  * <p>
  * Date: 2019-11-15
  * Copyright: Copyright (c) 2010-2019
- * Company: @微微科技有限公司
  * Updater:
  * Update Time:
  * Update Comments:
