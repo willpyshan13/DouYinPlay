@@ -140,6 +140,7 @@
                 android:id="@+id/pick_good_detail_vip_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:onClickCommand="@{viewModel.onVipDialogClick}"
                 android:layout_marginTop="@dimen/dp7"
                 android:background="@drawable/pick_shape_round_ffc546_14"
                 app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_sales">

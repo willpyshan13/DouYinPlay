@@ -4,6 +4,9 @@ import android.app.Application
 import androidx.recyclerview.widget.DiffUtil
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.collection.DiffObservableArrayList
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.utils.StringUtils
 import com.will.play.pick.R
 import com.will.play.pick.BR
@@ -22,6 +25,8 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRepository>(application) {
 
+    val uiChange = UiChangeObservable()
+
     val itemList = DiffObservableArrayList(object : DiffUtil.ItemCallback<PickDataItem>() {
         override fun areItemsTheSame(oldItem: PickDataItem, newItem: PickDataItem): Boolean {
             return true
@@ -38,12 +43,21 @@ class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRep
         }
     }
 
+    /**
+     * 开通vip的对话框
+     */
+    val onVipDialogClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            uiChange.vipDialog.call()
+        }
+    })
+
     init {
-        val list= mutableListOf<PickDataItem>()
-        for(i in 1..2){
+        val list = mutableListOf<PickDataItem>()
+        for (i in 1..2) {
             list.add(PickDataItem(this))
         }
-        itemList.submit(list,false)
+        itemList.submit(list, false)
     }
 
     override fun onCreate() {
@@ -51,5 +65,11 @@ class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRep
         setTitleText(StringUtils.getStringResource(R.string.pick_good_detail_title))
 
     }
+
+
+    class UiChangeObservable {
+        val vipDialog = SingleLiveEvent<Unit>()
+    }
+
 
 }

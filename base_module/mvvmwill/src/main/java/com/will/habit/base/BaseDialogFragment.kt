@@ -1,5 +1,6 @@
 package com.will.habit.base
 
+import android.annotation.SuppressLint
 import androidx.databinding.ViewDataBinding
 import com.will.habit.widget.dialog.CommonDialogFragment
 
@@ -104,6 +105,7 @@ abstract class BaseDialogFragment<V : ViewDataBinding, VM : BaseDialogViewModel<
     /**
      * 注册ViewModel与View的契约UI回调事件
      */
+    @SuppressLint("FragmentLiveDataObserve")
     private fun registerUiChangeLiveDataCallback() {
         /*
          *加载loading Dialog
@@ -117,9 +119,12 @@ abstract class BaseDialogFragment<V : ViewDataBinding, VM : BaseDialogViewModel<
         /*
          * 跳入新页面
          */
-        viewModel.uc.startActivityEvent.observe(this, Observer<Map<String, Any>> { params ->
-            val clz = params[BaseViewModel.ParameterField.CLASS] as Class<*>
-            val bundle = params[BaseViewModel.ParameterField.BUNDLE] as? Bundle
+        viewModel.uc.startActivityEvent.observe(this, Observer { params ->
+            if (params == null) {
+                return@Observer
+            }
+            val clz = params!![BaseViewModel.ParameterField.CLASS] as Class<*>
+            val bundle = params!![BaseViewModel.ParameterField.BUNDLE] as Bundle
             startActivity(clz, bundle)
         })
 
