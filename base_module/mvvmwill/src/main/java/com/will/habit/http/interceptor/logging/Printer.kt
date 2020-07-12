@@ -63,7 +63,7 @@ internal class Printer protected constructor() {
         }
 
         fun printJsonResponse(builder: LoggingInterceptor.Builder, chainMs: Long, isSuccessful: Boolean,
-                              code: Int, headers: String, bodyString: String, segments: List<String>) {
+                              code: Int, headers: String, bodyString: String, segments: List<String>?) {
             val responseBody = LINE_SEPARATOR + BODY_TAG + LINE_SEPARATOR + getJsonString(bodyString)
             val tag = builder.getTag(false)
             if (builder.logger == null) log(builder.type, tag, RESPONSE_UP_LINE)
@@ -98,7 +98,7 @@ internal class Printer protected constructor() {
         }
 
         fun printFileResponse(builder: LoggingInterceptor.Builder, chainMs: Long, isSuccessful: Boolean,
-                              code: Int, headers: String, segments: List<String>) {
+                              code: Int, headers: String, segments: List<String>?) {
             val tag = builder.getTag(false)
             if (builder.logger == null) log(builder.type, tag, RESPONSE_UP_LINE)
             logLines(builder.type, tag, getResponse(headers, chainMs, code, isSuccessful,
@@ -117,7 +117,7 @@ internal class Printer protected constructor() {
         }
 
         private fun getResponse(header: String, tookMs: Long, code: Int, isSuccessful: Boolean,
-                                level: Level, segments: List<String>): Array<String?> {
+                                level: Level, segments: List<String>?): Array<String?> {
             val message: String
             val loggableHeader = level === Level.HEADERS || level === Level.BASIC
             val segmentString = slashSegments(segments)
@@ -128,10 +128,12 @@ internal class Printer protected constructor() {
             return message.split(LINE_SEPARATOR!!).toTypedArray()
         }
 
-        private fun slashSegments(segments: List<String>): String {
+        private fun slashSegments(segments: List<String>?): String {
             val segmentString = StringBuilder()
-            for (segment in segments) {
-                segmentString.append("/").append(segment)
+            if (segments!=null) {
+                for (segment in segments) {
+                    segmentString.append("/").append(segment)
+                }
             }
             return segmentString.toString()
         }

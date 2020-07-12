@@ -16,6 +16,7 @@ import com.will.habit.utils.StringUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
 import com.will.play.mine.BR
+import com.will.play.mine.repository.MineLoginRepository
 import com.will.play.mine.repository.MineRepository
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
@@ -30,7 +31,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class MineLoginViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
+class MineLoginViewModel(application: Application) :BaseViewModel<MineLoginRepository>(application) {
     val verifyBtnVisible = ObservableInt(View.GONE)
 
     val verifyText = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_title_phone))
@@ -48,7 +49,9 @@ class MineLoginViewModel(application: Application) :BaseViewModel<MineRepository
 
     val onLoginClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-
+            launch({
+                model.login("15392422500","654320")
+            })
         }
     })
 

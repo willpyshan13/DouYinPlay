@@ -49,7 +49,7 @@ class LoggingInterceptor private constructor(private val builder: Builder) : Int
         }
         val st = System.nanoTime()
         val response = chain.proceed(request)
-        val segmentList = (request.tag() as Request).url.encodedPathSegments
+        val segmentList = (request.tag() as? Request)?.url?.encodedPathSegments
         val chainMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - st)
         val header = response.headers.toString()
         val code = response.code

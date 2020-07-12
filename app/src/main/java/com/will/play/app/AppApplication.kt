@@ -1,7 +1,6 @@
 package com.will.play.app
 
 import android.content.Context
-import android.content.Intent
 import androidx.multidex.MultiDex
 import com.will.habit.base.BaseApplication
 import com.will.habit.crash.CaocConfig
@@ -11,7 +10,7 @@ import com.will.play.BuildConfig
 import com.will.play.R
 import com.will.play.aop.login.core.ILogin
 import com.will.play.aop.login.core.LoginSDK
-import com.will.play.mine.ui.activity.LoginActivity
+import com.will.play.mine.ui.activity.MineLoginActivity
 
 /**
  * will
@@ -52,7 +51,7 @@ class AppApplication : BaseApplication() {
                 .trackActivities(true) //是否跟踪Activity
                 .minTimeBetweenCrashesMs(2000) //崩溃的间隔时间(毫秒)
                 .errorDrawable(R.mipmap.ic_launcher) //错误图标
-                .restartActivity(LoginActivity::class.java) //重新启动后的activity
+                .restartActivity(MineLoginActivity::class.java) //重新启动后的activity
                 //                .errorActivity(YourCustomErrorActivity.class) //崩溃后的错误activity
                 //                .eventListener(new YourCustomEventListener()) //崩溃后的错误监听
                 .apply()

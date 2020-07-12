@@ -13,6 +13,7 @@ import com.trello.rxlifecycle4.LifecycleProvider
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
+import com.will.habit.utils.Tutil
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -23,7 +24,7 @@ import java.util.*
  * @author will
  *
  */
-open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(application: Application, @JvmField var model: M? = null) : AndroidViewModel(application), IBaseViewModel, Consumer<Disposable?> {
+open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(application: Application) : AndroidViewModel(application), IBaseViewModel, Consumer<Disposable?> {
     private var uc: UIChangeLiveData? = null
 
     //标题文字
@@ -48,6 +49,16 @@ open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(applicatio
             mCompositeDisposable = CompositeDisposable()
         }
         mCompositeDisposable!!.add(disposable!!)
+    }
+
+    val model: M by lazy {
+        Tutil.getNewInstance<M>(this, 0).apply {
+            val baseView = this@BaseViewModel
+            if (baseView is BaseView) {
+                val model = this as BaseModel<BaseView>
+                model.setVm(baseView)
+            }
+        }
     }
 
     /**
