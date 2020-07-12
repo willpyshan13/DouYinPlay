@@ -2,11 +2,15 @@ package com.will.play.mine.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.huantansheng.easyphotos.EasyPhotos
 import com.will.habit.base.BaseActivity
 import com.will.habit.utils.GlideEngine
 import com.will.habit.utils.MaterialDialogUtils
+import com.will.habit.utils.StringUtils
+import com.will.habit.utils.Utils
+import com.will.habit.widget.dialog.ChoiceDialog
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityAddressBinding
@@ -25,7 +29,9 @@ import com.will.play.mine.ui.viewmodel.MineInfoEditViewModel
  */
 class MineInfoEditActivity : BaseActivity<MineActivityInfoEditBinding, MineInfoEditViewModel>() {
 
-    private val request = 100
+    private val requestGallery = 100
+
+    private val requestCamera = 101
 
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.mine_activity_info_edit
@@ -38,15 +44,22 @@ class MineInfoEditActivity : BaseActivity<MineActivityInfoEditBinding, MineInfoE
     override fun initViewObservable() {
         super.initViewObservable()
         viewModel.takePhone.observe(this, Observer {
-//            EasyPhotos.createAlbum(this, true, GlideEngine.getInstance())
-//                    .start(request);
-            MaterialDialogUtils.showBasicListDialog(this,"", mutableListOf("1","2"))
+            ChoiceDialog(this,true).setItems(Utils.getContext().resources.getStringArray(R.array.mine_picture))
+                    .hasCancleButton(true)
+                    .setOnItemClickListener { _, position ->
+                        when (position) {
+                            0 -> EasyPhotos.createAlbum(this, true, GlideEngine.getInstance())
+                                    .start(requestGallery);
+                            else -> EasyPhotos.createCamera(this).setFileProviderAuthority("com.will").start(requestCamera)
+                        }
+
+                    }.create().show()
         })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == request){
+        if (requestCode == requestGallery) {
 
         }
     }
