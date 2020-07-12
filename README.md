@@ -86,3 +86,10 @@ will1313
 2、状态布局
 
 
+git 提交注释示例
+Feat: 新功能
+Upgrade：功能升级或代码变更
+Fix: Bug修复
+Doc: 文档或README编写
+Style: 主题UI变更
+Test：新增测试代码

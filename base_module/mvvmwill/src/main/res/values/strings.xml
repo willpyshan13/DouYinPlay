@@ -16,5 +16,5 @@
     <string name="footer_loading">加载中</string>
     <string name="footer_end">- 结束 -</string>
     <string name="common_wait_loading">请等待</string>
-
+    <string name="base_dialog_cancel">取消</string>
 </resources>
