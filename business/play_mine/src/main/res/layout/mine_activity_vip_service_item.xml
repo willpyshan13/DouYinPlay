@@ -16,8 +16,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_vip_service_item_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
             android:src="@mipmap/base_vip_service_1"
             app:resDrawable="@{viewModel.resDrawable}"
             app:layout_constraintEnd_toEndOf="parent"
