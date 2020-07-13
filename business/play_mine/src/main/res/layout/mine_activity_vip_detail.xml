@@ -13,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp16"
+        android:padding="@dimen/dp16"
+        android:background="@color/color_F0F0F0"
         android:orientation="vertical">
 
 
@@ -31,9 +32,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
-            android:text="会员价格"
+            android:text="超级会员价格"
             app:layout_constraintStart_toStartOf="@+id/mine_vip_detail_top_vip_icon"
-            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_icon"
+            app:layout_constraintTop_toTopOf="@+id/mine_vip_detail_top_vip_icon"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -49,11 +50,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mine_vip_detail_vip_layout_1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_icon">
+            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_sub_title">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/mine_vip_detail_top_vip1_title"
@@ -99,7 +100,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mine_vip_detail_vip_layout_2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +150,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mine_vip_detail_vip_layout_3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +204,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
             android:drawableStart="@mipmap/base_bg_title"
-            android:text="会员介绍"
+            android:text="超级会员介绍"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_3"
             tools:ignore="RtlCompat" />
