@@ -12,6 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp10"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -30,6 +31,7 @@
             android:drawablePadding="@dimen/dp20"
             android:text="@{viewModel.title}"
             android:textSize="@dimen/sp14"
+            android:textColor="@color/color_FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mine_vip_service_item_image"
