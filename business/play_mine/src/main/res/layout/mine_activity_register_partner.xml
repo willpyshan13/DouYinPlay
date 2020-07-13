@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineRegisterPartnerViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_F0F0F0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp16"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/partner_create_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="创建商家"
+                android:textSize="@dimen/sp20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/partner_create_introduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="向达人介绍一下自己吧"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/partner_create_title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/partner_tv_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="头像"
+                app:layout_constraintBottom_toBottomOf="@+id/partner_header_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/partner_header_icon" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/partner_header_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:src="@mipmap/base_head_circle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/partner_create_introduction" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/partner_divider1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/base_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/partner_header_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/partner_tv_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="联系人"
+                app:layout_constraintBottom_toBottomOf="@+id/partner_et_contact"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/partner_et_contact" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/partner_et_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp44"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="请输入联系人"
+                android:textSize="@dimen/sp12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/partner_divider1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/partner_divider2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/base_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/partner_et_contact" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/partner_tv_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公司名称"
+                app:layout_constraintBottom_toBottomOf="@+id/partner_et_company"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/partner_et_company" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/partner_et_company"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp44"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="请输入公司名称"
+                android:textSize="@dimen/sp12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/partner_divider2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/partner_divider3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/base_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/partner_et_company" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/partner_tv_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="上传资料"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/partner_divider3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/partner_bg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/base_grey_bg"
+                android:paddingBottom="@dimen/dp15"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/partner_tv_upload">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/partner_notice1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="注意事项"
+                    app:layout_constraintStart_toStartOf="@+id/partner_bg"
+                    app:layout_constraintTop_toTopOf="@+id/partner_bg"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/partner_notice2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:text="1.请输入您所属公司的营业执照上的名称"
+                    app:layout_constraintStart_toStartOf="@+id/partner_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/partner_notice1"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/partner_notice3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:text="2.请注意区分总公司合分公司"
+                    app:layout_constraintStart_toStartOf="@+id/partner_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/partner_notice2"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/partner_notice4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:text="3.公司名称将用于后续的企业认证使用，请确保准确性"
+                    app:layout_constraintStart_toStartOf="@+id/partner_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/partner_notice3"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp30"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:src="@mipmap/base_add_partner"
+                    app:layout_constraintStart_toStartOf="@+id/partner_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/partner_notice4"
+                    tools:ignore="RtlCompat" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/partner_divider4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/base_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/partner_tv_phone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/partner_tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="公司电话"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/partner_bg" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/partner_et_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp44"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="请输入电话"
+                android:textSize="@dimen/sp12"
+                app:layout_constraintBottom_toBottomOf="@+id/partner_tv_phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/partner_tv_phone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp30"
+                android:background="@mipmap/base_partner_btn"
+                android:gravity="center"
+                android:text="完成"
+                android:textColor="@color/color_000000"
+                android:textSize="@dimen/sp20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/partner_tv_phone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
