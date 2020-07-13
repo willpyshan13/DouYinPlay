@@ -159,6 +159,7 @@
                     android:layout_marginStart="@dimen/dp10"
                     android:layout_marginTop="@dimen/dp10"
                     android:text="注意事项"
+                    android:textSize="@dimen/sp10"
                     app:layout_constraintStart_toStartOf="@+id/partner_bg"
                     app:layout_constraintTop_toTopOf="@+id/partner_bg"
                     tools:ignore="RtlCompat" />
@@ -168,6 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp10"
+                    android:textSize="@dimen/sp10"
                     android:text="1.请输入您所属公司的营业执照上的名称"
                     app:layout_constraintStart_toStartOf="@+id/partner_bg"
                     app:layout_constraintTop_toBottomOf="@+id/partner_notice1"
@@ -179,6 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp10"
                     android:text="2.请注意区分总公司合分公司"
+                    android:textSize="@dimen/sp10"
                     app:layout_constraintStart_toStartOf="@+id/partner_bg"
                     app:layout_constraintTop_toBottomOf="@+id/partner_notice2"
                     tools:ignore="RtlCompat" />
@@ -187,6 +190,7 @@
                     android:id="@+id/partner_notice4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp10"
                     android:layout_marginStart="@dimen/dp10"
                     android:layout_marginEnd="@dimen/dp10"
                     android:text="3.公司名称将用于后续的企业认证使用，请确保准确性"
