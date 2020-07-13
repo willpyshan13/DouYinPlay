@@ -13,17 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp16"
         android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/mine_vip_top"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/base_background_home"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_vip_second"
@@ -32,12 +22,24 @@
             android:background="@mipmap/base_vip_bg1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/mine_vip_back" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_vip_top"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp82"
+            android:background="@mipmap/base_top_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_vip_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp44"
+            android:layout_marginTop="@dimen/dp34"
+            android:layout_marginStart="@dimen/dp16"
             android:src="@mipmap/base_icon_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -45,8 +47,9 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp44"
+            android:layout_marginTop="@dimen/dp34"
             android:text="我的会员"
+            android:textSize="@dimen/sp18"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,18 +58,20 @@
             android:id="@+id/mine_binding_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp42"
+            android:layout_marginTop="@dimen/dp60"
             android:src="@mipmap/base_vip_header_icon"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/mine_vip_second" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/mine_address_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp6"
             android:text="用户名"
-            android:textSize="@dimen/sp20"
-            app:layout_constraintBottom_toBottomOf="@id/mine_binding_head"
+            android:textColor="@color/color_FFC766"
+            android:textSize="@dimen/sp14"
             app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
             app:layout_constraintTop_toTopOf="@id/mine_binding_head"
             tools:ignore="RtlCompat" />
@@ -75,11 +80,10 @@
             android:id="@+id/mine_address_tv_name_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
             android:text="会员2020.12.30到期"
+            android:textColor="@color/color_FFC766"
             app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
             app:layout_constraintTop_toBottomOf="@id/mine_address_tv_name"
-            app:layout_constraintTop_toTopOf="@id/mine_binding_head"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -87,9 +91,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp46"
             android:text="用户1111111"
+            android:textColor="@color/color_FFC766"
             app:layout_constraintBottom_toTopOf="@id/mine_address_tv_name_desc"
-            app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="RtlCompat" />
 
 
@@ -97,6 +103,7 @@
             android:id="@+id/mine_vip_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp46"
             android:background="@mipmap/base_vip_btn"
             android:gravity="center"
             android:text="续费会员"
@@ -105,8 +112,9 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_vip_image"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp268"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
             android:src="@mipmap/base_home_banner_default"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -116,8 +124,13 @@
             android:id="@+id/mine_vip_list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp28"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp28"
+            app:itemBinding="@{viewModel.vipLayout.itemBinding}"
+            app:items="@{viewModel.vipLayout.items}"
             android:background="@mipmap/base_vip_bottom_bg"
-            android:paddingTop="@dimen/dp40"
+            android:paddingTop="@dimen/dp30"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

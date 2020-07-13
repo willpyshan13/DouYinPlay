@@ -27,4 +27,8 @@ class MineVipActivity : BaseActivity<MineActivityVipBinding, MineVipViewModel>()
     override fun initVariableId(): Int {
         return BR.viewModel
     }
+
+    override fun needToolBar(): Boolean {
+        return false
+    }
 }

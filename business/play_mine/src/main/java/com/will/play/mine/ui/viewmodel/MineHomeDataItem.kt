@@ -7,10 +7,7 @@ import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.utils.Utils
-import com.will.play.mine.ui.activity.MineAddDouyinActivity
-import com.will.play.mine.ui.activity.MineDouyinBindingActivity
-import com.will.play.mine.ui.activity.MineLoginActivity
-import com.will.play.mine.ui.activity.MineWalletActivity
+import com.will.play.mine.ui.activity.*
 
 /**
  * 设置中心，item
@@ -25,6 +22,7 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
     val itemClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             when (itemType) {
+                item_type_vip -> viewModel.startActivity(MineVipActivity::class.java)
                 item_type_wallet -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_message -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_binding_taobao -> viewModel.startActivity(MineWalletActivity::class.java)
@@ -46,5 +44,6 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
         const val item_type_guide = 5
         const val item_type_contract = 6
         const val item_type_custom_service = 7
+        const val item_type_vip = 8
     }
 }

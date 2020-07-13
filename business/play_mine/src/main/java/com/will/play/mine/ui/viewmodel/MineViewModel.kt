@@ -22,6 +22,7 @@ import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_cour
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_custom_service
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_guide
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_message
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_vip
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_wallet
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
@@ -88,6 +89,7 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
             viewModels.add(MineHomeHeaderItem(this))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_vip_icon, "我的会员", item_type_vip))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_wallet, "我的钱包", item_type_wallet))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_course, "我的消息", item_type_message))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_taobao, "绑定淘宝", item_type_binding_taobao))
