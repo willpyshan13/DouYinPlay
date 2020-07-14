@@ -25,5 +25,5 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * @Author: pengyushan
  */
 class MineVipPayViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
-
+    val vipLayout = MineVipLayoutItem(this)
 }

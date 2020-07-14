@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.viewmodel
 
 import androidx.recyclerview.widget.DiffUtil
+import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.collection.DiffObservableArrayList
 import com.will.habit.binding.command.BindingAction
@@ -13,7 +14,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 /**
  * @author will
  */
-class MineVipLayoutItem(viewModel:MineVipViewModel) :ItemViewModel<MineVipViewModel>(viewModel) {
+class MineVipLayoutItem(viewModel: BaseViewModel<*>) :ItemViewModel<BaseViewModel<*>>(viewModel) {
     val itemBinding: ItemBinding<MineVipServiceItem> = ItemBinding.of { itemBinding, _, _ ->
         itemBinding.set(BR.viewModel, R.layout.mine_activity_vip_service_item)
     }

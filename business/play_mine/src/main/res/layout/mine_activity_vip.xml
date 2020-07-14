@@ -112,11 +112,12 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_vip_image"
-            android:layout_width="@dimen/dp268"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp324"
+            android:layout_height="@dimen/dp136"
+            android:scaleType="centerCrop"
             android:layout_marginTop="@dimen/dp10"
             app:onClickCommand="@{viewModel.onVipClick}"
-            android:src="@mipmap/base_home_banner_default"
+            android:src="@mipmap/base_mine_vip_banner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mine_vip_btn" />
@@ -126,7 +127,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp28"
-            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp10"
             android:layout_marginEnd="@dimen/dp28"
             android:paddingBottom="@dimen/dp10"
             app:itemBinding="@{viewModel.vipLayout.itemBinding}"
