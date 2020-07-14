@@ -13,29 +13,23 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/dp16"
         android:background="@color/color_F0F0F0"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/dp16">
 
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_vip_detail_top_vip_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/base_home_banner_default"
+            android:layout_width="@dimen/dp322"
+            android:layout_height="@dimen/dp114"
+            android:layout_marginStart="@dimen/dp12"
+            android:layout_marginEnd="@dimen/dp12"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/base_mine_vip_bg_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_vip_detail_top_vip_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="超级会员价格"
-            app:layout_constraintStart_toStartOf="@+id/mine_vip_detail_top_vip_icon"
-            app:layout_constraintTop_toTopOf="@+id/mine_vip_detail_top_vip_icon"
-            tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/mine_vip_detail_top_vip_sub_title"
@@ -52,6 +46,11 @@
             android:id="@+id/mine_vip_detail_vip_layout_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/home_item_bg"
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10"
+            android:paddingBottom="@dimen/dp10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_sub_title">
@@ -91,7 +90,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
+                android:background="@mipmap/base_mine_vip_open_btn"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/dp10"
+                android:paddingTop="@dimen/dp5"
+                android:paddingEnd="@dimen/dp10"
+                android:paddingBottom="@dimen/dp5"
                 android:text="开通"
+                android:textColor="@color/color_FFC766"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -102,6 +108,11 @@
             android:id="@+id/mine_vip_detail_vip_layout_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/home_item_bg"
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10"
+            android:paddingBottom="@dimen/dp10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_1">
@@ -141,7 +152,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
+                android:background="@mipmap/base_mine_vip_open_btn"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/dp10"
+                android:paddingTop="@dimen/dp5"
+                android:paddingEnd="@dimen/dp10"
+                android:paddingBottom="@dimen/dp5"
                 android:text="开通"
+                android:textColor="@color/color_FFC766"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -152,6 +170,11 @@
             android:id="@+id/mine_vip_detail_vip_layout_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/home_item_bg"
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10"
+            android:paddingBottom="@dimen/dp10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_2">
@@ -191,7 +214,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
+                android:background="@mipmap/base_mine_vip_open_btn"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/dp10"
+                android:paddingTop="@dimen/dp5"
+                android:paddingEnd="@dimen/dp10"
+                android:paddingBottom="@dimen/dp5"
                 android:text="开通"
+                android:textColor="@color/color_FFC766"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -209,5 +239,17 @@
             app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_3"
             tools:ignore="RtlCompat" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_vip_detail_top_vip_desc"
+            android:layout_width="@dimen/dp328"
+            android:layout_height="@dimen/dp208"
+            android:layout_marginStart="@dimen/dp12"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp12"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/base_mine_vip_bg_normal_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_sub_desc" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
