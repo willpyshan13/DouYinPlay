@@ -12,37 +12,80 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        android:background="@color/color_F0F0F0"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_vip_pay_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@mipmap/base_vip_person_icon"
-            android:text="好友一起购买"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mine_pay_layout_share"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/home_item_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_pay_layout"
+            app:layout_constraintEnd_toStartOf="@+id/mine_pay_layout"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="RtlCompat" />
+            app:layout_constraintTop_toTopOf="@+id/mine_pay_layout">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_vip_pay_share_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="108￥"
-            app:layout_constraintBottom_toBottomOf="@+id/mine_vip_pay_share"
-            app:layout_constraintStart_toEndOf="@+id/mine_vip_pay_share"
-            app:layout_constraintTop_toTopOf="@+id/mine_vip_pay_share"
-            tools:ignore="RtlCompat" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_vip_pay_share"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/base_vip_person_icon"
+                android:gravity="center"
+                android:text="好友一起购买"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/dp30"
+                tools:ignore="RtlCompat" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_vip_pay_share_money1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥108"
+                android:textColor="@color/red"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintStart_toEndOf="@+id/mine_vip_pay_share"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="RtlCompat" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_vip_pay_now"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="立即购买"
-            app:layout_constraintBottom_toBottomOf="@+id/mine_vip_pay_share"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/mine_vip_pay_share"
-            tools:ignore="RtlCompat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mine_pay_layout"
+            android:layout_width="@dimen/dp130"
+            android:layout_height="@dimen/dp50"
+            android:background="#333333"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_vip_pay_share_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥180"
+                android:textColor="@color/red"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlCompat" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_vip_pay_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="立即购买"
+                android:textColor="@color/color_FFC766"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_share_money"
+                tools:ignore="RtlCompat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
@@ -106,6 +149,13 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp22"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp22"
+                    android:background="@drawable/home_item_bg"
+                    android:paddingStart="@dimen/dp20"
+                    android:paddingEnd="@dimen/dp20"
+                    android:paddingBottom="@dimen/dp20"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/mine_vip_list">
@@ -114,56 +164,144 @@
                         android:id="@+id/mine_vip_pay_service_open"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
                         android:text="服务开通"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="抖趣拍超级会员"
+                        android:textColor="@color/color_FFC766"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mine_vip_pay_service_open"
+                        app:layout_constraintBottom_toBottomOf="@+id/mine_vip_pay_service_open"
+                        tools:ignore="RtlCompat" />
+
+                    <View
+                        android:id="@+id/mine_vip_pay_line1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@mipmap/base_divider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_open" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/mine_vip_pay_service_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
                         android:text="服务时长"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_open" />
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_line1" />
+
+                    <View
+                        android:id="@+id/mine_vip_pay_line2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@mipmap/base_divider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_time" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/mine_vip_pay_service_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
                         android:text="应付金额"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_time" />
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_line2" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="￥180"
+                        android:textColor="@color/color_FFC766"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mine_vip_pay_service_price"
+                        app:layout_constraintBottom_toBottomOf="@+id/mine_vip_pay_service_price"
+                        tools:ignore="RtlCompat" />
+
+
+                    <View
+                        android:id="@+id/mine_vip_pay_line3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@mipmap/base_divider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_price" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/mine_vip_pay_service_pay_way"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
                         android:text="支付方式"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_price" />
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_line3" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/mine_vip_pay_service_pay_way_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
                         android:src="@mipmap/base_vip_wechat"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_way" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/mine_vip_pay_service_pay_content"
+                        android:id="@+id/mine_vip_pay_service_pay_way_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="服务内容"
+                        android:text="微信支付"
+                        android:layout_marginStart="@dimen/dp10"
+                        app:layout_constraintTop_toTopOf="@+id/mine_vip_pay_service_pay_way_icon"
+                        app:layout_constraintBottom_toBottomOf="@+id/mine_vip_pay_service_pay_way_icon"
+                        app:layout_constraintStart_toEndOf="@+id/mine_vip_pay_service_pay_way_icon" />
+
+
+                    <View
+                        android:id="@+id/mine_vip_pay_line4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@mipmap/base_divider"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_way_icon" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mine_vip_pay_service_pay_content"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1.短视频服务一年\n"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="服务内容"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_line4" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mine_vip_pay_service_pay_content_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="1.短视频服务一年(视频制作教学)\n2.抖音起号1000粉丝账号一个"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_content" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="合计：￥180"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_content_desc" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
