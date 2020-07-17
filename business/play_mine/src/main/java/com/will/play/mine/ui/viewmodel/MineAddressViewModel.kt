@@ -1,22 +1,24 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
+import android.graphics.Color
+import android.widget.Toast
 import androidx.databinding.ObservableField
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.will.habit.base.BaseListViewModel
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener
+import com.bigkoo.pickerview.view.OptionsPickerView
+import com.google.gson.Gson
 import com.will.habit.base.BaseViewModel
-import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
-import com.will.habit.extection.launch
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.utils.StringUtils
-import com.will.habit.widget.recycleview.paging.LoadCallback
+import com.will.habit.utils.Utils
 import com.will.play.mine.R
-import com.will.play.mine.BR
+import com.will.play.mine.entity.JsonBean
 import com.will.play.mine.repository.MineRepository
-import me.tatarka.bindingcollectionadapter2.ItemBinding
-import java.util.*
+import com.will.play.mine.utils.JsonParseUtils
+import org.json.JSONArray
 
 /**
  * Desc:我的地址页面
@@ -29,20 +31,26 @@ import java.util.*
  *
  * @Author: pengyushan
  */
-class MineAddressViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
+class MineAddressViewModel(application: Application) : BaseViewModel<MineRepository>(application) {
+    val showPickerView = SingleLiveEvent<Void>()
     val userName = ObservableField("")
     val userPhone = ObservableField("")
     val userArea = ""
     val userAddress = ObservableField("")
 
+
     init {
         setTitleText(StringUtils.getStringResource(R.string.mine_address))
+
     }
 
-    val onAddressClick = BindingCommand<Any>(object :BindingAction{
+    val onAddressClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-
+            showPickerView.call()
         }
 
     })
+
+
+
 }
