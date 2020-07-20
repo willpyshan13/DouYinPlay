@@ -37,11 +37,9 @@ class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRep
         }
     })
 
-    val itemBinding = ItemBinding.of<PickDataItem> { binding, _, item ->
-        when (item) {
-            is PickDataItem -> binding.set(BR.viewModel, R.layout.fragment_pick_item)
-        }
-    }
+
+    val itemBinding = ItemBinding.of<PickDataItem>(BR.viewModel, R.layout.fragment_pick_item)
+
 
     /**
      * 开通vip的对话框

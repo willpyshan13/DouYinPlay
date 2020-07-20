@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="round_corner_radius" format="dimension" />
+        <attr name="round_corner_radius_left_top" format="dimension" />
+        <attr name="round_corner_radius_left_bottom" format="dimension" />
+        <attr name="round_corner_radius_right_top" format="dimension" />
+        <attr name="round_corner_radius_right_bottom" format="dimension" />
+        <attr name="round_corner_border_width" format="dimension"/>
+        <attr name="round_corner_border_color" format="color|reference"/>
+    </declare-styleable>
+
+
+</resources>

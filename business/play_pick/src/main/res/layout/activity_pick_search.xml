@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.will.play.pick.ui.viewmodel.PickSearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/search_top_bg_iv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp101"
+            android:background="@mipmap/base_background_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp34"
+            android:padding="@dimen/dp12"
+            android:src="@mipmap/icon_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onClickCommand="@{viewModel.backOnClick}" />
+
+
+        <TextView
+            android:id="@+id/home_image_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp22"
+            android:layout_marginTop="@dimen/dp37"
+            android:layout_marginEnd="@dimen/dp22"
+            android:background="@mipmap/base_bg_search"
+            android:drawableStart="@mipmap/base_bg_search_icon"
+            android:drawablePadding="@dimen/dp5"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp15"
+            android:paddingEnd="@dimen/dp15"
+            android:singleLine="true"
+            android:text="drawablePaddingdrawa"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Space
+            android:id="@+id/search_top_bg_bottom_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp15"
+            app:layout_constraintBottom_toBottomOf="@+id/search_top_bg_iv"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/search_top_tip_layout_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp30"
+            android:background="@color/color_FFFFFF"
+            app:layout_constraintTop_toTopOf="@+id/search_top_bg_bottom_space" />
+
+
+        <TextView
+            android:id="@+id/search_tv_tip_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="综合"
+            android:textColor="@color/color_FFC945"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintBottom_toBottomOf="@+id/search_top_tip_layout_bg"
+            app:layout_constraintEnd_toStartOf="@+id/search_tv_tip_2"
+            app:layout_constraintStart_toStartOf="@+id/search_top_tip_layout_bg"
+            app:layout_constraintTop_toTopOf="@+id/search_top_tip_layout_bg" />
+
+
+        <TextView
+            android:id="@+id/search_tv_tip_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="销量"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintBottom_toBottomOf="@+id/search_top_tip_layout_bg"
+            app:layout_constraintEnd_toStartOf="@+id/search_tv_tip_3"
+            app:layout_constraintStart_toEndOf="@+id/search_tv_tip_1"
+            app:layout_constraintTop_toTopOf="@+id/search_top_tip_layout_bg" />
+
+        <TextView
+            android:id="@+id/search_tv_tip_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="价格"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintBottom_toBottomOf="@+id/search_top_tip_layout_bg"
+            app:layout_constraintEnd_toStartOf="@+id/search_tv_tip_4"
+            app:layout_constraintStart_toEndOf="@+id/search_tv_tip_2"
+            app:layout_constraintTop_toTopOf="@+id/search_top_tip_layout_bg" />
+
+        <TextView
+            android:id="@+id/search_tv_tip_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="佣金比"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintBottom_toBottomOf="@+id/search_top_tip_layout_bg"
+            app:layout_constraintEnd_toStartOf="@+id/search_tv_tip_5"
+            app:layout_constraintStart_toEndOf="@+id/search_tv_tip_3"
+            app:layout_constraintTop_toTopOf="@+id/search_top_tip_layout_bg" />
+
+        <TextView
+            android:id="@+id/search_tv_tip_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="视频数"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintBottom_toBottomOf="@+id/search_top_tip_layout_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_tv_tip_4"
+            app:layout_constraintTop_toTopOf="@+id/search_top_tip_layout_bg" />
+
+        <TextView
+            android:id="@+id/search_tv_confirm_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginTop="@dimen/dp10"
+            android:drawableStart="@mipmap/pick_ic_search_confirm"
+            android:text="根据大部分用户的喜爱为您挑选以下商品"
+            android:textSize="@dimen/sp11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_top_tip_layout_bg" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp12"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_tv_confirm_tip"
+            tools:listitem="@layout/item_pick_search_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

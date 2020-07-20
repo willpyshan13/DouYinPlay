@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.pick.ui.viewmodel.PickSearchItemViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp7"
+        >
+
+
+        <com.will.play.base.widget.RoundCornerImageView
+            android:id="@+id/search_item_iv"
+            android:layout_width="@dimen/dp102"
+            android:layout_height="@dimen/dp102"
+            android:src="@color/color_D3D0D4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:round_corner_radius="@dimen/dp5"
+            android:layout_marginStart="@dimen/dp22"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:maxLines="2"
+            android:text="任天堂 三年老店 19种颜色 Switch主机 lite游戏机动物之森限定版NS日版森......"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_item_iv"
+            app:layout_constraintTop_toTopOf="@+id/search_item_iv"
+            android:layout_marginEnd="@dimen/dp21"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
