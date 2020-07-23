@@ -14,7 +14,10 @@
     <color name="textColorVice">#6C6C6C</color>
     <color name="viewLineColor">#F0F0F0</color>
     <color name="color_535353">#535353</color>
+    <color name="color_121212">#121212</color>
     <color name="color_313131">#313131</color>
+    <color name="color_424242">#424242</color>
+    <color name="color_919191">#919191</color>
     <color name="color_BFBFBF">#BFBFBF</color>
     <color name="color_FFE742">#FFE742</color>
     <color name="color_7D7D7D">#7D7D7D</color>
@@ -25,5 +28,10 @@
     <color name="color_262626">#262626</color>
     <color name="color_808080">#808080</color>
     <color name="color_B0B0B0">#B0B0B0</color>
+    <color name="color_E5E2E5">#E5E2E5</color>
+    <color name="color_F1EFF2">#F1EFF2</color>
+    <color name="color_FF9B65">#FF9B65</color>
+    <color name="color_F3F3F3">#F3F3F3</color>
+    <color name="color_FF8E3B">#FF8E3B</color>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.will.play.pick.ui.viewmodel
 
 import android.app.Application
+import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.DiffUtil
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.collection.DiffObservableArrayList
@@ -27,6 +28,11 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRepository>(application) {
 
     val uiChange = UiChangeObservable()
+
+
+    val tagItemBinding = ItemBinding.of<String>(BR.tagText, R.layout.item_pick_good_detail_tag_item_layout)
+
+    val tagItemList = ObservableArrayList<String>()
 
     val itemList = DiffObservableArrayList(object : DiffUtil.ItemCallback<PickDataItem>() {
         override fun areItemsTheSame(oldItem: PickDataItem, newItem: PickDataItem): Boolean {
@@ -60,7 +66,22 @@ class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRep
         }
     })
 
+    /**
+     * 分享对话框
+     */
+    val onShareDialogClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            uiChange.vipDialog.call()
+        }
+    })
+
+
     init {
+        tagItemList.add("佣金44.5")
+        tagItemList.add("原价44.5")
+        tagItemList.add("佣金比10％")
+
+
         val list = mutableListOf<PickDataItem>()
         for (i in 1..2) {
             list.add(PickDataItem(this))

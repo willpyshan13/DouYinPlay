@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="tagText"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp2"
+        android:layout_marginEnd="@dimen/dp2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pick_shape_good_detail_tag_item_bg"
+            android:paddingStart="@dimen/dp3"
+            android:paddingTop="@dimen/dp1"
+            android:paddingEnd="@dimen/dp3"
+            android:paddingBottom="@dimen/dp1"
+            android:text="@{tagText}"
+            android:textColor="@color/color_FF9B65"
+            android:textSize="@dimen/sp7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="可领取视频" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
