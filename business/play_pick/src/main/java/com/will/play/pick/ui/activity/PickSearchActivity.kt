@@ -8,7 +8,7 @@ import com.will.habit.base.BaseActivity
 import com.will.play.pick.databinding.ActivityPickSearchBinding
 
 /**
- * Desc:
+ * Desc:搜索页面
  *
  * Date: 2020-07-12
  * Updater:

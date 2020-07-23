@@ -22,6 +22,13 @@ object ViewAdapter {
     //    public static void setLayoutManager(RecyclerView recyclerView, LayoutManagers.LayoutManagerFactory layoutManagerFactory) {
     //        recyclerView.setLayoutManager(layoutManagerFactory.create(recyclerView));
     //    }
+
+    @JvmStatic
+    @BindingAdapter("hasFixedSize")
+    fun setHasFixedSize(recyclerView: RecyclerView, hasFixedSize: Boolean) {
+        recyclerView.setHasFixedSize(hasFixedSize)
+    }
+
     @BindingAdapter(value = ["onScrollChangeCommand", "onScrollStateChangedCommand"], requireAll = false)
     fun onScrollChangeCommand(recyclerView: RecyclerView,
                               onScrollChangeCommand: BindingCommand<ScrollDataWrapper?>?,

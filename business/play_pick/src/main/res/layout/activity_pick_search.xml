@@ -53,11 +53,11 @@
             android:paddingStart="@dimen/dp15"
             android:paddingEnd="@dimen/dp15"
             android:singleLine="true"
-            android:text="drawablePaddingdrawa"
             android:textSize="@dimen/sp14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_back"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="drawablePaddingdrawa" />
 
 
         <Space
@@ -154,6 +154,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/dp12"
+            app:hasFixedSize="@{true}"
+            app:itemBinding="@{viewModel.itemBinding}"
+            app:items="@{viewModel.itemList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_tv_confirm_tip"

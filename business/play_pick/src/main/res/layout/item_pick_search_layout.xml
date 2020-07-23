@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp7">
+        android:layout_marginTop="@dimen/dp8">
 
 
         <com.will.play.base.widget.RoundCornerImageView
@@ -62,20 +62,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp8"
             android:layout_marginBottom="@dimen/dp4"
+            android:text="单价"
             android:textSize="@dimen/sp10"
             app:layout_constraintBottom_toTopOf="@+id/search_item_tv_commission_price"
-            app:layout_constraintStart_toEndOf="@+id/search_item_iv"
-            tools:text="单价" />
+            app:layout_constraintStart_toEndOf="@+id/search_item_iv" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp8"
+            android:text="¥1999"
             android:textSize="@dimen/sp13"
             app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_unit_price_label"
-            app:layout_constraintStart_toEndOf="@+id/search_item_tv_unit_price_label"
-            tools:text="¥1999" />
+            app:layout_constraintStart_toEndOf="@+id/search_item_tv_unit_price_label" />
 
 
         <TextView
@@ -83,10 +83,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp8"
+            android:text="佣金"
             android:textSize="@dimen/sp10"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/search_item_iv"
-            tools:text="佣金" />
+            app:layout_constraintStart_toEndOf="@+id/search_item_iv" />
 
 
         <TextView
@@ -95,11 +95,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp6"
             android:includeFontPadding="false"
+            android:text="¥199"
             android:textColor="@color/color_FF0000"
             android:textSize="@dimen/sp19"
             app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_commission_label"
-            app:layout_constraintStart_toEndOf="@+id/search_item_tv_commission_label"
-            tools:text="¥199" />
+            app:layout_constraintStart_toEndOf="@+id/search_item_tv_commission_label" />
 
 
         <TextView
@@ -107,10 +107,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp8"
+            android:text="2554人付款"
             android:textSize="@dimen/sp7"
             app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_commission_label"
-            app:layout_constraintStart_toEndOf="@+id/search_item_tv_commission_price"
-            tools:text="2554人付款" />
+            app:layout_constraintStart_toEndOf="@+id/search_item_tv_commission_price" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

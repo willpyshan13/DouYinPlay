@@ -11,6 +11,7 @@ import com.will.habit.utils.StringUtils
 import com.will.play.pick.R
 import com.will.play.pick.BR
 import com.will.play.pick.repository.PickRepository
+import com.will.play.pick.ui.activity.PickSearchActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
@@ -40,6 +41,15 @@ class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRep
 
     val itemBinding = ItemBinding.of<PickDataItem>(BR.viewModel, R.layout.fragment_pick_item)
 
+
+    /**
+     * 测试跳转到搜索页面
+     */
+    val onTestClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            startActivity(PickSearchActivity::class.java)
+        }
+    })
 
     /**
      * 开通vip的对话框

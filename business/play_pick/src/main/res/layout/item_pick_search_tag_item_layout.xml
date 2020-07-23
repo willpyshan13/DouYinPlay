@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
 
     <data>
+
         <variable
             name="viewModel"
             type="com.will.play.pick.ui.viewmodel.PickSearchItemTagItemViewModel" />
@@ -9,8 +13,26 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp2"
+        android:layout_marginEnd="@dimen/dp2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pick_shape_search_item_tag_bg"
+            android:paddingStart="@dimen/dp3"
+            android:paddingTop="@dimen/dp2"
+            android:paddingEnd="@dimen/dp3"
+            android:paddingBottom="@dimen/dp2"
+            android:text="@{viewModel.tagText}"
+            android:textColor="@color/color_B0B0B0"
+            android:textSize="@dimen/sp6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="可领取视频" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -17,9 +17,17 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class PickSearchItemViewModel {
 
-     val items = ObservableArrayList<PickSearchItemTagItemViewModel>()
+    val items = ObservableArrayList<PickSearchItemTagItemViewModel>()
 
     val itemBinding: ItemBinding<PickSearchItemTagItemViewModel> = ItemBinding.of(BR.viewModel, R.layout.item_pick_search_tag_item_layout)
+
+
+
+    init {
+        items.add(PickSearchItemTagItemViewModel("可领取视频"))
+        items.add(PickSearchItemTagItemViewModel("可领取实物"))
+
+    }
 
 }
 
@@ -33,4 +41,4 @@ class PickSearchItemViewModel {
  *
  * Author: zhuanghongzhan
  */
-class PickSearchItemTagItemViewModel
+class PickSearchItemTagItemViewModel(val tagText: String)

@@ -20,7 +20,6 @@ import com.will.play.pick.ui.viewmodel.PickStoreDetailViewModel
  *
  * @Author: pengyushan
  */
-@Route("pick")
 class PickGoodsDetailActivity : BaseActivity<ActivityPickGoodsDetailBinding, PickGoodsDetailViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.activity_pick_goods_detail

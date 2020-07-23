@@ -44,6 +44,7 @@
                 android:drawableLeft="@mipmap/pick_ic_tip"
                 android:drawablePadding="@dimen/dp6"
                 android:gravity="center"
+                app:onClickCommand="@{viewModel.onTestClick}"
                 android:text="@string/pick_good_detail_top_txt"
                 android:textColor="@color/color_313131"
                 android:textSize="@dimen/sp13"
