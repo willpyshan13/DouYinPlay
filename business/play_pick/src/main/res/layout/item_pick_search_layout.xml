@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -13,33 +14,103 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp7"
-        >
+        android:layout_marginTop="@dimen/dp7">
 
 
         <com.will.play.base.widget.RoundCornerImageView
             android:id="@+id/search_item_iv"
             android:layout_width="@dimen/dp102"
             android:layout_height="@dimen/dp102"
+            android:layout_marginStart="@dimen/dp22"
             android:src="@color/color_D3D0D4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:round_corner_radius="@dimen/dp5"
-            android:layout_marginStart="@dimen/dp22"
-            />
+            app:round_corner_radius="@dimen/dp5" />
 
         <TextView
+            android:id="@+id/search_item_tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp8"
+            android:layout_marginEnd="@dimen/dp21"
             android:maxLines="2"
             android:text="任天堂 三年老店 19种颜色 Switch主机 lite游戏机动物之森限定版NS日版森......"
+            android:textColor="@color/color_262626"
+            android:textSize="@dimen/sp12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search_item_iv"
-            app:layout_constraintTop_toTopOf="@+id/search_item_iv"
-            android:layout_marginEnd="@dimen/dp21"
-            />
+            app:layout_constraintTop_toTopOf="@+id/search_item_iv" />
 
+
+        <com.will.play.base.widget.tag.TagFlowLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginTop="@dimen/dp3"
+            android:layout_marginEnd="@dimen/dp21"
+            app:itemBinding="@{viewModel.itemBinding}"
+            app:items="@{viewModel.items}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_item_iv"
+            app:layout_constraintTop_toBottomOf="@+id/search_item_tv_title"
+            app:maxLines="@{1}" />
+
+
+        <TextView
+            android:id="@+id/search_item_tv_unit_price_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginBottom="@dimen/dp4"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintBottom_toTopOf="@+id/search_item_tv_commission_price"
+            app:layout_constraintStart_toEndOf="@+id/search_item_iv"
+            tools:text="单价" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:textSize="@dimen/sp13"
+            app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_unit_price_label"
+            app:layout_constraintStart_toEndOf="@+id/search_item_tv_unit_price_label"
+            tools:text="¥1999" />
+
+
+        <TextView
+            android:id="@+id/search_item_tv_commission_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_item_iv"
+            tools:text="佣金" />
+
+
+        <TextView
+            android:id="@+id/search_item_tv_commission_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp6"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_FF0000"
+            android:textSize="@dimen/sp19"
+            app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_commission_label"
+            app:layout_constraintStart_toEndOf="@+id/search_item_tv_commission_label"
+            tools:text="¥199" />
+
+
+        <TextView
+            android:id="@+id/search_item_tv_commission_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:textSize="@dimen/sp7"
+            app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_commission_label"
+            app:layout_constraintStart_toEndOf="@+id/search_item_tv_commission_price"
+            tools:text="2554人付款" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
