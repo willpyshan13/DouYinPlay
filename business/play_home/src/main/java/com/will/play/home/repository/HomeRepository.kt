@@ -21,4 +21,6 @@ class HomeRepository : BaseModel<Any>() {
     private val homeService by lazy { RetrofitClient.instance.create(HomeService::class.java) }
 
     suspend fun  getHomeData()=homeService.getHomeIndex().check();
+
+    suspend fun  getHomeList(pageNum:Int)=homeService.getHomeFaAuthor(pageNum,null,null,10).check();
 }

@@ -70,8 +70,12 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
                 val data = model.getHomeData()
                 headerItem.updateHeaderData(data)
             }
-            
-            loadCallback.onSuccess(viewModels,pageIndex,2)
+
+            val listData = model.getHomeList(pageIndex)
+            val dataList = listData?.dataLists?.map { HomeDataItem(this,it) }.orEmpty()
+            viewModels.addAll(dataList)
+
+            loadCallback.onSuccess(viewModels,pageIndex,1)
         },{
 
         })

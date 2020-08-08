@@ -23,13 +23,14 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/home_item_header"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp52"
             android:src="@mipmap/base_bg_header"
             android:layout_marginStart="@dimen/dp24"
             android:layout_marginTop="@dimen/dp24"
+            app:imageUrl="@{viewModel.data.avatar}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp52"
             tools:ignore="RtlCompat" />
 
         <TextView
@@ -44,7 +45,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="will"
+            android:text="@{viewModel.data.nickname}"
             android:layout_marginTop="@dimen/dp8"
             app:layout_constraintTop_toBottomOf="@+id/home_item_header"
             app:layout_constraintStart_toStartOf="@+id/home_item_header"
@@ -53,7 +54,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:text="1.7W粉丝"
+            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
             android:id="@+id/home_item_person"
             android:layout_marginTop="@dimen/dp10"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
@@ -67,7 +68,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="1.7W粉丝"
+            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
             android:id="@+id/home_item_chat"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
             android:drawableStart="@mipmap/base_home_item_chat"
