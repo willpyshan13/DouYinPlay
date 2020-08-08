@@ -78,7 +78,6 @@
 
         <TextView
             app:layout_constraintTop_toTopOf="@+id/home_banner_bottom_title"
-            android:text="188888888888 2分钟前 开通了会员"
             android:textSize="@dimen/sp8"
             android:layout_marginEnd="@dimen/dp12"
             app:layout_constraintBottom_toBottomOf="@+id/home_banner_bottom_title"
@@ -115,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@+id/home_tv_trade_count"
             app:layout_constraintStart_toStartOf="@+id/home_sub_trade_count_total"
             android:layout_width="wrap_content"
-            android:text="截止2020年6月20日"
+            android:text='@{"截止"+viewModel.dataObservable.flush_date}'
             android:textSize="@dimen/sp8"
             android:layout_marginStart="@dimen/dp7"
             android:layout_height="wrap_content"
@@ -127,7 +126,7 @@
             app:layout_constraintTop_toBottomOf="@+id/home_tv_trade_count_time"
             app:layout_constraintStart_toStartOf="@+id/home_sub_trade_count_total"
             android:layout_width="wrap_content"
-            android:text="88888"
+            android:text="@{viewModel.dataObservable.order_count}"
             android:textSize="@dimen/sp28"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
@@ -160,7 +159,7 @@
             app:layout_constraintTop_toBottomOf="@+id/home_tv_trade_count_today"
             app:layout_constraintEnd_toEndOf="@+id/home_tv_trade_count_today"
             android:layout_width="wrap_content"
-            android:text="88888 笔"
+            android:text='@{viewModel.dataObservable.order_count_today + "笔"}'
             android:textSize="@dimen/sp12"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
@@ -194,7 +193,7 @@
             app:layout_constraintTop_toBottomOf="@+id/home_sub_person_count_today_title"
             app:layout_constraintEnd_toEndOf="@+id/home_sub_person_count_today_title"
             android:layout_width="wrap_content"
-            android:text="88888 人"
+            android:text='@{viewModel.dataObservable.author_count_today+"人"}'
             android:textSize="@dimen/sp12"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
@@ -228,7 +227,7 @@
             app:layout_constraintTop_toBottomOf="@+id/home_sub_today_money_title"
             app:layout_constraintEnd_toEndOf="@+id/home_sub_today_money_title"
             android:layout_width="wrap_content"
-            android:text="88888 元"
+            android:text='@{viewModel.dataObservable.order_pay_today +"元"}'
             android:textSize="@dimen/sp12"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
@@ -263,7 +262,7 @@
             app:layout_constraintTop_toBottomOf="@+id/home_sub_today_video_title"
             app:layout_constraintEnd_toEndOf="@+id/home_sub_today_video_title"
             android:layout_width="wrap_content"
-            android:text="8 个"
+            android:text='@{viewModel.dataObservable.order_count_today + "个"}'
             android:textSize="@dimen/sp12"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
