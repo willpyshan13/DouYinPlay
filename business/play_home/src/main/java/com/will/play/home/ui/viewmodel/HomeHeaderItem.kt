@@ -4,6 +4,7 @@ import androidx.databinding.ObservableArrayList
 import com.will.habit.base.ItemViewModel
 import com.will.play.home.R
 import com.will.play.home.BR
+import com.will.play.home.entity.HomeRespDataEntity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 class HomeHeaderItem(viewModel:FragmentHomeViewModel) :ItemViewModel<FragmentHomeViewModel>(viewModel) {
@@ -15,6 +16,10 @@ class HomeHeaderItem(viewModel:FragmentHomeViewModel) :ItemViewModel<FragmentHom
 
     init {
         bannerItems.add(HomeBannerItem(viewModel))
+    }
+
+    fun updateHeaderData(data: HomeRespDataEntity?){
+
     }
 
 }

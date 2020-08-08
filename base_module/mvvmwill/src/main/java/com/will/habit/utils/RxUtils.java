@@ -95,7 +95,7 @@ public class RxUtils {
             if (!response.isOk()) {
                 throw new RuntimeException(!"".equals(response.code + "" + response.error) ? response.error : "");
             }
-            return response.getResult();
+            return response.getData();
         }
     }
 

@@ -31,8 +31,8 @@ private var GLOBAL_TOAST_RESPONSE_ERROR = true
  */
 fun <T> BaseResponse<T>.check(): T? {
     if (isOk) {
-        if (result != null) {
-            return result
+        if (data != null) {
+            return data
         }
         throw ResponseException(-1, "response data is null")
     }

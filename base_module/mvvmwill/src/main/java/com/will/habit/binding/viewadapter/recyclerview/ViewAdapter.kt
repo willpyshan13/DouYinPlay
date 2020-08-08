@@ -48,12 +48,6 @@ object ViewAdapter {
         })
     }
 
-    @BindingAdapter("onLoadMoreCommand")
-    fun onLoadMoreCommand(recyclerView: RecyclerView, onLoadMoreCommand: BindingCommand<Int?>) {
-        val listener: RecyclerView.OnScrollListener = OnScrollListener(onLoadMoreCommand)
-        recyclerView.addOnScrollListener(listener)
-    }
-
     @BindingAdapter("itemAnimator")
     fun setItemAnimator(recyclerView: RecyclerView, animator: ItemAnimator?) {
         recyclerView.itemAnimator = animator

@@ -9,12 +9,8 @@ class BaseResponse<T> {
     @JvmField
     var error: String? = null
 
-    var result: T? = null
+    var data: T? = null
         private set
-
-    fun setResult(result: T) {
-        this.result = result
-    }
 
     val isOk: Boolean
         get() = code == 0

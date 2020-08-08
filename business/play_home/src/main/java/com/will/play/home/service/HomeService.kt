@@ -16,6 +16,6 @@ import retrofit2.http.GET
  * @Author: pengyushan
  */
 interface HomeService {
-    @GET("/Index/home")
+    @GET("api.php/Index/home")
     suspend fun getHomeIndex():BaseResponse<HomeRespDataEntity>
 }

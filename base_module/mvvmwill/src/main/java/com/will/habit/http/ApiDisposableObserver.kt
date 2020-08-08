@@ -40,7 +40,7 @@ abstract class ApiDisposableObserver<T> : DisposableObserver<T>() {
         when (baseResponse.code) {
             CodeRule.CODE_200, CodeRule.CODE_220 ->                 // 请求成功, 正确的操作方式, 并消息提示
                 //请求成功, 正确的操作方式
-                onResult(baseResponse.result as T?)
+                onResult(baseResponse.data as T?)
             CodeRule.CODE_300 -> {
                 //请求失败，不打印Message
                 e("请求失败")
