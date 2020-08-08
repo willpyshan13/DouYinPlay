@@ -36,7 +36,7 @@ fun <T> BaseResponse<T>.check(): T? {
         }
         throw ResponseException(-1, "response data is null")
     }
-    throw ResponseException(code, message)
+    throw ResponseException(code, error)
 }
 
 /**

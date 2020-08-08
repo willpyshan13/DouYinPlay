@@ -93,7 +93,7 @@ public class RxUtils {
         @Override
         public T apply(BaseResponse<T> response) {
             if (!response.isOk()) {
-                throw new RuntimeException(!"".equals(response.code + "" + response.message) ? response.message : "");
+                throw new RuntimeException(!"".equals(response.code + "" + response.error) ? response.error : "");
             }
             return response.getResult();
         }

@@ -47,7 +47,7 @@ abstract class ApiDisposableObserver<T> : DisposableObserver<T>() {
                 ToastUtils.showShort("错误代码:", baseResponse.code)
             }
             CodeRule.CODE_330 ->                 //请求失败，打印Message
-                ToastUtils.showShort(baseResponse.message!!)
+                ToastUtils.showShort(baseResponse.error!!)
             CodeRule.CODE_503 ->                 //参数为空
                 e("参数为空")
             CodeRule.CODE_502 ->                 //没有数据
