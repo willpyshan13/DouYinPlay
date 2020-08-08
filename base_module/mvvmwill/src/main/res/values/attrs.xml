@@ -38,6 +38,15 @@
 
     </declare-styleable>
 
+    <declare-styleable name="Paging">
+
+        <attr name="loadStatus" format="integer"/>
+        <attr name="preLoadOffset" format="integer"/>
+        <attr name="refreshStatus" format="integer"/>
+        <attr name="enableShowNoMore" format="boolean"/>
+
+    </declare-styleable>
+
 
     <declare-styleable name="AdapterView">
         <!-- require ItemView {@link me.tatarka.bindingcollectionadapter.ItemView} or ItemViewSelector {{@link me.tatarka.bindingcollectionadapter.ItemViewSelector}.} -->

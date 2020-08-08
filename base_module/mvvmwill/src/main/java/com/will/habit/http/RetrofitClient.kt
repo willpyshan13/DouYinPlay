@@ -54,7 +54,7 @@ class RetrofitClient private constructor(url: String = baseUrl, headers: Map<Str
         private const val CACHE_TIMEOUT = 10 * 1024 * 1024
 
         //服务端根路径
-        var baseUrl = "https://www.oschina.net/"
+        var baseUrl = "http://test.weizhiyx.com/api.php"
         private val mContext = Utils.getContext()
         private var okHttpClient: OkHttpClient? = null
         private lateinit var retrofit: Retrofit

@@ -14,22 +14,16 @@
         android:layout_height="match_parent"
         android:background="@color/color_F0F0F0">
 
-        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:itemBinding="@{viewModel.itemBinding}"
+            app:items="@{viewModel.items}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:itemBinding="@{viewModel.itemBinding}"
-                app:items="@{viewModel.items}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+            app:layout_constraintTop_toTopOf="parent"
+            app:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

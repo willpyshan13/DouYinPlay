@@ -1,6 +1,10 @@
 package com.will.play.home.repository
 
 import com.will.habit.base.BaseModel
+import com.will.habit.extection.check
+import com.will.habit.http.RetrofitClient
+import com.will.play.home.entity.HomeRespDataEntity
+import com.will.play.home.service.HomeService
 
 /**
  * Desc:
@@ -14,4 +18,7 @@ import com.will.habit.base.BaseModel
  * @Author: pengyushan
  */
 class HomeRepository : BaseModel<Any>() {
+    private val homeService by lazy { RetrofitClient.instance.create(HomeService::class.java) }
+
+    suspend fun  getHomeData()=homeService.getHomeIndex().check();
 }

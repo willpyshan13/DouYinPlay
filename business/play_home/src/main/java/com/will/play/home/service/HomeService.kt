@@ -1,5 +1,9 @@
 package com.will.play.home.service
 
+import com.will.habit.http.BaseResponse
+import com.will.play.home.entity.HomeRespDataEntity
+import retrofit2.http.GET
+
 /**
  * Desc:首页服务类
  *
@@ -12,4 +16,6 @@ package com.will.play.home.service
  * @Author: pengyushan
  */
 interface HomeService {
+    @GET("/Index/home")
+    suspend fun getHomeIndex():BaseResponse<HomeRespDataEntity>
 }
