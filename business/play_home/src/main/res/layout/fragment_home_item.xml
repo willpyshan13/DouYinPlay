@@ -54,6 +54,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            tools:text="111111111"
             android:text='@{viewModel.data.follower_count_text+"粉丝"}'
             android:id="@+id/home_item_person"
             android:layout_marginTop="@dimen/dp10"
@@ -63,40 +64,42 @@
             android:textSize="@dimen/sp10"
             android:layout_marginStart="@dimen/dp24"
             app:layout_constraintStart_toEndOf="@+id/home_item_header"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
         <TextView
             android:text='@{viewModel.data.follower_count_text+"粉丝"}'
             android:id="@+id/home_item_chat"
+            tools:text="111111111"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
             android:drawableStart="@mipmap/base_home_item_chat"
             android:drawablePadding="@dimen/dp4"
-            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginStart="@dimen/dp12"
             android:layout_marginTop="@dimen/dp10"
             android:textSize="@dimen/sp10"
             app:layout_constraintStart_toEndOf="@+id/home_item_person"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="1.7W粉丝"
+            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
             android:id="@+id/home_item_refer"
+            tools:text="111111111"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
             android:drawableStart="@mipmap/base_home_item_refer"
             android:drawablePadding="@dimen/dp4"
             android:layout_marginTop="@dimen/dp10"
             android:textSize="@dimen/sp10"
-            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginStart="@dimen/dp12"
             app:layout_constraintStart_toEndOf="@+id/home_item_chat"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="1.7W粉丝"
+            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_collect"
             android:textSize="@dimen/sp10"
@@ -105,35 +108,35 @@
             android:drawablePadding="@dimen/dp4"
             android:layout_marginStart="@dimen/dp24"
             app:layout_constraintStart_toEndOf="@+id/home_item_header"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="1.7W粉丝"
+            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_start"
             android:textSize="@dimen/sp10"
             app:layout_constraintTop_toBottomOf="@+id/home_item_person"
             android:drawableStart="@mipmap/base_home_item_favorite"
             android:drawablePadding="@dimen/dp4"
-            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginStart="@dimen/dp12"
             app:layout_constraintStart_toEndOf="@+id/home_item_collect"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="1.7W粉丝"
+            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_video"
             app:layout_constraintTop_toBottomOf="@+id/home_item_person"
             android:drawableStart="@mipmap/base_home_item_video"
             android:drawablePadding="@dimen/dp4"
             android:textSize="@dimen/sp10"
-            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginStart="@dimen/dp12"
             app:layout_constraintStart_toEndOf="@+id/home_item_start"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
@@ -142,10 +145,10 @@
             android:src="@mipmap/base_home_check_goods_bg"
             android:id="@+id/home_item_connect_goods"
             app:layout_constraintTop_toBottomOf="@+id/home_item_start"
-            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginStart="@dimen/dp12"
             android:layout_marginEnd="@dimen/dp12"
             app:layout_constraintEnd_toStartOf="@+id/home_item_connect_video"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
