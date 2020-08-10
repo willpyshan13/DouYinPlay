@@ -34,7 +34,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="3分钟前"
+            android:text="@{viewModel.data.addtime_text}"
             android:textSize="@dimen/sp8"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
+            android:text='@{viewModel.data.total_favorited_text+"关注"}'
             android:id="@+id/home_item_chat"
             tools:text="111111111"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
@@ -84,7 +84,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
+            android:text='@{viewModel.data.total_favorited+"分享"}'
             android:id="@+id/home_item_refer"
             tools:text="111111111"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
@@ -99,7 +99,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
+            android:text='@{viewModel.data.total_favorited_text+"点赞"}'
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_collect"
             android:textSize="@dimen/sp10"
@@ -113,7 +113,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
+            android:text='@{viewModel.data.product_count_text+"商品"}'
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_start"
             android:textSize="@dimen/sp10"
@@ -127,7 +127,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
+            android:text='@{viewModel.data.aweme_count_text+"视频"}'
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_video"
             app:layout_constraintTop_toBottomOf="@+id/home_item_person"
