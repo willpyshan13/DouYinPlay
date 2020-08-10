@@ -52,9 +52,6 @@ open class BaseApplication : Application() {
          */
         val instance: Application?
             get() {
-                if (sInstance == null) {
-                    throw NullPointerException("please inherit BaseApplication or call setApplication.")
-                }
                 return sInstance
             }
     }
