@@ -154,25 +154,25 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
     //注册ViewModel与View的契约UI回调事件
     protected fun registorUIChangeLiveDataCallBack() {
         //加载对话框显示
-        viewModel.uC.showDialogEvent!!.observe(this, Observer { title -> showDialog(title) })
+        viewModel.uc.showDialogEvent!!.observe(this, Observer { title -> showDialog(title) })
         //加载对话框消失
-        viewModel.uC.dismissDialogEvent!!.observe(this, Observer { dismissDialog() })
+        viewModel.uc.dismissDialogEvent!!.observe(this, Observer { dismissDialog() })
         //跳入新页面
-        viewModel.uC.startActivityEvent!!.observe(this, Observer {
+        viewModel.uc.startActivityEvent!!.observe(this, Observer {
             val clz = it!![ParameterField.CLASS] as Class<*>?
             val bundle = it[ParameterField.BUNDLE] as Bundle?
             startActivity(clz, bundle)
         })
         //跳入ContainerActivity
-        viewModel.uC.startContainerActivityEvent!!.observe(this, Observer {
+        viewModel.uc.startContainerActivityEvent!!.observe(this, Observer {
             val canonicalName = it!![ParameterField.CANONICAL_NAME] as String?
             val bundle = it[ParameterField.BUNDLE] as Bundle?
             startContainerActivity(canonicalName, bundle)
         })
         //关闭界面
-        viewModel.uC.finishEvent!!.observe(this, Observer { finish() })
+        viewModel.uc.finishEvent!!.observe(this, Observer { finish() })
         //关闭上一层
-        viewModel.uC.onBackPressedEvent!!.observe(this, Observer { onBackPressed() })
+        viewModel.uc.onBackPressedEvent!!.observe(this, Observer { onBackPressed() })
     }
 
     fun showDialog(title: String?) {

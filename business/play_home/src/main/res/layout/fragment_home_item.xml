@@ -55,12 +55,13 @@
 
         <TextView
             tools:text="111111111"
-            android:text='@{viewModel.data.follower_count_text+"粉丝"}'
+            android:text="@{viewModel.data.follower_count_text+@string/home_fans}"
             android:id="@+id/home_item_person"
             android:layout_marginTop="@dimen/dp10"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
             android:drawableStart="@mipmap/base_home_item_person"
             android:drawablePadding="@dimen/dp4"
+            android:lines="1"
             android:textSize="@dimen/sp10"
             android:layout_marginStart="@dimen/dp24"
             app:layout_constraintStart_toEndOf="@+id/home_item_header"
@@ -69,7 +70,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.total_favorited_text+"关注"}'
+            android:text="@{viewModel.data.total_favorited_text+@string/home_attention}"
             android:id="@+id/home_item_chat"
             tools:text="111111111"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
@@ -77,6 +78,7 @@
             android:drawablePadding="@dimen/dp4"
             android:layout_marginStart="@dimen/dp12"
             android:layout_marginTop="@dimen/dp10"
+            android:lines="1"
             android:textSize="@dimen/sp10"
             app:layout_constraintStart_toEndOf="@+id/home_item_person"
             android:layout_width="@dimen/dp70"
@@ -84,13 +86,14 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.total_favorited+"分享"}'
+            android:text="@{viewModel.data.total_favorited+@string/home_share}"
             android:id="@+id/home_item_refer"
             tools:text="111111111"
             app:layout_constraintTop_toTopOf="@id/home_item_header"
             android:drawableStart="@mipmap/base_home_item_refer"
             android:drawablePadding="@dimen/dp4"
             android:layout_marginTop="@dimen/dp10"
+            android:lines="1"
             android:textSize="@dimen/sp10"
             android:layout_marginStart="@dimen/dp12"
             app:layout_constraintStart_toEndOf="@+id/home_item_chat"
@@ -99,13 +102,14 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.total_favorited_text+"点赞"}'
+            android:text="@{viewModel.data.total_favorited_text+@string/home_praise}"
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_collect"
             android:textSize="@dimen/sp10"
             app:layout_constraintTop_toBottomOf="@+id/home_item_person"
             android:drawableStart="@mipmap/base_home_item_heart"
             android:drawablePadding="@dimen/dp4"
+            android:lines="1"
             android:layout_marginStart="@dimen/dp24"
             app:layout_constraintStart_toEndOf="@+id/home_item_header"
             android:layout_width="@dimen/dp70"
@@ -113,7 +117,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.product_count_text+"商品"}'
+            android:text="@{viewModel.data.product_count_text+@string/home_goods}"
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_start"
             android:textSize="@dimen/sp10"
@@ -121,13 +125,14 @@
             android:drawableStart="@mipmap/base_home_item_favorite"
             android:drawablePadding="@dimen/dp4"
             android:layout_marginStart="@dimen/dp12"
+            android:lines="1"
             app:layout_constraintStart_toEndOf="@+id/home_item_collect"
             android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text='@{viewModel.data.aweme_count_text+"视频"}'
+            android:text="@{viewModel.data.aweme_count_text+@string/home_videos}"
             android:layout_marginTop="@dimen/dp16"
             android:id="@+id/home_item_video"
             app:layout_constraintTop_toBottomOf="@+id/home_item_person"
@@ -135,6 +140,7 @@
             android:drawablePadding="@dimen/dp4"
             android:textSize="@dimen/sp10"
             android:layout_marginStart="@dimen/dp12"
+            android:lines="1"
             app:layout_constraintStart_toEndOf="@+id/home_item_start"
             android:layout_width="@dimen/dp70"
             android:layout_height="wrap_content"

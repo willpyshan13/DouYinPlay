@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
 
     <data>
 
@@ -11,6 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/dp2"
+        android:layout_marginEnd="@dimen/dp2"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -18,6 +21,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:scaleType="centerCrop"
+            binding:viewRound="@{6}"
+            binding:imageUrl="@{viewModel.data.img}"
             android:src="@mipmap/base_home_banner_default"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

@@ -25,7 +25,7 @@ import java.util.*
  *
  */
 open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(application: Application) : AndroidViewModel(application), IBaseViewModel, Consumer<Disposable?> {
-    private var uc: UIChangeLiveData? = null
+     val uc by lazy(LazyThreadSafetyMode.NONE) { UIChangeLiveData() }
 
     //标题文字
     var titleText = ObservableField("")
@@ -73,21 +73,13 @@ open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(applicatio
     val lifecycleProvider: LifecycleProvider<*>
         get() = lifecycle!!.get()!!
 
-    val uC: UIChangeLiveData
-        get() {
-            if (uc == null) {
-                uc = UIChangeLiveData()
-            }
-            return uc as UIChangeLiveData
-        }
-
     @JvmOverloads
-    fun showDialog(title: String = "请稍后...") {
-        uc!!.showDialogEvent!!.postValue(title)
+    fun showDialog(title: String = "loading...") {
+        uc.showDialogEvent.postValue(title)
     }
 
     fun dismissDialog() {
-        uc!!.dismissDialogEvent!!.call()
+        uc.dismissDialogEvent!!.call()
     }
     /**
      * 跳转页面
@@ -107,7 +99,7 @@ open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(applicatio
         if (bundle != null) {
             params[ParameterField.BUNDLE] = bundle
         }
-        uc!!.startActivityEvent!!.postValue(params)
+        uc.startActivityEvent!!.postValue(params)
     }
     /**
      * 跳转容器页面
@@ -127,21 +119,21 @@ open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(applicatio
         if (bundle != null) {
             params[ParameterField.BUNDLE] = bundle
         }
-        uc!!.startContainerActivityEvent!!.postValue(params)
+        uc.startContainerActivityEvent!!.postValue(params)
     }
 
     /**
      * 关闭界面
      */
     fun finish() {
-        uc!!.finishEvent!!.call()
+        uc.finishEvent!!.call()
     }
 
     /**
      * 返回上一层
      */
     fun onBackPressed() {
-        uc!!.onBackPressedEvent!!.call()
+        uc.onBackPressedEvent!!.call()
     }
 
     override fun onAny(owner: LifecycleOwner?, event: Lifecycle.Event?) {}

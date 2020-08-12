@@ -26,8 +26,6 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRepository, ItemViewModel<*>>(application) {
 
-    private lateinit var headerItem: HomeHeaderItem
-
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -65,16 +63,17 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
             if (pageIndex ==1){
-                viewModels.add(headerItem)
+                showDialog()
                 val data = model.getHomeData()
                 val bannerData = model.getHomeBanner()
-                headerItem = HomeHeaderItem(this,data,bannerData)
+                viewModels.add(HomeHeaderItem(this,data,bannerData))
             }
 
             val listData = model.getHomeList(pageIndex)
             val dataList = listData?.dataLists?.map { HomeDataItem(this,it) }.orEmpty()
             viewModels.addAll(dataList)
 
+            dismissDialog()
             loadCallback.onSuccess(viewModels,pageIndex,1)
         },{
 

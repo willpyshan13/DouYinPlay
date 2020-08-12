@@ -1,4 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">抖趣拍</string>
     <string name="home_national" tools:ignore="ExtraTranslation">抖商动态 全国</string>
+    <string name="home_fans">粉丝</string>
+    <string name="home_attention">关注</string>
+    <string name="home_share">分享</string>
+    <string name="home_praise">点赞</string>
+    <string name="home_goods">商品</string>
+    <string name="home_videos">视频</string>
+    <string name="home_end">截止</string>
+    <string name="home_stroke">笔</string>
+    <string name="home_person">人</string>
+    <string name="home_money">元</string>
+    <string name="home_piece">个</string>
 </resources>
