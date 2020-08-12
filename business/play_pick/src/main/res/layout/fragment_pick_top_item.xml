@@ -19,9 +19,11 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/data_icon_goods"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp28"
+            android:layout_height="@dimen/dp28"
             android:src="@mipmap/base_pick_top_item"
+            app:isCircle="@{true}"
+            app:imageUrl="@{viewModel.data.headimg_text}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="will"
+            android:text="@{viewModel.data.name}"
             android:textSize="@dimen/sp10"
             app:layout_constraintEnd_toEndOf="@id/data_icon_goods"
             app:layout_constraintStart_toStartOf="@id/data_icon_goods"

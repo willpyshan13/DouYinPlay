@@ -63,7 +63,8 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
             val viewModels = mutableListOf<ItemViewModel<*>>()
             if (pageIndex ==1) {
                 val banner = model.getHomeBanner()
-                headerItem.updateBanner(banner)
+                val type = model.getGoodsType()
+                headerItem.updateBanner(banner,type)
             }
             for (i in 0..10) {
                 viewModels.add(PickDataItem(this))

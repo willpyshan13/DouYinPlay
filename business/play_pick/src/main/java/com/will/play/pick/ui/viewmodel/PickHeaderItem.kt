@@ -5,6 +5,7 @@ import com.will.habit.base.ItemViewModel
 import com.will.play.base.BannerEntity
 import com.will.play.pick.R
 import com.will.play.pick.BR
+import com.will.play.pick.entity.PickGoodTypeEntity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 class PickHeaderItem(viewModel: PickViewModel) :ItemViewModel<PickViewModel>(viewModel) {
@@ -28,17 +29,11 @@ class PickHeaderItem(viewModel: PickViewModel) :ItemViewModel<PickViewModel>(vie
      * Date: 2020-08-12
      * @param banner BannerEntity?
      */
-    fun updateBanner(banner:BannerEntity?){
+    fun updateBanner(banner:BannerEntity?,goodsType: PickGoodTypeEntity?){
         val bannerList = banner?.swiperLists?.map { PickBannerItem(viewModel,it) }.orEmpty()
         bannerItems.addAll(bannerList)
+
+        val types = goodsType?.map { PickTopItem(viewModel,it) }.orEmpty()
+        items.addAll(types)
     }
-
-    init {
-        for ( i in 0..9) {
-            items.add(PickTopItem(viewModel))
-        }
-
-
-    }
-
 }
