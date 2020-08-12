@@ -1,5 +1,10 @@
 package com.will.play.data.service
 
+import com.will.habit.http.BaseResponse
+import com.will.play.base.BannerEntity
+import retrofit2.http.GET
+import retrofit2.http.Query
+
 /**
  * Desc:首页服务类
  *
@@ -12,4 +17,7 @@ package com.will.play.data.service
  * @Author: pengyushan
  */
 interface DataService {
+    @GET("api.php/Index/ad")
+    suspend fun getHomeBanner(@Query("group_id")pageNum:Int): BaseResponse<BannerEntity>
+
 }

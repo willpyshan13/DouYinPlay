@@ -23,8 +23,7 @@
             android:scaleType="centerCrop"
             binding:viewRound="@{6}"
             binding:imageUrl="@{viewModel.data.img}"
-            android:src="@mipmap/base_home_banner_default"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
 

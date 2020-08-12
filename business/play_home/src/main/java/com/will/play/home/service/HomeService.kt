@@ -1,12 +1,11 @@
 package com.will.play.home.service
 
 import com.will.habit.http.BaseResponse
-import com.will.play.home.entity.HomeRespBannerEntity
+import com.will.play.base.BannerEntity
 import com.will.play.home.entity.HomeRespDataEntity
 import com.will.play.home.entity.HomeRespListEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
-import retrofit2.http.QueryName
 
 /**
  * Desc:首页服务类
@@ -24,7 +23,7 @@ interface HomeService {
     suspend fun getHomeIndex():BaseResponse<HomeRespDataEntity>
 
     @GET("api.php/Index/ad")
-    suspend fun getHomeBanner(@Query("group_id")pageNum:Int):BaseResponse<HomeRespBannerEntity>
+    suspend fun getHomeBanner(@Query("group_id")pageNum:Int):BaseResponse<BannerEntity>
 
 
     @GET("api.php/FaAuthor/index")

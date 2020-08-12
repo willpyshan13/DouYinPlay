@@ -1,7 +1,7 @@
 package com.will.play.home.ui.viewmodel
 
 import com.will.habit.base.ItemViewModel
-import com.will.play.home.entity.SwiperLists
+import com.will.play.base.SwiperLists
 
 /**
  *

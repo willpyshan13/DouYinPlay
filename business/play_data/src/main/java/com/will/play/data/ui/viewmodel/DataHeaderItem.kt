@@ -2,11 +2,12 @@ package com.will.play.data.ui.viewmodel
 
 import androidx.databinding.ObservableArrayList
 import com.will.habit.base.ItemViewModel
+import com.will.play.base.BannerEntity
 import com.will.play.data.R
 import com.will.play.data.BR
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
-class DataHeaderItem(viewModel: DataViewModel) :ItemViewModel<DataViewModel>(viewModel) {
+class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?) :ItemViewModel<DataViewModel>(viewModel) {
     /**
      * banner列表
      */
@@ -14,7 +15,8 @@ class DataHeaderItem(viewModel: DataViewModel) :ItemViewModel<DataViewModel>(vie
     val bannerItems = ObservableArrayList<DataBannerItem>()
 
     init {
-        bannerItems.add(DataBannerItem(viewModel))
+        val bannerList = banner?.swiperLists?.map { DataBannerItem(viewModel,it) }.orEmpty()
+        bannerItems.addAll(bannerList)
     }
 
 }

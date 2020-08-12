@@ -60,8 +60,11 @@ class DataViewModel(application: Application) :BaseListViewModel<DataRepository,
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            viewModels.add(DataHeaderItem(this))
-            viewModels.add(DataItem(this))
+            if (pageIndex ==1) {
+                val banner = model.getHomeBanner()
+                viewModels.add(DataHeaderItem(this,banner))
+                viewModels.add(DataItem(this))
+            }
             items.addAll(viewModels)
         },{
 

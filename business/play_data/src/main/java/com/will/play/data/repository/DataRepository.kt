@@ -1,6 +1,9 @@
 package com.will.play.data.repository
 
 import com.will.habit.base.BaseModel
+import com.will.habit.extection.check
+import com.will.habit.http.RetrofitClient
+import com.will.play.data.service.DataService
 
 /**
  * Desc:
@@ -14,4 +17,7 @@ import com.will.habit.base.BaseModel
  * @Author: pengyushan
  */
 class DataRepository : BaseModel<Any>() {
+    private val homeService by lazy { RetrofitClient.instance.create(DataService::class.java) }
+
+    suspend fun  getHomeBanner()=homeService.getHomeBanner(2).check();
 }
