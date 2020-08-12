@@ -12,7 +12,17 @@ data class HomeRespDataEntity(
 data class HomeRespListEntity(
     val dataLists: List<DataLists>
 )
+data class HomeRespBannerEntity(
+    val group_id: Int,
+    val swiperLists: List<SwiperLists>
+)
 
+data class SwiperLists(
+    val id: Int,
+    val img: String,
+    val name: String,
+    val url: String
+)
 data class DataLists(
     val account_type: String,
     val addtime: Int,

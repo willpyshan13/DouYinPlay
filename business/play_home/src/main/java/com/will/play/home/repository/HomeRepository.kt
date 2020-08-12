@@ -22,5 +22,7 @@ class HomeRepository : BaseModel<Any>() {
 
     suspend fun  getHomeData()=homeService.getHomeIndex().check();
 
+    suspend fun  getHomeBanner()=homeService.getHomeBanner(1).check();
+
     suspend fun  getHomeList(pageNum:Int)=homeService.getHomeFaAuthor(pageNum,null,null,10).check();
 }

@@ -65,10 +65,10 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
             if (pageIndex ==1){
-                headerItem = HomeHeaderItem(this)
                 viewModels.add(headerItem)
                 val data = model.getHomeData()
-                headerItem.updateHeaderData(data)
+                val bannerData = model.getHomeBanner()
+                headerItem = HomeHeaderItem(this,data,bannerData)
             }
 
             val listData = model.getHomeList(pageIndex)
