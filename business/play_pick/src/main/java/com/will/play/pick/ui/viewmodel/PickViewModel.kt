@@ -2,7 +2,6 @@ package com.will.play.pick.ui.viewmodel
 
 import android.app.Application
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
@@ -25,9 +24,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * @Author: pengyushan
  */
 class PickViewModel(application: Application) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
-
     val headerItem = PickHeaderItem(this)
-
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -52,6 +49,7 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
         return ItemBinding.of { binding, _, item ->
             when (item) {
                 is PickDataItem -> binding.set(BR.viewModel, R.layout.fragment_pick_item)
+                is PickHeaderItem -> binding.set(BR.viewModel, R.layout.fragment_pick_header)
             }
         }
     }
@@ -63,6 +61,10 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
+            if (pageIndex ==1) {
+                val banner = model.getHomeBanner()
+                headerItem.updateBanner(banner)
+            }
             for (i in 0..10) {
                 viewModels.add(PickDataItem(this))
             }

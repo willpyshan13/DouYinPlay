@@ -1,6 +1,9 @@
 package com.will.play.pick.repository
 
 import com.will.habit.base.BaseModel
+import com.will.habit.extection.check
+import com.will.habit.http.RetrofitClient
+import com.will.play.home.service.PickService
 
 /**
  * Desc:
@@ -14,4 +17,7 @@ import com.will.habit.base.BaseModel
  * @Author: pengyushan
  */
 class PickRepository : BaseModel<Any>() {
+    private val homeService by lazy { RetrofitClient.instance.create(PickService::class.java) }
+
+    suspend fun  getHomeBanner()=homeService.getHomeBanner(3).check();
 }
