@@ -62,10 +62,10 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
 
     private fun initBottomTab() {
         val navigationController = binding.pagerBottomTab.material()
-                .addItem(R.mipmap.base_icon_home, R.mipmap.base_icon_home_select,"首页")
-                .addItem(R.mipmap.base_icon_data,R.mipmap.base_icon_data_select, "数据")
-                .addItem(R.mipmap.base_icon_pick, "选品")
-                .addItem(R.mipmap.base_icon_mine, "我的")
+                .addItem(R.mipmap.base_icon_home, R.mipmap.base_icon_home_select,"首页",resources.getColor(R.color.yellow))
+                .addItem(R.mipmap.base_icon_data,R.mipmap.base_icon_data_select, "数据",resources.getColor(R.color.yellow))
+                .addItem(R.mipmap.base_icon_pick, "选品",resources.getColor(R.color.yellow))
+                .addItem(R.mipmap.base_icon_mine, "我的",resources.getColor(R.color.yellow))
                 .build()
         //底部按钮的点击事件监听
         navigationController.addTabItemSelectedListener(object : OnTabItemSelectedListener {
