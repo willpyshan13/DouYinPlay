@@ -14,7 +14,6 @@ import java.lang.ref.WeakReference;
  * Update Time:
  * Update Comments:
  *
- * @Author: linjiaqiang
  */
 class WrapperSafeOnDismissListener implements DialogInterface.OnDismissListener {
 

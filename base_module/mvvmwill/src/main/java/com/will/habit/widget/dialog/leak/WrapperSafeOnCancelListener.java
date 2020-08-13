@@ -8,13 +8,11 @@ import java.lang.ref.WeakReference;
 
 /**
  * Desc:
- * <p>
  * Date: 2020-07-12 12:40
  * Updater:
  * Update Time:
  * Update Comments:
  *
- * @Author: linjiaqiang
  */
 class WrapperSafeOnCancelListener implements DialogInterface.OnCancelListener {
 

@@ -70,8 +70,6 @@ class RoundCornerImageView(context: Context, attrs: AttributeSet?) : androidx.ap
     /**
      * Desc: 裁剪圆角
      * <p>
-     * Author: linjiaqiang
-     * Date: 2020/7/6
      */
     private fun drawCorner(canvas: Canvas) {
         if (corners != null && width > 0 && height > 0) {

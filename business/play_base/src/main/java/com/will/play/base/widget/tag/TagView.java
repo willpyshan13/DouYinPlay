@@ -13,7 +13,6 @@ import android.widget.FrameLayout;
  * Update Time:
  * Update Comments:
  *
- * @Author: [lianyagang]
  */
 public class TagView extends FrameLayout implements Checkable {
     private static final int[] CHECK_STATE = new int[]{android.R.attr.state_checked};

@@ -18,9 +18,6 @@ public class Tutil {
      * JDK中，普通的Class.newInstance()方法的定义返回Object，要将该返回类型强制转换为另一种类型;
      * 但是使用泛型的Class<T>，Class.newInstance()方法具有一个特定的返回类型;
      * <p>
-     * Author: [lianyagang]
-     * Date: 2019-05-12
-     *
      * @param <T>
      * @param object
      * @param i
@@ -53,11 +50,8 @@ public class Tutil {
                 }
 
             } catch (InstantiationException e) {
-                KLog.e("lianyagang--", "getNewInstance(Tutil.java:51)-->>" + e.getLocalizedMessage());
             } catch (IllegalAccessException e) {
-                KLog.e("lianyagang--", "getNewInstance(Tutil.java:52)-->>" + e.getLocalizedMessage());
             } catch (ClassCastException e) {
-                KLog.e("lianyagang--", "getNewInstance(Tutil.java:54)-->>" + e.getLocalizedMessage());
             }
 
         }

@@ -14,7 +14,6 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * Update Time: 2019/10/15
  * Update Comments:
  *
- * @author: linjiaqiang
  */
 @BindingMethods(
         BindingMethod(type = TagFlowLayout::class, attribute = "itemBinding", method = "setMethod"),

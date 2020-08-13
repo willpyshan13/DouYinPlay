@@ -10,12 +10,11 @@ import androidx.annotation.Nullable;
  * Desc:解决dialog泄漏问题
  * dialog的listener是用handler发送的，导致dialog被持有无法释放
  * 解决：包装一层listener，使用WeakReference持有
- * Date: 2020-07-12 12:38
+ * Date:
  * Updater:
  * Update Time:
  * Update Comments:
  *
- * @Author: linjiaqiang
  */
 public class LeakSafeDialog extends Dialog {
 

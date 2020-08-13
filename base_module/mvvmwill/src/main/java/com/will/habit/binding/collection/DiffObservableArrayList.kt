@@ -26,9 +26,6 @@ class DiffObservableArrayList<T>(private val callback: DiffUtil.ItemCallback<T>,
     /**
      * Desc: 提交数据
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/9/27
-     *
      * @param newData 新数据
      * @param append true:addAll；false: clear + addAll
      */
@@ -54,9 +51,6 @@ class DiffObservableArrayList<T>(private val callback: DiffUtil.ItemCallback<T>,
     /**
      * Desc: 对比更新
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/9/27
-     *
      * @Deprecated
      */
     @Deprecated("use submit(newData, false) instead", ReplaceWith("submit(newData, false)"))
@@ -184,8 +178,6 @@ class DiffObservableArrayList<T>(private val callback: DiffUtil.ItemCallback<T>,
     /**
      * Desc: 数据删除
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/11/11
      */
     private fun notifyRemoved(position: Int, count: Int) {
         listeners.notifyRemoved(this, position, count)
@@ -194,8 +186,6 @@ class DiffObservableArrayList<T>(private val callback: DiffUtil.ItemCallback<T>,
     /**
      * Desc: 数据插入
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/11/11
      */
     private fun notifyInserted(position: Int, count: Int) {
         listeners.notifyInserted(this, position, count)
@@ -203,9 +193,6 @@ class DiffObservableArrayList<T>(private val callback: DiffUtil.ItemCallback<T>,
 
     /**
      * Desc: 数据有变化
-     * <p>
-     * author: linjiaqiang
-     * Date: 2019/11/11
      */
     private fun notifyChanged(position: Int, count: Int) {
         listeners.notifyChanged(this, position, count)

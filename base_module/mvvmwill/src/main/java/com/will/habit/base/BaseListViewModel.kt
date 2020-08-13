@@ -10,7 +10,6 @@ import com.will.habit.widget.recycleview.paging.PagingDataSource
 /**
  * Desc: 通用分页ListViewModel，使用pageIndex进行分页
  *
- * @author: linjiaqiang
  */
 abstract class BaseListViewModel<M : BaseModel<*>, ITEM : ItemViewModel<*>>(application: Application) :
         BasePagingViewModel<M, ITEM>(application), PagingIndexLoader<ITEM> {
@@ -18,7 +17,6 @@ abstract class BaseListViewModel<M : BaseModel<*>, ITEM : ItemViewModel<*>>(appl
     /**
      * Desc: DiffObservableArrayList 参数 DiffUtil.ItemCallback，提供数据对比
      * <p>
-     * author: linjiaqiang
      * Date: 2019/12/6
      */
     abstract fun getDiffItemCallback(): DiffUtil.ItemCallback<ITEM>

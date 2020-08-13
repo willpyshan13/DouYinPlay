@@ -5,7 +5,6 @@ package com.will.play.base
  *
  * Date: 2020-08-12
  * Copyright: Copyright (c) 2018-2020
- * Company: @微微科技有限公司
  * Updater:
  * Update Time:
  * Update Comments:

@@ -152,8 +152,6 @@ abstract class BaseDialogFragment<V : ViewDataBinding, VM : BaseDialogViewModel<
      * Desc:显示loading Dialog
      *
      *
-     * Author: lianyagang
-     * Date: 2019-03-13
      *
      * @param title 显示文案
      */
@@ -171,9 +169,6 @@ abstract class BaseDialogFragment<V : ViewDataBinding, VM : BaseDialogViewModel<
     /**
      * Desc:显示可取消loading Didlog
      *
-     *
-     * Author: zhushuangmiao
-     * Date: 2020-02-14
      *
      * @param title 显示文案
      * @param isCancelable 是否阻塞页面
@@ -203,9 +198,6 @@ abstract class BaseDialogFragment<V : ViewDataBinding, VM : BaseDialogViewModel<
     /**
      * Desc:构建布局
      *
-     *
-     * Author: lianyagang
-     * Date: 2019-12-19
      *
      * @param inflater           view inflation
      * @param container          容器

@@ -86,7 +86,6 @@ internal class PullFromBottomHelper(private val recyclerView: RecyclerView, priv
     /**
      * Desc: 判断当前是否可以继续上滑加载列表
      * <p>
-     * author: linjiaqiang
      * Date: 2019/12/4
      */
     private fun canScrollDown(): Boolean {

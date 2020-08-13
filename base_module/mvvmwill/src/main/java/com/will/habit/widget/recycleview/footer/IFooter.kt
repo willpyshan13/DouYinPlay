@@ -11,8 +11,6 @@ interface IFooter {
     /**
      * Desc: 布局layoutId
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     @LayoutRes
     fun getLayoutResId(): Int
@@ -20,8 +18,6 @@ interface IFooter {
     /**
      * Desc: Footer绑定
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     fun onBindView(viewDataBinding: ViewDataBinding) {
         //To change body of created functions use File | Settings | File Templates.
@@ -30,8 +26,6 @@ interface IFooter {
     /**
      * Desc: Footer移除
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     fun onDetached() {
         //To change body of created functions use File | Settings | File Templates.
@@ -40,8 +34,6 @@ interface IFooter {
     /**
      * Desc: 用户判断是是否是当前Footer
      * <p>
-     * author: linjiaqiang
-     * Date: 2019/12/4
      */
     fun handle(viewDataBinding: ViewDataBinding): Boolean
 
