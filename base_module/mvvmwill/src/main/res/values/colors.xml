@@ -9,6 +9,8 @@
     <color name="red">#FF0000</color>
     <color name="orange">#FFA500</color>
     <color name="translate">#00FFFFFF</color>
+    <color name="color_FDEC83">#FDEC83</color>
+
     <color name="textColor">#202020</color>
     <array name="in_colors_light">
         <item>#4B03A9F4</item>
