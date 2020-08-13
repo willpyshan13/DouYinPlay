@@ -22,11 +22,12 @@
             android:id="@+id/data_icon_goods"
             android:layout_width="0dp"
             android:scaleType="centerCrop"
+            app:imageUrl="@{viewModel.data.pict_url_text}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@mipmap/base_pick_item_image_bg"
-            android:layout_height="wrap_content"/>
+            tools:src="@mipmap/base_pick_item_image_bg"
+            android:layout_height="@dimen/dp160"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/data_icon_goods_title"
@@ -48,7 +49,7 @@
             android:layout_marginStart="@dimen/dp14"
             android:layout_marginEnd="@dimen/dp14"
             android:ellipsize="end"
-            android:text="意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏"
+            android:text="@{viewModel.data.title}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
@@ -81,7 +82,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_item_money"
             android:layout_width="wrap_content"
-            android:text="￥25"
+            android:text="@{@string/pick_good_detail_price+viewModel.data.zk_final_price}"
             android:textSize="@dimen/sp14"
             android:layout_marginTop="@dimen/dp12"
             android:textColor="@color/text_sticker_red_easy_photos"
@@ -104,7 +105,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_item_money_percent"
             android:layout_width="wrap_content"
-            android:text="88%"
+            android:text="@{viewModel.data.max_commission_rate_text}"
             android:textSize="@dimen/sp8"
             android:layout_marginTop="@dimen/dp6"
             android:layout_marginEnd="@dimen/dp14"
@@ -126,7 +127,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_item_price"
             android:layout_width="wrap_content"
-            android:text="￥25"
+            android:text="@{@string/pick_good_detail_price+viewModel.data.max_commission}"
             android:textColor="@color/text_sticker_red_easy_photos"
             android:layout_marginStart="@dimen/dp14"
             android:layout_marginTop="@dimen/dp2"
@@ -137,7 +138,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
-            android:text="888人付款"
+            android:text="@{viewModel.data.volume+@string/pick_good_detail_pay_person}"
             android:layout_marginEnd="@dimen/dp4"
             android:textSize="@dimen/sp8"
             android:layout_marginStart="@dimen/dp4"

@@ -66,9 +66,9 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
                 val type = model.getGoodsType()
                 headerItem.updateBanner(banner,type)
             }
-            for (i in 0..10) {
-                viewModels.add(PickDataItem(this))
-            }
+            val pickData = model.getTaskIndex(pageIndex)
+            val pickList = pickData?.taskLists?.map { PickDataItem(this,it) }.orEmpty()
+            viewModels.addAll(pickList)
             items.addAll(viewModels)
         }, {
 

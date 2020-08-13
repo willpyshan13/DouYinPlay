@@ -22,4 +22,6 @@ class PickRepository : BaseModel<Any>() {
     suspend fun  getHomeBanner()=homeService.getHomeBanner(3).check();
 
     suspend fun  getGoodsType()=homeService.getGoodsType(10).check();
+
+    suspend fun  getTaskIndex(page:Int)=homeService.getTaskIndex(page).check();
 }

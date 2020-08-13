@@ -62,7 +62,7 @@ class PickStoreDetailViewModel(application: Application) : BaseListViewModel<Pic
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
             for (i in 0..10) {
-                viewModels.add(PickDataItem(this))
+//                viewModels.add(PickDataItem(this))
             }
             items.addAll(viewModels)
         }, {

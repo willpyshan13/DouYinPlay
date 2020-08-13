@@ -84,7 +84,7 @@ class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRep
 
         val list = mutableListOf<PickDataItem>()
         for (i in 1..2) {
-            list.add(PickDataItem(this))
+//            list.add(PickDataItem(this))
         }
         itemList.submit(list, false)
     }

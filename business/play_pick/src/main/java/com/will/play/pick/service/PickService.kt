@@ -3,6 +3,7 @@ package com.will.play.pick.service
 import com.will.habit.http.BaseResponse
 import com.will.play.base.BannerEntity
 import com.will.play.pick.entity.PickGoodTypeEntity
+import com.will.play.pick.entity.PickRespDataEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -23,4 +24,10 @@ interface PickService {
 
     @GET("api.php/GoodsType/index")
     suspend fun getGoodsType(@Query("pagesize")pageNum:Int): BaseResponse<PickGoodTypeEntity>
+
+    @GET("api.php/Task/index")
+    suspend fun getTaskIndex(@Query("page")page:Int,@Query("pagesize")pagesize:Int = 10
+                             ,@Query("goods_type_id")goods_type_id:Int = 0,@Query("sort_id")sort_id:Int = 0
+                             ,@Query("user_id")user_id:Int = 0
+                             ,@Query("keyword")keyword:String? = null): BaseResponse<PickRespDataEntity>
 }
