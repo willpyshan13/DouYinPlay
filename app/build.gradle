@@ -2,6 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.hujiang.android-aspectjx'
+
+aspectjx {
+    include 'com.will.play'
+    //关闭AspectJX功能 enabled默认为true，即默认AspectJX生效
+    enabled true
+}
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion

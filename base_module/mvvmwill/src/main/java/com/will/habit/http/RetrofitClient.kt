@@ -6,6 +6,7 @@ import com.will.habit.http.cookie.CookieJarImpl
 import com.will.habit.http.cookie.store.PersistentCookieStore
 import com.will.habit.http.interceptor.BaseInterceptor
 import com.will.habit.http.interceptor.CacheInterceptor
+import com.will.habit.http.interceptor.RetryInterceptor
 import com.will.habit.http.interceptor.logging.Level
 import com.will.habit.http.interceptor.logging.LoggingInterceptor
 import com.will.habit.utils.KLog.e
@@ -101,6 +102,7 @@ class RetrofitClient private constructor(url: String = baseUrl, headers: Map<Str
         }
         val sslParams = HttpsUtils.getSslSocketFactory()
         okHttpClient = OkHttpClient.Builder()
+                .addInterceptor(RetryInterceptor(0))
                 .cookieJar(CookieJarImpl(PersistentCookieStore(mContext))) //                .cache(cache)
                 .addInterceptor(BaseInterceptor(headers))
                 .addInterceptor(CacheInterceptor(mContext))

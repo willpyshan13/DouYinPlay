@@ -31,7 +31,4 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     api project(':business:play_base')
-
-//    implementation project(':compile:router')
-//    kapt project(':compile:routerCompiler')
 }

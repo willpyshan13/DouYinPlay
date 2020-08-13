@@ -17,7 +17,7 @@ class SPUtils private constructor(spName: String) {
      * @param key 键
      * @param value 值
      */
-    fun put(key: String, value: String) {
+    fun put(key: String, value: String?) {
         sp.edit().putString(key, value).apply()
     }
 

@@ -99,7 +99,9 @@ public class PermissionRequestActivity extends Activity {
         } else {
             if (!PermissionUtil.shouldShowRequestPermissionRationale(this, permissions)) {
                 //权限被拒绝并且选中不再提示
-                if (permissions.length != grantResults.length) return;
+                if (permissions.length != grantResults.length) {
+                    return;
+                }
                 List<String> denyList = new ArrayList<>();
                 for (int i = 0; i < grantResults.length; i++) {
                     if (grantResults[i] == -1) {

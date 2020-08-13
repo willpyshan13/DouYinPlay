@@ -76,5 +76,4 @@ dependencies {
     api project(':base_module:module_common_res')
     api project(':base_module:module_widget')
     api project(':base_module:module_pay')
-    api project(':base_module:module_aop')
 }

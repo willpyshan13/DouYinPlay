@@ -2,14 +2,12 @@ package com.will.play.pick.ui.activity
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import com.chenenyu.router.annotation.Route
 import com.will.habit.base.BaseActivity
 import com.will.play.pick.BR
 import com.will.play.pick.R
 import com.will.play.pick.databinding.ActivityPickGoodsDetailBinding
 import com.will.play.pick.ui.dialog.PickVipDialogFragment
 import com.will.play.pick.ui.viewmodel.PickGoodsDetailViewModel
-import com.will.play.pick.ui.viewmodel.PickStoreDetailViewModel
 
 /**
  * Desc:商品详情页

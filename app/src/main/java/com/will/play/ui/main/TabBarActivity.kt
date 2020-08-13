@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import com.will.play.BR
 import com.will.play.R
 import com.will.habit.base.BaseActivity
+import com.will.play.aop.login.annotation.LoginFailedFilter
+import com.will.play.aop.login.annotation.LoginFilter
 import com.will.play.databinding.ActivityTabBarBinding
 import com.will.play.data.ui.fragment.DataFragment
 import com.will.play.home.ui.fragment.HomeFragment
@@ -71,11 +73,21 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
 //                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 //                transaction.replace(R.id.frameLayout, mFragments.get(index));
 //                transaction.commitAllowingStateLoss();
-                commitAllowingStateLoss(index)
+                if (index == 3) {
+                    navigationController.setSelect(old)
+                    checkLogin(index)
+                }else {
+                    commitAllowingStateLoss(index)
+                }
             }
 
             override fun onRepeat(index: Int) {}
         })
+    }
+
+    @LoginFilter()
+    private fun checkLogin(position: Int){
+        commitAllowingStateLoss(position)
     }
 
     private fun commitAllowingStateLoss(position: Int) {

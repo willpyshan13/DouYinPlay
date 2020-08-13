@@ -1,7 +1,6 @@
 package com.will.play.aop.login.core;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.will.play.aop.login.annotation.LoginCallBackFilter;
 import com.will.play.aop.login.annotation.LoginFailedFilter;
