@@ -14,6 +14,7 @@ import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
+import com.will.habit.extection.toJson
 import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
@@ -57,9 +58,11 @@ class MineLoginViewModel(application: Application) :BaseViewModel<MineLoginRepos
             launch({
                 if (verifyBtnVisible.get() == View.VISIBLE){
                     val data = model.checkVerifyCode(userAccount.get(),userPassword.get())
+                    finish()
                 }else{
                     val data = model.login(userAccount.get(),userPassword.get())
-                    Log.d("","")
+                    SPUtils.instance.put(ConstantConfig.USER_INFO,data?.userInfo?.toJson())
+                    finish()
                 }
 
             })

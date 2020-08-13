@@ -22,9 +22,8 @@ class MineLoginRepository : BaseModel<Any>() {
     /**
      * 执行登陆
      */
-    suspend fun login(username:String?,password:String?){
-        mineService.login(username,password)
-    }
+    suspend fun login(username:String?,password:String?) = mineService.login(username,password).check()
+
 
     /**
      *

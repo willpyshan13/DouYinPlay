@@ -8,6 +8,7 @@ import com.will.play.R
 import com.will.habit.base.BaseActivity
 import com.will.play.aop.login.annotation.LoginFailedFilter
 import com.will.play.aop.login.annotation.LoginFilter
+import com.will.play.aop.login.core.LoginSDK
 import com.will.play.databinding.ActivityTabBarBinding
 import com.will.play.data.ui.fragment.DataFragment
 import com.will.play.home.ui.fragment.HomeFragment
@@ -62,21 +63,21 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
 
     private fun initBottomTab() {
         val navigationController = binding.pagerBottomTab.material()
-                .addItem(R.mipmap.base_icon_home, R.mipmap.base_icon_home_select,"首页",resources.getColor(R.color.color_FDEC83))
-                .addItem(R.mipmap.base_icon_data,R.mipmap.base_icon_data_select, "数据",resources.getColor(R.color.color_FDEC83))
-                .addItem(R.mipmap.base_icon_pick, "选品",resources.getColor(R.color.color_FDEC83))
-                .addItem(R.mipmap.base_icon_mine, "我的",resources.getColor(R.color.color_FDEC83))
+                .addItem(R.mipmap.base_icon_home, R.mipmap.base_icon_home_select, "首页", resources.getColor(R.color.color_FDEC83))
+                .addItem(R.mipmap.base_icon_data, R.mipmap.base_icon_data_select, "数据", resources.getColor(R.color.color_FDEC83))
+                .addItem(R.mipmap.base_icon_pick, "选品", resources.getColor(R.color.color_FDEC83))
+                .addItem(R.mipmap.base_icon_mine, "我的", resources.getColor(R.color.color_FDEC83))
                 .build()
         //底部按钮的点击事件监听
         navigationController.addTabItemSelectedListener(object : OnTabItemSelectedListener {
             override fun onSelected(index: Int, old: Int) {
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.frameLayout, mFragments.get(index));
-//                transaction.commitAllowingStateLoss();
                 if (index == 3) {
-                    navigationController.setSelect(old)
+                    val isLogin = LoginSDK.instance?.isLogin(this@TabBarActivity)
+                    if (isLogin != null && !isLogin) {
+                        navigationController.setSelect(old)
+                    }
                     checkLogin(index)
-                }else {
+                } else {
                     commitAllowingStateLoss(index)
                 }
             }
@@ -86,7 +87,7 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
     }
 
     @LoginFilter()
-    private fun checkLogin(position: Int){
+    private fun checkLogin(position: Int) {
         commitAllowingStateLoss(position)
     }
 

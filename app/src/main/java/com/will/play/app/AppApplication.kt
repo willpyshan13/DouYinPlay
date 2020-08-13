@@ -43,7 +43,7 @@ class AppApplication : BaseApplication() {
 
             override fun isLogin(applicationContext: Context?): Boolean {
                 //返回登录状态(true 已登录：false 未登录)
-                return !TextUtils.isEmpty(SPUtils.instance.getString(ConstantConfig.AUTHORIZATION))
+                return !TextUtils.isEmpty(SPUtils.instance.getString(ConstantConfig.TOKEN))
             }
 
             override fun clearLoginStatus(applicationContext: Context?) {

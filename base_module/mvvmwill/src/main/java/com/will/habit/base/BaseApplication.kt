@@ -50,7 +50,7 @@ open class BaseApplication : Application() {
         /**
          * 获得当前app运行的Application
          */
-        val instance: Application?
+        val instance: Application
             get() {
                 return sInstance
             }

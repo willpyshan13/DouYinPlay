@@ -16,4 +16,5 @@ object ConstantConfig {
     const val AUTHORIZATION = "authorization"
 
     const val TOKEN = "token"
+    const val USER_INFO = "user_info"
 }
