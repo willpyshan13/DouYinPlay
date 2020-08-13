@@ -1,16 +1,21 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
+import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
+import com.will.habit.extection.parse
+import com.will.habit.utils.SPUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
 import com.will.play.mine.BR
+import com.will.play.mine.entity.MineUserInfo
 import com.will.play.mine.repository.MineRepository
 import com.will.play.mine.ui.activity.MineChangeRoleActivity
 import com.will.play.mine.ui.activity.MineSettingActivity
@@ -88,7 +93,8 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            viewModels.add(MineHomeHeaderItem(this))
+            val userInfo = SPUtils.instance.getString(ConstantConfig.USER_INFO)?.parse<MineUserInfo>()
+            viewModels.add(MineHomeHeaderItem(this,userInfo))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_vip_icon, "我的会员", item_type_vip))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_wallet, "我的钱包", item_type_wallet))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_course, "我的消息", item_type_message))

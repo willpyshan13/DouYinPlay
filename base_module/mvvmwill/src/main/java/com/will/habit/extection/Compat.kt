@@ -102,6 +102,7 @@ inline fun <reified T> String.parse(): T {
 fun Any.toJson(): String {
     return Gson().toJson(this)
 }
+
 // -------------------------GsonKt end -----------------------
 
 fun View.setBgDrawable(drawable: Drawable) = ViewCompat.setBackground(this, drawable)
