@@ -2,6 +2,8 @@ package com.will.play.mine.service
 
 import com.will.habit.http.BaseResponse
 import com.will.play.base.constant.Constants.BASE_API
+import com.will.play.mine.entity.MineLoginMobileCodeEntity
+import com.will.play.mine.entity.MineUserInfo
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -18,5 +20,12 @@ import retrofit2.http.Query
  */
 interface MineService {
     @POST("$BASE_API/User/login")
-    suspend fun login(@Query("username") username: String, @Query("password") password: String): BaseResponse<String>
+    suspend fun login(@Query("username") username: String?, @Query("password") password: String?): BaseResponse<MineUserInfo>
+
+    @POST("$BASE_API/User/checkVerifyCode")
+    suspend fun checkVerifyCode(@Query("mobile") username: String?, @Query("code") password: String?): BaseResponse<MineLoginMobileCodeEntity>
+
+
+    @POST("$BASE_API/User/getVerifyCode")
+    suspend fun getVerifyCode(@Query("mobile") username: String?): BaseResponse<MineLoginMobileCodeEntity>
 }

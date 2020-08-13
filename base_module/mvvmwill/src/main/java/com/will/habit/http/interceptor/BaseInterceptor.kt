@@ -1,5 +1,7 @@
 package com.will.habit.http.interceptor
 
+import com.will.habit.constant.ConstantConfig
+import com.will.habit.utils.SPUtils
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -18,6 +20,11 @@ class BaseInterceptor(private val headers: Map<String, String>?) : Interceptor {
                 headers[headerKey]?.let { builder.addHeader(headerKey, it).build() }
             }
         }
+        val token = SPUtils.instance.getString(ConstantConfig.TOKEN)
+        if (token!=null) {
+            builder.addHeader("token", token)
+        }
+        builder.addHeader("Platform","1")
         //请求信息
         return chain.proceed(builder.build())
     }
