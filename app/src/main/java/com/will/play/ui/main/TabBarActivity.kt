@@ -71,15 +71,15 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
         //底部按钮的点击事件监听
         navigationController.addTabItemSelectedListener(object : OnTabItemSelectedListener {
             override fun onSelected(index: Int, old: Int) {
-                if (index == 3) {
-                    val isLogin = LoginSDK.instance?.isLogin(this@TabBarActivity)
-                    if (isLogin != null && !isLogin) {
-                        navigationController.setSelect(old)
-                    }
-                    checkLogin(index)
-                } else {
+//                if (index == 3) {
+//                    val isLogin = LoginSDK.instance?.isLogin(this@TabBarActivity)
+//                    if (isLogin != null && !isLogin) {
+//                        navigationController.setSelect(old)
+//                    }
+//                    checkLogin(index)
+//                } else {
                     commitAllowingStateLoss(index)
-                }
+//                }
             }
 
             override fun onRepeat(index: Int) {}
