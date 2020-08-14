@@ -71,6 +71,7 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
         //底部按钮的点击事件监听
         navigationController.addTabItemSelectedListener(object : OnTabItemSelectedListener {
             override fun onSelected(index: Int, old: Int) {
+                //个人信息页不需要登陆
 //                if (index == 3) {
 //                    val isLogin = LoginSDK.instance?.isLogin(this@TabBarActivity)
 //                    if (isLogin != null && !isLogin) {
