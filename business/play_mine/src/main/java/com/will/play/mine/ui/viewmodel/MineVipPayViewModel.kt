@@ -26,4 +26,8 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class MineVipPayViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
     val vipLayout = MineVipLayoutItem(this)
+    override fun onCreate() {
+        super.onCreate()
+        setTitleText("订单支付")
+    }
 }
