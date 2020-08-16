@@ -10,249 +10,254 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_F0F0F0"
-        android:orientation="vertical"
-        android:padding="@dimen/dp16">
-
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/mine_vip_detail_top_vip_icon"
-            android:layout_width="@dimen/dp322"
-            android:layout_height="@dimen/dp114"
-            android:layout_marginStart="@dimen/dp12"
-            android:layout_marginEnd="@dimen/dp12"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/base_mine_vip_bg_normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_vip_detail_top_vip_sub_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:drawableStart="@mipmap/base_bg_title"
-            android:text="会员价格"
-            app:layout_constraintStart_toStartOf="@+id/mine_vip_detail_top_vip_icon"
-            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_icon"
-            tools:ignore="RtlCompat" />
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/mine_vip_detail_vip_layout_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:background="@drawable/home_item_bg"
-            android:paddingStart="@dimen/dp10"
-            android:paddingEnd="@dimen/dp10"
-            android:paddingBottom="@dimen/dp10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_sub_title">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_F0F0F0"
+            android:orientation="vertical"
+            android:padding="@dimen/dp16">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/mine_vip_detail_top_vip1_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="30天"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/mine_vip_detail_top_vip1_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="超级会员"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip1_title"
-                tools:ignore="RtlCompat" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="￥9.9"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/mine_vip_detail_top_vip_icon"
+                android:layout_width="@dimen/dp322"
+                android:layout_height="@dimen/dp114"
+                android:layout_marginStart="@dimen/dp12"
+                android:layout_marginEnd="@dimen/dp12"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/base_mine_vip_bg_normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat" />
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_vip_detail_top_vip_sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
-                android:background="@mipmap/base_mine_vip_open_btn"
-                android:includeFontPadding="false"
+                android:drawableStart="@mipmap/base_bg_title"
+                android:text="会员价格"
+                app:layout_constraintStart_toStartOf="@+id/mine_vip_detail_top_vip_icon"
+                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_icon"
+                tools:ignore="RtlCompat" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mine_vip_detail_vip_layout_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/home_item_bg"
                 android:paddingStart="@dimen/dp10"
-                android:paddingTop="@dimen/dp5"
-                app:onClickCommand="@{viewModel.vipServiceOneOpen}"
                 android:paddingEnd="@dimen/dp10"
-                android:paddingBottom="@dimen/dp5"
-                android:text="开通"
-                android:textColor="@color/color_FFC766"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/mine_vip_detail_vip_layout_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:background="@drawable/home_item_bg"
-            android:paddingStart="@dimen/dp10"
-            android:paddingEnd="@dimen/dp10"
-            android:paddingBottom="@dimen/dp10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_1">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/mine_vip_detail_top_vip2_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="一年"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/mine_vip_detail_top_vip2_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="超级会员"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip2_title"
-                tools:ignore="RtlCompat" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="￥180"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingBottom="@dimen/dp10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat" />
+                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_sub_title">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mine_vip_detail_top_vip1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="30天"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mine_vip_detail_top_vip1_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="超级会员"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip1_title"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="￥9.9"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@mipmap/base_mine_vip_open_btn"
+                    android:includeFontPadding="false"
+                    android:paddingStart="@dimen/dp10"
+                    android:paddingTop="@dimen/dp5"
+                    android:paddingEnd="@dimen/dp10"
+                    android:paddingBottom="@dimen/dp5"
+                    android:text="开通"
+                    android:textColor="@color/color_FFC766"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:onClickCommand="@{viewModel.vipServiceOneOpen}"
+                    tools:ignore="RtlCompat" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mine_vip_detail_vip_layout_2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
-                android:background="@mipmap/base_mine_vip_open_btn"
-                android:includeFontPadding="false"
+                android:background="@drawable/home_item_bg"
                 android:paddingStart="@dimen/dp10"
-                android:paddingTop="@dimen/dp5"
-                app:onClickCommand="@{viewModel.vipServiceOneOpen}"
                 android:paddingEnd="@dimen/dp10"
-                android:paddingBottom="@dimen/dp5"
-                android:text="开通"
-                android:textColor="@color/color_FFC766"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/mine_vip_detail_vip_layout_3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:background="@drawable/home_item_bg"
-            android:paddingStart="@dimen/dp10"
-            android:paddingEnd="@dimen/dp10"
-            android:paddingBottom="@dimen/dp10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_2">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/mine_vip_detail_top_vip3_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="购买视频"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/mine_vip_detail_top_vip3_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="超级会员"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip3_title"
-                tools:ignore="RtlCompat" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="2.5/个"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingBottom="@dimen/dp10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat" />
+                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_1">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mine_vip_detail_top_vip2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="一年"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mine_vip_detail_top_vip2_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="超级会员"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip2_title"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="￥180"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@mipmap/base_mine_vip_open_btn"
+                    android:includeFontPadding="false"
+                    android:paddingStart="@dimen/dp10"
+                    android:paddingTop="@dimen/dp5"
+                    android:paddingEnd="@dimen/dp10"
+                    android:paddingBottom="@dimen/dp5"
+                    android:text="开通"
+                    android:textColor="@color/color_FFC766"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:onClickCommand="@{viewModel.vipServiceOneOpen}"
+                    tools:ignore="RtlCompat" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mine_vip_detail_vip_layout_3"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
-                android:background="@mipmap/base_mine_vip_open_btn"
-                android:includeFontPadding="false"
+                android:background="@drawable/home_item_bg"
                 android:paddingStart="@dimen/dp10"
-                android:paddingTop="@dimen/dp5"
-                app:onClickCommand="@{viewModel.vipServiceOneOpen}"
                 android:paddingEnd="@dimen/dp10"
-                android:paddingBottom="@dimen/dp5"
-                android:text="开通"
-                android:textColor="@color/color_FFC766"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingBottom="@dimen/dp10"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mine_vip_detail_top_vip3_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="购买视频"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mine_vip_detail_top_vip3_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="超级会员"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip3_title"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="2.5/个"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@mipmap/base_mine_vip_open_btn"
+                    android:includeFontPadding="false"
+                    android:paddingStart="@dimen/dp10"
+                    android:paddingTop="@dimen/dp5"
+                    android:paddingEnd="@dimen/dp10"
+                    android:paddingBottom="@dimen/dp5"
+                    android:text="开通"
+                    android:textColor="@color/color_FFC766"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:onClickCommand="@{viewModel.vipServiceOneOpen}"
+                    tools:ignore="RtlCompat" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_vip_detail_top_vip_sub_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:drawableStart="@mipmap/base_bg_title"
+                android:text="超级会员介绍"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_3"
                 tools:ignore="RtlCompat" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/mine_vip_detail_top_vip_desc"
+                android:layout_width="@dimen/dp328"
+                android:layout_height="@dimen/dp208"
+                android:layout_marginStart="@dimen/dp12"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp12"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/base_mine_vip_bg_normal_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_sub_desc" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_vip_detail_top_vip_sub_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:drawableStart="@mipmap/base_bg_title"
-            android:text="超级会员介绍"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_vip_layout_3"
-            tools:ignore="RtlCompat" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/mine_vip_detail_top_vip_desc"
-            android:layout_width="@dimen/dp328"
-            android:layout_height="@dimen/dp208"
-            android:layout_marginStart="@dimen/dp12"
-            android:layout_marginTop="@dimen/dp10"
-            android:layout_marginEnd="@dimen/dp12"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/base_mine_vip_bg_normal_detail"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_sub_desc" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
