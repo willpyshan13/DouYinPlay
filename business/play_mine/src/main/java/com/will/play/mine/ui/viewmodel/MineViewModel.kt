@@ -60,6 +60,11 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
         loadInit()
     }
 
+    override fun onResume() {
+        super.onResume()
+        callReload(false)
+    }
+
     val leftClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             startActivity(MineChangeRoleActivity::class.java)
@@ -93,8 +98,8 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            val userInfo = SPUtils.instance.getString(ConstantConfig.USER_INFO)?.parse<MineUserInfo>()
-            viewModels.add(MineHomeHeaderItem(this,userInfo))
+            val data = model.getUserIndex()
+            viewModels.add(MineHomeHeaderItem(this,data))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_vip_icon, "我的会员", item_type_vip))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_wallet, "我的钱包", item_type_wallet))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_course, "我的消息", item_type_message))

@@ -35,33 +35,38 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class MineLoginViewModel(application: Application) :BaseViewModel<MineLoginRepository>(application) {
+class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepository>(application) {
     val userAccount = ObservableField("")
     val userPassword = ObservableField("")
     val verifyBtnVisible = ObservableInt(View.GONE)
 
+    val verifyHint = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_password))
+
     val verifyText = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_title_phone))
     val verifyTitleCLick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            if (verifyBtnVisible.get() == View.VISIBLE){
+            if (verifyBtnVisible.get() == View.VISIBLE) {
                 verifyBtnVisible.set(View.GONE)
                 verifyText.set(StringUtils.getStringResource(R.string.mine_douyin_verify_title_password))
-            }else{
+                verifyHint.set(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_password))
+            } else {
                 verifyBtnVisible.set(View.VISIBLE)
                 verifyText.set(StringUtils.getStringResource(R.string.mine_douyin_verify_title_phone))
+                verifyHint.set(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_verify))
             }
         }
     })
 
-    val onLoginClick = BindingCommand<Any>(object :BindingAction{
+    val onLoginClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             launch({
-                if (verifyBtnVisible.get() == View.VISIBLE){
-                    val data = model.checkVerifyCode(userAccount.get(),userPassword.get())
+                if (verifyBtnVisible.get() == View.VISIBLE) {
+                    val data = model.checkVerifyCode(userAccount.get(), userPassword.get())
+                    SPUtils.instance.put(ConstantConfig.TOKEN, data?.Token)
                     finish()
-                }else{
-                    val data = model.login(userAccount.get(),userPassword.get())
-                    SPUtils.instance.put(ConstantConfig.USER_INFO,data?.userInfo?.toJson())
+                } else {
+                    val data = model.login(userAccount.get(), userPassword.get())
+                    SPUtils.instance.put(ConstantConfig.USER_INFO, data?.userInfo?.toJson())
                     finish()
                 }
 
@@ -69,29 +74,29 @@ class MineLoginViewModel(application: Application) :BaseViewModel<MineLoginRepos
         }
     })
 
-    val onWechatClick = BindingCommand<Any>(object :BindingAction{
+    val onWechatClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
 
         }
     })
 
-    val onBackClick = BindingCommand<Any>(object :BindingAction{
+    val onBackClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             finish()
         }
     })
 
-    val onDouyinClick = BindingCommand<Any>(object :BindingAction{
+    val onDouyinClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
 
         }
     })
 
-    val onVerifyClick = BindingCommand<Any>(object :BindingAction{
+    val onVerifyClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             launch({
                 val data = model.getVerifyCode(userAccount.get())
-                SPUtils.instance.put(ConstantConfig.TOKEN,data?.Token)
+                SPUtils.instance.put(ConstantConfig.TOKEN, data?.Token)
             })
         }
     })

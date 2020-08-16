@@ -28,4 +28,8 @@ interface MineService {
 
     @POST("$BASE_API/User/getVerifyCode")
     suspend fun getVerifyCode(@Query("mobile") username: String?): BaseResponse<MineLoginMobileCodeEntity>
+
+
+    @POST("$BASE_API/User/index")
+    suspend fun getUserIndex(): BaseResponse<MineUserInfo>
 }

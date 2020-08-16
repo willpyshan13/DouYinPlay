@@ -6,6 +6,8 @@ import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.play.mine.entity.MineUserInfo
 import com.will.play.mine.ui.activity.MineInfoEditActivity
+import com.will.play.mine.ui.activity.MineLoginActivity
+import com.will.play.mine.ui.activity.MineVipActivity
 import okhttp3.internal.notifyAll
 
 /**
@@ -21,6 +23,18 @@ class MineHomeHeaderItem(viewModel:MineViewModel,userInfo: MineUserInfo?) :ItemV
     val onMineInfoEditClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             viewModel.startActivity(MineInfoEditActivity::class.java)
+        }
+    })
+
+    val onLoginClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            viewModel.startActivity(MineLoginActivity::class.java)
+        }
+    })
+
+    val onVipClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            viewModel.startActivity(MineVipActivity::class.java)
         }
     })
 }

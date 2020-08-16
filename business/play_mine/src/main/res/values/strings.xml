@@ -9,6 +9,8 @@
     <string name="mine_address">我的地址</string>
     <string name="mine_douyin_verify_title_phone">手机验证码登陆</string>
     <string name="mine_douyin_verify_title_password">密码登陆</string>
+    <string name="mine_douyin_verify_hint_verify">请输入验证码</string>
+    <string name="mine_douyin_verify_hint_password">请输入密码</string>
     <string name="mine_register_partner">注册商家</string>
     <string name="mine_vip_title">我的会员</string>
 

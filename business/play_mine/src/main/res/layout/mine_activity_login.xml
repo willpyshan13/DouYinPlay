@@ -112,7 +112,7 @@
             android:layout_marginEnd="@dimen/dp10"
             android:background="@null"
             android:gravity="center_vertical"
-            android:hint="请输入验证码"
+            android:hint="@{viewModel.verifyHint}"
             android:text="@={viewModel.userPassword}"
             android:paddingStart="@dimen/dp20"
             app:layout_constraintEnd_toStartOf="@+id/mine_login_code_btn"
