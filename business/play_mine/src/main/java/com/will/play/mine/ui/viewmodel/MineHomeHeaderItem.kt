@@ -1,6 +1,8 @@
 package com.will.play.mine.ui.viewmodel
 
+import android.view.View
 import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
@@ -15,10 +17,12 @@ import okhttp3.internal.notifyAll
  */
 class MineHomeHeaderItem(viewModel:MineViewModel,userInfo: MineUserInfo?) :ItemViewModel<MineViewModel>(viewModel) {
 
+    val showLogin = ObservableInt(if (userInfo != null) View.INVISIBLE else View.VISIBLE)
+
     val userName = ObservableField(userInfo?.userInfo?.username)
-    val userVideo = ObservableField("")
-    val userThing = ObservableField("")
-    val userMoney = ObservableField("")
+    val userVideo = ObservableField("${userInfo?.userInfo?.download_total}")
+    val userThing = ObservableField("${userInfo?.userInfo?.download_month_use}")
+    val userMoney = ObservableField("${userInfo?.userInfo?.download_point_total}")
 
     val onMineInfoEditClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {

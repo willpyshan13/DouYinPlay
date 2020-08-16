@@ -20,6 +20,49 @@ data class MineUserInfo(
     val userInfo: UserInfo
 )
 
+data class MineUserInfoEntity(
+    val Token: String,
+    val douyinUserInfo: List<Any>,
+    val taobaoUserInfo: TaobaoUserInfo,
+    val userInfo: UserInfo,
+    val wechatUserInfo: List<Any>
+)
+
+data class TaobaoUserInfo(
+    val access_token: String,
+    val disable: Int,
+    val disable_name: String,
+    val disable_text: String,
+    val expire_time: String,
+    val gender: Int,
+    val gender_name: String,
+    val id: Int,
+    val r1_valid: String,
+    val r2_valid: String,
+    val refresh_token: String,
+    val role_name: String,
+    val system_role_name: String,
+    val system_user_disable: String,
+    val system_user_id: Int,
+    val taobao_user_id: String,
+    val taobao_user_nick: String,
+    val tb_id: String,
+    val time_create: Int,
+    val time_create_text: String,
+    val time_edit: Int,
+    val time_edit_text: String,
+    val time_expire: String,
+    val time_login: Int,
+    val time_login_text: String,
+    val time_taobao_order: String,
+    val token_type: String,
+    val user_id: Int,
+    val user_mobile: String,
+    val user_nickname: String,
+    val w1_valid: String,
+    val w2_valid: String
+)
+
 data class UserInfo(
     val andriod_openid: String,
     val area_id: String,
@@ -33,6 +76,15 @@ data class UserInfo(
     val douyin_user_id: String,
     val douyin_user_nickname: Any,
     val douyin_user_open_id: Any,
+    val download_day_remain: Int,
+    val download_day_total: Int,
+    val download_total: Int,
+    val download_day_use: Int,
+    val download_month_remain: Int,
+    val download_month_total: Int,
+    val download_month_use: Int,
+    val download_point_check: Int,
+    val download_point_total: Int,
     val employeeInfo: Any,
     val employee_id: Int,
     val employee_name: String,

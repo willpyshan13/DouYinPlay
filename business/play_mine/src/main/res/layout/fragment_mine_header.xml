@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
                 android:text="注册/登陆"
+                android:visibility="@{viewModel.showLogin}"
                 app:onClickCommand="@{viewModel.onLoginClick}"
                 app:layout_constraintEnd_toEndOf="@id/mine_header_icon"
                 app:layout_constraintStart_toStartOf="@+id/mine_header_icon"

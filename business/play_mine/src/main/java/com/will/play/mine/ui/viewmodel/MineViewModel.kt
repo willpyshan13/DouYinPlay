@@ -109,7 +109,7 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_guide, "新手指引", item_type_guide))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_contact, "联系我们", item_type_contract))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_custom, "工人客服", item_type_custom_service))
-            items.addAll(viewModels)
+            items.submit(viewModels,false)
         }, {
 
         })
