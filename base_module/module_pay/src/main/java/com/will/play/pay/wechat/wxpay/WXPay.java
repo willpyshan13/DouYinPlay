@@ -50,10 +50,10 @@ public class WXPay implements IPayStrategy<WXPayInfoImpl> {
         this.payInfoImpli = payInfo;
         sPayCallback = payCallback;
 
-        if(payInfoImpli == null || TextUtils.isEmpty(payInfoImpli.getAppid()) || TextUtils.isEmpty(payInfoImpli.getPartnerid())
-                || TextUtils.isEmpty(payInfoImpli.getPrepayId()) || TextUtils.isEmpty(payInfoImpli.getPackageValue()) ||
-                TextUtils.isEmpty(payInfoImpli.getNonceStr()) || TextUtils.isEmpty(payInfoImpli.getTimestamp()) ||
-                TextUtils.isEmpty(payInfoImpli.getSign())) {
+        if(payInfoImpli == null || TextUtils.isEmpty(payInfoImpli.appid) || TextUtils.isEmpty(payInfoImpli.partnerid)
+                || TextUtils.isEmpty(payInfoImpli.prepayId) || TextUtils.isEmpty(payInfoImpli.packageValue) ||
+                TextUtils.isEmpty(payInfoImpli.nonceStr) || TextUtils.isEmpty(payInfoImpli.timestamp) ||
+                TextUtils.isEmpty(payInfoImpli.sign)) {
             if(payCallback != null) {
                 payCallback.failed(WXErrCodeEx.CODE_ILLEGAL_ARGURE, WXErrCodeEx.getMessageByCode(WXErrCodeEx.CODE_ILLEGAL_ARGURE));
             }
@@ -61,7 +61,7 @@ public class WXPay implements IPayStrategy<WXPayInfoImpl> {
         }
 
         if (!initializated) {
-            initWXApi(activity.getApplicationContext(), payInfoImpli.getAppid());
+            initWXApi(activity.getApplicationContext(), payInfoImpli.appid);
         }
 
         if(!check()) {
@@ -72,13 +72,13 @@ public class WXPay implements IPayStrategy<WXPayInfoImpl> {
         }
 
         PayReq req = new PayReq();
-        req.appId = payInfoImpli.getAppid();
-        req.partnerId = payInfoImpli.getPartnerid();
-        req.prepayId = payInfoImpli.getPrepayId();
-        req.packageValue = payInfoImpli.getPackageValue();
-        req.nonceStr = payInfoImpli.getNonceStr();
-        req.timeStamp = payInfoImpli.getTimestamp();
-        req.sign = payInfoImpli.getSign();
+        req.appId = payInfoImpli.appid;
+        req.partnerId = payInfoImpli.partnerid;
+        req.prepayId = payInfoImpli.prepayId;
+        req.packageValue = payInfoImpli.packageValue;
+        req.nonceStr = payInfoImpli.nonceStr;
+        req.timeStamp = payInfoImpli.timestamp;
+        req.sign = payInfoImpli.sign;
 
         mWXApi.sendReq(req);
     }
