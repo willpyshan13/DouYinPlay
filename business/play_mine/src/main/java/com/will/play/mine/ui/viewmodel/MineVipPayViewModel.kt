@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
@@ -30,4 +32,11 @@ class MineVipPayViewModel(application: Application) :BaseViewModel<MineRepositor
         super.onCreate()
         setTitleText("订单支付")
     }
+
+    val onPayClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+
+        }
+
+    })
 }
