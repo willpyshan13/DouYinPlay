@@ -24,7 +24,7 @@ import com.will.play.pay.wechat.wxpay.WXPayInfoImpl
  * @Author: pengyushan
  */
 class MineVipPayActivity : BaseActivity<MineActivityVipPayBinding, MineVipPayViewModel>() {
-    private val wxPay: WXPay = WXPay.getInstance()
+    private val wxPay: WXPay = WXPay.instance
     private val wxPayInfoImpl  = WXPayInfoImpl()
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.mine_activity_vip_pay

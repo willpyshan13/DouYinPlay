@@ -1,0 +1,26 @@
+package com.will.play.mine.ui.viewmodel
+
+import android.os.Bundle
+import androidx.core.content.ContextCompat
+import com.will.habit.base.BaseViewModel
+import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
+import com.will.habit.constant.ConstantConfig
+import com.will.habit.utils.Utils
+import com.will.play.mine.ui.activity.MineVipPayActivity
+
+/**
+ * 我的会员服务item
+ */
+class MineVipDetailItem(viewModel: BaseViewModel<*>, resIcon:Int, val title:String) :ItemViewModel<BaseViewModel<*>>(viewModel) {
+
+
+    val vipServiceOneOpen = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            viewModel.startActivity(MineVipPayActivity::class.java, Bundle().apply { putString(ConstantConfig.VIP_PAY_MONEY,"9.9") })
+        }
+
+    })
+
+}

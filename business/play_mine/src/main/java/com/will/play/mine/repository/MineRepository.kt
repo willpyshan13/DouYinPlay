@@ -24,4 +24,5 @@ class MineRepository : BaseModel<Any>() {
      */
     suspend fun getUserIndex() = mineService.getUserIndex().check()
 
+    suspend fun getUpgrade() = mineService.getUpgrade("0").check()
 }

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.collection.DiffObservableArrayList
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.constant.ConstantConfig.VIP_PAY_MONEY
@@ -35,24 +36,33 @@ class MineVipDetailViewModel(application: Application) :BaseViewModel<MineReposi
         setTitleText(StringUtils.getStringResource(R.string.mine_vip_title))
     }
 
-    val vipServiceOneOpen = BindingCommand<Any>(object :BindingAction{
-        override fun call() {
-            startActivity(MineVipPayActivity::class.java,Bundle().apply { putString(VIP_PAY_MONEY,"9.9") })
+    val items = DiffObservableArrayList(object : DiffUtil.ItemCallback<MineVipDetailItem>() {
+        override fun areItemsTheSame(oldItem: MineVipDetailItem, newItem: MineVipDetailItem): Boolean {
+            return true
         }
 
-    })
-
-    val vipServiceTwoOpen = BindingCommand<Any>(object :BindingAction{
-        override fun call() {
-            startActivity(MineVipPayActivity::class.java,Bundle().apply { putString(VIP_PAY_MONEY,"180") })
+        override fun areContentsTheSame(oldItem: MineVipDetailItem, newItem: MineVipDetailItem): Boolean {
+            return false
         }
-
     })
 
-    val vipServiceThreeOpen = BindingCommand<Any>(object :BindingAction{
-        override fun call() {
-            startActivity(MineVipPayActivity::class.java,Bundle().apply { putString(VIP_PAY_MONEY,"2.5") })
+
+    fun getItemBinding(): ItemBinding<ItemViewModel<*>> {
+        return ItemBinding.of { binding, _, item ->
+            when (item) {
+                is MineVipDetailItem -> binding.set(BR.viewModel, R.layout.fragment_mine_item)
+            }
         }
+    }
 
-    })
+    override fun onCreate() {
+        super.onCreate()
+        getVipDetail()
+    }
+
+    fun getVipDetail(){
+        launch({
+            val data = model.getUpgrade()
+        })
+    }
 }

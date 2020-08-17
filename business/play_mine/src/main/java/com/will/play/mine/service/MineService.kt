@@ -4,6 +4,8 @@ import com.will.habit.http.BaseResponse
 import com.will.play.base.constant.Constants.BASE_API
 import com.will.play.mine.entity.MineLoginMobileCodeEntity
 import com.will.play.mine.entity.MineUserInfo
+import com.will.play.mine.entity.MineVipDetailEntity
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -32,4 +34,7 @@ interface MineService {
 
     @POST("$BASE_API/User/index")
     suspend fun getUserIndex(): BaseResponse<MineUserInfo>
+
+    @POST("$BASE_API/Upgrade/index")
+    suspend fun getUpgrade(@Query("share_order_id") username: String?): BaseResponse<MineVipDetailEntity>
 }
