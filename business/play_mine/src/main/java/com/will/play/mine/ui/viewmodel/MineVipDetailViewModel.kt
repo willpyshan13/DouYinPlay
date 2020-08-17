@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
+import android.os.Bundle
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
@@ -8,6 +9,7 @@ import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.constant.ConstantConfig.VIP_PAY_MONEY
 import com.will.habit.extection.launch
 import com.will.habit.utils.StringUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
@@ -35,21 +37,21 @@ class MineVipDetailViewModel(application: Application) :BaseViewModel<MineReposi
 
     val vipServiceOneOpen = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-            startActivity(MineVipPayActivity::class.java)
+            startActivity(MineVipPayActivity::class.java,Bundle().apply { putString(VIP_PAY_MONEY,"9.9") })
         }
 
     })
 
     val vipServiceTwoOpen = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-            startActivity(MineVipPayActivity::class.java)
+            startActivity(MineVipPayActivity::class.java,Bundle().apply { putString(VIP_PAY_MONEY,"180") })
         }
 
     })
 
     val vipServiceThreeOpen = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-            startActivity(MineVipPayActivity::class.java)
+            startActivity(MineVipPayActivity::class.java,Bundle().apply { putString(VIP_PAY_MONEY,"2.5") })
         }
 
     })

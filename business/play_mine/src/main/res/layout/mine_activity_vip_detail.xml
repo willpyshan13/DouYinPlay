@@ -168,7 +168,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:onClickCommand="@{viewModel.vipServiceOneOpen}"
+                    app:onClickCommand="@{viewModel.vipServiceTwoOpen}"
                     tools:ignore="RtlCompat" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -231,7 +231,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:onClickCommand="@{viewModel.vipServiceOneOpen}"
+                    app:onClickCommand="@{viewModel.vipServiceThreeOpen}"
                     tools:ignore="RtlCompat" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

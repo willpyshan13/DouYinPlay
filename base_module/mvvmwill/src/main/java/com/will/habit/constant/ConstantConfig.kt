@@ -16,4 +16,6 @@ object ConstantConfig {
 
     const val TOKEN = "token"
     const val USER_INFO = "user_info"
+
+    const val VIP_PAY_MONEY = "vip_pay_money"
 }
