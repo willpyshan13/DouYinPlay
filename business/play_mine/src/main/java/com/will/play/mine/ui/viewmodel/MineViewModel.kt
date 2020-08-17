@@ -98,8 +98,7 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            val data = model.getUserIndex()
-            viewModels.add(MineHomeHeaderItem(this,data))
+            viewModels.add(MineHomeHeaderItem(this))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_vip_icon, "我的会员", item_type_vip))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_wallet, "我的钱包", item_type_wallet))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_course, "我的消息", item_type_message))
@@ -110,6 +109,9 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_contact, "联系我们", item_type_contract))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_custom, "工人客服", item_type_custom_service))
             items.submit(viewModels,false)
+
+            val data = model.getUserIndex()
+            (viewModels[0] as MineHomeHeaderItem).updateUserInfo(data)
         }, {
 
         })

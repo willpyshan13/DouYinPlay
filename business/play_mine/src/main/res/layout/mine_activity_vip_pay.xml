@@ -58,6 +58,7 @@
             android:layout_width="@dimen/dp130"
             android:layout_height="@dimen/dp50"
             android:background="#333333"
+            app:onClickCommand="@{viewModel.onPayClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 

@@ -15,14 +15,24 @@ import okhttp3.internal.notifyAll
 /**
  * @author will
  */
-class MineHomeHeaderItem(viewModel:MineViewModel,userInfo: MineUserInfo?) :ItemViewModel<MineViewModel>(viewModel) {
+class MineHomeHeaderItem(viewModel:MineViewModel) :ItemViewModel<MineViewModel>(viewModel) {
 
-    val showLogin = ObservableInt(if (userInfo != null) View.INVISIBLE else View.VISIBLE)
 
-    val userName = ObservableField(userInfo?.userInfo?.username)
-    val userVideo = ObservableField("${userInfo?.userInfo?.download_total}")
-    val userThing = ObservableField("${userInfo?.userInfo?.download_month_use}")
-    val userMoney = ObservableField("${userInfo?.userInfo?.download_point_total}")
+
+    val showLogin = ObservableInt(View.INVISIBLE)
+
+    val userName = ObservableField("")
+    val userVideo = ObservableField("")
+    val userThing = ObservableField("")
+    val userMoney = ObservableField("")
+
+    fun updateUserInfo(userInfo: MineUserInfo?){
+        showLogin.set(if (userInfo != null) View.INVISIBLE else View.VISIBLE)
+        userName.set(userInfo?.userInfo?.username)
+        userVideo.set("${userInfo?.userInfo?.download_total}")
+        userThing.set("${userInfo?.userInfo?.download_month_use}")
+        userMoney.set("${userInfo?.userInfo?.download_point_total}")
+    }
 
     val onMineInfoEditClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {

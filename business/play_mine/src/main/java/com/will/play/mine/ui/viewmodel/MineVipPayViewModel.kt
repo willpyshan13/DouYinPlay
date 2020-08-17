@@ -8,6 +8,7 @@ import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
@@ -28,6 +29,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class MineVipPayViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
     val vipLayout = MineVipLayoutItem(this)
+    val payClick = SingleLiveEvent<Void>()
     override fun onCreate() {
         super.onCreate()
         setTitleText("订单支付")
@@ -35,7 +37,7 @@ class MineVipPayViewModel(application: Application) :BaseViewModel<MineRepositor
 
     val onPayClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-
+            payClick.call()
         }
 
     })
