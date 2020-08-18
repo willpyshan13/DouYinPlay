@@ -60,9 +60,11 @@ class MineVipDetailViewModel(application: Application) :BaseViewModel<MineReposi
         getVipDetail()
     }
 
-    fun getVipDetail(){
+    private fun getVipDetail(){
         launch({
             val data = model.getUpgrade()
+            val viewList = data?.upgradeLists?.map {MineVipDetailItem(this)  }.orEmpty()
+            items.submit(viewList,false)
         })
     }
 }
