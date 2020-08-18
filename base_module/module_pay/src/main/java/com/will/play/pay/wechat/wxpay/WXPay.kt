@@ -11,7 +11,7 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory
 import com.will.play.pay.base.IPayStrategy
 import com.will.play.pay.callback.IPayCallback
 
-class WXPay private constructor() : IPayStrategy<WXPayInfoImpl?> {
+class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
     private var payInfoImpli: WXPayInfoImpl? = null
     var wXApi: IWXAPI? = null
         private set
@@ -23,7 +23,7 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl?> {
         initializated = true
     }
 
-    override fun pay(activity: Activity, payInfo: WXPayInfoImpl?, payCallback: IPayCallback?) {
+    override fun pay(activity: Activity, payInfo: WXPayInfoImpl, payCallback: IPayCallback?) {
         payInfoImpli = payInfo
         sPayCallback = payCallback
         if (payInfoImpli == null || TextUtils.isEmpty(payInfoImpli!!.appid) || TextUtils.isEmpty(payInfoImpli!!.partnerid)
@@ -78,19 +78,9 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl?> {
     }
 
     companion object {
-        private var mWXPay: WXPay? = null
         private var sPayCallback: IPayCallback? = null
         @JvmStatic
-        val instance: WXPay?
-            get() {
-                if (mWXPay == null) {
-                    synchronized(WXPay::class.java) {
-                        if (mWXPay == null) {
-                            mWXPay = WXPay()
-                        }
-                    }
-                }
-                return mWXPay
-            }
+        val instance: WXPay = WXPay()
+
     }
 }
