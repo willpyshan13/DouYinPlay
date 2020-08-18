@@ -1,5 +1,6 @@
 package com.will.habit.extection
 
+import android.os.Looper
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -65,19 +66,19 @@ fun ViewModel.launch(block: suspend (coroutineScope: CoroutineScope) -> Unit,
 fun CoroutineScope.safeLaunch(block: suspend (coroutineScope: CoroutineScope) -> Unit,
                               fail: (t: Throwable) -> Unit = { },
                               toastNetWorkError: Boolean = true,
-                              toastResponseError: Boolean = true) = launch {
-    try {
-        block(this)
-    } catch (t: Throwable) {
-        t.printStackTrace()
-        if (toastNetWorkError) {
-            checkToastNetWorkError(t)
+                              toastResponseError: Boolean = true): Job {
+    val exceptionHandler = CoroutineExceptionHandler { _, exception ->
+        val isMainThread = Looper.getMainLooper().thread == Thread.currentThread()
+        exception.printStackTrace()
+        if (isMainThread && toastNetWorkError) {
+            checkToastNetWorkError(exception)
         }
-        if (toastResponseError) {
-            checkToastResponseError(t)
+        if (isMainThread && toastResponseError) {
+            checkToastResponseError(exception)
         }
-        fail(t)
+        fail(exception)
     }
+    return launch(exceptionHandler) { block(this) }
 }
 
 fun <T> CoroutineScope.safeAsync(block: suspend () -> T,
