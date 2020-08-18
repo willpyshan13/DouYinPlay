@@ -320,7 +320,7 @@ class ToastUtils private constructor() {
          * @param args     参数
          */
         private fun show(format: String, duration: Int, vararg args: Any) {
-            show(String.format(format, *args), duration)
+
         }
 
         /**
