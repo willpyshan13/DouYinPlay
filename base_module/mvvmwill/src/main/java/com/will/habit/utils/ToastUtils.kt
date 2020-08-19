@@ -113,7 +113,7 @@ class ToastUtils private constructor() {
          *
          * @param text 文本
          */
-        fun showShortSafe(text: CharSequence) {
+        fun showShortSafe(text: String) {
             sHandler.post { show(text, Toast.LENGTH_SHORT) }
         }
 
@@ -151,7 +151,7 @@ class ToastUtils private constructor() {
          *
          * @param text 文本
          */
-        fun showLongSafe(text: CharSequence) {
+        fun showLongSafe(text: String) {
             sHandler.post { show(text, Toast.LENGTH_LONG) }
         }
 
@@ -190,7 +190,7 @@ class ToastUtils private constructor() {
          * @param text 文本
          */
         @JvmStatic
-        fun showShort(text: CharSequence) {
+        fun showShort(text: String) {
             show(text, Toast.LENGTH_SHORT)
         }
 
@@ -229,7 +229,7 @@ class ToastUtils private constructor() {
          * @param text 文本
          */
         @JvmStatic
-        fun showLong(text: CharSequence) {
+        fun showLong(text: String) {
             show(text, Toast.LENGTH_LONG)
         }
 
@@ -320,7 +320,7 @@ class ToastUtils private constructor() {
          * @param args     参数
          */
         private fun show(format: String, duration: Int, vararg args: Any) {
-
+            show(format,duration)
         }
 
         /**
@@ -329,7 +329,7 @@ class ToastUtils private constructor() {
          * @param text     文本
          * @param duration 显示时长
          */
-        private fun show(text: CharSequence, duration: Int) {
+        private fun show(text: String, duration: Int) {
             cancel()
             var isCustom = false
             if (sViewWeakReference != null) {
