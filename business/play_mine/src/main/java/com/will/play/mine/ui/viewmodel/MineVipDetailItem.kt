@@ -13,7 +13,7 @@ import com.will.play.mine.ui.activity.MineVipPayActivity
 /**
  * 我的会员服务item
  */
-class MineVipDetailItem(viewModel: BaseViewModel<*>, resIcon:Int, val title:String) :ItemViewModel<BaseViewModel<*>>(viewModel) {
+class MineVipDetailItem(viewModel: BaseViewModel<*>) :ItemViewModel<BaseViewModel<*>>(viewModel) {
 
 
     val vipServiceOneOpen = BindingCommand<Any>(object : BindingAction {
