@@ -19,7 +19,7 @@ class MineVipDetailItem(viewModel: BaseViewModel<*>,val data: UpgradeLists) :Ite
 
     val vipServiceOneOpen = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            viewModel.startActivity(MineVipPayActivity::class.java, Bundle().apply { putString(ConstantConfig.VIP_PAY_MONEY,"9.9") })
+            viewModel.startActivity(MineVipPayActivity::class.java, Bundle().apply { putString(ConstantConfig.VIP_PAY_MONEY,data.price_first) })
         }
 
     })

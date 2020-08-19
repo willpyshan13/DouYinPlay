@@ -48,10 +48,11 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/mine_vip_detail_vip_layout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:items="@{viewModel.items}"
                 app:itemBinding="@{viewModel.itemBinding}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mine_vip_detail_top_vip_sub_title"/>

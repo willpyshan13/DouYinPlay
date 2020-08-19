@@ -38,7 +38,7 @@ class MineVipDetailViewModel(application: Application) :BaseViewModel<MineReposi
 
     val items = DiffObservableArrayList(object : DiffUtil.ItemCallback<MineVipDetailItem>() {
         override fun areItemsTheSame(oldItem: MineVipDetailItem, newItem: MineVipDetailItem): Boolean {
-            return true
+            return false
         }
 
         override fun areContentsTheSame(oldItem: MineVipDetailItem, newItem: MineVipDetailItem): Boolean {
@@ -50,7 +50,7 @@ class MineVipDetailViewModel(application: Application) :BaseViewModel<MineReposi
     fun getItemBinding(): ItemBinding<ItemViewModel<*>> {
         return ItemBinding.of { binding, _, item ->
             when (item) {
-                is MineVipDetailItem -> binding.set(BR.viewModel, R.layout.fragment_mine_item)
+                is MineVipDetailItem -> binding.set(BR.viewModel, R.layout.mine_activity_vip_detail_item)
             }
         }
     }
