@@ -8,12 +8,13 @@ import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.utils.Utils
+import com.will.play.mine.entity.UpgradeLists
 import com.will.play.mine.ui.activity.MineVipPayActivity
 
 /**
  * 我的会员服务item
  */
-class MineVipDetailItem(viewModel: BaseViewModel<*>) :ItemViewModel<BaseViewModel<*>>(viewModel) {
+class MineVipDetailItem(viewModel: BaseViewModel<*>,val data: UpgradeLists) :ItemViewModel<BaseViewModel<*>>(viewModel) {
 
 
     val vipServiceOneOpen = BindingCommand<Any>(object : BindingAction {

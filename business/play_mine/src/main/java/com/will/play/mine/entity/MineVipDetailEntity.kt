@@ -35,5 +35,6 @@ data class UpgradeLists(
     val time_login: Int,
     val time_login_text: String,
     val to_role_id: String,
-    val user_id: Int
+    val user_id: Int,
+    val price_person: String
 )
