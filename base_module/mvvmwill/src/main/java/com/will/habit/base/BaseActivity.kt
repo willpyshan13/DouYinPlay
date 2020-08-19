@@ -9,6 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.afollestad.materialdialogs.MaterialDialog
 import com.gyf.immersionbar.ktx.immersionBar
@@ -272,7 +273,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
      * @param <T>
      * @return
     </T> */
-    fun <T : ViewModel?> createViewModel(activity: FragmentActivity?, cls: Class<T>): T {
-        return ViewModelProviders.of(activity!!).get(cls)
+    protected open fun <T : ViewModel> createViewModel(activity: FragmentActivity, cls: Class<T>): T {
+        return ViewModelProvider(activity,ViewModelProvider.AndroidViewModelFactory(application)).get(cls)
     }
 }

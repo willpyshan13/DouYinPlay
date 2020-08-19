@@ -27,7 +27,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class MineVipPayViewModel(application: Application) :BaseViewModel<MineRepository>(application) {
+class MineVipPayViewModel(application: Application,val payMoney:String?) :BaseViewModel<MineRepository>(application) {
     val vipLayout = MineVipLayoutItem(this)
     val payClick = SingleLiveEvent<Void>()
     override fun onCreate() {

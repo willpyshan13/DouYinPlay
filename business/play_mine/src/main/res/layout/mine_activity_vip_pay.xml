@@ -32,6 +32,7 @@
                 android:drawableStart="@mipmap/base_vip_person_icon"
                 android:gravity="center"
                 android:text="好友一起购买"
+                android:visibility="invisible"
                 android:textSize="@dimen/sp18"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -43,6 +44,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="￥108"
+                android:visibility="invisible"
+
                 android:textColor="@color/red"
                 android:textSize="@dimen/sp18"
                 app:layout_constraintStart_toEndOf="@+id/mine_vip_pay_share"
