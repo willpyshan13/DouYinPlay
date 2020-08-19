@@ -14,6 +14,7 @@
     <string name="mine_register_partner">注册商家</string>
     <string name="mine_vip_title">我的会员</string>
     <string name="mine_vip_detail_money">￥</string>
+    <string name="mine_vip_detail_money_total">合计:</string>
 
     <string-array name="mine_picture">
         <item>从相册选择图片</item>
