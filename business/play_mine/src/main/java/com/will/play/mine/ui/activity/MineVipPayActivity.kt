@@ -59,6 +59,7 @@ class MineVipPayActivity : BaseActivity<MineActivityVipPayBinding, MineVipPayVie
                 wxPayInfoImpl.partnerid = it.payInfo.partnerid
                 wxPayInfoImpl.prepayId = it.payInfo.prepayid
                 wxPayInfoImpl.sign = it.payInfo.sign
+                wxPayInfoImpl.timestamp = "${it.payInfo.timestamp}"
             }
             WillPay.pay(wxPay, this, wxPayInfoImpl, object : IPayCallback {
                 override fun failed(code: Int, message: String?) {
