@@ -58,14 +58,19 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
         if (sPayCallback == null) {
             return
         }
-        if (errorCode == BaseResp.ErrCode.ERR_OK) {
-            sPayCallback!!.success()
-        } else if (errorCode == BaseResp.ErrCode.ERR_COMM) {
-            sPayCallback!!.failed(errorCode, errorMsg)
-        } else if (errorCode == BaseResp.ErrCode.ERR_USER_CANCEL) {
-            sPayCallback!!.cancel()
-        } else {
-            sPayCallback!!.failed(errorCode, errorMsg)
+        when (errorCode) {
+            BaseResp.ErrCode.ERR_OK -> {
+                sPayCallback!!.success()
+            }
+            BaseResp.ErrCode.ERR_COMM -> {
+                sPayCallback!!.failed(errorCode, errorMsg)
+            }
+            BaseResp.ErrCode.ERR_USER_CANCEL -> {
+                sPayCallback!!.cancel()
+            }
+            else -> {
+                sPayCallback!!.failed(errorCode, errorMsg)
+            }
         }
         sPayCallback = null
     }

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.will.habit.base.BaseActivity
 import com.will.habit.constant.ConstantConfig
+import com.will.habit.utils.ToastUtils
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityVipPayBinding
@@ -63,12 +64,17 @@ class MineVipPayActivity : BaseActivity<MineActivityVipPayBinding, MineVipPayVie
             }
             WillPay.pay(wxPay, this, wxPayInfoImpl, object : IPayCallback {
                 override fun failed(code: Int, message: String?) {
+                    if (message!=null){
+                        ToastUtils.showShort(message)
+                    }
                 }
 
                 override fun cancel() {
+                    ToastUtils.showShort("支付取消")
                 }
 
                 override fun success() {
+                    finish()
                 }
 
             })

@@ -1,3 +1,4 @@
+include ':base_module:module_third'
 include ':base_module:module_pay'
 include ':base_module:module_common_res'
 include ':base_module:module_widget'
