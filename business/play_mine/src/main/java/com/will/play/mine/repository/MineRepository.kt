@@ -30,4 +30,9 @@ class MineRepository : BaseModel<Any>() {
      * 获取订单详情
      */
     suspend fun getOrder2Add(upgrade_id:String,is_group:String="0") = mineService.getOrder2Add("0",upgrade_id,is_group).check()
+
+    /**
+     * 获取支付信息
+     */
+    suspend fun getOrder2Pay(id:String) = mineService.getOrder2Pay(id).check()
 }

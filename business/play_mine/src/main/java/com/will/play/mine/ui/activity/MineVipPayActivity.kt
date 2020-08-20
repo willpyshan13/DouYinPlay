@@ -28,7 +28,7 @@ import com.will.play.pay.wechat.wxpay.WXPayInfoImpl
  */
 class MineVipPayActivity : BaseActivity<MineActivityVipPayBinding, MineVipPayViewModel>() {
     private val wxPay: WXPay = WXPay.instance
-    private val wxPayInfoImpl  = WXPayInfoImpl()
+    private val wxPayInfoImpl = WXPayInfoImpl()
 
     private val payMoney by lazy { intent.extras?.getParcelable(ConstantConfig.VIP_PAY_MONEY) as? UpgradeLists }
 
@@ -52,17 +52,26 @@ class MineVipPayActivity : BaseActivity<MineActivityVipPayBinding, MineVipPayVie
     override fun initViewObservable() {
         super.initViewObservable()
         viewModel.payClick.observe(this, Observer {
-          WillPay.pay(wxPay,this,wxPayInfoImpl,object :IPayCallback{
-              override fun failed(code: Int, message: String?) {
-              }
+            if (it != null) {
+                wxPayInfoImpl.appid = it.payInfo.appid
+                wxPayInfoImpl.nonceStr = it.payInfo.noncestr
+                wxPayInfoImpl.packageValue = it.payInfo.`package`
+                wxPayInfoImpl.partnerid = it.payInfo.partnerid
+                wxPayInfoImpl.prepayId = it.payInfo.prepayid
+                wxPayInfoImpl.sign = it.payInfo.sign
+            }
+            WillPay.pay(wxPay, this, wxPayInfoImpl, object : IPayCallback {
+                override fun failed(code: Int, message: String?) {
+                }
 
-              override fun cancel() {
-              }
+                override fun cancel() {
+                }
 
-              override fun success() {
-              }
+                override fun success() {
+                }
 
-          })
+            })
         })
+
     }
 }

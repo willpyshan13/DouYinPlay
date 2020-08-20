@@ -128,7 +128,9 @@ fun LifecycleOwner.launch(block: suspend (coroutineScope: CoroutineScope) -> Uni
  */
 fun checkToastResponseError(t: Throwable) {
     if (t is ResponseException) {
-//        ToastUtils.showShort(t.responseMessage)
+        if (t.responseMessage != null) {
+            ToastUtils.showShort(t.responseMessage)
+        }
     }
 }
 
