@@ -291,31 +291,24 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_way_icon" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/mine_vip_pay_service_pay_content"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp10"
-                        android:text="服务内容"
+                        app:imageUrl="@{viewModel.payMoney.content_text}"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_line4" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/mine_vip_pay_service_pay_content_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp10"
-                        android:text="1.短视频服务一年(视频制作教学)\n2.抖音起号1000粉丝账号一个"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_content" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp10"
+                        android:visibility="invisible"
                         android:text="@{@string/mine_vip_detail_money_total+@string/mine_vip_detail_money+viewModel.payMoney.price_first}"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_content_desc" />
+                        app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_content" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

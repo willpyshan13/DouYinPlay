@@ -25,4 +25,9 @@ class MineRepository : BaseModel<Any>() {
     suspend fun getUserIndex() = mineService.getUserIndex().check()
 
     suspend fun getUpgrade() = mineService.getUpgrade("0").check()
+
+    /**
+     * 获取订单详情
+     */
+    suspend fun getOrder2Add(upgrade_id:String,is_group:String) = mineService.getOrder2Add("0",upgrade_id,is_group).check()
 }

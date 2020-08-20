@@ -13,6 +13,7 @@ import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
 import com.will.play.mine.BR
+import com.will.play.mine.entity.MineVipUpgradeEntity
 import com.will.play.mine.entity.UpgradeLists
 import com.will.play.mine.repository.MineRepository
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -30,7 +31,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class MineVipPayViewModel(application: Application,val payMoney: UpgradeLists?) :BaseViewModel<MineRepository>(application) {
     val vipLayout = MineVipLayoutItem(this)
-    val payClick = SingleLiveEvent<Void>()
+    val payClick = SingleLiveEvent<MineVipUpgradeEntity>()
     override fun onCreate() {
         super.onCreate()
         setTitleText("订单支付")
@@ -38,7 +39,10 @@ class MineVipPayViewModel(application: Application,val payMoney: UpgradeLists?) 
 
     val onPayClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-            payClick.call()
+            launch({
+                val data = model.getOrder2Add("${payMoney?.id}","0")
+                payClick.value = data
+            })
         }
 
     })
