@@ -1,5 +1,6 @@
 package com.will.habit.base
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,11 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
-import com.afollestad.materialdialogs.MaterialDialog
 import com.trello.rxlifecycle4.components.support.RxFragment
+import com.will.habit.R
 import com.will.habit.base.BaseViewModel.ParameterField
+import com.will.habit.base.loading.LoadingDialogProvider
 import com.will.habit.bus.Messenger
-import com.will.habit.utils.MaterialDialogUtils
+import com.will.habit.utils.StringUtils
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -25,7 +27,7 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel<*>> : RxFrag
     protected lateinit var binding: V
     protected lateinit var viewModel: VM
     private var viewModelId = 0
-    private var dialog: MaterialDialog? = null
+    private var dialog: Dialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initParam()
@@ -100,38 +102,41 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel<*>> : RxFrag
     //注册ViewModel与View的契约UI回调事件
     protected fun registorUIChangeLiveDataCallBack() {
         //加载对话框显示
-        viewModel.uc.showDialogEvent!!.observe(this, Observer { title -> showDialog(title) })
+        viewModel.uc.showDialogEvent.observe(viewLifecycleOwner, Observer { title ->
+            if (title != null) {
+                showDialog(title)
+            }
+        })
         //加载对话框消失
-        viewModel.uc.dismissDialogEvent!!.observe(this, Observer { dismissDialog() })
+        viewModel.uc.dismissDialogEvent!!.observe(viewLifecycleOwner, Observer { dismissDialog() })
         //跳入新页面
-        viewModel.uc.startActivityEvent!!.observe(this, Observer {
+        viewModel.uc.startActivityEvent!!.observe(viewLifecycleOwner, Observer {
             val clz = it!![ParameterField.CLASS] as Class<*>?
             val bundle = it[ParameterField.BUNDLE] as Bundle?
             startActivity(clz, bundle)
         })
         //跳入ContainerActivity
-        viewModel.uc.startContainerActivityEvent!!.observe(this, Observer {
+        viewModel.uc.startContainerActivityEvent!!.observe(viewLifecycleOwner, Observer {
             val canonicalName = it!![ParameterField.CANONICAL_NAME] as String?
             val bundle = it[ParameterField.BUNDLE] as Bundle?
             startContainerActivity(canonicalName, bundle)
         })
         //关闭界面
-        viewModel.uc.finishEvent!!.observe(this, Observer { activity!!.finish() })
+        viewModel.uc.finishEvent!!.observe(viewLifecycleOwner, Observer { activity!!.finish() })
         //关闭上一层
-        viewModel.uc.onBackPressedEvent!!.observe(this, Observer { activity!!.onBackPressed() })
+        viewModel.uc.onBackPressedEvent!!.observe(viewLifecycleOwner, Observer { activity!!.onBackPressed() })
     }
 
-    fun showDialog(title: String?) {
-        if (dialog != null) {
-            dialog = dialog!!.builder.title(title!!).build()
-            dialog?.show()
-        } else {
-            val builder = MaterialDialogUtils.showIndeterminateProgressDialog(activity, title, true)
-            dialog = builder.show()
+    protected open fun showDialog(title: String = StringUtils.getStringResource(R.string.common_wait_loading)) {
+        if (dialog == null) {
+            dialog = LoadingDialogProvider.createLoadingDialog(requireActivity(), title)
         }
+        dialog!!.setCancelable(false)
+        dialog!!.setCanceledOnTouchOutside(false)
+        dialog!!.show()
     }
 
-    fun dismissDialog() {
+    protected open fun dismissDialog() {
         if (dialog != null && dialog!!.isShowing) {
             dialog!!.dismiss()
         }
@@ -227,7 +232,7 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel<*>> : RxFrag
      * @param <T>
      * @return
     </T> */
-    fun <T : ViewModel?> createViewModel(fragment: Fragment?, cls: Class<T>): T {
+    protected open fun <T : ViewModel?> createViewModel(fragment: Fragment?, cls: Class<T>): T {
         return ViewModelProviders.of(fragment!!).get(cls)
     }
 }
