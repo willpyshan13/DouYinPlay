@@ -35,22 +35,13 @@ class MineVipPayViewModel(application: Application,val payMoney: UpgradeLists?) 
                 showDialog()
                 val data = model.getOrder2Add("${payMoney?.id}")
                 if (data!=null){
-                    getOrderPayDetail(data.order_id)
+                    val data = model.getOrder2Pay(data.order_id)
+                    payClick.value = data
                 }
-
+                dismissDialog()
             },{
                 dismissDialog()
             })
         }
     })
-
-    private fun getOrderPayDetail(orderId:String){
-        launch({
-            val data = model.getOrder2Pay(orderId)
-            payClick.value = data
-            dismissDialog()
-        },{
-            dismissDialog()
-        })
-    }
 }

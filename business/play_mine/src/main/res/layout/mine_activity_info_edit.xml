@@ -42,10 +42,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@mipmap/base_mine_header_icon"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp48"
+            app:imageUrl="@{viewModel.userHeader}"
             app:onClickCommand="@{viewModel.onHeadClick}"
             android:gravity="end|center_vertical"
-            android:layout_height="48dp"/>
+            android:layout_height="@dimen/dp48"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             app:layout_constraintTop_toTopOf="@id/mine_address_et"
@@ -73,6 +74,7 @@
             android:layout_width="0dp"
             android:gravity="end|center_vertical"
             android:hint="请输入昵称"
+            android:text="@={viewModel.userName}"
             android:layout_height="48dp"/>
         <View
             style="@style/ViewLineStyle"
@@ -97,7 +99,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:gravity="end|center_vertical"
-            android:text="请选择性别"
+            android:text="@{viewModel.userGender}"
             android:layout_height="48dp"/>
         <View
             style="@style/ViewLineStyle"
@@ -122,7 +124,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:gravity="end|center_vertical"
-            android:text="请选择地区"
+            android:text="@{viewModel.userArea}"
             app:onClickCommand="@{viewModel.onAreaClick}"
             android:layout_height="48dp"/>
         <View
@@ -148,6 +150,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:background="@null"
+            android:text="@={viewModel.userQQ}"
             android:gravity="end|center_vertical"
             android:hint="请输入qq账号"
             android:layout_height="48dp"/>
@@ -175,6 +178,7 @@
             android:layout_width="0dp"
             android:gravity="end|center_vertical"
             android:background="@null"
+            android:text="@={viewModel.userWechat}"
             android:hint="请输入微信账号"
             android:layout_height="48dp"/>
 

@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
+import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.huantansheng.easyphotos.EasyPhotos
@@ -35,7 +36,31 @@ class MineInfoEditViewModel(application: Application) :BaseViewModel<MineReposit
         setTitleText(StringUtils.getStringResource(R.string.mine_info_edit))
     }
 
+    val userHeader = ObservableField("")
+    val userName = ObservableField("")
+    val userGender = ObservableField("请选择性别")
+    val userArea = ObservableField("请选择地区")
+    val userQQ = ObservableField("")
+    val userWechat = ObservableField("")
+
     val takePhone = SingleLiveEvent<Boolean>()
+
+    private fun getUserInfo(){
+        launch({
+            val data = model.getUserIndex()
+            userHeader.set(data?.userInfo?.avatar)
+            userName.set(data?.userInfo?.nickname)
+            userGender.set(if (data?.userInfo?.sex_id.equals("1")) "男" else "女")
+            userArea.set(data?.userInfo?.area_id)
+            userQQ.set(data?.userInfo?.qq)
+            userWechat.set(data?.userInfo?.wechat_no)
+        })
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        getUserInfo()
+    }
 
     val onAreaClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {

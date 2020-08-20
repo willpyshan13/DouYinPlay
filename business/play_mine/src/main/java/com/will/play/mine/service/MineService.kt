@@ -46,4 +46,9 @@ interface MineService {
     @POST("$BASE_API/Order2/add")
     suspend fun getOrder2Add(@Query("share_order_id") share_order_id: String?,@Query("upgrade_id") upgrade_id: String?,@Query("is_group") is_group: String?): BaseResponse<MineVipUpgradeEntity>
 
+    @POST("$BASE_API/User/edit")
+    suspend fun getUseredit(@Query("avatar") avatar: String?,@Query("nickname") nickname: String?,
+                            @Query("sex_id") sex_id: String?,@Query("area_id") area_id: String?,
+                            @Query("qq") qq: String?,@Query("wechat_no") wechat_no: String?): BaseResponse<MineVipUpgradeEntity>
+
 }
