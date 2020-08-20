@@ -17,6 +17,7 @@ import com.will.habit.extection.launch
 import com.will.habit.extection.toJson
 import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
+import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
 import com.will.play.mine.BR
@@ -97,6 +98,7 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
             launch({
                 val data = model.getVerifyCode(userAccount.get())
                 SPUtils.instance.put(ConstantConfig.TOKEN, data?.Token)
+                ToastUtils.showShort("发送验证码成功")
             })
         }
     })

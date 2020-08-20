@@ -69,7 +69,7 @@
                 android:id="@+id/mine_vip_pay_share_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/mine_vip_detail_money+viewModel.payMoney}"
+                android:text="@{@string/mine_vip_detail_money+viewModel.payMoney.price_first}"
                 android:textColor="@color/red"
                 android:textSize="@dimen/sp18"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -176,7 +176,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="抖趣拍超级会员"
+                        android:text="@{viewModel.payMoney.name}"
                         android:textColor="@color/color_FFC766"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/mine_vip_pay_service_open"
@@ -202,6 +202,16 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_line1" />
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.payMoney.tag}"
+                        android:textColor="@color/color_FFC766"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mine_vip_pay_service_time"
+                        app:layout_constraintBottom_toBottomOf="@+id/mine_vip_pay_service_time"
+                        tools:ignore="RtlCompat" />
+
                     <View
                         android:id="@+id/mine_vip_pay_line2"
                         android:layout_width="0dp"
@@ -224,7 +234,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{@string/mine_vip_detail_money+viewModel.payMoney}"
+                        android:text="@{@string/mine_vip_detail_money+viewModel.payMoney.price_first}"
                         android:textColor="@color/color_FFC766"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/mine_vip_pay_service_price"
@@ -303,7 +313,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp10"
-                        android:text="@{@string/mine_vip_detail_money_total+@string/mine_vip_detail_money+viewModel.payMoney}"
+                        android:text="@{@string/mine_vip_detail_money_total+@string/mine_vip_detail_money+viewModel.payMoney.price_first}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/mine_vip_pay_service_pay_content_desc" />
 

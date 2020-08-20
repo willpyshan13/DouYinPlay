@@ -28,10 +28,18 @@ class MineHomeHeaderItem(viewModel:MineViewModel) :ItemViewModel<MineViewModel>(
 
     fun updateUserInfo(userInfo: MineUserInfo?){
         showLogin.set(if (userInfo != null) View.INVISIBLE else View.VISIBLE)
-        userName.set(userInfo?.userInfo?.username)
-        userVideo.set("${userInfo?.userInfo?.download_total}")
-        userThing.set("${userInfo?.userInfo?.download_month_use}")
-        userMoney.set("${userInfo?.userInfo?.download_point_total}")
+        if (userInfo == null){
+            userName.set("")
+            userVideo.set("0")
+            userThing.set("0")
+            userMoney.set("0")
+        }else{
+            userName.set(userInfo.userInfo.username)
+            userVideo.set("${userInfo.userInfo.download_total}")
+            userThing.set("${userInfo.userInfo.download_month_use}")
+            userMoney.set("${userInfo.userInfo.download_point_total}")
+        }
+
     }
 
     val onMineInfoEditClick = BindingCommand<Any>(object : BindingAction {

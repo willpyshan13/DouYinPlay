@@ -113,7 +113,7 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
             val data = model.getUserIndex()
             (viewModels[0] as MineHomeHeaderItem).updateUserInfo(data)
         }, {
-
+            (items[0]as MineHomeHeaderItem).updateUserInfo(null)
         })
     }
 }

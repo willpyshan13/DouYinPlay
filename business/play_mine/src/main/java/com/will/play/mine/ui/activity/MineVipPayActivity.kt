@@ -10,6 +10,7 @@ import com.will.habit.constant.ConstantConfig
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityVipPayBinding
+import com.will.play.mine.entity.UpgradeLists
 import com.will.play.mine.ui.viewmodel.MineVipPayViewModel
 import com.will.play.pay.WillPay
 import com.will.play.pay.callback.IPayCallback
@@ -29,7 +30,7 @@ class MineVipPayActivity : BaseActivity<MineActivityVipPayBinding, MineVipPayVie
     private val wxPay: WXPay = WXPay.instance
     private val wxPayInfoImpl  = WXPayInfoImpl()
 
-    private val payMoney by lazy { intent.extras?.getString(ConstantConfig.VIP_PAY_MONEY) }
+    private val payMoney by lazy { intent.extras?.getParcelable(ConstantConfig.VIP_PAY_MONEY) as? UpgradeLists }
 
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.mine_activity_vip_pay
