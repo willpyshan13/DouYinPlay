@@ -19,13 +19,26 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
     }
+    signingConfigs {
+        release {
+            storeFile file { "douyin.jks" }
+            //签名密码
+            storePassword "will1313"
+            //别名
+            keyAlias "douyin"
+            //别名密码
+            keyPassword "will1313"
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             multiDexEnabled true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            signingConfig signingConfigs.release
             multiDexEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
