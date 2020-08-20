@@ -40,7 +40,7 @@ class MineVipPayViewModel(application: Application,val payMoney: UpgradeLists?) 
     val onPayClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
             launch({
-                val data = model.getOrder2Add("${payMoney?.id}","0")
+                val data = model.getOrder2Add("${payMoney?.id}")
                 payClick.value = data
             })
         }

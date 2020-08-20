@@ -29,5 +29,5 @@ class MineRepository : BaseModel<Any>() {
     /**
      * 获取订单详情
      */
-    suspend fun getOrder2Add(upgrade_id:String,is_group:String) = mineService.getOrder2Add("0",upgrade_id,is_group).check()
+    suspend fun getOrder2Add(upgrade_id:String,is_group:String="0") = mineService.getOrder2Add("0",upgrade_id,is_group).check()
 }
