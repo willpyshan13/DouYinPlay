@@ -161,7 +161,7 @@ open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(applicatio
         addSubscribe(disposable)
     }
 
-    class UIChangeLiveData : SingleLiveEvent<Any?>() {
+    class UIChangeLiveData {
         val showDialogEvent by lazy(LazyThreadSafetyMode.NONE) { SingleLiveEvent<String>() }
         var dismissDialogEvent: SingleLiveEvent<Void>? = null
             get() = createLiveData(field).also { field = it }
@@ -187,9 +187,6 @@ open class BaseViewModel<M : BaseModel<*>?> @JvmOverloads constructor(applicatio
             return liveData
         }
 
-        override fun observe(owner: LifecycleOwner, observer: Observer<in Any?>) {
-            super.observe(owner, observer)
-        }
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.will.habit.base
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,16 +11,15 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import com.afollestad.materialdialogs.MaterialDialog
 import com.gyf.immersionbar.ktx.immersionBar
 import com.trello.rxlifecycle4.components.support.RxAppCompatActivity
 import com.will.habit.R
 import com.will.habit.BR
 import com.will.habit.base.BaseViewModel.ParameterField
+import com.will.habit.base.loading.LoadingDialogProvider
 import com.will.habit.bus.Messenger
 import com.will.habit.databinding.ActivityLayoutToolbarBinding
-import com.will.habit.utils.MaterialDialogUtils
+import com.will.habit.utils.StringUtils
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -29,7 +29,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
     protected lateinit var binding: V
     protected lateinit var viewModel: VM
     private var viewModelId = 0
-    private var dialog: MaterialDialog? = null
+    private var dialog: Dialog? = null
 
     /**
      * toolsbar  如果有添加的话
@@ -42,7 +42,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
         //私有的初始化Databinding和ViewModel方法
         initViewDataBinding(savedInstanceState)
         //私有的ViewModel与View的契约事件回调逻辑
-        registorUIChangeLiveDataCallBack()
+        registerUIChangeLiveDataCallBack()
         //页面数据初始化方法
         initData()
         //页面事件监听的方法，一般用于ViewModel层转到View层的事件注册
@@ -153,9 +153,13 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
      * =====================================================================
      */
     //注册ViewModel与View的契约UI回调事件
-    protected fun registorUIChangeLiveDataCallBack() {
+    protected fun registerUIChangeLiveDataCallBack() {
         //加载对话框显示
-        viewModel.uc.showDialogEvent!!.observe(this, Observer { title -> showDialog(title) })
+        viewModel.uc.showDialogEvent.observe(this, Observer {
+            if (it != null) {
+                this.showDialog(it)
+            }
+        })
         //加载对话框消失
         viewModel.uc.dismissDialogEvent!!.observe(this, Observer { dismissDialog() })
         //跳入新页面
@@ -176,17 +180,16 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel<*>> : RxAppC
         viewModel.uc.onBackPressedEvent!!.observe(this, Observer { onBackPressed() })
     }
 
-    fun showDialog(title: String?) {
-        if (dialog != null) {
-            dialog = dialog!!.builder.title(title!!).build()
-            dialog?.show()
-        } else {
-            val builder = MaterialDialogUtils.showIndeterminateProgressDialog(this, title, true)
-            dialog = builder.show()
+    protected open fun showDialog(title: String = StringUtils.getStringResource(R.string.common_wait_loading)) {
+        if (dialog == null) {
+            dialog = LoadingDialogProvider.createLoadingDialog(this, title)
         }
+        dialog!!.setCancelable(false)
+        dialog!!.setCanceledOnTouchOutside(false)
+        dialog!!.show()
     }
 
-    fun dismissDialog() {
+    protected open fun dismissDialog() {
         if (dialog != null && dialog!!.isShowing) {
             dialog!!.dismiss()
         }
