@@ -19,6 +19,7 @@ allprojects {
         maven { url 'https://jitpack.io' }
         jcenter()
         google()
+        maven { url 'https://dl.bintray.com/aweme-open-sdk-team/public' }
     }
 }
 

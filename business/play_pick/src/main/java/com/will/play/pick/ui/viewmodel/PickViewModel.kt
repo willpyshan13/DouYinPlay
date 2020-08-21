@@ -60,6 +60,7 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
 
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
+            showDialog()
             val viewModels = mutableListOf<ItemViewModel<*>>()
             if (pageIndex ==1) {
                 val banner = model.getHomeBanner()
@@ -70,8 +71,9 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
             val pickList = pickData?.taskLists?.map { PickDataItem(this,it) }.orEmpty()
             viewModels.addAll(pickList)
             items.addAll(viewModels)
+            dismissDialog()
         }, {
-
+            dismissDialog()
         })
     }
 }

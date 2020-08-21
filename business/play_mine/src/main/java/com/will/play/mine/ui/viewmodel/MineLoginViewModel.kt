@@ -12,6 +12,7 @@ import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
 import com.will.habit.extection.toJson
@@ -23,6 +24,7 @@ import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineLoginRepository
 import com.will.play.mine.repository.MineRepository
+import com.will.play.third.DouyinLogin
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
@@ -44,6 +46,8 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
     val verifyHint = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_password))
 
     val verifyText = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_title_phone))
+
+    val douyinLogin = SingleLiveEvent<Void>()
     val verifyTitleCLick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             if (verifyBtnVisible.get() == View.VISIBLE) {
@@ -89,7 +93,7 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
 
     val onDouyinClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-
+            douyinLogin.call()
         }
     })
 

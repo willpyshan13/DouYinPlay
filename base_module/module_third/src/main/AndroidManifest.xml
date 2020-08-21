@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.will.play.third">
+
+    <application>
+        <activity
+            android:name=".douyin.DouYinEntryActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.will.play.third"
+            android:exported="true">
+        </activity>
+    </application>
+
+</manifest>

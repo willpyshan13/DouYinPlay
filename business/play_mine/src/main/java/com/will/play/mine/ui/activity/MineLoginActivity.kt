@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.activity
 
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.chenenyu.router.annotation.Route
 import com.will.habit.base.BaseActivity
 import com.will.play.mine.BR
@@ -8,6 +9,8 @@ import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityAddressBinding
 import com.will.play.mine.ui.viewmodel.MineAddressViewModel
 import com.will.play.mine.ui.viewmodel.MineLoginViewModel
+import com.will.play.third.DouyinLogin
+import com.will.play.third.ThirdInit
 
 /**
  * Desc:登陆页面
@@ -30,5 +33,17 @@ class MineLoginActivity : BaseActivity<MineActivityAddressBinding, MineLoginView
 
     override fun needToolBar(): Boolean {
         return false
+    }
+
+    override fun initData() {
+        super.initData()
+        ThirdInit.initShare()
+    }
+
+    override fun initViewObservable() {
+        super.initViewObservable()
+        viewModel.douyinLogin.observe(this, Observer {
+            DouyinLogin.login(this)
+        })
     }
 }

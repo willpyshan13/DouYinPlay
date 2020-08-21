@@ -75,5 +75,6 @@ dependencies {
     api rootProject.ext.dependencies["PickerView"]
     api project(':base_module:module_common_res')
     api project(':base_module:module_widget')
+    api project(':base_module:module_third')
     api project(':base_module:module_pay')
 }
