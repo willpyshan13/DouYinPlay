@@ -12,6 +12,7 @@ import com.will.habit.utils.StringUtils
 import com.will.play.pick.R
 import com.will.play.pick.BR
 import com.will.play.pick.repository.PickRepository
+import com.will.play.pick.ui.activity.PickCollectionActivity
 import com.will.play.pick.ui.activity.PickSearchActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
@@ -56,6 +57,26 @@ class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRep
             startActivity(PickSearchActivity::class.java)
         }
     })
+
+    /**
+     * 领取视频
+     */
+    val onCollectionClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            startActivity(PickCollectionActivity::class.java)
+        }
+    })
+
+
+    /**
+     * 领取实物
+     */
+    val onVideo = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            startActivity(PickCollectionActivity::class.java)
+        }
+    })
+
 
     /**
      * 开通vip的对话框

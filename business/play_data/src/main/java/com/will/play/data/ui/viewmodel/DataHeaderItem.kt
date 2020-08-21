@@ -2,6 +2,8 @@ package com.will.play.data.ui.viewmodel
 
 import androidx.databinding.ObservableArrayList
 import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
 import com.will.play.base.BannerEntity
 import com.will.play.data.R
 import com.will.play.data.BR
@@ -18,5 +20,11 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?) :ItemViewMo
         val bannerList = banner?.swiperLists?.map { DataBannerItem(viewModel,it) }.orEmpty()
         bannerItems.addAll(bannerList)
     }
+
+    val onTaobaoClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+
+        }
+    })
 
 }

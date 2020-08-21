@@ -15,12 +15,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/color_F0F0F0"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="可领取生育数量"
+                android:text="可领取剩余数量"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/picker_collection_title" />
@@ -44,11 +45,12 @@
 
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/pick_collection_history"
                 android:layout_width="wrap_content"
                 android:text="实物领取记录"
                 android:textSize="@dimen/sp8"
                 android:layout_marginEnd="@dimen/dp4"
-                app:layout_constraintTop_toTopOf="@+id/pick_collection_list"
+                app:layout_constraintTop_toBottomOf="@+id/picker_collection_title"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_height="wrap_content"
                 tools:ignore="RtlCompat" />
@@ -64,7 +66,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/picker_collection_count"
+                app:layout_constraintTop_toBottomOf="@+id/pick_collection_history"
                 app:spanCount="2"
                 android:layout_marginEnd="@dimen/dp22" />
 
