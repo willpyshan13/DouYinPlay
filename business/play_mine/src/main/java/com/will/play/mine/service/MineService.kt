@@ -2,11 +2,7 @@ package com.will.play.mine.service
 
 import com.will.habit.http.BaseResponse
 import com.will.play.base.constant.Constants.BASE_API
-import com.will.play.mine.entity.MinePayInfoEntity
-import com.will.play.mine.entity.MineLoginMobileCodeEntity
-import com.will.play.mine.entity.MineUserInfo
-import com.will.play.mine.entity.MineVipDetailEntity
-import com.will.play.mine.entity.MineVipUpgradeEntity
+import com.will.play.mine.entity.*
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -31,6 +27,9 @@ interface MineService {
 
     @POST("$BASE_API/User/getVerifyCode")
     suspend fun getVerifyCode(@Query("mobile") username: String?): BaseResponse<MineLoginMobileCodeEntity>
+
+    @POST("$BASE_API/Douyin/oauthCallback")
+    suspend fun getDouyinoauthCallback(@Query("code") username: String?): BaseResponse<MineDouyinEntity>
 
 
     @POST("$BASE_API/User/index")

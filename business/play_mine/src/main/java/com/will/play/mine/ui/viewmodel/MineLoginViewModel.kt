@@ -56,13 +56,16 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
     val onLoginClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             launch({
+                showDialog()
                 if (verifyBtnVisible.get() == View.VISIBLE) {
                     val data = model.checkVerifyCode(userAccount.get(), userPassword.get())
                     SPUtils.instance.put(ConstantConfig.TOKEN, data?.Token)
+                    dismissDialog()
                     finish()
                 } else {
                     val data = model.login(userAccount.get(), userPassword.get())
                     SPUtils.instance.put(ConstantConfig.USER_INFO, data?.userInfo?.toJson())
+                    dismissDialog()
                     finish()
                 }
 
@@ -71,7 +74,10 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
     })
 
     fun getDouyinUserinfo(authCode:String){
+        launch({
+            val data = model.douyinAuth(authCode)
 
+        })
     }
 
     val onWechatClick = BindingCommand<Any>(object : BindingAction {
