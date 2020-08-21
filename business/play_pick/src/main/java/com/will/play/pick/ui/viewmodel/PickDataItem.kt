@@ -11,9 +11,9 @@ import com.will.play.pick.ui.activity.PickGoodsDetailActivity
 
 class PickDataItem(viewModel: BaseViewModel<*>,val data: TaskLists) :ItemViewModel<BaseViewModel<*>>(viewModel) {
 
-    val videoCount = ObservableField("个种草视频")
+    val videoCount = ObservableField("${data.total_download}个种草视频")
 
-    val videoLeft = ObservableField("视频剩余")
+    val videoLeft = ObservableField("视频剩余${data.remain_download/data.total_download}")
 
     val onItemClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
