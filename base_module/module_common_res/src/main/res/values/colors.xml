@@ -5,7 +5,7 @@
     <color name="color_000000">#000000</color>
     <color name="color_F1F1F1">#F1F1F1</color>
     <color name="color_FFC766">#FFC766</color>
-
+    <color name="color_000000_20">#33000000</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>

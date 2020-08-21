@@ -36,7 +36,29 @@
             app:layout_constraintBottom_toBottomOf="@id/data_icon_goods"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@mipmap/base_pick_item_image_title_bg"
+            android:background="@color/color_000000_20"
+            android:layout_height="@dimen/dp20"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/data_icon_goods_title"
+            app:layout_constraintStart_toStartOf="@+id/data_icon_goods_title"
+            app:layout_constraintBottom_toBottomOf="@+id/data_icon_goods_title"
+            android:text="@{viewModel.videoCount}"
+            tools:text="55个种草视频"
+            android:textColor="@color/color_FFFFFF"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/data_icon_goods_title"
+            app:layout_constraintEnd_toEndOf="@+id/data_icon_goods_title"
+            app:layout_constraintBottom_toBottomOf="@+id/data_icon_goods_title"
+            android:text="@{viewModel.videoLeft}"
+            tools:text="视频剩余55/88"
+            android:textColor="@color/color_FFFFFF"
+            android:layout_marginEnd="@dimen/dp10"
             android:layout_height="wrap_content"/>
 
         <androidx.appcompat.widget.AppCompatTextView
