@@ -11,6 +11,7 @@ import com.will.habit.binding.command.BindingCommand
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
 import com.will.habit.extection.parse
+import com.will.habit.extection.toJson
 import com.will.habit.utils.SPUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
@@ -110,6 +111,7 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_custom, "工人客服", item_type_custom_service))
             items.submit(viewModels,false)
             val data = model.getUserIndex()
+            SPUtils.instance.put(ConstantConfig.USER_INFO,data?.toJson())
             (viewModels[0] as MineHomeHeaderItem).updateUserInfo(data)
         }, {
             (items[0]as MineHomeHeaderItem).updateUserInfo(null)

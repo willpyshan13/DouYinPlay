@@ -7,6 +7,7 @@ import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.utils.Utils
+import com.will.play.aop.login.annotation.LoginFilter
 import com.will.play.mine.ui.activity.*
 
 /**
@@ -22,9 +23,9 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
     val itemClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             when (itemType) {
-                item_type_vip -> viewModel.startActivity(MineVipActivity::class.java)
-                item_type_wallet -> viewModel.startActivity(MineWalletActivity::class.java)
-                item_type_message -> viewModel.startActivity(MineWalletActivity::class.java)
+                item_type_vip -> gotoVipActivity()
+                item_type_wallet -> gotoMineWalletActivity()
+                item_type_message -> gotoMineWalletActivity()
                 item_type_binding_taobao -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_binding_douyin -> viewModel.startActivity(MineAddDouyinActivity::class.java)
                 item_type_course -> viewModel.startActivity(MineWalletActivity::class.java)
@@ -34,6 +35,18 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
             }
         }
     })
+
+    @LoginFilter
+    private fun gotoVipActivity(){
+
+        viewModel.startActivity(MineVipActivity::class.java)
+    }
+
+    @LoginFilter
+    private fun gotoMineWalletActivity(){
+        viewModel.startActivity(MineWalletActivity::class.java)
+    }
+
 
     companion object {
         const val item_type_wallet = 0
