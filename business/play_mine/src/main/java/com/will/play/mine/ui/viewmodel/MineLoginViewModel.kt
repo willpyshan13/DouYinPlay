@@ -1,15 +1,10 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
-import android.util.Log
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.BaseViewModel
-import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
@@ -19,13 +14,9 @@ import com.will.habit.extection.toJson
 import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
 import com.will.habit.utils.ToastUtils
-import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineLoginRepository
-import com.will.play.mine.repository.MineRepository
-import com.will.play.third.DouyinLogin
-import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
  * Desc:登陆
@@ -78,6 +69,10 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
             })
         }
     })
+
+    fun getDouyinUserinfo(authCode:String){
+
+    }
 
     val onWechatClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {

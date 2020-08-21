@@ -3,8 +3,10 @@ package com.will.play.third
 import android.app.Activity
 import com.bytedance.sdk.open.aweme.authorize.model.Authorization
 import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory
+import com.will.habit.bus.event.SingleLiveEvent
 
 object DouyinLogin {
+    val authSuccess = SingleLiveEvent<String>()
     fun login(activity: Activity){
         val douyinOpenApi = DouYinOpenApiFactory.create(activity);
         val request = Authorization.Request();

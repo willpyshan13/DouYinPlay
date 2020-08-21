@@ -14,6 +14,7 @@ import com.bytedance.sdk.open.aweme.common.model.BaseReq;
 import com.bytedance.sdk.open.aweme.common.model.BaseResp;
 import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory;
 import com.bytedance.sdk.open.douyin.api.DouYinOpenApi;
+import com.will.play.third.DouyinLogin;
 
 public class DouYinEntryActivity extends Activity implements IApiEventHandler {
 
@@ -41,7 +42,7 @@ public class DouYinEntryActivity extends Activity implements IApiEventHandler {
             if (resp.isSuccess()) {
                 Toast.makeText(this, "授权成功，获得权限：" + response.grantedPermissions,
                         Toast.LENGTH_LONG).show();
-
+                DouyinLogin.INSTANCE.getAuthSuccess().setValue(response.authCode);
             } else {
                 Toast.makeText(this, "授权失败" + response.grantedPermissions,
                         Toast.LENGTH_LONG).show();

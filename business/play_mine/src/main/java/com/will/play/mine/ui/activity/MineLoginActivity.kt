@@ -7,7 +7,6 @@ import com.will.habit.base.BaseActivity
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityAddressBinding
-import com.will.play.mine.ui.viewmodel.MineAddressViewModel
 import com.will.play.mine.ui.viewmodel.MineLoginViewModel
 import com.will.play.third.DouyinLogin
 import com.will.play.third.ThirdInit
@@ -44,6 +43,12 @@ class MineLoginActivity : BaseActivity<MineActivityAddressBinding, MineLoginView
         super.initViewObservable()
         viewModel.douyinLogin.observe(this, Observer {
             DouyinLogin.login(this)
+        })
+
+        DouyinLogin.authSuccess.observe(this, Observer {
+            if (it!=null) {
+                viewModel.getDouyinUserinfo(it)
+            }
         })
     }
 }
