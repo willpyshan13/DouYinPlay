@@ -26,7 +26,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: zhuanghongzhan
  */
-class PickGoodsDetailViewModel(application: Application) : BaseViewModel<PickRepository>(application) {
+class PickGoodsDetailViewModel(application: Application,private val goodId: String) : BaseViewModel<PickRepository>(application) {
 
     val uiChange = UiChangeObservable()
 

@@ -18,4 +18,10 @@ object ConstantConfig {
     const val USER_INFO = "user_info"
 
     const val VIP_PAY_MONEY = "vip_pay_money"
+
+    /**
+     * 商品详情页 商品id key
+     */
+    const val GOOD_DETAIL_ID="good_detail_id"
+
 }
