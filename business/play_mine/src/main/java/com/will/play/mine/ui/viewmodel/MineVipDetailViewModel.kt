@@ -66,6 +66,7 @@ class MineVipDetailViewModel(application: Application) :BaseViewModel<MineReposi
             val data = model.getUpgrade()
             val viewList = data?.upgradeLists?.map {MineVipDetailItem(this,it)  }.orEmpty()
             items.submit(viewList,false)
+            dismissDialog()
         })
     }
 }
