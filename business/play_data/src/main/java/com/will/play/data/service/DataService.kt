@@ -24,5 +24,5 @@ interface DataService {
 
 
     @POST("api.php/Task/recommend")
-    suspend fun getTaskRecommend(@Query("sort_id")sort_id:Int = 1,@Query("page")page:Int = 1,@Query("pagesize")pagesize:Int = 20): BaseResponse<DataRecommendEntity>
+    suspend fun getTaskRecommend(@Query("sort_id")sort_id:Int = 1,@Query("page")page:Int = 1,@Query("pagesize")pagesize:Int = 1): BaseResponse<DataRecommendEntity>
 }
