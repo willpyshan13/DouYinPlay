@@ -2,7 +2,9 @@ package com.will.play.data.service
 
 import com.will.habit.http.BaseResponse
 import com.will.play.base.BannerEntity
+import com.will.play.data.entity.DataRecommendEntity
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 /**
@@ -20,4 +22,7 @@ interface DataService {
     @GET("api.php/Index/ad")
     suspend fun getHomeBanner(@Query("group_id")pageNum:Int): BaseResponse<BannerEntity>
 
+
+    @POST("api.php/Task/recommend")
+    suspend fun getTaskRecommend(@Query("sort_id")sort_id:Int = 1,@Query("page")page:Int = 1,@Query("pagesize")pagesize:Int = 20): BaseResponse<DataRecommendEntity>
 }

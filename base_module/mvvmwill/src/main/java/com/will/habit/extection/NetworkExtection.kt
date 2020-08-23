@@ -30,10 +30,10 @@ private var GLOBAL_TOAST_RESPONSE_ERROR = true
  * Desc: 检查BaseResponse是否合法
  * <p>
  */
-fun <T> BaseResponse<T>.check(): T? {
+fun <T> BaseResponse<T>.check(): T {
     if (isOk) {
         if (data != null) {
-            return data
+            return data!!
         }
         throw ResponseException(-1, "response data is null")
     }

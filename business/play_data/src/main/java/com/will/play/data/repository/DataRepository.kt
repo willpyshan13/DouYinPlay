@@ -20,4 +20,6 @@ class DataRepository : BaseModel<Any>() {
     private val homeService by lazy { RetrofitClient.instance.create(DataService::class.java) }
 
     suspend fun  getHomeBanner()=homeService.getHomeBanner(2).check();
+
+    suspend fun  getTaskRecommend()=homeService.getTaskRecommend().check();
 }

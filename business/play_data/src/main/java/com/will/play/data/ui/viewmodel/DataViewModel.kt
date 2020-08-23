@@ -23,7 +23,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class DataViewModel(application: Application) :BaseListViewModel<DataRepository, ItemViewModel<*>>(application) {
+class DataViewModel(application: Application) : BaseListViewModel<DataRepository, ItemViewModel<*>>(application) {
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -46,7 +46,7 @@ class DataViewModel(application: Application) :BaseListViewModel<DataRepository,
 
     override fun getItemBinding(): ItemBinding<ItemViewModel<*>> {
         return ItemBinding.of { binding, _, item ->
-            when(item){
+            when (item) {
                 is DataItem -> binding.set(BR.viewModel, R.layout.fragment_data_item)
                 is DataHeaderItem -> binding.set(BR.viewModel, R.layout.fragment_data_header)
             }
@@ -59,15 +59,16 @@ class DataViewModel(application: Application) :BaseListViewModel<DataRepository,
 
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
+            showDialog()
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            if (pageIndex ==1) {
-                val banner = model.getHomeBanner()
-                viewModels.add(DataHeaderItem(this,banner))
-                viewModels.add(DataItem(this))
-            }
-            items.addAll(viewModels)
-        },{
-
+            val banner = model.getHomeBanner()
+            val data = model.getTaskRecommend()
+            viewModels.add(DataHeaderItem(this, banner))
+            viewModels.add(DataItem(this,data))
+            loadCallback.onSuccess(viewModels, pageIndex, 1)
+            dismissDialog()
+        }, {
+            dismissDialog()
         })
     }
 }
