@@ -28,10 +28,6 @@ interface MineService {
     @POST("$BASE_API/User/getVerifyCode")
     suspend fun getVerifyCode(@Query("mobile") username: String?): BaseResponse<MineLoginMobileCodeEntity>
 
-    @POST("$BASE_API/Douyin/oauthCallback")
-    suspend fun getDouyinoauthCallback(@Query("code") username: String?): BaseResponse<MineDouyinEntity>
-
-
     @POST("$BASE_API/User/index")
     suspend fun getUserIndex(): BaseResponse<MineUserInfo>
 

@@ -73,12 +73,6 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
         }
     })
 
-    fun getDouyinUserinfo(authCode:String){
-        launch({
-            val data = model.douyinAuth(authCode)
-
-        })
-    }
 
     val onWechatClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {

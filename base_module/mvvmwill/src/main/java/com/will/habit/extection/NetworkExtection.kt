@@ -35,6 +35,9 @@ fun <T> BaseResponse<T>.check(): T {
         if (data != null) {
             return data!!
         }
+        if (status.equals("300")||status.equals("500")){
+            throw AuthException(code,error)
+        }
         throw ResponseException(-1, "response data is null")
     }
     throw ResponseException(code, error)

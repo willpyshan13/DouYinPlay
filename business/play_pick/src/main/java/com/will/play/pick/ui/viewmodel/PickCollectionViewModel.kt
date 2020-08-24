@@ -5,11 +5,15 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.bus.event.SingleLiveEvent
+import com.will.habit.extection.AuthException
 import com.will.habit.extection.launch
+import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.pick.BR
 import com.will.play.pick.R
 import com.will.play.pick.repository.PickRepository
+import com.will.play.third.DouyinLogin
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
@@ -23,8 +27,9 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class PickCollectionViewModel(application: Application) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
-
+class PickCollectionViewModel(application: Application,val id:String) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
+    val douyinLogin = SingleLiveEvent<Void>()
+    val taobaoLogin = SingleLiveEvent<Void>()
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -53,18 +58,40 @@ class PickCollectionViewModel(application: Application) : BaseListViewModel<Pick
         }
     }
 
+
+    fun getDouyinUserinfo(authCode:String){
+        launch({
+            val data = model.douyinAuth(authCode)
+            callReload(false)
+        },{
+            if (it is AuthException){
+                if(it.message!=null) {
+                    ToastUtils.showShort(it.message!!)
+                }
+                taobaoLogin.call()
+            }
+        })
+    }
+
     override fun getItemDecoration(): RecyclerView.ItemDecoration? {
         return null
     }
 
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
+            showDialog()
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            for (i in 0..10) {
-//                viewModels.add(PickDataItem(this))
-            }
-            items.addAll(viewModels)
+            val data = model.getTaskDownload(id)
+            loadCallback.onSuccess(viewModels,pageIndex,1)
+            dismissDialog()
         }, {
+            dismissDialog()
+            if (it is AuthException){
+                if(it.message!=null) {
+                    ToastUtils.showShort(it.message!!)
+                }
+                douyinLogin.call()
+            }
 
         })
     }

@@ -26,7 +26,9 @@ class BaseInterceptor(private val headers: Map<String, String>?) : Interceptor {
         }
         builder.addHeader("Platform","1")
         //请求信息
-        return chain.proceed(builder.build())
+        val response= chain.proceed(builder.build())
+
+        return response
     }
 
 }

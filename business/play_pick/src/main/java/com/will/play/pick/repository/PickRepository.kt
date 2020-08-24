@@ -24,4 +24,13 @@ class PickRepository : BaseModel<Any>() {
     suspend fun  getGoodsType()=homeService.getGoodsType(10).check();
 
     suspend fun  getTaskIndex(page:Int)=homeService.getTaskIndex(page).check();
+
+    suspend fun  getTaskDownload(page:String)=homeService.getTaskDownload(page).check();
+
+    /**
+     * 抖音授权
+     */
+    suspend fun douyinAuth(username:String?) = homeService.getDouyinoauthCallback(username).check()
+
+
 }

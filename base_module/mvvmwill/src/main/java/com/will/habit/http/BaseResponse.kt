@@ -7,6 +7,9 @@ class BaseResponse<T> {
     @JvmField
     var code = 0
     @JvmField
+    var status: String? = null
+
+    @JvmField
     var error: String? = null
 
     var data: T? = null

@@ -24,4 +24,9 @@ object ConstantConfig {
      */
     const val GOOD_DETAIL_ID="good_detail_id"
 
+    /**
+     *推荐 商品id key
+     */
+    const val RECOMMEND_ID="recommend_id"
+
 }

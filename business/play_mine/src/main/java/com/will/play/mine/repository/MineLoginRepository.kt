@@ -24,11 +24,6 @@ class MineLoginRepository : BaseModel<Any>() {
      */
     suspend fun login(username:String?,password:String?) = mineService.login(username,password).check()
 
-    /**
-     * 抖音授权
-     */
-    suspend fun douyinAuth(username:String?) = mineService.getDouyinoauthCallback(username).check()
-
 
     /**
      *

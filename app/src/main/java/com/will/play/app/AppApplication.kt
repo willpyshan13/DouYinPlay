@@ -16,6 +16,7 @@ import com.will.play.R
 import com.will.play.aop.login.core.ILogin
 import com.will.play.aop.login.core.LoginSDK
 import com.will.play.mine.ui.activity.MineLoginActivity
+import com.will.play.third.ThirdInit
 
 /**
  * will
@@ -30,6 +31,7 @@ class AppApplication : BaseApplication() {
         initCrash()
         initLogin()
         ARouter.init(this);
+        ThirdInit.initShare()
     }
 
     private fun initLogin(){

@@ -34,19 +34,12 @@ class MineLoginActivity : BaseActivity<MineActivityAddressBinding, MineLoginView
 
     override fun initData() {
         super.initData()
-        ThirdInit.initShare()
     }
 
     override fun initViewObservable() {
         super.initViewObservable()
         viewModel.douyinLogin.observe(this, Observer {
             DouyinLogin.login(this)
-        })
-
-        DouyinLogin.authSuccess.observe(this, Observer {
-            if (it!=null) {
-                viewModel.getDouyinUserinfo(it)
-            }
         })
     }
 }
