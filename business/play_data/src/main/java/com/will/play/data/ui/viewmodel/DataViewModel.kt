@@ -27,10 +27,16 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
+                if (oldItem is DataHeaderItem && newItem is DataHeaderItem){
+                    return true
+                }
                 return false
             }
 
             override fun areContentsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
+                if (oldItem is DataHeaderItem && newItem is DataHeaderItem){
+                    return true
+                }
                 return false
             }
 

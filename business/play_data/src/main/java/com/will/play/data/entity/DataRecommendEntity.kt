@@ -52,7 +52,7 @@ data class DataRecommendDataEntity(
     val liangdian: String,
     val material_lib_type: String,
     val max_commission: String,
-    val max_commission_rate: Int,
+    val max_commission_rate: Float,
     val max_commission_rate_text: String,
     val mobile: String,
     val name: String,

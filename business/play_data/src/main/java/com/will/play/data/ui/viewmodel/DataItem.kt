@@ -1,6 +1,8 @@
 package com.will.play.data.ui.viewmodel
 
 import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
 import com.will.play.data.entity.DataRecommendEntity
 
 class DataItem(viewModel: DataViewModel,val data: DataRecommendEntity) :ItemViewModel<DataViewModel>(viewModel) {
@@ -21,4 +23,20 @@ class DataItem(viewModel: DataViewModel,val data: DataRecommendEntity) :ItemView
     val saleMoney = "销售金额:${data.taskLists.firstOrNull()?.user_download}"
 
     val leftVideo = "剩余视频数:${data.taskLists.firstOrNull()?.user_download}"
+    
+    val onNextClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            viewModel.callReload(false)
+        }
+    })
+
+    val onVideoClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+
+        }
+    })
+
+    fun updateData(data: DataRecommendEntity){
+
+    }
 }
