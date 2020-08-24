@@ -3,13 +3,17 @@ package com.will.play.pick.ui.viewmodel
 import android.app.Application
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.bus.event.SingleLiveEvent
+import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.AuthException
 import com.will.habit.extection.launch
+import com.will.habit.utils.SPUtils
 import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
+import com.will.play.base.web.WebViewPath
 import com.will.play.pick.BR
 import com.will.play.pick.R
 import com.will.play.pick.repository.PickRepository
@@ -68,7 +72,9 @@ class PickCollectionViewModel(application: Application,val id:String) : BaseList
                 if(it.message!=null) {
                     ToastUtils.showShort(it.message!!)
                 }
-                taobaoLogin.call()
+                ARouter.getInstance().build(WebViewPath.WEB_VIEW_ACTIVITY)
+                        .withString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.AUTHORIZATION)}&view=web")
+                        .navigation()
             }
         })
     }
@@ -90,7 +96,13 @@ class PickCollectionViewModel(application: Application,val id:String) : BaseList
                 if(it.message!=null) {
                     ToastUtils.showShort(it.message!!)
                 }
-                douyinLogin.call()
+                if(it.responseCode.equals("300")) {
+                    douyinLogin.call()
+                }else{
+                    ARouter.getInstance().build(WebViewPath.WEB_VIEW_ACTIVITY)
+                            .withString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.AUTHORIZATION)}&view=web")
+                            .navigation()
+                }
             }
 
         })

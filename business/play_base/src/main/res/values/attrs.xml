@@ -21,5 +21,18 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="WebView">
+        <!-- require String render to html show in webview-->
+        <attr name="loadJsBridgeHtml" format="string" />
+        <attr name="loadJsDefaultHandle" format="reference" />
+        <attr name="setWebChromeClient" format="reference" />
+        <attr name="setWebViewClient" format="reference" />
+        <attr name="registerHandler" format="reference" />
+        <attr name="send" format="string" />
+        <attr name="sendMessage" format="string" />
+        <attr name="handlerName" format="string" />
+        <attr name="handlerData" format="string" />
+        <attr name="callBackFunction" format="reference" />
+    </declare-styleable>
 
 </resources>
