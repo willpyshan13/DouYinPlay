@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.data.ui.viewmodel.DataDouyinItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_item_bg"
+        android:paddingStart="@dimen/dp20"
+        android:paddingBottom="@dimen/dp6"
+        android:paddingTop="@dimen/dp8"
+        android:layout_margin="@dimen/dp12"
+        android:orientation="vertical"
+        tools:ignore="RtlCompat">
+
+        <View
+            app:layout_constraintTop_toTopOf="parent"
+            android:singleLine="true"
+            android:layout_marginEnd="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp4"
+            android:ellipsize="end"
+            android:background="#aaaaaa"
+            android:id="@+id/data_icon_goods_divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:text="@{viewModel.goodsName}"
+            tools:text="10分钟前更新"
+            app:layout_constraintTop_toTopOf="parent"
+            android:singleLine="true"
+            android:layout_marginTop="@dimen/dp4"
+            android:layout_marginEnd="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp4"
+            android:ellipsize="end"
+            android:textSize="@dimen/sp12"
+            android:id="@+id/data_icon_goods_refresh_time"
+            app:layout_constraintTop_toBottomOf="@+id/data_icon_goods_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:text="@{viewModel.goodsName}"
+            tools:text="2020春季换装款202009咔咔咔咔咔咔扩扩扩扩扩扩扩扩扩扩扩扩扩"
+            app:layout_constraintTop_toTopOf="@+id/data_icon_goods"
+            android:singleLine="true"
+            android:layout_marginEnd="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp4"
+            android:ellipsize="end"
+            android:id="@+id/data_icon_goods_title"
+            app:layout_constraintStart_toEndOf="@+id/data_icon_goods"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/data_icon_goods"
+            android:layout_width="@dimen/dp84"
+            android:layout_marginTop="@dimen/dp10"
+            app:imageUrl="@{viewModel.imageUrl}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_icon_goods_refresh_time"
+            android:src="@mipmap/base_default_icon"
+            android:layout_height="@dimen/dp84"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/data_tv_sale_count"
+            app:layout_constraintTop_toBottomOf="@+id/data_icon_goods_title"
+            app:layout_constraintStart_toEndOf="@+id/data_icon_goods"
+            android:drawableStart="@mipmap/base_home_item_heart"
+            tools:text="销售个数：88888"
+            android:text="@{viewModel.saleCount}"
+            android:drawablePadding="@dimen/dp2"
+            android:layout_marginTop="@dimen/dp22"
+            android:layout_marginStart="@dimen/dp14"
+            android:textSize="@dimen/sp10"
+            app:layout_goneMarginStart="@dimen/dp6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/data_tv_sale_money"
+            app:layout_constraintTop_toBottomOf="@+id/data_icon_goods_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:drawableStart="@mipmap/base_home_item_chat"
+            tools:text="销售金额：88888"
+            android:text="@{viewModel.saleMoney}"
+            android:layout_marginTop="@dimen/dp22"
+            android:drawablePadding="@dimen/dp2"
+            android:layout_marginEnd="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp14"
+            android:textSize="@dimen/sp10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/data_tv_sale_person"
+            app:layout_constraintTop_toBottomOf="@+id/data_tv_sale_count"
+            app:layout_constraintStart_toEndOf="@+id/data_icon_goods"
+            android:drawableStart="@mipmap/base_home_item_video"
+            tools:text="推广人数：88888"
+            android:text="@{viewModel.recommendCount}"
+            android:drawablePadding="@dimen/dp2"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp14"
+            android:textSize="@dimen/sp10"
+            app:layout_goneMarginStart="@dimen/dp6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/data_tv_left_video"
+            app:layout_constraintTop_toBottomOf="@+id/data_tv_sale_count"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:drawableStart="@mipmap/base_home_item_refer"
+            tools:text="剩余视频数：88888"
+            android:text="@{viewModel.leftVideo}"
+            android:layout_marginEnd="@dimen/dp12"
+            android:layout_marginTop="@dimen/dp12"
+            android:drawablePadding="@dimen/dp2"
+            android:layout_marginStart="@dimen/dp14"
+            android:textSize="@dimen/sp10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@+id/data_tv_sale_person"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@mipmap/base_data_btn_hot"
+            android:text="帮我上热门"
+            android:layout_marginEnd="@dimen/dp12"
+            android:layout_marginTop="@dimen/dp12"
+            app:onClickCommand="@{viewModel.onNextClick}"
+            android:layout_marginStart="@dimen/dp14"
+            android:textSize="@dimen/sp10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
