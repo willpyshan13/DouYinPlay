@@ -58,7 +58,6 @@ class WebViewActivity : BaseActivity<BaseActivityWebBinding, WebViewModel>() {
     /**
      * Desc: 打开相册
      * <p>
-     * @author: linjiaqiang
      * Date: 2020-02-19
      */
     private fun startAlbum() {

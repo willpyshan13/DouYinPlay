@@ -16,7 +16,7 @@ object WebViewPath {
     /**
      * 组 名
      */
-    private const val GROUP = "WebVieww/"
+    private const val GROUP = "/WebVieww/"
     const val URL = "url"
     const val TITLE = "title"
 

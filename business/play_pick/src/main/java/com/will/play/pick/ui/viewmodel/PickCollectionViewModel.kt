@@ -1,6 +1,7 @@
 package com.will.play.pick.ui.viewmodel
 
 import android.app.Application
+import android.os.Bundle
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.launcher.ARouter
@@ -13,6 +14,7 @@ import com.will.habit.extection.launch
 import com.will.habit.utils.SPUtils
 import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
+import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.pick.BR
 import com.will.play.pick.R
@@ -72,9 +74,10 @@ class PickCollectionViewModel(application: Application,val id:String) : BaseList
                 if(it.message!=null) {
                     ToastUtils.showShort(it.message!!)
                 }
-                ARouter.getInstance().build(WebViewPath.WEB_VIEW_ACTIVITY)
-                        .withString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.AUTHORIZATION)}&view=web")
-                        .navigation()
+                val bundle = Bundle().apply {
+                    putString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                }
+                startActivity(WebViewActivity::class.java,bundle)
             }
         })
     }
@@ -99,9 +102,10 @@ class PickCollectionViewModel(application: Application,val id:String) : BaseList
                 if(it.responseCode.equals("300")) {
                     douyinLogin.call()
                 }else{
-                    ARouter.getInstance().build(WebViewPath.WEB_VIEW_ACTIVITY)
-                            .withString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.AUTHORIZATION)}&view=web")
-                            .navigation()
+                    val bundle = Bundle().apply {
+                        putString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                    }
+                    startActivity(WebViewActivity::class.java,bundle)
                 }
             }
 
