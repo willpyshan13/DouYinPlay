@@ -18,7 +18,10 @@ android {
         if (isBuildModule.toBoolean()) {
             applicationId "com.will.play.pick"
         }
+
+
     }
+
     //统一资源前缀，规范资源引用
 //    resourcePrefix "store_detail_"
 
@@ -29,6 +32,7 @@ android {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
+    api 'com.alibaba:arouter-api:1.5.0'
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
     api project(':business:play_base')
 }

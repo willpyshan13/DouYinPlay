@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.text.TextUtils
 import androidx.multidex.MultiDex
+import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.BaseApplication
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.crash.CaocConfig
@@ -28,6 +29,7 @@ class AppApplication : BaseApplication() {
         //初始化全局异常崩溃
         initCrash()
         initLogin()
+        ARouter.init(this);
     }
 
     private fun initLogin(){

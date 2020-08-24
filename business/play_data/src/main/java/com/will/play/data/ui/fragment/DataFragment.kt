@@ -3,6 +3,7 @@ package com.will.play.data.ui.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.will.habit.base.BaseFragment
 import com.will.play.data.BR
 import com.will.play.data.R
@@ -28,5 +29,12 @@ class DataFragment : BaseFragment<FragmentDataBinding, DataViewModel>() {
 
     override fun initVariableId(): Int {
         return BR.viewModel
+    }
+
+    override fun initViewObservable() {
+        super.initViewObservable()
+        viewModel.go2Video.observe(this, Observer {
+//            Router.build("collect").go(this)
+        })
     }
 }

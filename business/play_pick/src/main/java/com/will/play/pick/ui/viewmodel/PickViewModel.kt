@@ -68,7 +68,7 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
                 headerItem.updateBanner(banner,type)
             }
             val pickData = model.getTaskIndex(pageIndex)
-            val pickList = pickData?.taskLists?.map { PickDataItem(this,it) }.orEmpty()
+            val pickList = pickData.taskLists.map { PickDataItem(this,it) }.orEmpty()
             viewModels.addAll(pickList)
             items.addAll(viewModels)
             dismissDialog()

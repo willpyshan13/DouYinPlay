@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.data.R
@@ -24,6 +25,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * @Author: pengyushan
  */
 class DataViewModel(application: Application) : BaseListViewModel<DataRepository, ItemViewModel<*>>(application) {
+    val go2Video = SingleLiveEvent<Void>()
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {

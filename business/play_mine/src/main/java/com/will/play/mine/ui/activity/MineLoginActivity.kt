@@ -2,7 +2,6 @@ package com.will.play.mine.ui.activity
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import com.chenenyu.router.annotation.Route
 import com.will.habit.base.BaseActivity
 import com.will.play.mine.BR
 import com.will.play.mine.R
@@ -20,7 +19,6 @@ import com.will.play.third.ThirdInit
  *
  * @Author: pengyushan
  */
-@Route(value = ["/mine/LoginActivity"])
 class MineLoginActivity : BaseActivity<MineActivityAddressBinding, MineLoginViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.mine_activity_login

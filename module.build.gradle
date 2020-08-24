@@ -5,7 +5,6 @@ if (isBuildModule.toBoolean()) {
 } else {
     //作为组件运行
     apply plugin: 'com.android.library'
-    apply plugin: 'com.chenenyu.router'
 }
 
 android {
@@ -38,6 +37,11 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     sourceSets {
