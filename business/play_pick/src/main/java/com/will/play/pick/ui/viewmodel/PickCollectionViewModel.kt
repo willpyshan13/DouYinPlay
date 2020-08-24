@@ -35,7 +35,6 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class PickCollectionViewModel(application: Application,val id:String) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
     val douyinLogin = SingleLiveEvent<Void>()
-    val taobaoLogin = SingleLiveEvent<Void>()
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {

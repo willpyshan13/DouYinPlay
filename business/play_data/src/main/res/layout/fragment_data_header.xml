@@ -5,6 +5,7 @@
 
     <data>
 
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.will.play.data.ui.viewmodel.DataHeaderItem" />
@@ -77,19 +78,45 @@
             app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
             android:src="@mipmap/base_data_top_right_icon"
             android:layout_width="wrap_content"
+            app:onClickCommand="@{viewModel.onDouyinClick}"
+            android:visibility="@{viewModel.isDouyin?View.GONE:View.VISIBLE}"
             android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            app:layout_constraintTop_toTopOf="@+id/data_top_layout"
+            app:layout_constraintStart_toStartOf="@+id/data_top_layout"
+            android:src="@mipmap/base_data_top_left_icon"
+            app:onClickCommand="@{viewModel.onTaobaoClick}"
+            android:visibility="@{viewModel.isDouyin?View.VISIBLE:View.GONE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
 
         <androidx.appcompat.widget.AppCompatTextView
             app:layout_constraintTop_toTopOf="@+id/data_top_layout"
             app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
             android:text="抖音数据"
             android:textSize="@dimen/sp12"
+            android:visibility="@{viewModel.isDouyin?View.GONE:View.VISIBLE}"
             android:textColor="@color/color_FFFFFF"
             android:layout_marginEnd="@dimen/dp2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toTopOf="@+id/data_top_layout"
+            app:layout_constraintStart_toStartOf="@+id/data_top_layout"
+            android:text="订单数据"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/dp4"
+            android:visibility="@{viewModel.isDouyin?View.VISIBLE:View.GONE}"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/sp12"
+            android:layout_marginEnd="@dimen/dp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/data_top_icon_taobao"
             android:layout_marginTop="@dimen/dp16"
@@ -97,6 +124,7 @@
             app:layout_constraintTop_toTopOf="@+id/data_top_layout"
             app:layout_constraintStart_toStartOf="@+id/data_top_layout"
             android:src="@mipmap/base_data_taobao"
+            android:visibility="@{viewModel.isDouyin?View.GONE:View.VISIBLE}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
@@ -107,8 +135,35 @@
             android:text="订单数据"
             android:gravity="center"
             android:layout_marginStart="@dimen/dp4"
+            android:visibility="@{viewModel.isDouyin?View.GONE:View.VISIBLE}"
             android:textSize="@dimen/sp16"
             android:layout_marginEnd="@dimen/dp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/data_top_icon_douyin"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginStart="@dimen/dp32"
+            app:layout_constraintTop_toTopOf="@+id/data_top_layout"
+            app:layout_constraintEnd_toStartOf="@+id/data_top_icon_douyin_order"
+            android:src="@mipmap/base_data_douyin"
+            android:visibility="@{viewModel.isDouyin?View.VISIBLE:View.GONE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/data_top_icon_douyin_order"
+            app:layout_constraintTop_toTopOf="@+id/data_top_icon_douyin"
+            app:layout_constraintBottom_toBottomOf="@+id/data_top_icon_douyin"
+            app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            android:text="抖音数据"
+            android:visibility="@{viewModel.isDouyin?View.VISIBLE:View.GONE}"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/dp4"
+            android:textSize="@dimen/sp16"
+            android:layout_marginEnd="@dimen/dp32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />

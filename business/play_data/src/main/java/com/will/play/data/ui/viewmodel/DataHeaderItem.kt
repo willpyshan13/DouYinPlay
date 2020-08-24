@@ -1,6 +1,7 @@
 package com.will.play.data.ui.viewmodel
 
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableBoolean
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
@@ -10,6 +11,7 @@ import com.will.play.data.BR
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?) :ItemViewModel<DataViewModel>(viewModel) {
+    val isDouyin = ObservableBoolean(false)
     /**
      * banner列表
      */
@@ -22,6 +24,19 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?) :ItemViewMo
     }
 
     val onTaobaoClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            isDouyin.set(false)
+        }
+    })
+
+    val onDouyinClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            isDouyin.set(true)
+        }
+    })
+
+
+    val onBindingClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
 
         }
