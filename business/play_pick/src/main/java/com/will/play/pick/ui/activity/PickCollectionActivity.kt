@@ -40,7 +40,8 @@ class PickCollectionActivity : BaseActivity<ActivityPickCollectionBinding, PickC
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
                 val goodId=intent.getStringExtra(ConstantConfig.RECOMMEND_ID)?:""
-                return PickCollectionViewModel(activity.application, goodId) as T
+                //todo
+                return PickCollectionViewModel(activity.application, "200030") as T
             }
         }).get(cls)
     }

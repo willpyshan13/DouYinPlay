@@ -83,7 +83,7 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
-            android:id="@+id/pick_collection_bottom_bg"
+            android:id="@+id/pick_collection_bg_bottom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pick_collection_percent"
@@ -99,9 +99,9 @@
             android:textSize="@dimen/sp8"
             android:text="领取时间:\n2020-12-30"
             app:layout_constraintEnd_toStartOf="@+id/pick_collection_goods"
-            app:layout_constraintStart_toStartOf="@+id/pick_collection_bottom_bg"
-            app:layout_constraintBottom_toBottomOf="@+id/pick_collection_bottom_bg"
-            app:layout_constraintTop_toTopOf="@+id/pick_collection_bottom_bg"
+            app:layout_constraintStart_toStartOf="@+id/pick_collection_bg_bottom"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_collection_bg_bottom"
+            app:layout_constraintTop_toTopOf="@+id/pick_collection_bg_bottom"
             tools:ignore="RtlCompat" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -112,9 +112,9 @@
             android:gravity="center"
             android:background="@mipmap/base_pick_collect_btn"
             android:textSize="@dimen/sp14"
-            app:layout_constraintTop_toTopOf="@+id/pick_collection_bottom_bg"
-            app:layout_constraintBottom_toBottomOf="pick_collection_bottom_bg"
-            app:layout_constraintEnd_toEndOf="@+id/pick_collection_bottom_bg"
+            app:layout_constraintTop_toTopOf="@+id/pick_collection_bg_bottom"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_collection_bg_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/pick_collection_bg_bottom"
             tools:ignore="RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
