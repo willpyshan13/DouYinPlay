@@ -23,7 +23,7 @@ import com.will.play.third.DouyinLogin
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
- * Desc:实物领取，视频领取
+ * Desc:视频领取
  *
  * Date: 2020-06-22
  * Copyright: Copyright (c) 2018-2020
@@ -33,7 +33,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class PickCollectionViewModel(application: Application,val id:String) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
+class PickCollectionVideoViewModel(application: Application, val id:String) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
     val douyinLogin = SingleLiveEvent<Void>()
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
@@ -50,7 +50,7 @@ class PickCollectionViewModel(application: Application,val id:String) : BaseList
 
     init {
         loadInit()
-        setTitleText("实物领取")
+        setTitleText("视频领取")
     }
 
     override fun showEmptyState() {
