@@ -3,9 +3,9 @@
 
     <string name="pick_good_detail_top_txt">视频已领取本地，请在相册查收</string>
     <string name="pick_good_detail_copy">复制链接</string>
-    <string name="pick_good_detail_sales">月销量: 11</string>
+    <string name="pick_good_detail_sales">月销量: %s</string>
     <string name="pick_good_detail_people">种草达人数: 445</string>
-    <string name="pick_good_detail_video_surplus">剩余视频数: 7/458</string>
+    <string name="pick_good_detail_video_surplus">剩余视频数: %s</string>
     <string name="pick_good_detail_qu_fen_vip">趣粉VIP专区</string>
     <string name="pick_good_detail_vip_for_free">免费申请</string>
     <string name="pick_good_detail_limit_for_get">数量有限,先到先得</string>
@@ -13,5 +13,6 @@
     <string name="pick_good_detail_price">￥</string>
     <string name="pick_good_detail_percent">%</string>
     <string name="pick_good_detail_pay_person">人付款</string>
+    <string name="pick_good_detail_product_comment">产品评价(%s)</string>
 
 </resources>

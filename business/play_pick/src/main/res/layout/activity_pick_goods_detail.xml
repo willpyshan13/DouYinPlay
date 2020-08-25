@@ -28,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp200"
                 android:background="@color/color_BFBFBF"
+                app:imageUrl="@{viewModel.dataViewModel.detailInfo.pict_url}"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
@@ -69,11 +70,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp7"
                     android:layout_marginTop="@dimen/dp10"
-                    android:text="¥54.5"
+                    android:text="@{viewModel.dataViewModel.detailInfo.zk_final_price}"
                     android:textColor="@color/color_FF0000"
                     android:textSize="@dimen/sp14"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="¥54.5" />
 
                 <TextView
                     android:id="@+id/pick_good_detail_tv_title"
@@ -83,19 +85,20 @@
                     android:layout_marginTop="@dimen/dp10"
                     android:layout_marginEnd="@dimen/dp23"
                     android:maxLines="2"
-                    android:text="2020春夏季新款情侣装大码短袖T恤女百搭女装学生宽松大衣"
+                    android:text="@{viewModel.dataViewModel.detailInfo.title}"
                     android:textColor="@color/color_313131"
                     android:textSize="@dimen/sp13"
                     app:layout_constraintEnd_toStartOf="@+id/pick_good_detail_tv_copy"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_price" />
+                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_price"
+                    tools:text="2020春夏季新款情侣装大码短袖T恤女百搭女装学生宽松大衣" />
 
 
                 <com.will.play.base.widget.tag.TagFlowLayout
                     android:id="@+id/pick_good_detail_tag_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp3"
+                    android:layout_marginTop="@dimen/dp7"
                     app:itemBinding="@{viewModel.tagItemBinding}"
                     app:items="@{viewModel.tagItemList}"
                     app:layout_constraintEnd_toEndOf="@+id/pick_good_detail_tv_title"
@@ -117,7 +120,7 @@
                     android:textSize="@dimen/sp11"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/pick_good_detail_tv_title"
-                    app:onClickCommand="@{viewModel.onVipDialogClick}" />
+                    app:onClickCommand="@{viewModel.onCopyClick}" />
 
 
                 <TextView
@@ -129,12 +132,13 @@
                     android:layout_marginBottom="@dimen/dp5"
                     android:gravity="bottom"
                     android:includeFontPadding="false"
-                    android:text="@string/pick_good_detail_sales"
+                    android:text="@{viewModel.dataViewModel.monthlySales}"
                     android:textColor="@color/color_7D7D7D"
                     android:textSize="@dimen/sp9"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tag_layout" />
+                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tag_layout"
+                    tools:text="@string/pick_good_detail_sales" />
 
 
                 <TextView
@@ -157,11 +161,12 @@
                     android:layout_marginEnd="@dimen/dp15"
                     android:gravity="bottom"
                     android:includeFontPadding="false"
-                    android:text="@string/pick_good_detail_video_surplus"
+                    android:text="@{viewModel.dataViewModel.videosText}"
                     android:textColor="@color/color_7D7D7D"
                     android:textSize="@dimen/sp9"
                     app:layout_constraintBottom_toBottomOf="@+id/pick_good_detail_tv_sales"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="@string/pick_good_detail_video_surplus" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -222,12 +227,12 @@
                     android:paddingBottom="@dimen/dp7"
                     android:text="领取视频"
                     android:textSize="@dimen/sp15"
-                    app:onClickCommand="@{viewModel.onVideo}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/pick_good_detail_vip_tv_get_good"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_vip_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_tv_vip_title"
+                    app:onClickCommand="@{viewModel.onVideo}" />
 
                 <TextView
                     android:id="@+id/pick_good_detail_vip_tv_get_good"
@@ -242,11 +247,11 @@
                     android:paddingEnd="@dimen/dp15"
                     android:paddingBottom="@dimen/dp7"
                     android:text="领取实物"
-                    app:onClickCommand="@{viewModel.onCollectionClick}"
                     android:textSize="@dimen/sp15"
                     app:layout_constraintEnd_toStartOf="@+id/pick_good_detail_vip_tv_share_weChat_circle"
                     app:layout_constraintStart_toEndOf="@+id/pick_good_detail_vip_tv_get_video"
-                    app:layout_constraintTop_toTopOf="@+id/pick_good_detail_vip_tv_get_video" />
+                    app:layout_constraintTop_toTopOf="@+id/pick_good_detail_vip_tv_get_video"
+                    app:onClickCommand="@{viewModel.onCollectionClick}" />
 
 
                 <TextView
@@ -294,10 +299,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp6"
-                android:text="哔哩哔哩服装店"
+                android:text="@{viewModel.dataViewModel.detailInfo.nick}"
                 app:layout_constraintBottom_toBottomOf="@+id/pick_good_detail_store_info_view_bg"
                 app:layout_constraintStart_toEndOf="@+id/pick_good_detail_store_iv_image"
-                app:layout_constraintTop_toTopOf="@+id/pick_good_detail_store_info_view_bg" />
+                app:layout_constraintTop_toTopOf="@+id/pick_good_detail_store_info_view_bg"
+                tools:text="哔哩哔哩服装店" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -328,11 +334,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp7"
                     android:layout_marginTop="@dimen/dp7"
-                    android:text="产品评价"
+                    android:text="@{viewModel.dataViewModel.commentText}"
                     android:textColor="@color/color_121212"
                     android:textSize="@dimen/sp10"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/pick_good_detail_product_comment" />
 
                 <TextView
                     android:id="@+id/pick_good_detail_good_appraise_tv_name"
@@ -340,11 +347,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp7"
                     android:layout_marginTop="@dimen/dp5"
-                    android:text="小菜:"
+                    android:text="@{viewModel.dataViewModel.commentFirstName}"
                     android:textColor="@color/color_919191"
                     android:textSize="@dimen/sp7"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_appraise_tv_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_appraise_tv_label"
+                    tools:text="小菜:" />
 
 
                 <TextView
@@ -355,13 +363,15 @@
                     android:layout_marginTop="@dimen/dp4"
                     android:layout_marginEnd="@dimen/dp9"
                     android:layout_marginBottom="@dimen/dp8"
-                    android:text="全球最大的中文搜索引擎、致力于让网民更便捷地获取信息，找到所求。百"
+                    android:maxLines="2"
+                    android:text="@{viewModel.dataViewModel.commentFirstText}"
                     android:textSize="@dimen/sp7"
                     app:layout_constrainedWidth="true"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/pick_good_detail_good_appraise_iv_arrow"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_appraise_tv_name" />
+                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_appraise_tv_name"
+                    tools:text="全球最大的中文搜索引擎、致力于让网民更便捷地获取信息致力于让网民更便捷地获取信息致力于让网民更便捷地获取信息致力于让网民更便捷地获取信息致力于让网民更便捷地获取信息致力于让网民更便捷地获取信息，找到所求。百全球最大的中文搜索引擎、致力于让网民更便捷地获取信息，找到所求。百全球最大的中文搜索引擎、致力于让网民更便捷地获取信息，找到所求。百" />
 
 
                 <TextView
@@ -380,39 +390,32 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/pick_good_detail_good_detail_layout"
+
+            <TextView
+                android:id="@+id/desc_tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp7"
                 android:background="@color/color_FFFFFF"
+                android:paddingStart="@dimen/dp7"
+                android:paddingTop="@dimen/dp7"
                 android:paddingBottom="@dimen/dp7"
-                app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_appraise_layout">
+                android:text="商品详情"
+                android:textColor="@color/color_121212"
+                android:textSize="@dimen/sp10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_appraise_layout" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pick_good_detail_good_desc_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hasFixedSize="@{true}"
+                app:itemBinding="@{viewModel.dataViewModel.descItemBinding}"
+                app:items="@{viewModel.dataViewModel.descItemList}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/desc_tv_title" />
 
-                <TextView
-                    android:id="@+id/pick_good_detail_good_detail_tv_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp14"
-                    android:text="商品详情"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp25"
-                    android:layout_marginTop="@dimen/dp8"
-                    android:layout_marginEnd="@dimen/dp25"
-                    android:text="品牌:Coca-Cola/可口可乐\n尺码:东京现货 XL 东京现货 M 东京现货 L 东京现货 S"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_detail_tv_label" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/pick_good_detail_good_detail_bottom_recommend_label"
@@ -423,7 +426,7 @@
                 android:textSize="@dimen/sp14"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_detail_layout" />
+                app:layout_constraintTop_toBottomOf="@+id/pick_good_detail_good_desc_list" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

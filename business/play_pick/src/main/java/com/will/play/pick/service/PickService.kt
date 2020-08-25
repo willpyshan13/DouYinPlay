@@ -2,6 +2,7 @@ package com.will.play.pick.service
 
 import com.will.habit.http.BaseResponse
 import com.will.play.base.BannerEntity
+import com.will.play.pick.entity.PickGoodDetailRespEntity
 import com.will.play.base.MineDouyinEntity
 import com.will.play.base.constant.Constants
 import com.will.play.pick.entity.PickGoodTypeEntity
@@ -33,6 +34,11 @@ interface PickService {
                              ,@Query("goods_type_id")goods_type_id:Int = 0,@Query("sort_id")sort_id:Int = 0
                              ,@Query("user_id")user_id:Int = 0
                              ,@Query("keyword")keyword:String? = null): BaseResponse<PickRespDataEntity>
+
+
+    @GET("api.php/Task/detail")
+    suspend fun getGoodDetail(@Query("id")id:String): BaseResponse<PickGoodDetailRespEntity>
+
 
     @GET("api.php/Task/download")
     suspend fun getTaskDownload(@Query("id")id:String): BaseResponse<PickGoodTypeEntity>

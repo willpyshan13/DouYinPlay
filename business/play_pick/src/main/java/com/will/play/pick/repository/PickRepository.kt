@@ -25,6 +25,9 @@ class PickRepository : BaseModel<Any>() {
 
     suspend fun  getTaskIndex(page:Int)=homeService.getTaskIndex(page).check();
 
+    suspend fun getGoodDetail(goodId:String)=homeService.getGoodDetail(goodId).check()
+
+
     suspend fun  getTaskDownload(page:String)=homeService.getTaskDownload(page).check();
 
     /**
