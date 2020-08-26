@@ -40,7 +40,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="已补贴100元"
+                    android:text="@{viewModel.subsidyText}"
                     android:padding="@dimen/dp2"
                     android:background="@mipmap/base_pick_collect_money"
                     app:layout_constraintTop_toTopOf="parent"
@@ -50,9 +50,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0/5"
+                    android:text="@{viewModel.leftVideoString}"
                     android:layout_marginEnd="@dimen/dp4"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/picker_collection_price"
+                    app:layout_constraintBottom_toBottomOf="@+id/picker_collection_price"
                     app:layout_constraintEnd_toStartOf="@id/picker_collection_price"
                     android:id="@+id/picker_collection_count" />
             </androidx.constraintlayout.widget.ConstraintLayout>

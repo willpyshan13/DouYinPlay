@@ -1,8 +1,11 @@
 package com.will.play.pick.entity
 
+import com.will.play.base.entity.UserInfo
+
 
 data class PickRespCollectVideoEntity(
-    val videoLists: List<VideoLists>
+    val videoLists: List<VideoLists>,
+    val userInfo:UserInfo
 )
 
 data class VideoLists(

@@ -2,6 +2,7 @@ package com.will.play.pick.ui.viewmodel
 
 import android.app.Application
 import android.os.Bundle
+import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.launcher.ARouter
@@ -38,6 +39,8 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 class PickCollectionVideoViewModel(application: Application, val id:String) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
     val douyinLogin = SingleLiveEvent<Void>()
     var downloadType = 1
+    val leftVideoString = ObservableField("")
+    val subsidyText = ObservableField("")
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
