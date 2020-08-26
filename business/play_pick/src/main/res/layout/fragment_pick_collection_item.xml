@@ -4,6 +4,7 @@
 
     <data>
 
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.will.play.pick.ui.viewmodel.PickCollectionItem" />
@@ -19,9 +20,10 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/data_icon_goods"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp142"
+            android:layout_height="@dimen/dp146"
             android:scaleType="centerCrop"
+            app:imageUrl="@{viewModel.data.pict_url}"
             android:src="@mipmap/base_pick_item_image_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +39,8 @@
             android:layout_marginEnd="@dimen/dp14"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏"
+            android:text="@{viewModel.data.title}"
+            tools:text="意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏意大利唇膏"
             app:layout_constraintEnd_toStartOf="@+id/pick_item_money"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/data_icon_goods" />
@@ -49,7 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp12"
             android:layout_marginEnd="@dimen/dp14"
-            android:text="￥25"
+            tools:text="￥25"
+            android:text="@{viewModel.data.price}"
             android:textColor="@color/text_sticker_red_easy_photos"
             android:textSize="@dimen/sp18"
             app:layout_constraintBottom_toBottomOf="@+id/pick_item_title"
@@ -63,7 +67,8 @@
             android:layout_marginEnd="@dimen/dp4"
             android:layout_marginTop="@dimen/dp6"
             android:id="@+id/pick_collection_money"
-            android:text="佣金:"
+            tools:text="佣金:"
+            android:text="@{@string/pick_collect_money+viewModel.data.max_commission}"
             android:textSize="@dimen/sp10"
             android:layout_marginStart="@dimen/dp14"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +80,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp8"
-            android:text="佣金比例:"
+            tools:text="佣金比例:"
+            android:text="@{@string/pick_collect_money_percent+viewModel.data.max_commission_rate_text}"
             android:textSize="@dimen/sp10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/pick_collection_money"
@@ -86,6 +92,7 @@
             android:id="@+id/pick_collection_bg_bottom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{viewModel.collect?View.GONE:View.VISIBLE}"
             app:layout_constraintTop_toBottomOf="@+id/pick_collection_percent"
             android:src="@mipmap/base_pick_get_bg"
             android:layout_marginTop="@dimen/dp12"
@@ -96,8 +103,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
             android:layout_marginEnd="@dimen/dp4"
+            android:visibility="@{viewModel.collect?View.GONE:View.VISIBLE}"
             android:textSize="@dimen/sp8"
-            android:text="领取时间:\n2020-12-30"
+            android:text="@{@string/pick_collect_get_time+viewModel.data.time_download_text3}"
+            tools:text="领取时间:\n2020-12-30"
             app:layout_constraintEnd_toStartOf="@+id/pick_collection_goods"
             app:layout_constraintStart_toStartOf="@+id/pick_collection_bg_bottom"
             app:layout_constraintBottom_toBottomOf="@+id/pick_collection_bg_bottom"
@@ -108,13 +117,42 @@
             android:id="@+id/pick_collection_goods"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="领取实物"
+            android:text="已补贴"
             android:gravity="center"
             android:background="@mipmap/base_pick_collect_btn"
             android:textSize="@dimen/sp14"
+            android:visibility="@{viewModel.collect?View.GONE:View.VISIBLE}"
             app:layout_constraintTop_toTopOf="@+id/pick_collection_bg_bottom"
             app:layout_constraintBottom_toBottomOf="@+id/pick_collection_bg_bottom"
             app:layout_constraintEnd_toEndOf="@+id/pick_collection_bg_bottom"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_collection_goods_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.data.down_point_text+@string/pick_collect_symbol}"
+            android:gravity="center"
+            android:background="#ffff0000"
+            android:textSize="@dimen/sp8"
+            android:visibility="@{viewModel.collect?View.GONE:View.VISIBLE}"
+            app:layout_constraintTop_toTopOf="@+id/pick_collection_goods"
+            app:layout_constraintEnd_toEndOf="@+id/pick_collection_goods"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pick_collection_conect_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关联视频"
+            android:gravity="center"
+            android:background="@mipmap/base_pick_collect_btn"
+            android:textSize="@dimen/sp14"
+            android:layout_marginTop="@dimen/dp12"
+            android:visibility="@{viewModel.collect?View.VISIBLE:View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_collection_percent"
             tools:ignore="RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

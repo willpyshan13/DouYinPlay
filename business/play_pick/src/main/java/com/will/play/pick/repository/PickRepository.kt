@@ -27,13 +27,13 @@ class PickRepository : BaseModel<Any>() {
 
     suspend fun getGoodDetail(goodId:String)=homeService.getGoodDetail(goodId).check()
 
-
     suspend fun  getTaskDownload(page:String)=homeService.getTaskDownload(page).check();
+
+    suspend fun  getVideoIndex(page:Int,downType:Int)=homeService.getVideoIndex(page,download_status = downType).check();
 
     /**
      * 抖音授权
      */
     suspend fun douyinAuth(username:String?) = homeService.getDouyinoauthCallback(username).check()
-
 
 }

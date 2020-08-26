@@ -14,5 +14,8 @@
     <string name="pick_good_detail_percent">%</string>
     <string name="pick_good_detail_pay_person">人付款</string>
     <string name="pick_good_detail_product_comment">产品评价(%s)</string>
-
+    <string name="pick_collect_money">佣金: </string>
+    <string name="pick_collect_money_percent">佣金比例: </string>
+    <string name="pick_collect_get_time">领取时间 </string>
+    <string name="pick_collect_symbol">元</string>
 </resources>

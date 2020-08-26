@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.AuthException
@@ -35,6 +37,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class PickCollectionVideoViewModel(application: Application, val id:String) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
     val douyinLogin = SingleLiveEvent<Void>()
+    var downloadType = 1
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -59,10 +62,24 @@ class PickCollectionVideoViewModel(application: Application, val id:String) : Ba
     override fun getItemBinding(): ItemBinding<ItemViewModel<*>> {
         return ItemBinding.of { binding, _, item ->
             when (item) {
-                is PickDataItem -> binding.set(BR.viewModel, R.layout.fragment_pick_item)
+                is PickCollectionItem -> binding.set(BR.viewModel, R.layout.fragment_pick_collection_item)
             }
         }
     }
+
+    val leftPress = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            downloadType = 1
+            callReload(false)
+        }
+    })
+
+    val rightPress = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            downloadType = 2
+            callReload(false)
+        }
+    })
 
 
     fun getDouyinUserinfo(authCode:String){
@@ -90,7 +107,9 @@ class PickCollectionVideoViewModel(application: Application, val id:String) : Ba
         launch({
             showDialog()
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            val data = model.getTaskDownload(id)
+            val data = model.getVideoIndex(pageIndex,downloadType)
+            val items = data.videoLists.map { PickCollectionItem(this,it,downloadType==1) }
+            viewModels.addAll(items)
             loadCallback.onSuccess(viewModels,pageIndex,1)
             dismissDialog()
         }, {

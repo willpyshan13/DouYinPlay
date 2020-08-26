@@ -66,17 +66,34 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@mipmap/base_pick_layout_background"
                 android:layout_height="0dp">
-                <androidx.appcompat.widget.AppCompatTextView
+                <RadioGroup
                     android:id="@+id/pick_collection_history"
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:text="实物领取记录"
-                    android:layout_margin="@dimen/dp12"
-                    android:textSize="@dimen/sp10"
-                    android:layout_marginEnd="@dimen/dp4"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_height="wrap_content"
-                    tools:ignore="RtlCompat" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/collect_left"
+                        android:text="待补贴记录"
+                        android:checked="true"
+                        android:button="@null"
+                        android:gravity="center"
+                        app:onClickCommand="@{viewModel.leftPress}"
+                        android:background="@drawable/base_pick_collect_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/collect_right"
+                        android:text="已领取视频记录"
+                        android:button="@null"
+                        android:gravity="center"
+                        app:onClickCommand="@{viewModel.rightPress}"
+                        android:background="@drawable/base_pick_collect_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RadioGroup>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/pick_collection_list"
                     android:layout_width="match_parent"
@@ -85,7 +102,7 @@
                     android:layout_marginStart="@dimen/dp12"
                     app:itemBinding="@{viewModel.itemBinding}"
                     app:items="@{viewModel.items}"
-                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
