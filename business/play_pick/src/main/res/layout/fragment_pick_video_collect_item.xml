@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.pick.ui.viewmodel.PickCollectVideoDialogItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp2"
+        app:onClickCommand="@{viewModel.itemClick}"
+        android:layout_marginStart="@dimen/dp12"
+        android:background="@drawable/pick_collect_video_item"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/data_icon_goods"
+            android:layout_width="@dimen/dp24"
+            android:layout_height="@dimen/dp24"
+            android:src="@mipmap/base_pick_top_item"
+            app:isCircle="@{true}"
+            app:imageUrl="@{viewModel.data.cover}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/data_icon_goods_name"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/dp12"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.data.title}"
+            tools:text="helllo"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintTop_toTopOf="@id/data_icon_goods"
+            app:layout_constraintStart_toEndOf="@id/data_icon_goods" />
+
+        <TextView
+            android:id="@+id/data_icon_goods_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.data.create_time_text}"
+            android:layout_marginStart="@dimen/dp12"
+            tools:text="helllo"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintTop_toBottomOf="@id/data_icon_goods_name"
+            app:layout_constraintStart_toEndOf="@id/data_icon_goods" />
+
+        <TextView
+            android:id="@+id/data_icon_goods_time_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.data.create_date_text}"
+            android:layout_marginEnd="@dimen/dp12"
+            tools:text="helllo"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintTop_toBottomOf="@id/data_icon_goods_name"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

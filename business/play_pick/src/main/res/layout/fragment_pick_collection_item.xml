@@ -151,6 +151,7 @@
             android:layout_marginTop="@dimen/dp12"
             android:visibility="@{viewModel.collect?View.VISIBLE:View.GONE}"
             app:layout_constraintStart_toStartOf="parent"
+            app:onClickCommand="@{viewModel.collectClick}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pick_collection_percent"
             tools:ignore="RtlCompat" />

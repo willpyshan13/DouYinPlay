@@ -31,6 +31,10 @@ class PickRepository : BaseModel<Any>() {
 
     suspend fun  getVideoIndex(page:Int,downType:Int)=homeService.getVideoIndex(page,download_status = downType).check();
 
+    suspend fun  getVideoBind(videoId:String,douyinVideoId:String)=homeService.getVideoBind(videoId,douyinVideoId).check();
+
+    suspend fun  getDouyinVideoIndex(videoId:String)=homeService.getDouyinVideoIndex(videoId).check();
+
     /**
      * 抖音授权
      */

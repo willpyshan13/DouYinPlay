@@ -22,20 +22,7 @@ import java.util.HashMap
  *
  * @Author: zhuanghongzhan
  */
-open class BaseDialogViewModel<M : BaseModel<*>>(application: Application) : AndroidViewModel(application), IBaseViewModel {
-
-    val uc: UIChangeLiveData by lazy(LazyThreadSafetyMode.NONE) { UIChangeLiveData() }
-
-    @Suppress("UNCHECKED_CAST")
-    val model: M by lazy {
-        Tutil.getNewInstance<M>(this, 0).apply {
-            val baseView = this@BaseDialogViewModel
-            if (baseView is BaseView) {
-                val model = this as BaseModel<BaseView>
-                model.setVm(baseView)
-            }
-        }
-    }
+open class BaseDialogViewModel<M : BaseModel<*>>(application: Application) : BaseViewModel<M>(application), IBaseViewModel {
 
     override fun onAny(owner: LifecycleOwner?, event: Lifecycle.Event?) {
         //To change body of created functions use File | Settings | File Templates.
@@ -76,38 +63,6 @@ open class BaseDialogViewModel<M : BaseModel<*>>(application: Application) : And
     override fun onCleared() {
         super.onCleared()
         model.onCleared()
-    }
-
-    @JvmOverloads
-    fun showDialog(title: String = StringUtils.getStringResource(R.string.common_wait_loading)) {
-        uc.showDialogEvent.value = title
-    }
-
-    fun dismissDialog() {
-        uc.dismissDialogEvent.call()
-    }
-
-    /**
-     * 关闭界面
-     */
-    open fun finish() {
-        uc.finishEvent.call()
-    }
-
-    /**
-     * 跳转页面
-     *
-     * @param clz    所跳转的目的Activity类
-     * @param bundle 跳转所携带的信息
-     */
-    @JvmOverloads
-    fun startActivity(clz: Class<*>, bundle: Bundle? = null) {
-        val params = HashMap<String, Any>()
-        params[BaseViewModel.ParameterField.CLASS] = clz
-        if (bundle != null) {
-            params[BaseViewModel.ParameterField.BUNDLE] = bundle
-        }
-        uc.startActivityEvent.postValue(params)
     }
 
 

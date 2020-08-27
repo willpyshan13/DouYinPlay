@@ -115,23 +115,23 @@ abstract class BaseDialogFragment<V : ViewDataBinding, VM : BaseDialogViewModel<
          * 加载对话框消失
         */
 
-        viewModel.uc.dismissDialogEvent.observe(this, Observer { dismissDialog() })
+        viewModel.uc.dismissDialogEvent?.observe(this, Observer { dismissDialog() })
         /*
          * 跳入新页面
          */
-        viewModel.uc.startActivityEvent.observe(this, Observer { params ->
+        viewModel.uc.startActivityEvent?.observe(this, Observer { params ->
             if (params == null) {
                 return@Observer
             }
-            val clz = params!![BaseViewModel.ParameterField.CLASS] as Class<*>
-            val bundle = params!![BaseViewModel.ParameterField.BUNDLE] as Bundle
+            val clz = params[BaseViewModel.ParameterField.CLASS] as Class<*>
+            val bundle = params[BaseViewModel.ParameterField.BUNDLE] as Bundle
             startActivity(clz, bundle)
         })
 
         /*
         * 关闭界面
         */
-        viewModel.uc.finishEvent.observe(this, Observer { dismissAllowingStateLoss() })
+        viewModel.uc.finishEvent?.observe(this, Observer { dismissAllowingStateLoss() })
     }
 
     /**

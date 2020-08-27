@@ -1,3 +1,3 @@
 package com.will.habit.extection
 
-class AuthException(val responseCode: Int,val responseMessage: String?) : RuntimeException(responseMessage)
+class AuthException(val responseCode: String?,val responseMessage: String?) : RuntimeException(responseMessage)

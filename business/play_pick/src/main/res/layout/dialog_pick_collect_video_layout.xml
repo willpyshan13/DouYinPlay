@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.pick.ui.viewmodel.PickCollectDialogViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@mipmap/base_pick_collect_video_background"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="@dimen/dp450">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
+            android:id="@+id/pick_collect_video_top_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:src="@mipmap/base_pick_collect_video_top"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pick_collect_video_good_image"
+            android:layout_width="@dimen/dp30"
+            android:layout_marginStart="@dimen/dp12"
+            app:imageUrl="@{viewModel.data.pict_url}"
+            app:layout_constraintTop_toTopOf="@+id/pick_collect_video_top_image"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_collect_video_top_image"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="@dimen/dp30"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginStart="@dimen/dp12"
+            android:id="@+id/pick_collect_video_good_title"
+            tools:text="泰国枇杷露汇顶科技爱护动物IG打卡机暗示过春节螯合钙抵押物给"
+            app:layout_constraintTop_toTopOf="@+id/pick_collect_video_good_image"
+            app:layout_constraintBottom_toBottomOf="@+id/pick_collect_video_good_image"
+            app:layout_constraintStart_toEndOf="@+id/pick_collect_video_good_image"
+            android:layout_width="0dp"
+            android:textColor="@color/color_000000"
+            android:lines="2"
+            android:text="@{viewModel.data.title}"
+            app:layout_constraintEnd_toEndOf="@+id/pick_collect_video_top_image"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:text="关联视频"
+            android:id="@+id/pick_collect_video_good_connect"
+            app:layout_constraintTop_toBottomOf="@+id/pick_collect_video_good_image"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:textSize="@dimen/sp12"
+            android:layout_marginTop="@dimen/dp12"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:items="@{viewModel.items}"
+            app:itemBinding="@{viewModel.itemBinding}"
+            app:layout_constraintBottom_toTopOf="@+id/pick_collect_video_good_confirm"
+            app:layout_constraintTop_toBottomOf="@+id/pick_collect_video_good_connect"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:text="确定"
+            android:id="@+id/pick_collect_video_good_confirm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:gravity="center"
+            app:onClickCommand="@{viewModel.onClick}"
+            android:textSize="@dimen/sp12"
+            android:layout_marginTop="@dimen/dp12"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

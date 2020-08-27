@@ -10,11 +10,11 @@ import com.will.habit.base.BaseActivity
 import com.will.habit.constant.ConstantConfig
 import com.will.play.pick.BR
 import com.will.play.pick.R
-import com.will.play.pick.databinding.ActivityPickCollectionBinding
 import com.will.play.pick.databinding.ActivityPickCollectionVideoBinding
+import com.will.play.pick.entity.PickDouyinEntity
+import com.will.play.pick.entity.VideoLists
+import com.will.play.pick.ui.dialog.PickCollectVideoFragment
 import com.will.play.pick.ui.viewmodel.PickCollectionVideoViewModel
-import com.will.play.pick.ui.viewmodel.PickCollectionViewModel
-import com.will.play.pick.ui.viewmodel.PickGoodsDetailViewModel
 import com.will.play.third.DouyinLogin
 
 /**
@@ -59,6 +59,17 @@ class PickCollectionVideoActivity : BaseActivity<ActivityPickCollectionVideoBind
                 viewModel.getDouyinUserinfo(it)
             }
         })
+
+        viewModel.showCollectVideo.observe(this, Observer {
+            if (it!=null&&viewModel.showCollectVideoList!=null) {
+                showVideoDialog(it,viewModel.showCollectVideoList!!)
+            }
+        })
     }
+
+    private fun showVideoDialog(data: VideoLists,showCollectVideoList: PickDouyinEntity) {
+        PickCollectVideoFragment(data,showCollectVideoList).show(supportFragmentManager, "video")
+    }
+
 
 }

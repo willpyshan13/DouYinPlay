@@ -32,11 +32,11 @@ private var GLOBAL_TOAST_RESPONSE_ERROR = true
  */
 fun <T> BaseResponse<T>.check(): T {
     if (isOk) {
+        if (status.equals("300")||status.equals("500")){
+            throw AuthException(status,error)
+        }
         if (data != null) {
             return data!!
-        }
-        if (status.equals("300")||status.equals("500")){
-            throw AuthException(code,error)
         }
         throw ResponseException(-1, "response data is null")
     }

@@ -21,6 +21,8 @@ import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.pick.BR
 import com.will.play.pick.R
+import com.will.play.pick.entity.PickDouyinEntity
+import com.will.play.pick.entity.VideoLists
 import com.will.play.pick.repository.PickRepository
 import com.will.play.third.DouyinLogin
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -38,7 +40,11 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class PickCollectionVideoViewModel(application: Application, val id:String) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
     val douyinLogin = SingleLiveEvent<Void>()
-    var downloadType = 1
+    val showCollectVideo = SingleLiveEvent<VideoLists>()
+
+    var showCollectVideoList:PickDouyinEntity? = null
+    var downloadType = 2
+
     val leftVideoString = ObservableField("")
     val subsidyText = ObservableField("")
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
@@ -72,17 +78,22 @@ class PickCollectionVideoViewModel(application: Application, val id:String) : Ba
 
     val leftPress = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            downloadType = 1
+            downloadType = 2
             callReload(false)
         }
     })
 
     val rightPress = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            downloadType = 2
+            downloadType = 1
             callReload(false)
         }
     })
+
+    override fun onResume() {
+        super.onResume()
+        callReload(false)
+    }
 
 
     fun getDouyinUserinfo(authCode:String){
@@ -102,6 +113,32 @@ class PickCollectionVideoViewModel(application: Application, val id:String) : Ba
         })
     }
 
+
+    fun getDouyinVideoList(data: VideoLists){
+        showDialog()
+        launch({
+            val datas = model.getDouyinVideoIndex("${data.id}")
+            showCollectVideoList = datas
+            showCollectVideo.value = data
+            dismissDialog()
+        },{
+            dismissDialog()
+            if (it is AuthException){
+                if(it.message!=null) {
+                    ToastUtils.showShort(it.message!!)
+                }
+                if(it.responseCode.equals("300")) {
+                    douyinLogin.call()
+                }else{
+                    val bundle = Bundle().apply {
+                        putString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                    }
+                    startActivity(WebViewActivity::class.java,bundle)
+                }
+            }
+        })
+    }
+
     override fun getItemDecoration(): RecyclerView.ItemDecoration? {
         return null
     }
@@ -111,7 +148,9 @@ class PickCollectionVideoViewModel(application: Application, val id:String) : Ba
             showDialog()
             val viewModels = mutableListOf<ItemViewModel<*>>()
             val data = model.getVideoIndex(pageIndex,downloadType)
-            val items = data.videoLists.map { PickCollectionItem(this,it,downloadType==1) }
+            leftVideoString.set("${data.userInfo.download_month_remain}/${data.userInfo.download_month_total}")
+            subsidyText.set("已补贴${data.userInfo.point}元")
+            val items = data.videoLists.map { PickCollectionItem(this,it,downloadType!=1) }
             viewModels.addAll(items)
             loadCallback.onSuccess(viewModels,pageIndex,1)
             dismissDialog()

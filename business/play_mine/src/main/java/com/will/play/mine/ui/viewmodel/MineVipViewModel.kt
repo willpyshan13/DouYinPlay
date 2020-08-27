@@ -11,7 +11,6 @@ import com.will.habit.utils.SPUtils
 import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.entity.MineUserInfo
-import com.will.play.mine.entity.UserInfo
 import com.will.play.mine.repository.MineRepository
 import com.will.play.mine.ui.activity.MineVipDetailActivity
 
