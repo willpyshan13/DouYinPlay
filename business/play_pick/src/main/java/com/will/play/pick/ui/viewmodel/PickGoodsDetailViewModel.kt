@@ -1,6 +1,7 @@
 package com.will.play.pick.ui.viewmodel
 
 import android.app.Application
+import android.os.Bundle
 import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.DiffUtil
 import com.will.habit.base.BaseViewModel
@@ -8,6 +9,7 @@ import com.will.habit.binding.collection.DiffObservableArrayList
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
+import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
 import com.will.habit.utils.StringUtils
 import com.will.play.pick.R
@@ -15,6 +17,7 @@ import com.will.play.pick.BR
 import com.will.play.pick.entity.TaskInfo
 import com.will.play.pick.repository.PickRepository
 import com.will.play.pick.ui.activity.PickCollectionActivity
+import com.will.play.pick.ui.activity.PickCollectionVideoActivity
 import com.will.play.pick.ui.activity.PickSearchActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
@@ -83,7 +86,10 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
      */
     val onCollectionClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            startActivity(PickCollectionActivity::class.java)
+            val bundle = Bundle().apply {
+                putString(ConstantConfig.RECOMMEND_ID, goodId)
+            }
+            startActivity(PickCollectionVideoActivity::class.java)
         }
     })
 

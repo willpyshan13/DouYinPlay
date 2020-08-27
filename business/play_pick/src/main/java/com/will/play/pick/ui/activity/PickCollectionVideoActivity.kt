@@ -43,7 +43,7 @@ class PickCollectionVideoActivity : BaseActivity<ActivityPickCollectionVideoBind
                 @Suppress("UNCHECKED_CAST")
                 val goodId=intent.getStringExtra(ConstantConfig.RECOMMEND_ID)?:""
                 //todo
-                return PickCollectionVideoViewModel(activity.application, "200030") as T
+                return PickCollectionVideoViewModel(activity.application, goodId) as T
             }
         }).get(cls)
     }
