@@ -2,7 +2,7 @@ package com.will.play.pick.ui.viewmodel
 
 import androidx.databinding.ObservableArrayList
 import com.will.habit.base.ItemViewModel
-import com.will.play.base.BannerEntity
+import com.will.play.base.entity.BannerEntity
 import com.will.play.pick.R
 import com.will.play.pick.BR
 import com.will.play.pick.entity.PickGoodTypeEntity
@@ -29,7 +29,7 @@ class PickHeaderItem(viewModel: PickViewModel) :ItemViewModel<PickViewModel>(vie
      * Date: 2020-08-12
      * @param banner BannerEntity?
      */
-    fun updateBanner(banner:BannerEntity?,goodsType: PickGoodTypeEntity?){
+    fun updateBanner(banner: BannerEntity?, goodsType: PickGoodTypeEntity?){
         val bannerList = banner?.swiperLists?.map { PickBannerItem(viewModel,it) }.orEmpty()
         bannerItems.addAll(bannerList)
 

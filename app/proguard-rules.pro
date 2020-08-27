@@ -26,8 +26,11 @@
 
 #------------------------------------------主项目混淆规则----------------------------------------------
 #实体类不参与混淆
--keep class com.goldze.mvvmhabit.entity.** { *; }
-
+-keep class com.will.play.home.entity.** { *; }
+-keep class com.will.play.pick.entity.** { *; }
+-keep class com.will.play.data.entity.** { *; }
+-keep class com.will.play.mine.entity.** { *; }
+-keep class com.will.play.base.entity.** { *; }
 #tkrefreshlayout
 -keep class com.lcodecore.tkrefreshlayout.** { *; }
 -dontwarn com.lcodecore.tkrefreshlayout.**

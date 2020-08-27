@@ -1,8 +1,8 @@
 package com.will.play.pick.service
 
 import com.will.habit.http.BaseResponse
-import com.will.play.base.BannerEntity
-import com.will.play.base.MineDouyinEntity
+import com.will.play.base.entity.BannerEntity
+import com.will.play.base.entity.MineDouyinEntity
 import com.will.play.base.constant.Constants
 import com.will.play.pick.entity.*
 import retrofit2.http.GET

@@ -1,4 +1,4 @@
-package com.will.play.base
+package com.will.play.base.entity
 
 /**
  * Desc:

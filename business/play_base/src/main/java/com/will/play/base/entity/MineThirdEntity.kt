@@ -1,4 +1,4 @@
-package com.will.play.base
+package com.will.play.base.entity
 
 data class MineDouyinEntity(
         val Token: String,

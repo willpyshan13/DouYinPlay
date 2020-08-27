@@ -1,7 +1,7 @@
 package com.will.play.home.service
 
 import com.will.habit.http.BaseResponse
-import com.will.play.base.BannerEntity
+import com.will.play.base.entity.BannerEntity
 import com.will.play.home.entity.HomeRespDataEntity
 import com.will.play.home.entity.HomeRespListEntity
 import retrofit2.http.GET

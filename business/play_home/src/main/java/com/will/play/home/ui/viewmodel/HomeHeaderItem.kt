@@ -3,7 +3,7 @@ package com.will.play.home.ui.viewmodel
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableField
 import com.will.habit.base.ItemViewModel
-import com.will.play.base.BannerEntity
+import com.will.play.base.entity.BannerEntity
 import com.will.play.home.R
 import com.will.play.home.BR
 import com.will.play.home.entity.HomeRespDataEntity
