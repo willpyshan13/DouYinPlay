@@ -54,15 +54,8 @@ class DownLoadManager private constructor() {
          *
          * @return DownLoadManager
          */
-        @JvmStatic
-        var instance: DownLoadManager? = null
-            get() {
-                if (field == null) {
-                    field = DownLoadManager()
-                }
-                return field
-            }
-            private set
+        val instance: DownLoadManager by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { DownLoadManager() }
+
         private var retrofit: Retrofit? = null
 
     }
