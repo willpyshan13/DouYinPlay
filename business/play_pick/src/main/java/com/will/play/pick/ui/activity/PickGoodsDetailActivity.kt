@@ -14,6 +14,7 @@ import com.will.habit.utils.ToastUtils
 import com.will.play.pick.BR
 import com.will.play.pick.R
 import com.will.play.pick.databinding.ActivityPickGoodsDetailBinding
+import com.will.play.pick.ui.dialog.PickShareDouyinFragment
 import com.will.play.pick.ui.dialog.PickVipDialogFragment
 import com.will.play.pick.ui.viewmodel.PickGoodsDetailViewModel
 
@@ -49,6 +50,9 @@ class PickGoodsDetailActivity : BaseActivity<ActivityPickGoodsDetailBinding, Pic
             cm.setPrimaryClip(ClipData.newPlainText("Label", it))
         })
 
+        viewModel.uiChange.showShareDialog.observe(this, Observer {
+            PickShareDouyinFragment().show(supportFragmentManager,"share")
+        })
     }
 
     override fun <T : ViewModel> createViewModel(activity: FragmentActivity, cls: Class<T>): T {

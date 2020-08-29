@@ -82,24 +82,22 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
     })
 
     /**
-     * 领取视频
+     * 领取实物
      */
     val onCollectionClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            val bundle = Bundle().apply {
-                putString(ConstantConfig.RECOMMEND_ID, goodId)
-            }
-            startActivity(PickCollectionVideoActivity::class.java)
+            uiChange.showShareDialog.call()
         }
     })
 
 
     /**
-     * 领取实物
+     * 领取视频
      */
     val onVideo = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            startActivity(PickCollectionActivity::class.java)
+            uiChange.showShareDialog.call()
+//            startActivity(PickCollectionActivity::class.java)
         }
     })
 
@@ -152,7 +150,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
     private fun getGoodDetail() {
         launch({
             showDialog()
-            val data = model.getGoodDetail("200030")
+            val data = model.getGoodDetail(goodId)
             val detailInfo = data?.taskInfo
             copyUrl = data?.copy_url ?: ""
             createTagItems(detailInfo)
@@ -184,6 +182,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
 
         val copyEvent=SingleLiveEvent<String>()
 
+        val showShareDialog = SingleLiveEvent<Void>()
     }
 
 
