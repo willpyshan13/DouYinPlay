@@ -3,9 +3,11 @@ package com.will.play.mine.ui.viewmodel
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
+import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.constant.ConstantConfig
 import com.will.play.mine.entity.MineUserInfo
 import com.will.play.mine.ui.activity.MineInfoEditActivity
 import com.will.play.mine.ui.activity.MineLoginActivity
@@ -45,6 +47,12 @@ class MineHomeHeaderItem(viewModel:MineViewModel) :ItemViewModel<MineViewModel>(
     val onMineInfoEditClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             viewModel.startActivity(MineInfoEditActivity::class.java)
+        }
+    })
+
+    val onVideoCollectClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            ARouter.getInstance().build("/pick/collectvideo").navigation()
         }
     })
 

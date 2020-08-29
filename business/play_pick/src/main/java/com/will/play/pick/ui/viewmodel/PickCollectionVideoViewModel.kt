@@ -38,7 +38,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class PickCollectionVideoViewModel(application: Application, val id:String) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
+class PickCollectionVideoViewModel(application: Application) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
     val douyinLogin = SingleLiveEvent<Void>()
     val showCollectVideo = SingleLiveEvent<VideoLists>()
 

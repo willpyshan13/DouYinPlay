@@ -37,17 +37,6 @@ class PickCollectionVideoActivity : BaseActivity<ActivityPickCollectionVideoBind
         return BR.viewModel
     }
 
-    override fun <T : ViewModel> createViewModel(activity: FragmentActivity, cls: Class<T>): T {
-        return ViewModelProvider(activity, object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                @Suppress("UNCHECKED_CAST")
-                val goodId=intent.getStringExtra(ConstantConfig.RECOMMEND_ID)?:""
-                //todo
-                return PickCollectionVideoViewModel(activity.application, goodId) as T
-            }
-        }).get(cls)
-    }
-
     override fun initViewObservable() {
         super.initViewObservable()
         viewModel.douyinLogin.observe(this, Observer {
