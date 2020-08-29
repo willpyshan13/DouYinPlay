@@ -86,7 +86,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
      */
     val onTestClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            startActivity(PickSearchActivity::class.java)
+
         }
     })
 
