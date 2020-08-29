@@ -8,6 +8,7 @@ import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
+import com.will.play.aop.login.annotation.LoginFilter
 import com.will.play.home.R
 import com.will.play.home.BR
 import com.will.play.home.repository.HomeRepository
@@ -40,6 +41,11 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
     }
 
     init {
+        load()
+    }
+
+    @LoginFilter
+    private fun load(){
         loadInit()
     }
 
