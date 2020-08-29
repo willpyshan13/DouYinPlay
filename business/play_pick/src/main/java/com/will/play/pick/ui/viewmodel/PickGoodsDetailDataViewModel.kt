@@ -80,11 +80,13 @@ class PickGoodsDetailDataViewModel(val application: Application) {
      * Date: 2020-08-25
      * @param detailInfo TaskInfo
      */
-    private fun createDescItem(detailInfo: TaskInfo) {
-        val itemViewModel = detailInfo.desc_images?.map {
-            PickDetailDescItemViewModel(it)
+    private fun createDescItem(detailInfo: TaskInfo?) {
+        if (detailInfo!=null) {
+            val itemViewModel = detailInfo.desc_images?.map {
+                PickDetailDescItemViewModel(it)
+            }
+            descItemList.submit(itemViewModel, false)
         }
-        descItemList.submit(itemViewModel, false)
     }
 
 

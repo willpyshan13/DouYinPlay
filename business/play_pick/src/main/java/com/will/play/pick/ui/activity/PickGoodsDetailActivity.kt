@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.will.habit.base.BaseActivity
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.utils.ToastUtils
@@ -27,6 +28,7 @@ import com.will.play.pick.ui.viewmodel.PickGoodsDetailViewModel
  *
  * @Author: pengyushan
  */
+@Route(path = "/pick/videodetail")
 class PickGoodsDetailActivity : BaseActivity<ActivityPickGoodsDetailBinding, PickGoodsDetailViewModel>() {
 
 
@@ -51,7 +53,9 @@ class PickGoodsDetailActivity : BaseActivity<ActivityPickGoodsDetailBinding, Pic
         })
 
         viewModel.uiChange.showShareDialog.observe(this, Observer {
-            PickShareDouyinFragment().show(supportFragmentManager,"share")
+            if (it!=null) {
+                PickShareDouyinFragment(it).show(supportFragmentManager, "share")
+            }
         })
     }
 

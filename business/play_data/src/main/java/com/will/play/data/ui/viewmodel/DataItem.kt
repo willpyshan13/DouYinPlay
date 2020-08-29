@@ -1,17 +1,10 @@
 package com.will.play.data.ui.viewmodel
 
-import android.os.Environment
 import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.constant.ConstantConfig
-import com.will.habit.http.DownLoadManager
-import com.will.habit.http.VideoDownLoadManager
-import com.will.habit.http.download.DownLoadSubscriber
-import com.will.habit.http.download.ProgressCallBack
-import com.will.habit.utils.ToastUtils
-import com.will.habit.utils.Utils
 import com.will.play.data.entity.DataRecommendEntity
 
 class DataItem(viewModel: DataViewModel,val data: DataRecommendEntity) :ItemViewModel<DataViewModel>(viewModel) {
@@ -40,26 +33,11 @@ class DataItem(viewModel: DataViewModel,val data: DataRecommendEntity) :ItemView
         }
     })
 
-    val progressCallBack = object :ProgressCallBack<String>("",""){
-        override fun onSuccess(t: String?) {
-            if (t!=null) {
-                ToastUtils.showShort(t)
-            }
-        }
-
-        override fun progress(progress: Long, total: Long) {
-
-        }
-
-        override fun onError(e: Throwable?) {
-
-        }
-
-    }
-
     val onVideoClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-
+            ARouter.getInstance().build("/pick/videodetail")
+                    .withString(ConstantConfig.GOOD_DETAIL_ID,"${data.taskLists.firstOrNull()!!.id}")
+                    .navigation()
         }
     })
 }

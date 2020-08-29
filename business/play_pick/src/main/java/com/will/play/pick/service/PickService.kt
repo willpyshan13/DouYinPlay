@@ -39,7 +39,7 @@ interface PickService {
 
 
     @GET("api.php/Task/download")
-    suspend fun getTaskDownload(@Query("id")id:String): BaseResponse<PickGoodTypeEntity>
+    suspend fun getTaskDownload(@Query("id")id:String): BaseResponse<PickDownloadEntity>
 
     @POST("${Constants.BASE_API}/Douyin/oauthCallback")
     suspend fun getDouyinoauthCallback(@Query("code") username: String?): BaseResponse<MineDouyinEntity>

@@ -11,9 +11,12 @@ import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
+import com.will.habit.http.DownloadProgress
+import com.will.habit.http.VideoDownLoadManager
 import com.will.habit.utils.StringUtils
 import com.will.play.pick.R
 import com.will.play.pick.BR
+import com.will.play.pick.entity.PickGoodDetailRespEntity
 import com.will.play.pick.entity.TaskInfo
 import com.will.play.pick.repository.PickRepository
 import com.will.play.pick.ui.activity.PickCollectionActivity
@@ -33,6 +36,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class PickGoodsDetailViewModel(application: Application, private val goodId: String) : BaseViewModel<PickRepository>(application) {
 
+    var data: PickGoodDetailRespEntity? = null
     val uiChange = UiChangeObservable()
 
     /**
@@ -96,10 +100,33 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
      */
     val onVideo = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            uiChange.showShareDialog.call()
-//            startActivity(PickCollectionActivity::class.java)
+            if (data!=null){
+                getDownloadVideo()
+            }
         }
     })
+
+    private fun getDownloadVideo(){
+        launch({
+            showDialog()
+            val data = model.getTaskDownload(goodId)
+            VideoDownLoadManager.downloadVideo(data.source_text,downloadProgress)
+        },{
+            dismissDialog()
+        })
+    }
+
+    private val downloadProgress = object :DownloadProgress(){
+        override fun onSuccess() {
+            dismissDialog()
+            uiChange.showShareDialog.value = data!!.copy_url
+        }
+
+        override fun onFail() {
+            dismissDialog()
+        }
+
+    }
 
 
     /**
@@ -150,7 +177,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
     private fun getGoodDetail() {
         launch({
             showDialog()
-            val data = model.getGoodDetail(goodId)
+            data = model.getGoodDetail(goodId)
             val detailInfo = data?.taskInfo
             copyUrl = data?.copy_url ?: ""
             createTagItems(detailInfo)
@@ -182,7 +209,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
 
         val copyEvent=SingleLiveEvent<String>()
 
-        val showShareDialog = SingleLiveEvent<Void>()
+        val showShareDialog = SingleLiveEvent<String>()
     }
 
 
