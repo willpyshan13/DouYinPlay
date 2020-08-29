@@ -11,7 +11,115 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp160">
+        <LinearLayout
+            android:id="@+id/pick_bottom_top_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:background="@drawable/pick_common_bg"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp22"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp20"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:text="下载视频"
+                android:textColor="@color/color_FFAE17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:src="@mipmap/pick_share_arrow_yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="获取连接"
+                android:textColor="@color/color_FFAE17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:src="@mipmap/pick_share_arrow_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="发布抖音"
+                android:textColor="@color/color_FFAE17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:src="@mipmap/pick_share_arrow_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="领取补贴"
+                android:textColor="@color/color_FFAE17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="horizontal"
+            android:id="@+id/pick_share_second_layout"
+            app:layout_constraintTop_toBottomOf="@+id/pick_bottom_top_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/dp22"
+            android:background="@drawable/pick_common_bg"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp20"
+            android:layout_height="@dimen/dp30">
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/pick_copy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="领取补贴"
+                android:textColor="@color/color_AFAFAF"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/pick_copy"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="复制连接"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/dp1"
+                android:textSize="@dimen/sp10"
+                android:background="@drawable/pick_common_bg_stroke"
+                android:textColor="@color/color_FFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/pick_share_divider"
+            app:layout_constraintTop_toBottomOf="@+id/pick_share_second_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="#2E3032"
+            android:layout_width="0dp"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/dp16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="去抖音发布作品"
+            app:layout_constraintTop_toBottomOf="@+id/pick_share_divider"
+            android:drawableStart="@mipmap/base_icon_douyin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
