@@ -18,6 +18,7 @@ import com.will.play.pick.databinding.ActivityPickGoodsDetailBinding
 import com.will.play.pick.ui.dialog.PickShareDouyinFragment
 import com.will.play.pick.ui.dialog.PickVipDialogFragment
 import com.will.play.pick.ui.viewmodel.PickGoodsDetailViewModel
+import com.will.play.third.DouyinLogin
 
 /**
  * Desc:商品详情页
@@ -57,6 +58,17 @@ class PickGoodsDetailActivity : BaseActivity<ActivityPickGoodsDetailBinding, Pic
                 PickShareDouyinFragment(it).show(supportFragmentManager, "share")
             }
         })
+
+        viewModel.uiChange.douyinLogin.observe(this, Observer {
+            DouyinLogin.login(this)
+        })
+
+        DouyinLogin.authSuccess.observe(this, Observer {
+            if (it!=null) {
+                viewModel.getDouyinUserinfo(it)
+            }
+        })
+
     }
 
     override fun <T : ViewModel> createViewModel(activity: FragmentActivity, cls: Class<T>): T {

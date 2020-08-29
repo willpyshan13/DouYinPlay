@@ -10,10 +10,15 @@ import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.constant.ConstantConfig
+import com.will.habit.extection.AuthException
 import com.will.habit.extection.launch
 import com.will.habit.http.DownloadProgress
 import com.will.habit.http.VideoDownLoadManager
+import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
+import com.will.habit.utils.ToastUtils
+import com.will.play.base.web.WebViewActivity
+import com.will.play.base.web.WebViewPath
 import com.will.play.pick.R
 import com.will.play.pick.BR
 import com.will.play.pick.entity.PickGoodDetailRespEntity
@@ -106,6 +111,24 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
         }
     })
 
+    fun getDouyinUserinfo(authCode:String){
+        launch({
+            model.douyinAuth(authCode)
+            getDownloadVideo()
+        },{
+            if (it is AuthException){
+                if(it.message!=null) {
+                    ToastUtils.showShort(it.message!!)
+                }
+                val bundle = Bundle().apply {
+                    putString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                }
+                startActivity(WebViewActivity::class.java,bundle)
+            }
+        })
+    }
+
+
     private fun getDownloadVideo(){
         launch({
             showDialog()
@@ -113,6 +136,19 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
             VideoDownLoadManager.downloadVideo(data.source_text,downloadProgress)
         },{
             dismissDialog()
+            if (it is AuthException){
+                if(it.message!=null) {
+                    ToastUtils.showShort(it.message!!)
+                }
+                if(it.responseCode.equals("300")) {
+                    uiChange.douyinLogin.call()
+                }else{
+                    val bundle = Bundle().apply {
+                        putString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                    }
+                    startActivity(WebViewActivity::class.java,bundle)
+                }
+            }
         })
     }
 
@@ -210,6 +246,8 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
         val copyEvent=SingleLiveEvent<String>()
 
         val showShareDialog = SingleLiveEvent<String>()
+
+        val douyinLogin = SingleLiveEvent<Void>()
     }
 
 
