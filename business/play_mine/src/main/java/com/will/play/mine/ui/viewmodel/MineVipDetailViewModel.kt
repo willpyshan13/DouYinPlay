@@ -21,7 +21,7 @@ import com.will.play.mine.ui.activity.MineVipPayActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
- * Desc:我的地址页面
+ * Desc:我的会员页面
  *
  * Date: 2020-06-22
  * Copyright: Copyright (c) 2018-2020

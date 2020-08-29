@@ -93,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp10"
             android:text="开通VIP领取"
+            app:onClickCommand="@{viewModel.onRightClick}"
             android:textColor="@color/color_FF0000"
             android:textSize="@dimen/sp14"
             app:layout_constraintBottom_toBottomOf="parent"

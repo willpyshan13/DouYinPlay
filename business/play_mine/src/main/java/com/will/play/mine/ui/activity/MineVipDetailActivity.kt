@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.activity
 
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.will.habit.base.BaseActivity
 import com.will.play.mine.BR
 import com.will.play.mine.R
@@ -16,6 +17,7 @@ import com.will.play.mine.ui.viewmodel.MineVipDetailViewModel
  *
  * @Author: pengyushan
  */
+@Route(path = "/mine/vipdetail")
 class MineVipDetailActivity : BaseActivity<MineActivityVipDetailBinding, MineVipDetailViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.mine_activity_vip_detail
