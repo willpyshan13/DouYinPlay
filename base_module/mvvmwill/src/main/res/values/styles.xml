@@ -52,4 +52,16 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <!--底部弹窗-->
+    <style name="BottomDialogStyle" parent="@style/BaseDialogStyle">
+        <item name="android:windowAnimationStyle">@style/dialog_anim_by_y__style</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+    <style name="dialog_anim_by_y__style">
+        <item name="android:windowEnterAnimation">@anim/dialog_show_by_y_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_hidden_by_y_anim</item>
+    </style>
+
+
 </resources>
