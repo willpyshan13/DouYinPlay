@@ -132,8 +132,8 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
     private fun getDownloadVideo(){
         launch({
             showDialog()
-            val data = model.getTaskDownload(goodId)
-            VideoDownLoadManager.downloadVideo(data.source_text,downloadProgress)
+//            val data = model.getTaskDownload(goodId)
+            VideoDownLoadManager.downloadVideo("http://test.weizhiyx.com/Upload/image/5f4a5b8a18558.mp4",downloadProgress)
         },{
             dismissDialog()
             if (it is AuthException){

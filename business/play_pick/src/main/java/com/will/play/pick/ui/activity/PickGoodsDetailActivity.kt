@@ -76,7 +76,7 @@ class PickGoodsDetailActivity : BaseActivity<ActivityPickGoodsDetailBinding, Pic
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
                 val goodId = intent.getStringExtra(ConstantConfig.GOOD_DETAIL_ID) ?: ""
-                return PickGoodsDetailViewModel(activity.application, goodId) as T
+                return PickGoodsDetailViewModel(activity.application, "200043") as T
             }
         }).get(cls)
     }
