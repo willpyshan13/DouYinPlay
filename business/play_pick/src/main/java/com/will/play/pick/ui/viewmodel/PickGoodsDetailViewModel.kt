@@ -1,5 +1,6 @@
 package com.will.play.pick.ui.viewmodel
 
+import android.Manifest
 import android.app.Application
 import android.os.Bundle
 import androidx.databinding.ObservableArrayList
@@ -17,6 +18,7 @@ import com.will.habit.http.VideoDownLoadManager
 import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
 import com.will.habit.utils.ToastUtils
+import com.will.play.aop.permission.annotation.NeedPermission
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.pick.R
@@ -24,9 +26,6 @@ import com.will.play.pick.BR
 import com.will.play.pick.entity.PickGoodDetailRespEntity
 import com.will.play.pick.entity.TaskInfo
 import com.will.play.pick.repository.PickRepository
-import com.will.play.pick.ui.activity.PickCollectionActivity
-import com.will.play.pick.ui.activity.PickCollectionVideoActivity
-import com.will.play.pick.ui.activity.PickSearchActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
@@ -128,12 +127,13 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
         })
     }
 
-
+    @NeedPermission(value = [Manifest.permission.WRITE_EXTERNAL_STORAGE])
     private fun getDownloadVideo(){
         launch({
             showDialog()
-//            val data = model.getTaskDownload(goodId)
-            VideoDownLoadManager.downloadVideo("http://test.weizhiyx.com/Upload/image/5f4a5b8a18558.mp4",downloadProgress)
+            val data = model.getTaskDownload(goodId)
+            //"http://test.weizhiyx.com/Upload/image/5f4a5b8a18558.mp4"
+            VideoDownLoadManager.downloadVideo(data.source_text,downloadProgress,getApplication())
         },{
             dismissDialog()
             if (it is AuthException){
