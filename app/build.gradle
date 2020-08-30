@@ -18,6 +18,11 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
     signingConfigs {
         release {
@@ -68,6 +73,7 @@ dependencies {
     implementation project(':business:play_pick')
     implementation project(':business:play_mine')
 //    api project(':base_module:module_common_res')
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
     //内存泄漏测试
     compile 'com.android.support:multidex:1.0.3'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'

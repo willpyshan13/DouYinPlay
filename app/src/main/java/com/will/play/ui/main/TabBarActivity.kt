@@ -28,6 +28,7 @@ import java.util.*
  *
  * Author: pengyushan
  */
+@Route(path = "/app/home")
 class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
     private var mFragments: MutableList<Fragment>? = null
     override fun initContentView(savedInstanceState: Bundle?): Int {

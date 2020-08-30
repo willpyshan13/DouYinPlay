@@ -70,6 +70,9 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
                     }
                     dismissDialog()
                     finish()
+                    ARouter.getInstance().build("/app/home").navigation()
+                },{
+                    dismissDialog()
                 })
             }else{
                 ToastUtils.showShort("用户名或密码不能为空")
