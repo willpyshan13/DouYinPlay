@@ -1,9 +1,12 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
+import android.text.TextUtils
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
+import androidx.lifecycle.viewModelScope
+import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
@@ -55,21 +58,22 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
 
     val onLoginClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            launch({
-                showDialog()
-                if (verifyBtnVisible.get() == View.VISIBLE) {
-                    val data = model.checkVerifyCode(userAccount.get(), userPassword.get())
-                    SPUtils.instance.put(ConstantConfig.TOKEN, data?.Token)
+            if (!TextUtils.isEmpty(userAccount.get())||!TextUtils.isEmpty(userPassword.get())) {
+                launch({
+                    showDialog()
+                    if (verifyBtnVisible.get() == View.VISIBLE) {
+                        val data = model.checkVerifyCode(userAccount.get(), userPassword.get())
+                        SPUtils.instance.put(ConstantConfig.TOKEN, data?.Token)
+                    } else {
+                        val data = model.login(userAccount.get(), userPassword.get())
+                        SPUtils.instance.put(ConstantConfig.USER_INFO, data?.userInfo?.toJson())
+                    }
                     dismissDialog()
                     finish()
-                } else {
-                    val data = model.login(userAccount.get(), userPassword.get())
-                    SPUtils.instance.put(ConstantConfig.USER_INFO, data?.userInfo?.toJson())
-                    dismissDialog()
-                    finish()
-                }
-
-            })
+                })
+            }else{
+                ToastUtils.showShort("用户名或密码不能为空")
+            }
         }
     })
 

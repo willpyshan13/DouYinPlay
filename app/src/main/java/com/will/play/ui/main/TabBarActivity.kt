@@ -2,6 +2,7 @@ package com.will.play.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.will.play.BR
 import com.will.play.R
 import com.will.habit.base.BaseActivity

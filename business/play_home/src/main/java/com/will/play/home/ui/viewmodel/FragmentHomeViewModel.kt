@@ -41,11 +41,6 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
     }
 
     init {
-        load()
-    }
-
-    @LoginFilter
-    private fun load(){
         loadInit()
     }
 
