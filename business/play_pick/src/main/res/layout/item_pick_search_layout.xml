@@ -14,6 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:onClickCommand="@{viewModel.onItemClick}"
         android:layout_marginTop="@dimen/dp8">
 
 
@@ -23,6 +24,7 @@
             android:layout_height="@dimen/dp102"
             android:layout_marginStart="@dimen/dp22"
             android:src="@color/color_D3D0D4"
+            app:imageUrl="@{viewModel.data.pict_url}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:round_corner_radius="@dimen/dp5" />
@@ -34,7 +36,7 @@
             android:layout_marginStart="@dimen/dp8"
             android:layout_marginEnd="@dimen/dp21"
             android:maxLines="2"
-            android:text="任天堂 三年老店 19种颜色 Switch主机 lite游戏机动物之森限定版NS日版森......"
+            android:text="@{viewModel.data.title}"
             android:textColor="@color/color_262626"
             android:textSize="@dimen/sp12"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp8"
-            android:text="¥1999"
+            android:text="@{@string/pick_good_detail_price+viewModel.data.price}"
             android:textSize="@dimen/sp13"
             app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_unit_price_label"
             app:layout_constraintStart_toEndOf="@+id/search_item_tv_unit_price_label" />
@@ -95,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp6"
             android:includeFontPadding="false"
-            android:text="¥199"
+            android:text="@{@string/pick_good_detail_price+viewModel.data.max_commission}"
             android:textColor="@color/color_FF0000"
             android:textSize="@dimen/sp19"
             app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_commission_label"
@@ -107,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp8"
-            android:text="2554人付款"
+            android:text="@{viewModel.data.volume+@string/pick_good_detail_pay_person}"
             android:textSize="@dimen/sp7"
             app:layout_constraintBaseline_toBaselineOf="@+id/search_item_tv_commission_label"
             app:layout_constraintStart_toEndOf="@+id/search_item_tv_commission_price" />

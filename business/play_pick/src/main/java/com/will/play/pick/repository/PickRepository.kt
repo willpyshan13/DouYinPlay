@@ -23,7 +23,7 @@ class PickRepository : BaseModel<Any>() {
 
     suspend fun  getGoodsType()=homeService.getGoodsType(10).check();
 
-    suspend fun  getTaskIndex(page:Int)=homeService.getTaskIndex(page).check();
+    suspend fun  getTaskIndex(page:Int,typeId:String="0")=homeService.getTaskIndex(page,goods_type_id = typeId).check();
 
     suspend fun getGoodDetail(goodId:String)=homeService.getGoodDetail(goodId).check()
 

@@ -156,7 +156,7 @@
             android:layout_marginTop="@dimen/dp12"
             app:hasFixedSize="@{true}"
             app:itemBinding="@{viewModel.itemBinding}"
-            app:items="@{viewModel.itemList}"
+            app:items="@{viewModel.items}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_tv_confirm_tip"
