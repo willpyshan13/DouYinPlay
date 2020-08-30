@@ -1,13 +1,19 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.graphics.drawable.Drawable
+import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.databinding.ObservableField
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.constant.ConstantConfig
+import com.will.habit.http.RetrofitClient
+import com.will.habit.utils.SPUtils
 import com.will.habit.utils.Utils
 import com.will.play.aop.login.annotation.LoginFilter
+import com.will.play.base.web.WebViewActivity
+import com.will.play.base.web.WebViewPath
 import com.will.play.mine.ui.activity.*
 
 /**
@@ -29,8 +35,18 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
                 item_type_binding_taobao -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_binding_douyin -> viewModel.startActivity(MineAddDouyinActivity::class.java)
                 item_type_course -> viewModel.startActivity(MineWalletActivity::class.java)
-                item_type_guide -> viewModel.startActivity(MineLoginActivity::class.java)
-                item_type_contract -> viewModel.startActivity(MineWalletActivity::class.java)
+                item_type_guide -> {
+                    val bundle = Bundle().apply {
+                        putString(WebViewPath.URL,"${RetrofitClient.baseUrl}/api.php/Webpage/guide")
+                    }
+                    viewModel.startActivity(WebViewActivity::class.java,bundle)
+                }
+                item_type_contract -> {
+                    val bundle = Bundle().apply {
+                    putString(WebViewPath.URL,"${RetrofitClient.baseUrl}/api.php/Webpage/contact")
+                }
+                    viewModel.startActivity(WebViewActivity::class.java,bundle)
+                }
                 else -> viewModel.startActivity(MineWalletActivity::class.java)
             }
         }

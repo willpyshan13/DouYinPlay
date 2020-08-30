@@ -11,6 +11,7 @@ import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.AuthException
 import com.will.habit.extection.launch
+import com.will.habit.http.RetrofitClient
 import com.will.habit.utils.SPUtils
 import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
@@ -75,7 +76,7 @@ class PickCollectionViewModel(application: Application,val id:String) : BaseList
                     ToastUtils.showShort(it.message!!)
                 }
                 val bundle = Bundle().apply {
-                    putString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                    putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
                 }
                 startActivity(WebViewActivity::class.java,bundle)
             }
@@ -103,7 +104,7 @@ class PickCollectionViewModel(application: Application,val id:String) : BaseList
                     douyinLogin.call()
                 }else{
                     val bundle = Bundle().apply {
-                        putString(WebViewPath.URL,"http://api.tbk.dingdanxia.com/auth?state=custom_4072_${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                        putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
                     }
                     startActivity(WebViewActivity::class.java,bundle)
                 }

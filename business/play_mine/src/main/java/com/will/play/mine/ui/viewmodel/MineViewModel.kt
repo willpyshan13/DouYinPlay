@@ -111,7 +111,7 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_custom, "工人客服", item_type_custom_service))
             items.submit(viewModels,false)
             val data = model.getUserIndex()
-            SPUtils.instance.put(ConstantConfig.USER_INFO,data?.toJson())
+            SPUtils.instance.put(ConstantConfig.USER_INFO,data.toJson())
             (viewModels[0] as MineHomeHeaderItem).updateUserInfo(data)
         }, {
             (items[0]as MineHomeHeaderItem).updateUserInfo(null)
