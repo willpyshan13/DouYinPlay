@@ -20,7 +20,7 @@ class PickDataItem(viewModel: BaseViewModel<*>, val data: TaskLists) : ItemViewM
     val onItemClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             val bundle = Bundle()
-            bundle.putString(ConstantConfig.GOOD_DETAIL_ID, data.goods_id)
+            bundle.putString(ConstantConfig.GOOD_DETAIL_ID, "${data.id}")
             viewModel.startActivity(PickGoodsDetailActivity::class.java, bundle)
         }
     })

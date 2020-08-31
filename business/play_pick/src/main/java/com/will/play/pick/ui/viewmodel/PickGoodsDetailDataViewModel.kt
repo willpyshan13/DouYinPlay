@@ -82,7 +82,7 @@ class PickGoodsDetailDataViewModel(val application: Application) {
      */
     private fun createDescItem(detailInfo: TaskInfo?) {
         if (detailInfo!=null) {
-            val itemViewModel = detailInfo.desc_images?.map {
+            val itemViewModel = detailInfo.desc_images.map {
                 PickDetailDescItemViewModel(it)
             }
             descItemList.submit(itemViewModel, false)
