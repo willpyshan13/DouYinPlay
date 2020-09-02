@@ -9,6 +9,7 @@ import com.will.play.data.BR
 import com.will.play.data.R
 import com.will.play.data.databinding.FragmentDataBinding
 import com.will.play.data.ui.viewmodel.DataViewModel
+import com.will.play.third.DouyinLogin
 
 /**
  * Desc:home
@@ -36,5 +37,16 @@ class DataFragment : BaseFragment<FragmentDataBinding, DataViewModel>() {
         viewModel.go2Video.observe(this, Observer {
 //            Router.build("collect").go(this)
         })
+
+        viewModel.douyinLogin.observe(this, Observer {
+            DouyinLogin.login(requireActivity())
+        })
+
+        DouyinLogin.authSuccess.observe(this, Observer {
+            if (it!=null) {
+                viewModel.getDouyinUserinfo(it)
+            }
+        })
+
     }
 }

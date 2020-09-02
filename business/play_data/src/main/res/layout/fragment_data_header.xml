@@ -183,7 +183,7 @@
             app:layout_constraintStart_toStartOf="@+id/data_top_layout"
             app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
             android:src="@mipmap/base_data_top_binding_btn"
-            app:onClickCommand="@{viewModel.onTaobaoClick}"
+            app:onClickCommand="@{viewModel.onBindingClick}"
             android:layout_marginBottom="@dimen/dp20"
             android:layout_height="wrap_content"/>
 

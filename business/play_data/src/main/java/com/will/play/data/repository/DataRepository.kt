@@ -22,4 +22,9 @@ class DataRepository : BaseModel<Any>() {
     suspend fun  getHomeBanner()=homeService.getHomeBanner(2).check();
 
     suspend fun  getTaskRecommend()=homeService.getTaskRecommend().check();
+
+    /**
+     * 抖音授权
+     */
+    suspend fun douyinAuth(username:String?) = homeService.getDouyinoauthCallback(username).check()
 }

@@ -35,10 +35,11 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?) :ItemViewMo
         }
     })
 
-
     val onBindingClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-
+            if (isDouyin.get()){
+                viewModel.douyinLogin.call()
+            }
         }
     })
 
