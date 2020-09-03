@@ -2,7 +2,9 @@ package com.will.play.pick.ui.viewmodel
 
 import android.app.Application
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.extection.launch
@@ -58,6 +60,17 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
         return null
     }
 
+    val spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+        override fun getSpanSize(position: Int): Int {
+            return if (position ==0){
+                2
+            }else{
+                1
+            }
+        }
+
+    }
+
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             showDialog()
@@ -66,11 +79,12 @@ class PickViewModel(application: Application) : BaseListViewModel<PickRepository
                 val banner = model.getHomeBanner()
                 val type = model.getGoodsType()
                 headerItem.updateBanner(banner,type)
+                viewModels.add(headerItem)
             }
             val pickData = model.getTaskIndex(pageIndex)
             val pickList = pickData.taskLists.map { PickDataItem(this,it) }.orEmpty()
             viewModels.addAll(pickList)
-            items.addAll(viewModels)
+            loadCallback.onSuccess(viewModels,pageIndex,pickData.total)
             dismissDialog()
         }, {
             dismissDialog()

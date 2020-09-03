@@ -1,7 +1,4 @@
 ext {
-    routerVersion = '1.7.4'
-    compilerVersion = '1.7.4'
-    compilerLoggable = false // 打开/关闭编译期log
     //android开发版本配置
     android = [
             compileSdkVersion: 30,
@@ -10,7 +7,7 @@ ext {
             minSdkVersion    : 19,
             targetSdkVersion : 30,
             versionCode      : 1,
-            versionName      : "1.1",
+            versionName      : "1.1.1",
     ]
     //version配置
     versions = [

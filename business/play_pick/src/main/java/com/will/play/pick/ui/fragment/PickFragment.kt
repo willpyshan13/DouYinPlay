@@ -29,4 +29,8 @@ class PickFragment : BaseFragment<FragmentPickBinding, PickViewModel>() {
     override fun initVariableId(): Int {
         return BR.viewModel
     }
+
+    override fun initData() {
+        super.initData()
+    }
 }
