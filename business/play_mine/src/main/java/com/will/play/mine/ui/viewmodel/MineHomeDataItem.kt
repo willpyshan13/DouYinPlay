@@ -52,13 +52,10 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
         }
     })
 
-    @LoginFilter
     private fun gotoVipActivity(){
-
         viewModel.startActivity(MineVipActivity::class.java)
     }
 
-    @LoginFilter
     private fun gotoMineWalletActivity(){
         viewModel.startActivity(MineWalletActivity::class.java)
     }
