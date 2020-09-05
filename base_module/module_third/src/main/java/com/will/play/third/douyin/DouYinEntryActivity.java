@@ -40,7 +40,7 @@ public class DouYinEntryActivity extends Activity implements IApiEventHandler {
         if (resp.getType() == CommonConstants.ModeType.SEND_AUTH_RESPONSE) {
             Authorization.Response response = (Authorization.Response) resp;
             if (resp.isSuccess()) {
-                Toast.makeText(this, "授权成功，获得权限：" + response.grantedPermissions,
+                Toast.makeText(this, "授权成功",
                         Toast.LENGTH_LONG).show();
                 DouyinLogin.INSTANCE.getAuthSuccess().setValue(response.authCode);
             } else {

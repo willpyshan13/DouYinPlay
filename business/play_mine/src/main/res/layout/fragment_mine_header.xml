@@ -74,6 +74,7 @@
                 android:id="@+id/mine_tv_bottom_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:onClickCommand="@{viewModel.onVideoCollectClick}"
                 android:text="@{viewModel.userMoney}"
                 android:textSize="@dimen/sp30"
                 android:textStyle="bold"
@@ -86,6 +87,7 @@
                 android:id="@+id/mine_tv_bottom_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:onClickCommand="@{viewModel.onVideoCollectClick}"
                 android:text="@{viewModel.userThing}"
                 android:textSize="@dimen/sp30"
                 android:textStyle="bold"
@@ -99,6 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.userVideo}"
+                app:onClickCommand="@{viewModel.onVideoCollectClick}"
                 android:textStyle="bold"
                 android:textSize="@dimen/sp30"
                 app:layout_constraintEnd_toEndOf="@+id/mine_tv_bottom_title_left"
@@ -112,6 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp20"
                 android:text="喜欢"
+                app:onClickCommand="@{viewModel.onVideoCollectClick}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_right"
                 tools:ignore="RtlCompat" />
@@ -122,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp20"
                 android:text="实物"
+                app:onClickCommand="@{viewModel.onVideoCollectClick}"
                 app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_right"
                 app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_right"
                 tools:ignore="RtlCompat" />
@@ -132,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp20"
                 android:text="领取实物"
+                app:onClickCommand="@{viewModel.onVideoCollectClick}"
                 app:layout_constraintEnd_toStartOf="@+id/mine_tv_bottom_center"
                 app:layout_constraintTop_toBottomOf="@+id/mine_tv_bottom_right"
                 tools:ignore="RtlCompat" />
