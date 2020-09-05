@@ -31,6 +31,8 @@
 -keep class com.will.play.data.entity.** { *; }
 -keep class com.will.play.mine.entity.** { *; }
 -keep class com.will.play.base.entity.** { *; }
+#aop不混淆
+-keep class com.will.play.aop.** { *; }
 #tkrefreshlayout
 -keep class com.lcodecore.tkrefreshlayout.** { *; }
 -dontwarn com.lcodecore.tkrefreshlayout.**
