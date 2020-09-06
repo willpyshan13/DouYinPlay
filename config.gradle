@@ -36,8 +36,8 @@ ext {
             "rxlifecycle-components"               : "com.trello.rxlifecycle4:rxlifecycle-components:4.0.0",
             //rxbinding
             "rxbinding"                            : "com.jakewharton.rxbinding4:rxbinding:4.0.0",
-            //rx 6.0权限请求
-            "rxpermissions"                        : "com.github.tbruyelle:rxpermissions:0.10.2",
+            //约束布局
+            "constraint"                           : "androidx.constraintlayout:constraintlayout:2.0.1",
             //network
             "okhttp"                               : "com.squareup.okhttp3:okhttp:4.7.2",
             "retrofit"                             : "com.squareup.retrofit2:retrofit:2.9.0",

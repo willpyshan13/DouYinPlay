@@ -42,11 +42,7 @@ dependencies {
     api(rootProject.ext.dependencies.rxbinding) {
         exclude group: 'com.android.support'
     }
-    //rx权限请求
-    api(rootProject.ext.dependencies.rxpermissions) {
-        exclude group: 'com.android.support'
-    }
-    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api(rootProject.ext.dependencies.constraint)
     //network
     api rootProject.ext.dependencies.okhttp
     api rootProject.ext.dependencies.retrofit
