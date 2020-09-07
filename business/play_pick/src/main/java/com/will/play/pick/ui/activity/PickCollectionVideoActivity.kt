@@ -1,17 +1,13 @@
 package com.will.play.pick.ui.activity
 
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.will.habit.base.BaseActivity
-import com.will.habit.constant.ConstantConfig
 import com.will.play.pick.BR
 import com.will.play.pick.R
 import com.will.play.pick.databinding.ActivityPickCollectionVideoBinding
-import com.will.play.pick.entity.PickDouyinEntity
+import com.will.play.base.entity.PickDouyinEntity
 import com.will.play.pick.entity.VideoLists
 import com.will.play.pick.ui.dialog.PickCollectVideoFragment
 import com.will.play.pick.ui.viewmodel.PickCollectionVideoViewModel

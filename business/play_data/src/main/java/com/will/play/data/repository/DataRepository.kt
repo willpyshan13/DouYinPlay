@@ -27,4 +27,6 @@ class DataRepository : BaseModel<Any>() {
      * 抖音授权
      */
     suspend fun douyinAuth(username:String?) = homeService.getDouyinoauthCallback(username).check()
+
+    suspend fun  getDouyinVideoIndex(videoId:String="0")=homeService.getDouyinVideoIndex(videoId).check();
 }

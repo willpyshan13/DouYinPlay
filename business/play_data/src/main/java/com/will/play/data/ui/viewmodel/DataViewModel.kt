@@ -2,6 +2,7 @@ package com.will.play.data.ui.viewmodel
 
 import android.app.Application
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
@@ -14,12 +15,14 @@ import com.will.habit.http.RetrofitClient
 import com.will.habit.utils.SPUtils
 import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
+import com.will.play.base.entity.PickDouyinEntity
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.data.R
 import com.will.play.data.BR
 import com.will.play.data.repository.DataRepository
 import me.tatarka.bindingcollectionadapter2.ItemBinding
+import java.lang.Exception
 
 /**
  * Desc:首页
@@ -35,6 +38,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 class DataViewModel(application: Application) : BaseListViewModel<DataRepository, ItemViewModel<*>>(application) {
     val go2Video = SingleLiveEvent<Void>()
     val douyinLogin = SingleLiveEvent<Void>()
+    var douyinData: PickDouyinEntity? = null
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -56,6 +60,7 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
 
     init {
         loadInit()
+//        getDouyinVideo()
     }
 
     override fun showEmptyState() {
@@ -87,6 +92,17 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
         })
     }
 
+    private fun getDouyinVideo(){
+        launch({
+            val data = model.getDouyinVideoIndex()
+            if (items.isNotEmpty()&&items[0] is DataHeaderItem){
+                (items[0] as DataHeaderItem).updateDouyinData(data)
+            }
+        },{
+            Log.d("","")
+        })
+    }
+
     override fun getItemDecoration(): RecyclerView.ItemDecoration? {
         return null
     }
@@ -97,7 +113,13 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
             val viewModels = mutableListOf<ItemViewModel<*>>()
             val banner = model.getHomeBanner()
             val data = model.getTaskRecommend()
-            viewModels.add(DataHeaderItem(this, banner))
+            try {
+                douyinData = model.getDouyinVideoIndex()
+            }catch (e:Exception){
+
+            }
+
+            viewModels.add(DataHeaderItem(this, banner,douyinData))
             viewModels.add(DataItem(this,data))
             loadCallback.onSuccess(viewModels, pageIndex, 1)
             dismissDialog()

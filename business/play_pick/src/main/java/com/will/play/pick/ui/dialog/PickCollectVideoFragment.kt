@@ -7,22 +7,17 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.will.habit.base.BaseApplication
 import com.will.habit.base.BaseDialogFragment
 import com.will.habit.base.BaseDialogViewModel
-import com.will.habit.utils.Utils
-import com.will.play.base.web.WebViewModel
 import com.will.play.pick.BR
 import com.will.play.pick.R
 import com.will.play.pick.databinding.DialogPickCollectVideoLayoutBinding
-import com.will.play.pick.databinding.DialogPickVipLayoutBinding
-import com.will.play.pick.entity.PickDouyinEntity
+import com.will.play.base.entity.PickDouyinEntity
 import com.will.play.pick.entity.VideoLists
 import com.will.play.pick.ui.viewmodel.PickCollectDialogViewModel
-import com.will.play.pick.ui.viewmodel.PickVipDialogViewModel
 
 /**
  * Desc:视频关联对话框

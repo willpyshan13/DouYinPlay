@@ -1,43 +1,19 @@
 package com.will.play.data.ui.viewmodel
 
-import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.ItemViewModel
-import com.will.habit.binding.command.BindingAction
-import com.will.habit.binding.command.BindingCommand
-import com.will.habit.constant.ConstantConfig
-import com.will.play.data.entity.DataRecommendEntity
+import com.will.play.base.entity.DouyinVideoLists
 
-class DataDouyinItem(viewModel: DataViewModel, val data: DataRecommendEntity) :ItemViewModel<DataViewModel>(viewModel) {
+class DataDouyinItem(viewModel: DataViewModel, val data: DouyinVideoLists) :ItemViewModel<DataViewModel>(viewModel) {
 
-    var imageUrl = data.taskLists.firstOrNull()?.pict_url
+    var imageUrl = data.cover
 
-    val goodsName = data.taskLists.firstOrNull()?.title
+    val goodsName = data.title
 
-    val salePrice = "售价:${data.taskLists.firstOrNull()?.price_text}"
+    val recommendCount = "0获赞"
 
-    val recommendCount = "推广人数:${data.taskLists.firstOrNull()?.user_download}"
+    val saleCount = "0评论"
 
-    val money = "佣金:${data.taskLists.firstOrNull()?.price_text}"
+    val saleMoney = "0播放"
 
-    val moneyPercent = "佣金比例:${data.taskLists.firstOrNull()?.price_text}"
-
-    val saleCount = "销售人数:${data.taskLists.firstOrNull()?.user_download}"
-
-    val saleMoney = "销售金额:${data.taskLists.firstOrNull()?.user_download}"
-
-    val leftVideo = "剩余视频数:${data.taskLists.firstOrNull()?.user_download}"
-    
-    val onNextClick = BindingCommand<Any>(object : BindingAction {
-        override fun call() {
-            viewModel.callReload(false)
-        }
-    })
-
-    val onVideoClick = BindingCommand<Any>(object : BindingAction {
-        override fun call() {
-            if (data.taskLists.firstOrNull()!=null) {
-                ARouter.getInstance().build("/pick/collectvideo").withString(ConstantConfig.RECOMMEND_ID, "${data.taskLists.firstOrNull()!!.id}").navigation()
-            }
-        }
-    })
+    val leftVideo = "0转发"
 }

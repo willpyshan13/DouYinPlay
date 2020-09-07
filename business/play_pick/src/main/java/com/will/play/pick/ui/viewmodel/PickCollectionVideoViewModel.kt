@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
@@ -22,10 +21,9 @@ import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.pick.BR
 import com.will.play.pick.R
-import com.will.play.pick.entity.PickDouyinEntity
+import com.will.play.base.entity.PickDouyinEntity
 import com.will.play.pick.entity.VideoLists
 import com.will.play.pick.repository.PickRepository
-import com.will.play.third.DouyinLogin
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
@@ -43,7 +41,7 @@ class PickCollectionVideoViewModel(application: Application) : BaseListViewModel
     val douyinLogin = SingleLiveEvent<Void>()
     val showCollectVideo = SingleLiveEvent<VideoLists>()
 
-    var showCollectVideoList:PickDouyinEntity? = null
+    var showCollectVideoList: PickDouyinEntity? = null
     var downloadType = 2
 
     val leftVideoString = ObservableField("")

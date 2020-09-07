@@ -42,7 +42,6 @@
             app:layout_constraintStart_toEndOf="@+id/data_icon_goods"
             android:layout_marginEnd="@dimen/dp12"
             android:layout_marginTop="@dimen/dp12"
-            app:onClickCommand="@{viewModel.onNextClick}"
             android:layout_marginStart="@dimen/dp14"
             android:textSize="@dimen/sp10"
             android:layout_width="wrap_content"

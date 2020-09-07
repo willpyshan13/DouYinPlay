@@ -36,7 +36,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="@{viewModel.goodsName}"
+            android:text="@{viewModel.data.create_time_text}"
             tools:text="10分钟前更新"
             app:layout_constraintTop_toTopOf="parent"
             android:singleLine="true"
@@ -53,7 +53,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:text="@{viewModel.goodsName}"
+            android:text="@{viewModel.data.title}"
             tools:text="2020春季换装款202009咔咔咔咔咔咔扩扩扩扩扩扩扩扩扩扩扩扩扩"
             app:layout_constraintTop_toTopOf="@+id/data_icon_goods"
             android:singleLine="true"
@@ -85,7 +85,7 @@
             app:layout_constraintStart_toEndOf="@+id/data_icon_goods"
             android:drawableStart="@mipmap/base_home_item_heart"
             tools:text="销售个数：88888"
-            android:text="@{viewModel.saleCount}"
+            android:text="@{viewModel.recommendCount}"
             android:drawablePadding="@dimen/dp2"
             android:layout_marginTop="@dimen/dp22"
             android:layout_marginStart="@dimen/dp14"
@@ -101,7 +101,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:drawableStart="@mipmap/base_home_item_chat"
             tools:text="销售金额：88888"
-            android:text="@{viewModel.saleMoney}"
+            android:text="@{viewModel.saleCount}"
             android:layout_marginTop="@dimen/dp22"
             android:drawablePadding="@dimen/dp2"
             android:layout_marginEnd="@dimen/dp12"
@@ -117,7 +117,7 @@
             app:layout_constraintStart_toEndOf="@+id/data_icon_goods"
             android:drawableStart="@mipmap/base_home_item_video"
             tools:text="推广人数：88888"
-            android:text="@{viewModel.recommendCount}"
+            android:text="@{viewModel.saleMoney}"
             android:drawablePadding="@dimen/dp2"
             android:layout_marginTop="@dimen/dp12"
             android:layout_marginStart="@dimen/dp14"
@@ -142,23 +142,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="RtlCompat" />
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            app:layout_constraintTop_toBottomOf="@+id/data_tv_sale_person"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@mipmap/base_data_btn_hot"
-            android:text="帮我上热门"
-            android:layout_marginEnd="@dimen/dp12"
-            android:layout_marginTop="@dimen/dp12"
-            app:onClickCommand="@{viewModel.onNextClick}"
-            android:layout_marginStart="@dimen/dp14"
-            android:textSize="@dimen/sp10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="RtlCompat" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

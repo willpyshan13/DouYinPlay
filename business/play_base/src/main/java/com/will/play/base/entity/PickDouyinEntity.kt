@@ -1,8 +1,8 @@
-package com.will.play.pick.entity
+package com.will.play.base.entity
 
 data class PickDouyinEntity(
-    val douyinVideoLists: List<DouyinVideoLists>,
-    val videoInfo: VideoInfo
+        val douyinVideoLists: List<DouyinVideoLists>,
+        val videoInfo: List<VideoInfo>
 )
 
 data class DouyinVideoLists(

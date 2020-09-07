@@ -72,6 +72,17 @@
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:items="@{viewModel.douyinItems}"
+            android:layout_marginTop="@dimen/dp10"
+            android:visibility="@{viewModel.showDouyinList?View.VISIBLE:View.GONE}"
+            app:itemBinding="@{viewModel.douyinItemBinding}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/data_top_icon_douyin"
+            app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            app:layout_constraintStart_toStartOf="@+id/data_top_layout" />
 
         <androidx.appcompat.widget.AppCompatImageView
             app:layout_constraintTop_toTopOf="@+id/data_top_layout"
@@ -174,6 +185,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/data_top_layout"
             app:layout_constraintStart_toStartOf="@+id/data_top_layout"
             app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            android:visibility="@{viewModel.showEmpty?View.VISIBLE:View.GONE}"
             android:src="@mipmap/base_data_top_empty"
             android:layout_height="wrap_content"/>
 
@@ -184,6 +196,7 @@
             app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
             android:src="@mipmap/base_data_top_binding_btn"
             app:onClickCommand="@{viewModel.onBindingClick}"
+            android:visibility="@{viewModel.showEmpty?View.VISIBLE:View.GONE}"
             android:layout_marginBottom="@dimen/dp20"
             android:layout_height="wrap_content"/>
 

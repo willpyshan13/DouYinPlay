@@ -9,8 +9,8 @@ import com.will.habit.extection.launch
 import com.will.habit.utils.ToastUtils
 import com.will.play.pick.BR
 import com.will.play.pick.R
-import com.will.play.pick.entity.DouyinVideoLists
-import com.will.play.pick.entity.PickDouyinEntity
+import com.will.play.base.entity.DouyinVideoLists
+import com.will.play.base.entity.PickDouyinEntity
 import com.will.play.pick.entity.VideoLists
 import com.will.play.pick.repository.PickRepository
 import me.tatarka.bindingcollectionadapter2.ItemBinding
