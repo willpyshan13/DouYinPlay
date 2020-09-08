@@ -13,8 +13,7 @@ object PackageUtils {
     fun openDouyin(context: Context){
         val b: Boolean = checkAppInstalled(context, "com.ss.android.ugc.aweme")
         if (b) {
-            val intent = Intent()
-            intent.setData(Uri.parse("snssdk1128://user/profile/93325972684"))
+            val intent = context.packageManager.getLaunchIntentForPackage("com.ss.android.ugc.aweme")
             context.startActivity(intent)
         } else {
             ToastUtils.showShort("未安装此应用")

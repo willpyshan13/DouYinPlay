@@ -8,6 +8,7 @@ import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
 import com.will.habit.extection.parse
@@ -44,6 +45,9 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * @Author: pengyushan
  */
 class MineViewModel(application: Application) : BaseListViewModel<MineRepository, ItemViewModel<*>>(application) {
+
+    val showPhoneCallDialog = SingleLiveEvent<Void>()
+
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {

@@ -47,6 +47,9 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
                 }
                     viewModel.startActivity(WebViewActivity::class.java,bundle)
                 }
+                item_type_custom_service -> {
+                    viewModel.showPhoneCallDialog.call()
+                }
                 else -> viewModel.startActivity(MineWalletActivity::class.java)
             }
         }

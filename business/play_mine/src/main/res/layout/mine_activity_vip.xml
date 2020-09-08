@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp34"
             android:layout_marginStart="@dimen/dp16"
+            app:onClickCommand="@{viewModel.onBackClick}"
             android:src="@mipmap/base_icon_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -43,4 +43,10 @@ class MineVipViewModel(application: Application) :BaseViewModel<MineRepository>(
             startActivity(MineVipDetailActivity::class.java)
         }
     })
+
+    val onBackClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            finish()
+        }
+    })
 }

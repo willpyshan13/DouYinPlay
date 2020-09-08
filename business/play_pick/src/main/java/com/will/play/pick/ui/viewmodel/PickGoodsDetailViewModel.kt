@@ -3,7 +3,9 @@ package com.will.play.pick.ui.viewmodel
 import android.Manifest
 import android.app.Application
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableInt
 import androidx.recyclerview.widget.DiffUtil
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.collection.DiffObservableArrayList
@@ -20,6 +22,7 @@ import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
 import com.will.habit.utils.ToastUtils
 import com.will.play.aop.permission.annotation.NeedPermission
+import com.will.play.base.utils.PackageUtils
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.pick.R
@@ -40,6 +43,8 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * @Author: zhuanghongzhan
  */
 class PickGoodsDetailViewModel(application: Application, private val goodId: String) : BaseViewModel<PickRepository>(application) {
+
+    val showVideoCollect = ObservableInt(View.INVISIBLE)
 
     var data: PickGoodDetailRespEntity? = null
     val uiChange = UiChangeObservable()
@@ -156,6 +161,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
     private val downloadProgress = object :DownloadProgress(){
         override fun onSuccess() {
             dismissDialog()
+            showVideoCollect.set(View.VISIBLE)
             uiChange.showShareDialog.value = data!!.copy_url
         }
 

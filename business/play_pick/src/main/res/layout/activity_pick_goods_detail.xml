@@ -36,16 +36,19 @@
                 android:id="@+id/pick_goods_detail_view_top_bg"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp25"
+                android:visibility="@{viewModel.showVideoCollect}"
                 android:background="@color/color_E5E2E5"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
             <TextView
+                
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/pick_ic_tip"
                 android:drawablePadding="@dimen/dp6"
                 android:gravity="center"
+                android:visibility="@{viewModel.showVideoCollect}"
                 android:text="@string/pick_good_detail_top_txt"
                 android:textColor="@color/color_313131"
                 android:textSize="@dimen/sp12"
@@ -409,11 +412,13 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/pick_good_detail_good_desc_list"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:hasFixedSize="@{true}"
                 app:itemBinding="@{viewModel.dataViewModel.descItemBinding}"
                 app:items="@{viewModel.dataViewModel.descItemList}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@+id/desc_tv_title" />
 

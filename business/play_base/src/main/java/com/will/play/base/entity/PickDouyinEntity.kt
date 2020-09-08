@@ -2,7 +2,7 @@ package com.will.play.base.entity
 
 data class PickDouyinEntity(
         val douyinVideoLists: List<DouyinVideoLists>,
-        val videoInfo: List<VideoInfo>
+        val videoInfo: VideoInfo
 )
 
 data class DouyinVideoLists(

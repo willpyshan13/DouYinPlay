@@ -56,7 +56,7 @@ class PickGoodsDetailDataViewModel(val application: Application) {
     })
 
 
-    val descItemBinding = ItemBinding.of<PickDetailDescItemViewModel>(BR.viewModel, R.layout.fragment_pick_item)
+    val descItemBinding = ItemBinding.of<PickDetailDescItemViewModel>(BR.viewModel, R.layout.item_pick_detail_desc_layout)
 
 
     //设置数据
@@ -82,7 +82,7 @@ class PickGoodsDetailDataViewModel(val application: Application) {
      */
     private fun createDescItem(detailInfo: TaskInfo?) {
         if (detailInfo!=null) {
-            val itemViewModel = detailInfo.desc_images.map {
+            val itemViewModel = detailInfo.desc_imagesLists.map {
                 PickDetailDescItemViewModel(it)
             }
             descItemList.submit(itemViewModel, false)
