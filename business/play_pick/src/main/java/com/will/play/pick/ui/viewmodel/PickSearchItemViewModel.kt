@@ -4,6 +4,8 @@ import androidx.databinding.ObservableArrayList
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.play.base.entity.DataRecommendDataEntity
+import com.will.play.base.entity.DataRecommendEntity
 import com.will.play.pick.R
 import com.will.play.pick.BR
 import com.will.play.pick.entity.TaskLists
@@ -19,7 +21,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: zhuanghongzhan
  */
-class PickSearchItemViewModel(viewModel:PickSearchViewModel,val data: TaskLists) :ItemViewModel<PickSearchViewModel>(viewModel){
+class PickSearchItemViewModel(viewModel:PickSearchViewModel,val data: DataRecommendDataEntity) :ItemViewModel<PickSearchViewModel>(viewModel){
 
     val items = ObservableArrayList<PickSearchItemTagItemViewModel>()
 

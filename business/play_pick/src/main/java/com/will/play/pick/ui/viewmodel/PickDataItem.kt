@@ -8,10 +8,11 @@ import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.binding.command.BindingConsumer
 import com.will.habit.constant.ConstantConfig
+import com.will.play.base.entity.DataRecommendDataEntity
 import com.will.play.pick.entity.TaskLists
 import com.will.play.pick.ui.activity.PickGoodsDetailActivity
 
-class PickDataItem(viewModel: BaseViewModel<*>, val data: TaskLists) : ItemViewModel<BaseViewModel<*>>(viewModel) {
+class PickDataItem(viewModel: BaseViewModel<*>, val data: DataRecommendDataEntity) : ItemViewModel<BaseViewModel<*>>(viewModel) {
 
     val videoCount = ObservableField("${data.total_download}个种草视频")
 

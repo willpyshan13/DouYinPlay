@@ -4,6 +4,7 @@ import com.will.habit.http.BaseResponse
 import com.will.play.base.entity.BannerEntity
 import com.will.play.base.entity.MineDouyinEntity
 import com.will.play.base.constant.Constants
+import com.will.play.base.entity.DataRecommendEntity
 import com.will.play.base.entity.PickDouyinEntity
 import com.will.play.pick.entity.*
 import retrofit2.http.GET
@@ -32,7 +33,7 @@ interface PickService {
     suspend fun getTaskIndex(@Query("page")page:Int,@Query("pagesize")pagesize:Int = 10
                              ,@Query("goods_type_id")goods_type_id:String,@Query("sort_id")sort_id:Int = 0
                              ,@Query("user_id")user_id:Int = 0
-                             ,@Query("keyword")keyword:String? = null): BaseResponse<PickRespDataEntity>
+                             ,@Query("keyword")keyword:String? = null): BaseResponse<DataRecommendEntity>
 
 
     @GET("api.php/Task/detail")
@@ -55,6 +56,8 @@ interface PickService {
     @POST("api.php/Video/bind")
     suspend fun getVideoBind(@Query("video_id")video_id:String,@Query("douyin_video_id")douyin_video_id:String): BaseResponse<PickDouyinEntity>
 
+    @POST("api.php/Task/recommend")
+    suspend fun getTaskRecommend(@Query("sort_id")sort_id:Int = 1,@Query("page")page:Int = 1,@Query("pagesize")pagesize:Int = 1): BaseResponse<DataRecommendEntity>
 
 
 }

@@ -195,19 +195,21 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
         tagItemList.add("佣金 ")
         tagItemList.add("原价 ")
         tagItemList.add("佣金比 ")
-
-
-        val list = mutableListOf<PickDataItem>()
-        for (i in 1..2) {
-//            list.add(PickDataItem(this))
-        }
-        itemList.submit(list, false)
     }
 
     override fun onCreate() {
         super.onCreate()
         setTitleText(StringUtils.getStringResource(R.string.pick_good_detail_title))
         getGoodDetail()
+        getRecommendVideo()
+    }
+
+    private fun getRecommendVideo(){
+        launch({
+            val recommendList = model.getTaskRecommend()
+            val dataList = recommendList.taskLists.map { PickDataItem(this,it) }
+            itemList.submit(dataList,false)
+        })
     }
 
 

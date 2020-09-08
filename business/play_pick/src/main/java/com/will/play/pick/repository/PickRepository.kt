@@ -40,4 +40,6 @@ class PickRepository : BaseModel<Any>() {
      */
     suspend fun douyinAuth(username:String?) = homeService.getDouyinoauthCallback(username).check()
 
+    suspend fun  getTaskRecommend()=homeService.getTaskRecommend().check();
+
 }
