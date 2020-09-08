@@ -34,4 +34,9 @@ object ConstantConfig {
      */
     const val RECOMMEND_ID="recommend_id"
 
+    /**
+     * 门店id key
+     */
+    const val STORE_ID="store_id"
+
 }

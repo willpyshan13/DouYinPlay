@@ -30,6 +30,7 @@ import com.will.play.pick.BR
 import com.will.play.pick.entity.PickGoodDetailRespEntity
 import com.will.play.pick.entity.TaskInfo
 import com.will.play.pick.repository.PickRepository
+import com.will.play.pick.ui.activity.PickStoreDetailActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
@@ -94,6 +95,19 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
 
         }
     })
+
+    /**
+     * 跳转商家详情
+     */
+    val onShopClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            val bundle = Bundle().apply {
+                putString(ConstantConfig.STORE_ID,"${data?.taskInfo?.id}")
+            }
+            startActivity(PickStoreDetailActivity::class.java)
+        }
+    })
+
 
     /**
      * 领取实物

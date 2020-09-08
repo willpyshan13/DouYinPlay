@@ -24,7 +24,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class PickStoreDetailViewModel(application: Application) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
+class PickStoreDetailViewModel(application: Application,storeId:String?) : BaseListViewModel<PickRepository, ItemViewModel<*>>(application) {
 
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {

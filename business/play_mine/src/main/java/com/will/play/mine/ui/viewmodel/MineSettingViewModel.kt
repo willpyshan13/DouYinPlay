@@ -21,6 +21,7 @@ import com.will.play.base.web.WebViewPath
 import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineRepository
+import com.will.play.mine.ui.activity.MineLoginActivity
 import com.will.play.mine.ui.activity.MineSettingVolumeActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
@@ -51,7 +52,8 @@ class MineSettingViewModel(application: Application) :BaseViewModel<MineReposito
     val onLogoutClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             SPUtils.instance.put(ConstantConfig.TOKEN,"")
-            ARouter.getInstance().build("/app/home").navigation()
+            startActivity(MineLoginActivity::class.java)
+            finish()
         }
     })
 

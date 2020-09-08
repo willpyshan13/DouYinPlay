@@ -319,6 +319,7 @@
                 android:paddingEnd="@dimen/dp9"
                 android:paddingBottom="@dimen/dp4"
                 android:text="全部商品"
+                app:onClickCommand="@{viewModel.onShopClick}"
                 app:layout_constraintBottom_toBottomOf="@+id/pick_good_detail_store_info_view_bg"
                 app:layout_constraintEnd_toEndOf="@+id/pick_good_detail_store_info_view_bg"
                 app:layout_constraintTop_toTopOf="@+id/pick_good_detail_store_info_view_bg" />
