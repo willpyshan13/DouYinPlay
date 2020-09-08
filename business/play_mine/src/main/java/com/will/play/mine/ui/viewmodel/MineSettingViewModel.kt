@@ -4,13 +4,16 @@ import android.app.Application
 import android.os.Bundle
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
 import com.will.habit.http.RetrofitClient
+import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.base.web.WebViewActivity
@@ -42,6 +45,13 @@ class MineSettingViewModel(application: Application) :BaseViewModel<MineReposito
     val onVolumeClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             startActivity(MineSettingVolumeActivity::class.java)
+        }
+    })
+
+    val onLogoutClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            SPUtils.instance.put(ConstantConfig.TOKEN,"")
+            ARouter.getInstance().build("/app/home").navigation()
         }
     })
 

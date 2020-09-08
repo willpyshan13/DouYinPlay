@@ -16,6 +16,7 @@
         android:background="@color/color_F0F0F0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/setting_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp16"
@@ -144,6 +145,19 @@
                 app:layout_constraintTop_toBottomOf="@id/mine_notice"
                 tools:ignore="RtlCompat" />
 
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/dp40"
+            app:layout_constraintTop_toBottomOf="@+id/setting_layout"
+            android:text="退出登录"
+            app:onClickCommand="@{viewModel.onLogoutClick}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
