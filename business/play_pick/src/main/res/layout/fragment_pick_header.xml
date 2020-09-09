@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp14"
             android:layout_marginTop="@dimen/dp12"
-            android:src="@mipmap/base_pick_top_one"
+            android:src="@mipmap/base_pick_banner_1"
             app:layout_constraintStart_toStartOf="@+id/pick_top_bg"
             app:layout_constraintTop_toTopOf="@+id/pick_top_bg"
             app:layout_goneMarginStart="@dimen/dp26"
@@ -91,8 +91,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp12"
-            android:layout_marginStart="@dimen/dp14"
-            android:src="@mipmap/base_pick_top_two"
+            android:layout_marginStart="@dimen/dp20"
+            android:src="@mipmap/base_pick_banner_2"
             app:layout_constraintStart_toEndOf="@+id/pick_top_one"
             app:layout_constraintTop_toTopOf="@+id/pick_top_bg"
             tools:ignore="RtlCompat" />
@@ -101,22 +101,11 @@
             android:id="@+id/pick_top_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp12"
-            android:layout_marginStart="@dimen/dp14"
-            android:src="@mipmap/base_pick_top_three"
-            app:layout_constraintStart_toEndOf="@+id/pick_top_two"
-            app:layout_constraintTop_toTopOf="@+id/pick_top_bg"
-            tools:ignore="RtlCompat" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/pick_top_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp14"
-            android:layout_marginTop="@dimen/dp12"
-            android:src="@mipmap/base_pick_top_three"
-            app:layout_constraintStart_toEndOf="@+id/pick_top_three"
-            app:layout_constraintTop_toTopOf="@+id/pick_top_bg"
+            android:layout_marginTop="@dimen/dp4"
+            android:layout_marginStart="@dimen/dp20"
+            android:src="@mipmap/base_pick_banner_3"
+            app:layout_constraintStart_toEndOf="@+id/pick_top_one"
+            app:layout_constraintTop_toBottomOf="@+id/pick_top_two"
             tools:ignore="RtlCompat" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -124,7 +113,7 @@
             android:layout_margin="@dimen/dp12"
             app:layout_constraintStart_toStartOf="@+id/pick_top_bg"
             app:layout_constraintEnd_toEndOf="@+id/pick_top_bg"
-            app:layout_constraintTop_toBottomOf="@+id/pick_top_four"
+            app:layout_constraintTop_toBottomOf="@+id/pick_top_one"
             android:layout_width="0dp"
             app:items="@{viewModel.items}"
             app:itemBinding="@{viewModel.itemBinding}"

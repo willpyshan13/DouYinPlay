@@ -70,6 +70,7 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
         return ItemBinding.of { binding, _, item ->
             when (item) {
                 is DataItem -> binding.set(BR.viewModel, R.layout.fragment_data_item)
+                is DataTitleItem -> binding.set(BR.viewModel, R.layout.fragment_data_title)
                 is DataHeaderItem -> binding.set(BR.viewModel, R.layout.fragment_data_header)
             }
         }
@@ -116,10 +117,19 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
             try {
                 douyinData = model.getDouyinVideoIndex()
             }catch (e:Exception){
-
+                if (e is AuthException){
+                    if(e.message!=null) {
+                        ToastUtils.showShort(e.message!!)
+                    }
+                    val bundle = Bundle().apply {
+                        putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                    }
+                    startActivity(WebViewActivity::class.java,bundle)
+                }
             }
 
             viewModels.add(DataHeaderItem(this, banner,douyinData))
+            viewModels.add(DataTitleItem(this))
             viewModels.add(DataItem(this,data))
             loadCallback.onSuccess(viewModels, pageIndex, 1)
             dismissDialog()

@@ -32,7 +32,7 @@ interface PickService {
     @GET("api.php/Task/index")
     suspend fun getTaskIndex(@Query("page")page:Int,@Query("pagesize")pagesize:Int = 10
                              ,@Query("goods_type_id")goods_type_id:String,@Query("sort_id")sort_id:Int = 0
-                             ,@Query("user_id")user_id:Int = 0
+                             ,@Query("user_id")user_id:String? = "0"
                              ,@Query("keyword")keyword:String? = null): BaseResponse<DataRecommendEntity>
 
 

@@ -102,9 +102,9 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
     val onShopClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             val bundle = Bundle().apply {
-                putString(ConstantConfig.STORE_ID,"${data?.taskInfo?.id}")
+                putString(ConstantConfig.STORE_ID,"${data?.taskInfo?.user_id}")
             }
-            startActivity(PickStoreDetailActivity::class.java)
+            startActivity(PickStoreDetailActivity::class.java,bundle)
         }
     })
 

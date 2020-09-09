@@ -200,21 +200,6 @@
             android:layout_marginBottom="@dimen/dp20"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            app:layout_constraintStart_toStartOf="parent"
-            android:drawableStart="@mipmap/base_bg_title"
-            android:drawablePadding="@dimen/dp4"
-            android:layout_marginTop="@dimen/dp12"
-            android:layout_marginStart="@dimen/dp14"
-            app:layout_constraintTop_toBottomOf="@+id/data_top_layout"
-            android:id="@+id/home_item_title"
-            android:text="@string/data_title"
-            android:textSize="@dimen/sp15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="RtlCompat" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

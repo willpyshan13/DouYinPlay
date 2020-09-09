@@ -2,7 +2,7 @@ package com.will.play.base.entity
 
 data class DataRecommendEntity(
     val counter: Int,
-    val shopInfo: List<Any>,
+    val shopInfo: ShopInfo,
     val taskLists: List<DataRecommendDataEntity>,
     val total: Int
 )
@@ -112,3 +112,5 @@ data class DataRecommendDataEntity(
     val zk_final_price: String,
     val zk_final_price_text: String
 )
+
+data class ShopInfo(val nickname:String,val sell_total:String)

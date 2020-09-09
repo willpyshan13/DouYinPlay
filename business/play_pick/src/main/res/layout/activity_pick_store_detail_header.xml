@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.will.play.pick.ui.viewmodel.PickHeaderItem" />
+            type="com.will.play.pick.ui.viewmodel.PickStoreDetailHeaderItem" />
 
     </data>
 
@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pick_store_head_icon"
-            tools:text="哔哩哔哩服装店" />
+            tools:text="@{viewModel.storeName}" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_store_take_title"
@@ -55,7 +55,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/pick_store_take_title"
             app:layout_constraintStart_toEndOf="@+id/pick_store_take_title"
             app:layout_constraintTop_toTopOf="@id/pick_store_take_title"
-            tools:text="8888件" />
+            tools:text="@{viewModel.sellNum}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

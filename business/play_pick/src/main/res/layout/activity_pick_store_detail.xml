@@ -22,6 +22,7 @@
             android:orientation="vertical">
 
             <include
+                viewModel="@{viewModel.headerItem}"
                 android:id="@+id/picker_top_layout"
                 layout="@layout/activity_pick_store_detail_header" />
 
