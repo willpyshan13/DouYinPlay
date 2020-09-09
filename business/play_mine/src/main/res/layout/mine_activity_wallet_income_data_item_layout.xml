@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineWalletIncomeDataItemViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp30"
+        android:layout_marginTop="@dimen/dp14"
+        android:layout_marginEnd="@dimen/dp30">
+
+
+        <TextView
+            android:id="@+id/tv_down_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp2"
+            android:text="下载视频奖励"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="来自 仙女爱美馆 的补贴"
+            android:textSize="@dimen/sp8"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_down_label"
+            app:layout_constraintStart_toEndOf="@+id/tv_down_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_down_label" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp8"
+            android:text="+2.00元"
+            android:textColor="@color/color_626262"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp3"
+            android:layout_marginTop="@dimen/dp9"
+            android:text="07-08 16：58"
+            android:textColor="@color/color_919191"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_down_label" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp14"
+            android:background="@color/color_AAAAAA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_time" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

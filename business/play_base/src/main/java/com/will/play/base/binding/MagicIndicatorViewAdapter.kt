@@ -66,6 +66,8 @@ fun ViewPager.setCurrentItem(index: Int) {
             "itemPaddingRight",
             "selectIndex",
             "viewPager",
+            "textColorNormal",
+            "textColorSelect",
             "lineIndicatorWidth",
             "lineIndicatorHeight",
             "lineIndicatorMode",
@@ -81,6 +83,8 @@ fun MagicIndicator.setAdapterCount(
         itemPaddingRight: Float?,
         selectIndex: Int?,
         viewPager: ViewPager?,
+        textColorNormal: Int?,
+        textColorSelect: Int?,
         lineIndicatorWidth: Float?,
         lineIndicatorHeight: Float?,
         lineIndicatorMode: Int?,
@@ -101,8 +105,8 @@ fun MagicIndicator.setAdapterCount(
         @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         override fun getTitleView(context: Context, index: Int): IPagerTitleView {
             val simplePagerTitleView = ScaleTransitionPagerTitleView(context)
-            simplePagerTitleView.normalColor = StringUtils.getColorResource(R.color.color_F0F0F0)
-            simplePagerTitleView.selectedColor = StringUtils.getColorResource(R.color.color_FFFFFF)
+            simplePagerTitleView.normalColor = StringUtils.getColorResource(textColorNormal ?: R.color.color_F0F0F0)
+            simplePagerTitleView.selectedColor = StringUtils.getColorResource(textColorSelect ?: R.color.color_FFFFFF)
             simplePagerTitleView.textSize = 18f
             simplePagerTitleView.minScale = lineIndicatorScale ?: 16f / 18f
             simplePagerTitleView.text = mDataList[index]

@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
+import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
@@ -24,6 +25,27 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  *
  * @Author: pengyushan
  */
-class MineWalletViewModel(application: Application) :BaseViewModel<MineRepository>(application){
+class MineWalletViewModel(application: Application) : BaseViewModel<MineRepository>(application) {
+
+
+    val mDataList = arrayListOf("收入", "提现")
+
+
+    val viewPagerObservableList = ObservableArrayList<Any>()
+
+    var viewPagerItemBinding = ItemBinding.of<Any> { itemBinding, _, item ->
+        when (item) {
+            is MineWalletWithdrawItemViewModel -> itemBinding.set(BR.viewModel, R.layout.mine_activity_wallet_pager_withdraw_layout)
+            is MineWalletIncomeItemViewModel -> itemBinding.set(BR.viewModel, R.layout.mine_activity_wallet_pager_income_layout)
+        }
+    }
+
+
+    override fun onCreate() {
+        super.onCreate()
+        viewPagerObservableList.add(MineWalletIncomeItemViewModel())
+        viewPagerObservableList.add(MineWalletWithdrawItemViewModel())
+    }
+
 
 }

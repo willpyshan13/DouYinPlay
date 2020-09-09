@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineWalletIncomeItemViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_marginEnd="@dimen/dp30"
+            android:background="@drawable/base_shape_round_ffffff_16">
+
+
+            <TextView
+                android:id="@+id/tv_income_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp26"
+                android:layout_marginTop="@dimen/dp24"
+                android:text="已到账可提现"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="@dimen/sp10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_income_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp26"
+                android:layout_marginTop="@dimen/dp10"
+                android:includeFontPadding="false"
+                android:text="120.00"
+                android:textColor="@color/color_FF0D0D"
+                android:textSize="@dimen/sp20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_income_label" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp4"
+                android:text="元"
+                android:textColor="@color/color_919191"
+                android:textSize="@dimen/sp9"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_income_price"
+                app:layout_constraintStart_toEndOf="@+id/tv_income_price" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp2"
+                android:drawableStart="@mipmap/base_ic_wallet_withdraw"
+                android:drawablePadding="@dimen/dp2"
+                android:text="提现"
+                android:textColor="@color/color_000000"
+                android:textSize="@dimen/sp15"
+                app:layout_constraintBottom_toTopOf="@+id/iv_income_withdraw"
+                app:layout_constraintEnd_toEndOf="@+id/iv_income_withdraw"
+                app:layout_constraintStart_toStartOf="@+id/iv_income_withdraw" />
+
+
+            <ImageView
+                android:id="@+id/iv_income_withdraw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp3"
+                android:layout_marginEnd="@dimen/dp28"
+                android:drawableStart="@mipmap/base_ic_wallet_withdraw"
+                android:src="@mipmap/wallet_ic_withdraw_30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_income_price" />
+
+            <View
+                android:id="@+id/iv_income_all_bg"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp32"
+                android:layout_marginTop="@dimen/dp27"
+                android:background="@mipmap/wallet_img_income_all_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_income_price" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp28"
+                android:text="收入总额：42.00元"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="@dimen/sp12"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_income_all_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_income_all_bg" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp36"
+                android:text="21笔"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="@dimen/sp12"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_income_all_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_income_all_bg" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp14"
+                app:hasFixedSize="@{true}"
+                app:itemBinding="@{viewModel.itemBinding}"
+                app:items="@{viewModel.items}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_income_all_bg" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+</layout>
