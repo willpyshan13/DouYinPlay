@@ -140,7 +140,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
                     ToastUtils.showShort(it.message!!)
                 }
                 val bundle = Bundle().apply {
-                    putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                    putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
                 }
                 startActivity(WebViewActivity::class.java,bundle)
             }
@@ -164,7 +164,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
                     uiChange.douyinLogin.call()
                 }else{
                     val bundle = Bundle().apply {
-                        putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                        putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
                     }
                     startActivity(WebViewActivity::class.java,bundle)
                 }

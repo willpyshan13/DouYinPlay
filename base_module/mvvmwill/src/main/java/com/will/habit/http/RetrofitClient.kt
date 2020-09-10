@@ -57,6 +57,7 @@ class RetrofitClient private constructor(url: String = baseUrl, headers: Map<Str
         //服务端根路径
         var baseUrl = "http://test.weizhiyx.com/"
         var baseTbkUrl = "http://api.tbk.dingdanxia.com/auth?state=custom_4072_"
+        var baseTbkUrlView = "&view=wap"
         private val mContext = Utils.getContext()
         private var okHttpClient: OkHttpClient? = null
         private lateinit var retrofit: Retrofit

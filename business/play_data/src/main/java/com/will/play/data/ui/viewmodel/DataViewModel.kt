@@ -86,7 +86,7 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
                     ToastUtils.showShort(it.message!!)
                 }
                 val bundle = Bundle().apply {
-                    putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                    putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
                 }
                 startActivity(WebViewActivity::class.java,bundle)
             }
@@ -122,7 +122,7 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
                         ToastUtils.showShort(e.message!!)
                     }
                     val bundle = Bundle().apply {
-                        putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}&view=web")
+                        putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
                     }
                     startActivity(WebViewActivity::class.java,bundle)
                 }
