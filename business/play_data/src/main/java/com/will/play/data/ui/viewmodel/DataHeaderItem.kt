@@ -1,12 +1,18 @@
 package com.will.play.data.ui.viewmodel
 
+import android.os.Bundle
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableBoolean
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.constant.ConstantConfig
+import com.will.habit.http.RetrofitClient
+import com.will.habit.utils.SPUtils
 import com.will.play.base.entity.BannerEntity
 import com.will.play.base.entity.PickDouyinEntity
+import com.will.play.base.web.WebViewActivity
+import com.will.play.base.web.WebViewPath
 import com.will.play.data.R
 import com.will.play.data.BR
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -66,6 +72,11 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
         override fun call() {
             if (isDouyin.get()){
                 viewModel.douyinLogin.call()
+            }else{
+                val bundle = Bundle().apply {
+                    putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
+                }
+                viewModel.startActivity(WebViewActivity::class.java,bundle)
             }
         }
     })
