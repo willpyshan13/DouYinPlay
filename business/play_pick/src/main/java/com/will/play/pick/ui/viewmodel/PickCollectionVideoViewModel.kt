@@ -89,6 +89,8 @@ class PickCollectionVideoViewModel(application: Application) : BaseListViewModel
         }
     })
 
+
+
     override fun onResume() {
         super.onResume()
         callReload(false)

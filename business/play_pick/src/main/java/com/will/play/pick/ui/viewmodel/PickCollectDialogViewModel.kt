@@ -13,6 +13,7 @@ import com.will.play.base.entity.DouyinVideoLists
 import com.will.play.base.entity.PickDouyinEntity
 import com.will.play.pick.entity.VideoLists
 import com.will.play.pick.repository.PickRepository
+import com.will.play.pick.ui.activity.PickCollectionVideoActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
@@ -47,10 +48,9 @@ class PickCollectDialogViewModel(application: Application,val data: VideoLists,v
     fun bindVideo(douyinData: DouyinVideoLists){
         launch({
             val data = model.getVideoBind("${data.id}",douyinVideoId = "${douyinData.id}")
-            if (data!=null){
-                ToastUtils.showShort("关联成功")
-                finish()
-            }
+            ToastUtils.showShort("关联成功")
+            PickCollectionVideoActivity.collectSingleLiveEvent.call()
+            finish()
         })
     }
 

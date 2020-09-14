@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.will.habit.base.BaseActivity
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.play.pick.BR
 import com.will.play.pick.R
 import com.will.play.pick.databinding.ActivityPickCollectionVideoBinding
@@ -25,6 +26,10 @@ import com.will.play.third.DouyinLogin
 @Route(path = "/pick/collectvideo")
 class PickCollectionVideoActivity : BaseActivity<ActivityPickCollectionVideoBinding, PickCollectionVideoViewModel>() {
 
+    companion object{
+        val collectSingleLiveEvent = SingleLiveEvent<Void>()
+    }
+
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.activity_pick_collection_video
     }
@@ -35,20 +40,24 @@ class PickCollectionVideoActivity : BaseActivity<ActivityPickCollectionVideoBind
 
     override fun initViewObservable() {
         super.initViewObservable()
-        viewModel.douyinLogin.observe(this, Observer {
+        viewModel.douyinLogin.observe(this, {
             DouyinLogin.login(this)
         })
 
-        DouyinLogin.authSuccess.observe(this, Observer {
+        DouyinLogin.authSuccess.observe(this, {
             if (it!=null) {
                 viewModel.getDouyinUserinfo(it)
             }
         })
 
-        viewModel.showCollectVideo.observe(this, Observer {
+        viewModel.showCollectVideo.observe(this, {
             if (it!=null&&viewModel.showCollectVideoList!=null) {
                 showVideoDialog(it,viewModel.showCollectVideoList!!)
             }
+        })
+
+        collectSingleLiveEvent.observe(this,{
+            viewModel.callReload(false)
         })
     }
 
