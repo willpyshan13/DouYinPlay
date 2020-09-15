@@ -7,7 +7,7 @@ class BaseResponse<T> {
     @JvmField
     var code = 0
     @JvmField
-    var status: String? = null
+    var status=0
 
     @JvmField
     var error: String? = null
@@ -16,6 +16,6 @@ class BaseResponse<T> {
         private set
 
     val isOk: Boolean
-        get() = code == 0
+        get() = status == 0
 
 }

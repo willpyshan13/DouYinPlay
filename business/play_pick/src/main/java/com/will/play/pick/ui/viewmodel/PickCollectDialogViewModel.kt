@@ -5,6 +5,7 @@ import androidx.databinding.ObservableArrayList
 import com.will.habit.base.BaseDialogViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.extection.ResponseException
 import com.will.habit.extection.launch
 import com.will.habit.utils.ToastUtils
 import com.will.play.pick.BR
@@ -51,6 +52,12 @@ class PickCollectDialogViewModel(application: Application,val data: VideoLists,v
             ToastUtils.showShort("关联成功")
             PickCollectionVideoActivity.collectSingleLiveEvent.call()
             finish()
+        },{
+            if (it is ResponseException) {
+                if (it.responseMessage != null) {
+                    ToastUtils.showShort(it.responseMessage!!)
+                }
+            }
         })
     }
 
