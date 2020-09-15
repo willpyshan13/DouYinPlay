@@ -98,7 +98,7 @@ data class VideoInfo(
     val linkurl: String,
     val material_lib_type: String,
     val max_commission: String,
-    val max_commission_rate: Int,
+    val max_commission_rate: Float,
     val max_commission_rate_text: String,
     val mobile: String,
     val nick: String,
