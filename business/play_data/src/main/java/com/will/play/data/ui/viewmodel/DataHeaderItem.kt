@@ -27,7 +27,7 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
     val showDouyinList = ObservableBoolean(false)
     val showTaobaoList = ObservableBoolean(false)
     val showEmpty = ObservableBoolean(true)
-    val currentDate = ObservableField(SimpleDateFormat("yyyy-mm-dd").format(System.currentTimeMillis()))
+    val currentDate = ObservableField(SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis()))
     /**
      * banner列表
      */
@@ -47,7 +47,8 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
         bannerItems.addAll(bannerList)
 
         if (taobaoData!=null){
-
+            showTaobaoList.set(true)
+            showEmpty.set(false)
         }else if (douyinData!=null) {
             val douyinList = douyinData.douyinVideoLists.map { DataDouyinItem(viewModel, it) }
             douyinItems.addAll(douyinList)
@@ -76,6 +77,7 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
     val onDouyinClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             isDouyin.set(true)
+            showTaobaoList.set(false)
             if (douyinData!=null){
                 showDouyinList.set(true)
                 showEmpty.set(false)

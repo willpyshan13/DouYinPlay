@@ -157,6 +157,7 @@
                 app:layout_goneMarginTop="@dimen/dp10"
                 android:layout_marginStart="@dimen/dp40"
                 android:text="有效佣金"
+                android:textSize="@dimen/sp10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -167,6 +168,7 @@
                 app:layout_constraintStart_toEndOf="@+id/taobao_data_title_sale"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="退款佣金"
+                android:textSize="@dimen/sp10"
                 app:layout_goneMarginTop="@dimen/dp10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -174,9 +176,9 @@
             <TextView
                 android:layout_marginTop="@dimen/dp10"
                 android:id="@+id/taobao_data_title_money_effect_num"
-                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_sale"
-                app:layout_constraintStart_toStartOf="@+id/taobao_data_title_sale"
-                app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_sale"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_money_effect"
+                app:layout_constraintStart_toStartOf="@+id/taobao_data_title_money_effect"
+                app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_money_effect"
                 app:layout_goneMarginTop="@dimen/dp10"
                 android:text="@{@string/base_money+viewModel.taobaoData.total_commission_fee_sum_get}"
                 android:textSize="@dimen/sp12"
