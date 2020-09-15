@@ -132,7 +132,7 @@
                 app:layout_constraintStart_toStartOf="@+id/taobao_data_title_sale"
                 app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_sale"
                 app:layout_goneMarginTop="@dimen/dp10"
-                android:text="@{viewModel.taobaoData.alipay_total_price_sum}"
+                android:text="@{@string/base_money+viewModel.taobaoData.alipay_total_price_sum}"
                 android:textSize="@dimen/sp12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -143,7 +143,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_sale"
                 app:layout_constraintStart_toStartOf="@+id/taobao_data_title_money"
                 app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_money"
-                android:text="全部佣金"
+                android:text="@{@string/base_money+viewModel.taobaoData.total_commission_fee_sum}"
                 android:textSize="@dimen/sp12"
                 app:layout_goneMarginTop="@dimen/dp10"
                 android:layout_width="wrap_content"
@@ -178,8 +178,8 @@
                 app:layout_constraintStart_toStartOf="@+id/taobao_data_title_sale"
                 app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_sale"
                 app:layout_goneMarginTop="@dimen/dp10"
-                android:text="@{viewModel.taobaoData.alipay_total_price_sum}"
-                android:textSize="@dimen/sp16"
+                android:text="@{@string/base_money+viewModel.taobaoData.total_commission_fee_sum_get}"
+                android:textSize="@dimen/sp12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -189,8 +189,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_money_effect"
                 app:layout_constraintStart_toStartOf="@+id/taobao_data_title_money"
                 app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_money"
-                android:text="全部佣金"
-                android:textSize="@dimen/sp16"
+                android:text="@{@string/base_money+viewModel.taobaoData.total_commission_fee_sum_back}"
+                android:textSize="@dimen/sp12"
                 app:layout_goneMarginTop="@dimen/dp10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
