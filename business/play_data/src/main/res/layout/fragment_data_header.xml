@@ -72,6 +72,130 @@
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:id="@+id/taobao_data"
+            android:layout_marginTop="@dimen/dp40"
+            app:layout_constraintTop_toTopOf="@+id/data_top_layout"
+            app:layout_constraintStart_toStartOf="@+id/data_top_layout"
+            app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            android:visibility="@{viewModel.showTaobaoList?View.VISIBLE:View.GONE}"
+            android:background="@mipmap/base_data_bg_taobao"
+            android:layout_height="@dimen/dp150">
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_data"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{viewModel.currentDate}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <View
+                android:id="@+id/taobao_data_divider"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_data"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/color_D1CDBC"
+                android:layout_width="0dp"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_sale"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_goneMarginTop="@dimen/dp10"
+                android:layout_marginStart="@dimen/dp40"
+                android:text="销售额"
+                android:textSize="@dimen/sp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_money"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_divider"
+                app:layout_constraintStart_toEndOf="@+id/taobao_data_title_sale"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="全部佣金"
+                android:textSize="@dimen/sp10"
+                app:layout_goneMarginTop="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_sale_num"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_sale"
+                app:layout_constraintStart_toStartOf="@+id/taobao_data_title_sale"
+                app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_sale"
+                app:layout_goneMarginTop="@dimen/dp10"
+                android:text="@{viewModel.taobaoData.alipay_total_price_sum}"
+                android:textSize="@dimen/sp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_money_num"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_sale"
+                app:layout_constraintStart_toStartOf="@+id/taobao_data_title_money"
+                app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_money"
+                android:text="全部佣金"
+                android:textSize="@dimen/sp12"
+                app:layout_goneMarginTop="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_money_effect"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_sale_num"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_goneMarginTop="@dimen/dp10"
+                android:layout_marginStart="@dimen/dp40"
+                android:text="有效佣金"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_refound"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_sale_num"
+                app:layout_constraintStart_toEndOf="@+id/taobao_data_title_sale"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="退款佣金"
+                app:layout_goneMarginTop="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_money_effect_num"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_sale"
+                app:layout_constraintStart_toStartOf="@+id/taobao_data_title_sale"
+                app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_sale"
+                app:layout_goneMarginTop="@dimen/dp10"
+                android:text="@{viewModel.taobaoData.alipay_total_price_sum}"
+                android:textSize="@dimen/sp16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/taobao_data_title_refound_num"
+                app:layout_constraintTop_toBottomOf="@+id/taobao_data_title_money_effect"
+                app:layout_constraintStart_toStartOf="@+id/taobao_data_title_money"
+                app:layout_constraintEnd_toEndOf="@+id/taobao_data_title_money"
+                android:text="全部佣金"
+                android:textSize="@dimen/sp16"
+                app:layout_goneMarginTop="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -80,7 +204,7 @@
             android:visibility="@{viewModel.showDouyinList?View.VISIBLE:View.GONE}"
             app:itemBinding="@{viewModel.douyinItemBinding}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@+id/data_top_icon_douyin"
+            app:layout_constraintTop_toBottomOf="@+id/taobao_data"
             app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
             app:layout_constraintStart_toStartOf="@+id/data_top_layout" />
 
@@ -185,6 +309,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/data_top_layout"
             app:layout_constraintStart_toStartOf="@+id/data_top_layout"
             app:layout_constraintEnd_toEndOf="@+id/data_top_layout"
+            tools:visibility="gone"
             android:visibility="@{viewModel.showEmpty?View.VISIBLE:View.GONE}"
             android:src="@mipmap/base_data_top_empty"
             android:layout_height="wrap_content"/>

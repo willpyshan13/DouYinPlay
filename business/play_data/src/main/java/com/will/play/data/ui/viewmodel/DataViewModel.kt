@@ -16,6 +16,7 @@ import com.will.habit.utils.SPUtils
 import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.base.entity.PickDouyinEntity
+import com.will.play.base.entity.PickTaobaoEntity
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.data.R
@@ -39,6 +40,7 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
     val go2Video = SingleLiveEvent<Void>()
     val douyinLogin = SingleLiveEvent<Void>()
     var douyinData: PickDouyinEntity? = null
+    var taobaoData: PickTaobaoEntity? = null
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -128,7 +130,13 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
                 }
             }
 
-            viewModels.add(DataHeaderItem(this, banner,douyinData))
+            try {
+                taobaoData = model.getTaobaoOrderIndex()
+            }catch (e:Exception){
+
+            }
+
+            viewModels.add(DataHeaderItem(this, banner,douyinData,taobaoData))
             viewModels.add(DataTitleItem(this))
             viewModels.add(DataItem(this,data))
             loadCallback.onSuccess(viewModels, pageIndex, 1)

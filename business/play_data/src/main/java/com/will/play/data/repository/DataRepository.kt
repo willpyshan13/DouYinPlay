@@ -28,5 +28,8 @@ class DataRepository : BaseModel<Any>() {
      */
     suspend fun douyinAuth(username:String?) = homeService.getDouyinoauthCallback(username).check()
 
-    suspend fun  getDouyinVideoIndex(videoId:String="0")=homeService.getDouyinVideoIndex(videoId).check();
+    suspend fun  getDouyinVideoIndex(videoId:String="0")=homeService.getDouyinVideoIndex(videoId).check()
+
+
+    suspend fun  getTaobaoOrderIndex()=homeService.getTaobaoIndex().check()
 }

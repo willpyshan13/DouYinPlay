@@ -1,8 +1,11 @@
 package com.will.play.data.ui.viewmodel
 
 import android.os.Bundle
+import android.text.format.DateUtils
+import androidx.core.util.TimeUtils
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableBoolean
+import androidx.databinding.ObservableField
 import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
@@ -11,16 +14,20 @@ import com.will.habit.http.RetrofitClient
 import com.will.habit.utils.SPUtils
 import com.will.play.base.entity.BannerEntity
 import com.will.play.base.entity.PickDouyinEntity
+import com.will.play.base.entity.PickTaobaoEntity
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.data.R
 import com.will.play.data.BR
 import me.tatarka.bindingcollectionadapter2.ItemBinding
+import java.text.SimpleDateFormat
 
-class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinData: PickDouyinEntity?) :ItemViewModel<DataViewModel>(viewModel) {
+class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinData: PickDouyinEntity?,val taobaoData: PickTaobaoEntity?) :ItemViewModel<DataViewModel>(viewModel) {
     val isDouyin = ObservableBoolean(false)
     val showDouyinList = ObservableBoolean(false)
+    val showTaobaoList = ObservableBoolean(false)
     val showEmpty = ObservableBoolean(true)
+    val currentDate = ObservableField(SimpleDateFormat("yyyy-mm-dd").format(System.currentTimeMillis()))
     /**
      * banner列表
      */
@@ -34,10 +41,14 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
     val douyinItems = ObservableArrayList<DataDouyinItem>()
 
 
+
     init {
         val bannerList = banner?.swiperLists?.map { DataBannerItem(viewModel,it) }.orEmpty()
         bannerItems.addAll(bannerList)
-        if (douyinData!=null) {
+
+        if (taobaoData!=null){
+
+        }else if (douyinData!=null) {
             val douyinList = douyinData.douyinVideoLists.map { DataDouyinItem(viewModel, it) }
             douyinItems.addAll(douyinList)
         }
@@ -51,8 +62,14 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
     val onTaobaoClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             isDouyin.set(false)
-            showDouyinList.set(false)
-            showEmpty.set(true)
+            if (taobaoData!=null){
+                showTaobaoList.set(true)
+                showDouyinList.set(true)
+                showEmpty.set(false)
+            }else{
+                showDouyinList.set(false)
+                showEmpty.set(true)
+            }
         }
     })
 
