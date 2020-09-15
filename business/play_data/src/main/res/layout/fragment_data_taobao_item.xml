@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.will.play.data.ui.viewmodel.DataDouyinItem" />
+            type="com.will.play.data.ui.viewmodel.DataTaobaoItem" />
 
     </data>
 
@@ -14,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@mipmap/base_data_bg_taobao_item"
-        android:layout_marginStart="@dimen/dp12"
-        android:layout_marginEnd="@dimen/dp12"
+        android:layout_margin="@dimen/dp12"
         android:orientation="vertical"
         tools:ignore="RtlCompat">
 
@@ -51,7 +50,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
             app:layout_constraintTop_toBottomOf="@+id/data_icon_goods_title"
-            android:text="付款"
+            android:text="@{viewModel.data.click_time}"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="@dimen/dp12"
             android:layout_marginTop="@dimen/dp12"
@@ -123,28 +122,28 @@
             android:layout_height="wrap_content">
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="0dp"
-                android:text="付款金额"
+                android:text="@{viewModel.data.alipay_total_price}"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="@dimen/sp10"
                 android:layout_height="wrap_content"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="0dp"
-                android:text="提成比"
+                android:text="@{viewModel.data.total_commission_rate_text}"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="@dimen/sp10"
                 android:layout_height="wrap_content"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="0dp"
-                android:text="付款预估收入"
+                android:text="@{viewModel.data.total_commission_fee_estimate_text}"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="@dimen/sp10"
                 android:layout_height="wrap_content"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="0dp"
-                android:text="犹豫时长"
+                android:text="@{viewModel.data.total_commission_fee}"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="@dimen/sp10"

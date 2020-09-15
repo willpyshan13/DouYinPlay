@@ -37,16 +37,23 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
     /**
      * douyin列表
      */
-    val douyinItemBinding = ItemBinding.of<DataDouyinItem>(BR.viewModel, R.layout.fragment_data_douyin_item)
-    val douyinItems = ObservableArrayList<DataDouyinItem>()
+    val douyinItemBinding = ItemBinding.of<Any> { itemBinding, _, item ->
+        when (item) {
+            is DataDouyinItem -> itemBinding.set(BR.viewModel, R.layout.fragment_data_douyin_item)
+            is DataTaobaoItem -> itemBinding.set(BR.viewModel, R.layout.fragment_data_taobao_item)
+        }
+    }
 
-
+    val douyinItems = ObservableArrayList<ItemViewModel<*>>()
 
     init {
         val bannerList = banner?.swiperLists?.map { DataBannerItem(viewModel,it) }.orEmpty()
         bannerItems.addAll(bannerList)
 
         if (taobaoData!=null){
+            val taobaoList = taobaoData.dataLists.map { DataTaobaoItem(viewModel,it) }
+            douyinItems.addAll(taobaoList)
+            showDouyinList.set(true)
             showTaobaoList.set(true)
             showEmpty.set(false)
         }else if (douyinData!=null) {
@@ -63,7 +70,10 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
     val onTaobaoClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             isDouyin.set(false)
+            douyinItems.clear()
             if (taobaoData!=null){
+                val taobaoList = taobaoData.dataLists.map { DataTaobaoItem(viewModel,it) }
+                douyinItems.addAll(taobaoList)
                 showTaobaoList.set(true)
                 showDouyinList.set(true)
                 showEmpty.set(false)
@@ -78,7 +88,10 @@ class DataHeaderItem(viewModel: DataViewModel,banner: BannerEntity?,val douyinDa
         override fun call() {
             isDouyin.set(true)
             showTaobaoList.set(false)
+            douyinItems.clear()
             if (douyinData!=null){
+                val douyinList = douyinData.douyinVideoLists.map { DataDouyinItem(viewModel, it) }
+                douyinItems.addAll(douyinList)
                 showDouyinList.set(true)
                 showEmpty.set(false)
             }else{
