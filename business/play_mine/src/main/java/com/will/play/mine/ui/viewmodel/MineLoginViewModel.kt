@@ -63,10 +63,11 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
                     showDialog()
                     if (verifyBtnVisible.get() == View.VISIBLE) {
                         val data = model.checkVerifyCode(userAccount.get(), userPassword.get())
-                        SPUtils.instance.put(ConstantConfig.TOKEN, data?.Token)
+                        SPUtils.instance.put(ConstantConfig.TOKEN, data.Token)
                     } else {
                         val data = model.login(userAccount.get(), userPassword.get())
-                        SPUtils.instance.put(ConstantConfig.USER_INFO, data?.userInfo?.toJson())
+                        SPUtils.instance.put(ConstantConfig.USER_INFO, data.userInfo.toJson())
+                        SPUtils.instance.put(ConstantConfig.TOKEN, data.Token)
                     }
                     dismissDialog()
                     finish()
@@ -103,7 +104,7 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
         override fun call() {
             launch({
                 val data = model.getVerifyCode(userAccount.get())
-                SPUtils.instance.put(ConstantConfig.TOKEN, data?.Token)
+                SPUtils.instance.put(ConstantConfig.TOKEN, data.Token)
                 ToastUtils.showShort("发送验证码成功")
             })
         }

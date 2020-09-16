@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.launcher.ARouter
+import com.will.habit.base.AppManager
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
@@ -52,8 +53,8 @@ class MineSettingViewModel(application: Application) :BaseViewModel<MineReposito
     val onLogoutClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             SPUtils.instance.put(ConstantConfig.TOKEN,"")
+            AppManager.appManager?.appExit()
             startActivity(MineLoginActivity::class.java)
-            finish()
         }
     })
 

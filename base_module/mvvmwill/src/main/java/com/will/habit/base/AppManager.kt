@@ -142,7 +142,7 @@ class AppManager private constructor() {
     /**
      * 退出应用程序
      */
-    fun AppExit() {
+    fun appExit() {
         try {
             finishAllActivity()
             // 杀死该应用进程
