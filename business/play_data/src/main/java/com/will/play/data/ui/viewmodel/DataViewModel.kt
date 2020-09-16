@@ -117,6 +117,7 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
             val banner = model.getHomeBanner()
             val data = model.getTaskRecommend()
             try {
+                taobaoData = model.getTaobaoOrderIndex()
                 douyinData = model.getDouyinVideoIndex()
             }catch (e:Exception){
                 if (e is AuthException){
@@ -128,12 +129,6 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
                     }
                     startActivity(WebViewActivity::class.java,bundle)
                 }
-            }
-
-            try {
-                taobaoData = model.getTaobaoOrderIndex()
-            }catch (e:Exception){
-
             }
 
             viewModels.add(DataHeaderItem(this, banner,douyinData,taobaoData))
