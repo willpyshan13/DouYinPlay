@@ -41,6 +41,7 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
     val douyinLogin = SingleLiveEvent<Void>()
     var douyinData: PickDouyinEntity? = null
     var taobaoData: PickTaobaoEntity? = null
+    var isInit = false
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -60,9 +61,16 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (!isInit){
+            isInit = true
+            callReload(false)
+        }
+    }
+
     init {
         loadInit()
-//        getDouyinVideo()
     }
 
     override fun showEmptyState() {
