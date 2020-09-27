@@ -6,7 +6,9 @@ import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.constant.ConstantConfig
+import com.will.habit.extection.launch
 import com.will.habit.extection.parse
+import com.will.habit.extection.toJson
 import com.will.habit.utils.SPUtils
 import com.will.play.mine.R
 import com.will.play.mine.BR
@@ -34,6 +36,20 @@ class MineVipViewModel(application: Application) :BaseViewModel<MineRepository>(
 
         username.set(data?.userInfo?.username)
         vipDate.set(data?.userInfo?.time_expire_text)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getPersonInfo()
+    }
+
+    private fun getPersonInfo(){
+        launch({
+            val data = model.getUserIndex()
+            SPUtils.instance.put(ConstantConfig.USER_INFO,data.toJson())
+            username.set(data.userInfo.username)
+            vipDate.set(data.userInfo.time_expire_text)
+        })
     }
 
     val vipLayout = MineVipLayoutItem(this)
