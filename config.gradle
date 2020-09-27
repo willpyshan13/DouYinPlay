@@ -3,11 +3,11 @@ ext {
     android = [
             compileSdkVersion: 30,
             buildToolsVersion: "30.0.0",
-            applicationId    : "com.will",
+            applicationId    : "com.douqupai",
             minSdkVersion    : 19,
             targetSdkVersion : 30,
             versionCode      : 1,
-            versionName      : "1.1.14",
+            versionName      : "1.1.15",
     ]
     //version配置
     versions = [

@@ -41,12 +41,12 @@ import com.will.play.mine.repository.MineLoginRepository
 class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepository>(application) {
     val userAccount = ObservableField("")
     val userPassword = ObservableField("")
-    val verifyBtnVisible = ObservableInt(View.GONE)
+    val verifyBtnVisible = ObservableInt(View.VISIBLE)
 
     val privateCheck = ObservableBoolean(false)
-    val verifyHint = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_password))
+    val verifyHint = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_title_password))
 
-    val verifyText = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_title_phone))
+    val verifyText = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_verify))
     val showPhoneCallDialog = SingleLiveEvent<Void>()
     val douyinLogin = SingleLiveEvent<Void>()
     val verifyTitleCLick = BindingCommand<Any>(object : BindingAction {
