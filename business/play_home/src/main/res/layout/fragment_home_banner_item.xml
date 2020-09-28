@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:scaleType="centerCrop"
+            android:scaleType="center"
             binding:viewRound="@{6}"
             binding:imageUrl="@{viewModel.data.img}"
             android:layout_width="0dp"

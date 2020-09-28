@@ -24,6 +24,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@mipmap/mine_login_logo"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_icon_left"
             android:layout_width="wrap_content"
@@ -41,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="登陆"
+            android:visibility="invisible"
             android:textSize="@dimen/sp18"
             app:layout_constraintBottom_toBottomOf="@id/mine_icon_left"
             app:layout_constraintEnd_toEndOf="parent"
@@ -158,6 +169,7 @@
             android:layout_marginTop="@dimen/dp30"
             android:background="@mipmap/base_mine_login_btn"
             android:gravity="center"
+            android:textColor="@color/color_FFFFFF"
             android:text="登陆"
             app:onClickCommand="@{viewModel.onLoginClick}"
             app:layout_constraintEnd_toEndOf="@id/mine_login_bg"
