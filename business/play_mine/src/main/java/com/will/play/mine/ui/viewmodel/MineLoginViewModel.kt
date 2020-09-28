@@ -26,6 +26,10 @@ import com.will.play.base.web.WebViewPath
 import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineLoginRepository
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * Desc:登陆
@@ -42,6 +46,11 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
     val userAccount = ObservableField("")
     val userPassword = ObservableField("")
     val verifyBtnVisible = ObservableInt(View.VISIBLE)
+
+    val countDownText = ObservableField("获取验证码")
+
+    var job: Job? = null
+    var countDown = 60
 
     val privateCheck = ObservableBoolean(false)
     val verifyHint = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_title_password))
@@ -62,6 +71,27 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
             }
         }
     })
+
+    fun startCountDown(){
+        job = GlobalScope.launch {
+            while (true){
+                delay(1000)
+                countDown--
+                countDownText.set("$countDown 秒后重试")
+
+                if (countDown ==0){
+                    job?.cancel()
+                    countDown = 60
+                    countDownText.set("获取验证码")
+                }
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        job?.cancel()
+    }
 
     val onLoginClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
@@ -132,6 +162,7 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
                 val data = model.getVerifyCode(userAccount.get())
                 SPUtils.instance.put(ConstantConfig.TOKEN, data.Token)
                 ToastUtils.showShort("发送验证码成功")
+                startCountDown()
             })
         }
     })

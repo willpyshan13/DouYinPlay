@@ -5,6 +5,7 @@ import android.content.Context
 import android.text.TextUtils
 import com.tencent.mm.opensdk.constants.Build
 import com.tencent.mm.opensdk.modelbase.BaseResp
+import com.tencent.mm.opensdk.modelmsg.SendAuth
 import com.tencent.mm.opensdk.modelpay.PayReq
 import com.tencent.mm.opensdk.openapi.IWXAPI
 import com.tencent.mm.opensdk.openapi.WXAPIFactory
@@ -21,6 +22,16 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
         wXApi = WXAPIFactory.createWXAPI(context.applicationContext, appId)
         wXApi?.registerApp(appId)
         initializated = true
+    }
+
+    fun auth(activity: Activity, payInfo: WXPayInfoImpl, payCallback: IPayCallback?){
+        if (!initializated) {
+            initWXApi(activity.applicationContext, payInfoImpli!!.appid)
+        }
+         val req = SendAuth.Req();
+        req.scope = "snsapi_userinfo";
+        req.state = "douqupai_api";
+        wXApi?.sendReq(req);
     }
 
     override fun pay(activity: Activity, payInfo: WXPayInfoImpl, payCallback: IPayCallback?) {
