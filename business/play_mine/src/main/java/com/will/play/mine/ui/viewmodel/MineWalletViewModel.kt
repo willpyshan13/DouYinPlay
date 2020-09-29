@@ -2,15 +2,20 @@ package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
+import com.will.habit.extection.parse
+import com.will.habit.utils.SPUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
 import com.will.play.mine.BR
+import com.will.play.mine.entity.MineUserInfo
 import com.will.play.mine.repository.MineRepository
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
@@ -30,7 +35,9 @@ class MineWalletViewModel(application: Application) : BaseViewModel<MineReposito
 
     val mDataList = arrayListOf("收入")
 
-
+    val username = ObservableField("")
+    val userHeader = ObservableField("")
+    val userMoney = ObservableField("")
     val viewPagerObservableList = ObservableArrayList<Any>()
 
     var viewPagerItemBinding = ItemBinding.of<Any> { itemBinding, _, item ->
@@ -40,10 +47,21 @@ class MineWalletViewModel(application: Application) : BaseViewModel<MineReposito
         }
     }
 
-
     override fun onCreate() {
         super.onCreate()
-        viewPagerObservableList.add(MineWalletIncomeItemViewModel(this))
+        getRecord()
+    }
+
+    private fun getRecord(){
+        launch({
+            val userData = SPUtils.instance.getString(ConstantConfig.USER_INFO)?.parse<MineUserInfo>()
+
+            username.set(userData?.userInfo?.username)
+            userHeader.set(userData?.userInfo?.avatar)
+            val data = model.getPointLog()
+            viewPagerObservableList.add(MineWalletIncomeItemViewModel(this,data))
+
+        })
     }
 
 

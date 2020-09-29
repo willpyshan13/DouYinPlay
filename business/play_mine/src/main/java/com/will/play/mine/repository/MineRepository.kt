@@ -37,6 +37,12 @@ class MineRepository : BaseModel<Any>() {
     suspend fun getOrder2Pay(id:String) = mineService.getOrder2Pay(id).check()
 
     /**
+     * 积分记录
+     */
+    suspend fun getPointLog(id:String="41") = mineService.getPointLog(id).check()
+
+
+    /**
      * 修改个人信息
      */
     suspend fun getUserEdit(headUrl:String,nickName:String,gender:String,area:String,qq:String,wechat:String) = mineService.getUseredit(headUrl,nickName,gender,area,qq,wechat).check()

@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp200"
             android:scaleType="centerCrop"
-            android:layout_marginTop="@dimen/dp66"
+            android:layout_marginTop="@dimen/dp16"
             android:src="@mipmap/base_bg_withdraw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:text="提现记录"
             android:layout_marginEnd="@dimen/dp10"
+            app:onClickCommand="@{viewModel.onWithdrawHistoryClick}"
             android:textColor="#70A4BB"
             app:layout_constraintBottom_toBottomOf="@+id/mine_income_title"
             app:layout_constraintEnd_toEndOf="@+id/mine_change_role_image" />

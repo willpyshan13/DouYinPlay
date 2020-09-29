@@ -10,6 +10,8 @@ import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineRepository
 import com.will.play.mine.ui.activity.MInePartnerActivity
+import com.will.play.mine.ui.activity.MineWithDrawActivity
+import com.will.play.mine.ui.activity.MineWithDrawHistoryActivity
 
 /**
  * Desc:修改角色
@@ -32,6 +34,11 @@ class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>
         override fun call() {
             startActivity(MInePartnerActivity::class.java)
         }
+    })
 
+    fun onWithdrawHistoryClick() = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            startActivity(MineWithDrawHistoryActivity::class.java)
+        }
     })
 }

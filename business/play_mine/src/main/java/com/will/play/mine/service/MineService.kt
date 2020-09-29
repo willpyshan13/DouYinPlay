@@ -46,4 +46,8 @@ interface MineService {
                             @Query("sex_id") sex_id: String?,@Query("area_id") area_id: String?,
                             @Query("qq") qq: String?,@Query("wechat_no") wechat_no: String?): BaseResponse<MineVipUpgradeEntity>
 
+    @POST("$BASE_API/PointLog/index")
+    suspend fun getPointLog(@Query("type_id") share_order_id: String?): BaseResponse<MineRespRecordEntity>
+
+
 }
