@@ -26,9 +26,9 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
 
     fun auth(activity: Activity, payInfo: WXPayInfoImpl, payCallback: IPayCallback?){
         if (!initializated) {
-            initWXApi(activity.applicationContext, payInfoImpli!!.appid)
+            initWXApi(activity.applicationContext, "wxb262b19645856466")
         }
-         val req = SendAuth.Req();
+        val req = SendAuth.Req();
         req.scope = "snsapi_userinfo";
         req.state = "douqupai_api";
         wXApi?.sendReq(req);
