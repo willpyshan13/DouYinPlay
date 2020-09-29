@@ -5,11 +5,13 @@ import android.view.View
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
+import com.will.habit.extection.launch
 import com.will.habit.utils.StringUtils
 import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineRepository
 import com.will.play.mine.ui.activity.MInePartnerActivity
+import com.will.play.mine.ui.activity.MineWechatAuthActivity
 import com.will.play.mine.ui.activity.MineWithDrawActivity
 import com.will.play.mine.ui.activity.MineWithDrawHistoryActivity
 
@@ -28,11 +30,12 @@ class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>
     override fun onCreate() {
         super.onCreate()
         setTitleText("提现")
+        withDrawRequest()
     }
 
     val onChangePartnerClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-            startActivity(MInePartnerActivity::class.java)
+            startActivity(MineWechatAuthActivity::class.java)
         }
     })
 
@@ -41,4 +44,10 @@ class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>
             startActivity(MineWithDrawHistoryActivity::class.java)
         }
     })
+
+    private fun withDrawRequest(){
+        launch({
+            model.getPointApply()
+        })
+    }
 }

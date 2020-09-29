@@ -50,4 +50,7 @@ interface MineService {
     suspend fun getPointLog(@Query("type_id") share_order_id: String?): BaseResponse<MineRespRecordEntity>
 
 
+    @POST("$BASE_API/PointApply/check")
+    suspend fun getPointApply(): BaseResponse<MineRespRecordEntity>
+
 }

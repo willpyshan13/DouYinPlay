@@ -24,7 +24,7 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
         initializated = true
     }
 
-    fun auth(activity: Activity, payInfo: WXPayInfoImpl, payCallback: IPayCallback?){
+    fun auth(activity: Activity, payCallback: IPayCallback?){
         if (!initializated) {
             initWXApi(activity.applicationContext, "wxb262b19645856466")
         }

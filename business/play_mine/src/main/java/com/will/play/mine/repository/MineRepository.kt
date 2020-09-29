@@ -41,6 +41,10 @@ class MineRepository : BaseModel<Any>() {
      */
     suspend fun getPointLog(id:String="41") = mineService.getPointLog(id).check()
 
+    /**
+     * 提现检测
+     */
+    suspend fun getPointApply() = mineService.getPointApply().check()
 
     /**
      * 修改个人信息

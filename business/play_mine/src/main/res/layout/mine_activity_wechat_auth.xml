@@ -19,7 +19,7 @@
             android:id="@+id/mine_change_role_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp66"
+            android:layout_marginTop="@dimen/dp16"
             android:src="@mipmap/base_bg_auth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
