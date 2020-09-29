@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineWechatAuthViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_F0F0F0"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_change_role_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp66"
+            android:src="@mipmap/base_bg_auth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="提现方式：微信支付"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintStart_toStartOf="@+id/mine_change_role_image"
+            app:layout_constraintTop_toTopOf="@+id/mine_change_role_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提现金额直接打入微信钱包"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_income_title"
+            app:layout_constraintStart_toEndOf="@+id/mine_income_title" />
+
+        <LinearLayout
+            android:id="@+id/mine_income_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/mine_change_role_image"
+            app:layout_constraintStart_toStartOf="@+id/mine_change_role_image"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_desc">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/base_icon_logo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/base_icon_arrow" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/base_btn_wechat" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="抖趣拍将获取您的头像、昵称信息"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintStart_toStartOf="@+id/mine_income_layout"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_layout" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@mipmap/base_btn_bg_auth"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="授权提现"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_sub_title"
+            app:onClickCommand="@{viewModel.onChangePartnerClick}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

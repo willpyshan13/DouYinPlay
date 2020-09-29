@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineWithDrawHistoryItemViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp30"
+        android:layout_marginTop="@dimen/dp14"
+        android:layout_marginEnd="@dimen/dp30">
+
+
+        <TextView
+            android:id="@+id/tv_down_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp2"
+            android:text="已提现金额"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="888.88"
+            android:textColor="#ff0d0d"
+            android:textSize="@dimen/sp20"
+            app:layout_constraintStart_toStartOf="@+id/tv_down_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_down_label" />
+
+        <TextView
+            android:id="@+id/tv_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp3"
+            android:text="元"
+            android:layout_marginBottom="@dimen/dp3"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintStart_toEndOf="@+id/tv_money"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_money" />
+
+        <TextView
+            android:id="@+id/tv_income_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp2"
+            android:text="提现"
+            android:textSize="@dimen/sp14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_money" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp8"
+            android:text="+2.00元"
+            android:textColor="@color/color_626262"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_income_sub_title" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp3"
+            android:layout_marginTop="@dimen/dp4"
+            android:text="07-08 16：58"
+            android:textColor="@color/color_919191"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_income_sub_title" />
+
+        <TextView
+            android:id="@+id/tv_way"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp3"
+            android:layout_marginTop="@dimen/dp4"
+            android:text="提现方式：微信支付"
+            android:textColor="@color/color_919191"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_time" />
+
+        <TextView
+            android:id="@+id/tv_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp3"
+            android:layout_marginTop="@dimen/dp4"
+            android:text="提现订单"
+            android:textColor="@color/color_919191"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_way" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp3"
+            android:layout_marginTop="@dimen/dp4"
+            android:text="提现状态:"
+            android:textColor="@color/color_919191"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_order" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp14"
+            android:background="@color/color_AAAAAA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineWithDrawModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_F0F0F0"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_change_role_image"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp200"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/dp66"
+            android:src="@mipmap/base_bg_withdraw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="提现信息"
+            app:layout_constraintStart_toStartOf="@+id/mine_change_role_image"
+            app:layout_constraintTop_toTopOf="@+id/mine_change_role_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提现记录"
+            android:layout_marginEnd="@dimen/dp10"
+            android:textColor="#70A4BB"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_income_title"
+            app:layout_constraintEnd_toEndOf="@+id/mine_change_role_image" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_income_header"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_title"
+            app:layout_constraintStart_toStartOf="@+id/mine_income_title"
+            android:layout_marginTop="@dimen/dp10"
+            android:src="@mipmap/base_bg_header_default"
+            android:layout_width="@dimen/dp44"
+            android:layout_height="@dimen/dp44"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:text="名字"
+            app:layout_constraintStart_toEndOf="@+id/mine_income_header"
+            app:layout_constraintTop_toTopOf="@+id/mine_income_header" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="提现金额"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintStart_toStartOf="@+id/mine_change_role_image"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_header" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_desc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提现金额直接打入微信钱包"
+            android:layout_marginStart="@dimen/dp10"
+            android:textColor="#858585"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_income_title1"
+            app:layout_constraintStart_toEndOf="@+id/mine_income_title1" />
+
+        <TextView
+            android:text="￥"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_title1"
+            app:layout_constraintStart_toStartOf="@+id/mine_income_header"
+            android:textSize="@dimen/sp30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/mine_income_et"
+            android:layout_marginTop="@dimen/dp10"
+            android:paddingStart="@dimen/dp30"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_title1"
+            app:layout_constraintStart_toStartOf="@+id/mine_income_header"
+            app:layout_constraintEnd_toEndOf="@+id/mine_change_role_image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="可提现金额12.98元"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintStart_toStartOf="@+id/mine_change_role_image"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_et" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_desc2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部提现"
+            android:includeFontPadding="false"
+            android:layout_marginStart="@dimen/dp10"
+            android:textColor="#FF002B"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_income_title2"
+            app:layout_constraintStart_toEndOf="@+id/mine_income_title2" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@mipmap/base_bg_withdraw_btn"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="确认提现"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_change_role_image"
+            app:onClickCommand="@{viewModel.onChangePartnerClick}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

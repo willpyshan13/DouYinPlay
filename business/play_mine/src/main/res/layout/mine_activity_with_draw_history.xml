@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineWithDrawHistoryModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_F0F0F0"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_title"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp30"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp30"
+            android:text="2020"
+            app:layout_constraintStart_toStartOf="@+id/mine_change_role_image"
+            app:layout_constraintTop_toTopOf="@+id/mine_change_role_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_desc"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="8月"
+            android:textSize="@dimen/sp18"
+            android:layout_marginTop="@dimen/dp10"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_title"
+            app:layout_constraintStart_toStartOf="@+id/mine_income_title"
+            app:layout_constraintEnd_toEndOf="@+id/mine_income_title" />
+
+
+        <View
+            android:id="@+id/mine_income_top_divider"
+            android:layout_margin="@dimen/dp3"
+            app:layout_constraintStart_toEndOf="@+id/mine_income_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_income_desc"
+            android:background="#b6b6b6"
+            android:layout_width="1dp"
+            android:layout_height="0dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:text="2020"
+            app:layout_constraintStart_toEndOf="@+id/mine_income_top_divider"
+            app:layout_constraintTop_toTopOf="@+id/mine_change_role_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_income_desc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="1888元"
+            android:textSize="@dimen/sp18"
+            android:layout_marginEnd="@dimen/dp10"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_title1"
+            app:layout_constraintStart_toStartOf="@+id/mine_income_title1" />
+
+        <View
+            android:id="@+id/mine_income_top_divider2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mine_income_desc1"
+            android:background="#b6b6b6"
+            android:layout_margin="@dimen/dp5"
+            android:layout_width="0dp"
+            android:layout_height="2dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp32"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp32"
+            android:background="@drawable/home_item_bg"
+            app:itemBinding="@{viewModel.itemBinding}"
+            app:items="@{viewModel.items}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mine_income_top_divider2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

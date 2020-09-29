@@ -28,7 +28,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 class MineWalletViewModel(application: Application) : BaseViewModel<MineRepository>(application) {
 
 
-    val mDataList = arrayListOf("收入", "提现")
+    val mDataList = arrayListOf("收入")
 
 
     val viewPagerObservableList = ObservableArrayList<Any>()
@@ -43,8 +43,7 @@ class MineWalletViewModel(application: Application) : BaseViewModel<MineReposito
 
     override fun onCreate() {
         super.onCreate()
-        viewPagerObservableList.add(MineWalletIncomeItemViewModel())
-        viewPagerObservableList.add(MineWalletWithdrawItemViewModel())
+        viewPagerObservableList.add(MineWalletIncomeItemViewModel(this))
     }
 
 

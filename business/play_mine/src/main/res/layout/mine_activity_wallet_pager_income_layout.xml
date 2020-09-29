@@ -65,6 +65,7 @@
                 android:drawableStart="@mipmap/base_ic_wallet_withdraw"
                 android:drawablePadding="@dimen/dp2"
                 android:text="提现"
+                app:onClickCommand="@{viewModel.onWithdrawClick}"
                 android:textColor="@color/color_000000"
                 android:textSize="@dimen/sp15"
                 app:layout_constraintBottom_toTopOf="@+id/iv_income_withdraw"
