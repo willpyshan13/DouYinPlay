@@ -36,7 +36,7 @@ class DataItem(viewModel: DataViewModel,val data: DataRecommendEntity) :ItemView
     val onVideoClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             ARouter.getInstance().build("/pick/videodetail")
-                    .withString(ConstantConfig.GOOD_DETAIL_ID, data.taskLists.firstOrNull()!!.goods_id)
+                    .withString(ConstantConfig.GOOD_DETAIL_ID, "${data.taskLists.firstOrNull()!!.id}")
                     .navigation()
         }
     })
