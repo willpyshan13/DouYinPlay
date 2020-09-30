@@ -27,15 +27,18 @@ import com.will.play.mine.ui.activity.MineWithDrawHistoryActivity
  * @Author: pengyushan
  */
 class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>(application) {
+
     override fun onCreate() {
         super.onCreate()
         setTitleText("提现")
         withDrawRequest()
     }
 
+
+
     val onChangePartnerClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-            startActivity(MineWechatAuthActivity::class.java)
+//            startActivity(MineWechatAuthActivity::class.java)
         }
     })
 
@@ -47,6 +50,7 @@ class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>
 
     private fun withDrawRequest(){
         launch({
+            val data = model.getUserIndex()
             model.getPointApply()
         })
     }
