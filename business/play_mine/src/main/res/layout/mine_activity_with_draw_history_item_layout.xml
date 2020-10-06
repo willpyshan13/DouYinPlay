@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp2"
             android:text="已提现金额"
+            android:visibility="gone"
             android:textSize="@dimen/sp14"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +34,8 @@
             android:id="@+id/tv_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="888.88"
+            android:visibility="gone"
+            android:text='@{viewModel.data.amount+""}'
             android:textColor="#ff0d0d"
             android:textSize="@dimen/sp20"
             app:layout_constraintStart_toStartOf="@+id/tv_down_label"
@@ -45,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp3"
             android:text="元"
+            android:visibility="gone"
             android:layout_marginBottom="@dimen/dp3"
             android:textSize="@dimen/sp14"
             app:layout_constraintStart_toEndOf="@+id/tv_money"
@@ -54,6 +57,7 @@
             android:id="@+id/tv_income_sub_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp4"
             android:layout_marginStart="@dimen/dp2"
             android:text="提现"
             android:textSize="@dimen/sp14"
@@ -64,11 +68,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp8"
-            android:text="+2.00元"
+            android:text="@{viewModel.money}"
             android:textColor="@color/color_626262"
             android:textSize="@dimen/sp9"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_income_sub_title" />
+            app:layout_constraintTop_toTopOf="@+id/tv_way" />
 
         <TextView
             android:id="@+id/tv_time"
@@ -76,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp3"
             android:layout_marginTop="@dimen/dp4"
-            android:text="07-08 16：58"
+            android:text="@{viewModel.data.time_create_text}"
             android:textColor="@color/color_919191"
             android:textSize="@dimen/sp9"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,6 +109,17 @@
             android:textSize="@dimen/sp9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_way" />
+        <TextView
+            android:id="@+id/tv_order_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp4"
+            android:text="@{viewModel.data.no}"
+            android:textColor="@color/color_919191"
+            android:textSize="@dimen/sp9"
+            app:layout_constraintStart_toEndOf="@+id/tv_order"
+            app:layout_constraintTop_toBottomOf="@+id/tv_way" />
 
         <TextView
             android:id="@+id/tv_status"
@@ -112,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp3"
             android:layout_marginTop="@dimen/dp4"
-            android:text="提现状态:"
+            android:text="@{viewModel.status}"
             android:textColor="@color/color_919191"
             android:textSize="@dimen/sp9"
             app:layout_constraintStart_toStartOf="parent"

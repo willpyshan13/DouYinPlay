@@ -51,6 +51,11 @@ class MineRepository : BaseModel<Any>() {
      */
     suspend fun getPointApplyAdd(money:String?) = mineService.getPointApplyAdd(money).check()
 
+    /**
+     * 微信授权
+     */
+    suspend fun getWechAtoauthCallback(code:String?) = mineService.getWechAtoauthCallback(code).check()
+
 
     /**
      * 提现记录

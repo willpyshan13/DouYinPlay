@@ -8,6 +8,7 @@ import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.extection.launch
 import com.will.habit.utils.StringUtils
+import com.will.habit.utils.ToastUtils
 import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.entity.MinePayInfoEntity
@@ -43,7 +44,9 @@ class MineWechatAuthViewModel(application: Application) :BaseViewModel<MineRepos
 
     fun getAuthAccessToken(code:String){
         launch({
-
+            val data = model.getWechAtoauthCallback(code)
+            ToastUtils.showShort("微信授权成功")
+            finish()
         })
     }
 }

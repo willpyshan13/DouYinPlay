@@ -98,8 +98,8 @@
             android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/mine_income_et"
-            android:layout_marginTop="@dimen/dp10"
             android:paddingStart="@dimen/dp30"
+            android:textSize="@dimen/sp18"
             android:inputType="numberDecimal"
             android:text="@={viewModel.withDrawMoney}"
             app:layout_constraintTop_toBottomOf="@+id/mine_income_title1"

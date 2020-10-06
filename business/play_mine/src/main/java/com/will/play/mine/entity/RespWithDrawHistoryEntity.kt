@@ -3,7 +3,8 @@ package com.will.play.mine.entity
 data class RespWithDrawHistoryEntity(
     val counter: Int,
     val dataLists: List<DataLists>,
-    val total: Int
+    val total: Int,
+    val sum_amount:String
 )
 
 data class DataLists(

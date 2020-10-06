@@ -63,4 +63,7 @@ interface MineService {
 
     @POST("$BASE_API/PointApply/add")
     suspend fun getPointApplyAdd(@Query("amount") amount: String?): BaseResponse<MineRespRecordEntity>
+
+    @POST("$BASE_API/Wechat/oauthCallback")
+    suspend fun getWechAtoauthCallback(@Query("code") amount: String?): BaseResponse<MineRespRecordEntity>
 }
