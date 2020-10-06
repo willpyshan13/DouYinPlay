@@ -55,7 +55,7 @@ class MineRepository : BaseModel<Any>() {
     /**
      * 提现记录
      */
-    suspend fun getPointApplyIndex(page:Int) = mineService.getPointApplyIndex(page).check()
+    suspend fun getPointApplyIndex(page:Int,dateFrom:String="",dateTo:String="") = mineService.getPointApplyIndex(page,dateFrom,dateTo).check()
 
     /**
      * 修改个人信息

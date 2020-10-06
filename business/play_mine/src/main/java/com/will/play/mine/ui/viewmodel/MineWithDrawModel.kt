@@ -7,6 +7,7 @@ import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.extection.launch
 import com.will.play.mine.repository.MineRepository
+import com.will.play.mine.ui.activity.MineWechatAuthActivity
 import com.will.play.mine.ui.activity.MineWithDrawHistoryActivity
 
 /**
@@ -37,19 +38,15 @@ class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>
 
     val onChangePartnerClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-            withDrawCheck()
+            pointApply()
         }
     })
-
-    private fun withDrawCheck(){
-        launch({
-            model.getPointApply()
-        })
-    }
 
     private fun pointApply(){
         launch({
             model.getPointApplyAdd(withDrawMoney.get())
+        },{
+            startActivity(MineWechatAuthActivity::class.java)
         })
     }
 

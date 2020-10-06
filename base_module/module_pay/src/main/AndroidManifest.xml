@@ -6,15 +6,21 @@
         android:supportsRtl="true"
         >
         <activity
-            android:name="com.will.play.pay.wechat.activity.WXPayActivity"
-            android:launchMode="singleTop"
+            android:name="com.douqupai.wxapi.WXPayEntryActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="${applicationId}"
             android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale|screenLayout|keyboardHidden"
             android:exported="true"
             android:hardwareAccelerated="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity-alias
-            android:name="${applicationId}.wxapi.WXPayEntryActivity"
+        <activity
+            android:name="com.douqupai.wxapi.WXEntryActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="${applicationId}"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale|screenLayout|keyboardHidden"
             android:exported="true"
-            android:targetActivity="com.will.play.pay.wechat.activity.WXPayActivity" />
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
     </application>
 </manifest>

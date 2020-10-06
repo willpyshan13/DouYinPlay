@@ -1,4 +1,4 @@
-package com.will.play.pay.wechat.activity;
+package com.douqupai.wxapi;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,13 +7,15 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.will.play.pay.wechat.wxpay.WXPay;
 
 /**
- * 在调用方项目的 包名.wxapi.WXPayEntryActivity类直接继续本类，并在AndroidManifest.xml中声明即可。
+ * 在调用方项目的 包名.wxapi.WXEntryActivity，并在AndroidManifest.xml中声明即可。
  */
-public class WXPayActivity extends Activity implements IWXAPIEventHandler {
+public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +37,8 @@ public class WXPayActivity extends Activity implements IWXAPIEventHandler {
 
     @Override
     public void onResp(BaseResp baseResp) {
-        if (baseResp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
-            WXPay.getInstance().onResp(baseResp.errCode, baseResp.errStr);
+        if (baseResp.getType() == ConstantsAPI.COMMAND_SENDAUTH){
+            WXPay.getInstance().onAuthResp(baseResp.errCode, (SendAuth.Resp) baseResp);
             finish();
         }
     }

@@ -9,7 +9,9 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth
 import com.tencent.mm.opensdk.modelpay.PayReq
 import com.tencent.mm.opensdk.openapi.IWXAPI
 import com.tencent.mm.opensdk.openapi.WXAPIFactory
+import com.will.play.constant.WxInfo
 import com.will.play.pay.base.IPayStrategy
+import com.will.play.pay.callback.IAuthCallback
 import com.will.play.pay.callback.IPayCallback
 
 class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
@@ -24,14 +26,15 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
         initializated = true
     }
 
-    fun auth(activity: Activity, payCallback: IPayCallback?){
+    fun auth(activity: Activity, payCallback: IAuthCallback?){
+        sAuthCallback = payCallback
         if (!initializated) {
-            initWXApi(activity.applicationContext, "wxb262b19645856466")
+            initWXApi(activity.applicationContext, WxInfo.APPID)
         }
-        val req = SendAuth.Req();
-        req.scope = "snsapi_userinfo";
-        req.state = "douqupai_api";
-        wXApi?.sendReq(req);
+        val req = SendAuth.Req()
+        req.scope = "snsapi_userinfo"
+        req.state = "douqupai_api"
+        wXApi?.sendReq(req)
     }
 
     override fun pay(activity: Activity, payInfo: WXPayInfoImpl, payCallback: IPayCallback?) {
@@ -87,6 +90,30 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
     }
 
     /**
+     * 支付回调响应
+     */
+    fun onAuthResp(errorCode: Int, resp:SendAuth.Resp) {
+        if (sAuthCallback == null) {
+            return
+        }
+        when (errorCode) {
+            BaseResp.ErrCode.ERR_OK -> {
+                sAuthCallback!!.success(resp.code)
+            }
+            BaseResp.ErrCode.ERR_AUTH_DENIED -> {
+                sAuthCallback!!.failed(errorCode, "用户拒绝授权")
+            }
+            BaseResp.ErrCode.ERR_USER_CANCEL -> {
+                sAuthCallback!!.cancel()
+            }
+            else -> {
+                sAuthCallback!!.failed(errorCode, "")
+            }
+        }
+        sPayCallback = null
+    }
+
+    /**
      * 检测是否支持微信支付
      */
     private fun check(): Boolean {
@@ -95,6 +122,7 @@ class WXPay private constructor() : IPayStrategy<WXPayInfoImpl> {
 
     companion object {
         private var sPayCallback: IPayCallback? = null
+        private var sAuthCallback: IAuthCallback? = null
         @JvmStatic
         val instance: WXPay = WXPay()
 

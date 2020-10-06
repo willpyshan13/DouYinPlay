@@ -2,6 +2,7 @@ package com.will.play.mine.service
 
 import com.will.habit.http.BaseResponse
 import com.will.play.base.constant.Constants.BASE_API
+import com.will.play.constant.WxInfo
 import com.will.play.mine.entity.*
 import retrofit2.http.POST
 import retrofit2.http.Query
@@ -51,6 +52,8 @@ interface MineService {
 
     @POST("$BASE_API/PointApply/index")
     suspend fun getPointApplyIndex(@Query("page") page: Int,
+                                   @Query("date_from") dateFrom: String,
+                                   @Query("date_to") dateTo: String,
                                    @Query("pagesize") pagesize: Int = 20,
                                    @Query("type_id") status: Int = 0): BaseResponse<RespWithDrawHistoryEntity>
 

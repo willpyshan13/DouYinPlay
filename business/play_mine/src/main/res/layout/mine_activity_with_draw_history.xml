@@ -23,6 +23,7 @@
             android:gravity="center"
             android:layout_marginTop="@dimen/dp30"
             android:text="2020"
+            app:onClickCommand="@{viewModel.leftClick}"
             app:layout_constraintStart_toStartOf="@+id/mine_change_role_image"
             app:layout_constraintTop_toTopOf="@+id/mine_change_role_image" />
 
@@ -32,6 +33,7 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:text="8月"
+            app:onClickCommand="@{viewModel.leftClick}"
             android:textSize="@dimen/sp18"
             android:layout_marginTop="@dimen/dp10"
             app:layout_constraintTop_toBottomOf="@+id/mine_income_title"
@@ -56,6 +58,7 @@
             android:layout_marginStart="@dimen/dp30"
             android:layout_marginTop="@dimen/dp30"
             android:text="2020"
+            app:onClickCommand="@{viewModel.rightCLick}"
             app:layout_constraintStart_toEndOf="@+id/mine_income_top_divider"
             app:layout_constraintTop_toTopOf="@+id/mine_change_role_image" />
 
@@ -65,6 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
             android:text="1888元"
+            app:onClickCommand="@{viewModel.rightCLick}"
             android:textSize="@dimen/sp18"
             android:layout_marginEnd="@dimen/dp10"
             app:layout_constraintTop_toBottomOf="@+id/mine_income_title1"

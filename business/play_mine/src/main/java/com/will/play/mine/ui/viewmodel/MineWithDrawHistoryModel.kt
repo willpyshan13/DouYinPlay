@@ -61,14 +61,14 @@ class MineWithDrawHistoryModel(application: Application) : BaseListViewModel<Min
 
     val leftClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            startActivity(MineChangeRoleActivity::class.java)
+
         }
 
     })
 
     val rightCLick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            startActivity(MineSettingActivity::class.java)
+
         }
 
     })

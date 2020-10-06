@@ -2,6 +2,7 @@ package com.will.play.mine.ui.activity
 
 import android.os.Bundle
 import com.will.habit.base.BaseActivity
+import com.will.habit.utils.KLog
 import com.will.habit.utils.ToastUtils
 import com.will.play.mine.BR
 import com.will.play.mine.R
@@ -12,6 +13,7 @@ import com.will.play.mine.ui.viewmodel.MineChangeRoleViewModel
 import com.will.play.mine.ui.viewmodel.MineLoginViewModel
 import com.will.play.mine.ui.viewmodel.MineWechatAuthViewModel
 import com.will.play.pay.WillPay
+import com.will.play.pay.callback.IAuthCallback
 import com.will.play.pay.callback.IPayCallback
 import com.will.play.pay.wechat.wxpay.WXPay
 
@@ -37,13 +39,16 @@ class MineWechatAuthActivity : BaseActivity<MineActivityWechatAuthBinding, MineW
     override fun initViewObservable() {
         super.initViewObservable()
         viewModel.payClick.observe(this,  {
-            wxPay.auth(this,object :IPayCallback{
-                override fun success() {
-
+            wxPay.auth(this,object : IAuthCallback {
+                override fun success(code:String) {
+                    KLog.d("success")
+                    viewModel.getAuthAccessToken(code)
                 }
 
                 override fun failed(code: Int, message: String?) {
-
+                    if (message!=null) {
+                        ToastUtils.showShort(message)
+                    }
                 }
 
                 override fun cancel() {

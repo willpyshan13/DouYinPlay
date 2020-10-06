@@ -9,8 +9,4 @@ object WillPay {
     fun <T : IPayInfo> pay(payWay: IPayStrategy<T>, mActivity: Activity, payinfo: T, callback: IPayCallback?) {
         payWay.pay(mActivity, payinfo, callback)
     }
-
-    fun auth(){
-
-    }
 }
