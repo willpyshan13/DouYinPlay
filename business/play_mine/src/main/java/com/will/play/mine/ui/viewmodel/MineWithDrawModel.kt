@@ -1,18 +1,12 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
-import android.view.View
+import androidx.databinding.ObservableField
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.extection.launch
-import com.will.habit.utils.StringUtils
-import com.will.play.mine.R
-import com.will.play.mine.BR
 import com.will.play.mine.repository.MineRepository
-import com.will.play.mine.ui.activity.MInePartnerActivity
-import com.will.play.mine.ui.activity.MineWechatAuthActivity
-import com.will.play.mine.ui.activity.MineWithDrawActivity
 import com.will.play.mine.ui.activity.MineWithDrawHistoryActivity
 
 /**
@@ -27,6 +21,13 @@ import com.will.play.mine.ui.activity.MineWithDrawHistoryActivity
  * @Author: pengyushan
  */
 class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>(application) {
+    val username = ObservableField("")
+    val imageUrl = ObservableField("")
+    val withDrawMoneyText = ObservableField("")
+
+    val withDrawMoney = ObservableField("")
+
+    private var userWithDrawMoneyMax = 0F
 
     override fun onCreate() {
         super.onCreate()
@@ -34,11 +35,27 @@ class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>
         withDrawRequest()
     }
 
-
-
     val onChangePartnerClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-//            startActivity(MineWechatAuthActivity::class.java)
+            withDrawCheck()
+        }
+    })
+
+    private fun withDrawCheck(){
+        launch({
+            model.getPointApply()
+        })
+    }
+
+    private fun pointApply(){
+        launch({
+            model.getPointApplyAdd(withDrawMoney.get())
+        })
+    }
+
+    val onWithDrawAll = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            withDrawMoney.set("$userWithDrawMoneyMax")
         }
     })
 
@@ -51,7 +68,10 @@ class MineWithDrawModel(application: Application) :BaseViewModel<MineRepository>
     private fun withDrawRequest(){
         launch({
             val data = model.getUserIndex()
-            model.getPointApply()
+            username.set(data.userInfo.username)
+            imageUrl.set(data.userInfo.avatar)
+            userWithDrawMoneyMax = data.userInfo.point.toFloat()
+            withDrawMoneyText.set("可提现金额${data.userInfo.point}元")
         })
     }
 }

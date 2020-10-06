@@ -49,8 +49,15 @@ interface MineService {
     @POST("$BASE_API/PointLog/index")
     suspend fun getPointLog(@Query("type_id") share_order_id: String?): BaseResponse<MineRespRecordEntity>
 
+    @POST("$BASE_API/PointApply/index")
+    suspend fun getPointApplyIndex(@Query("page") page: Int,
+                                   @Query("pagesize") pagesize: Int = 20,
+                                   @Query("type_id") status: Int = 0): BaseResponse<RespWithDrawHistoryEntity>
+
 
     @POST("$BASE_API/PointApply/check")
     suspend fun getPointApply(): BaseResponse<MineRespRecordEntity>
 
+    @POST("$BASE_API/PointApply/add")
+    suspend fun getPointApplyAdd(@Query("amount") amount: String?): BaseResponse<MineRespRecordEntity>
 }

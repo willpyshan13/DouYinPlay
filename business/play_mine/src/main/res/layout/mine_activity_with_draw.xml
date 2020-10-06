@@ -52,6 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/mine_income_title"
             app:layout_constraintStart_toStartOf="@+id/mine_income_title"
             android:layout_marginTop="@dimen/dp10"
+            app:imageUrl="@{viewModel.imageUrl}"
             android:src="@mipmap/base_bg_header_default"
             android:layout_width="@dimen/dp44"
             android:layout_height="@dimen/dp44"/>
@@ -61,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
-            android:text="名字"
+            android:text="@{viewModel.username}"
             app:layout_constraintStart_toEndOf="@+id/mine_income_header"
             app:layout_constraintTop_toTopOf="@+id/mine_income_header" />
 
@@ -99,6 +100,8 @@
             android:id="@+id/mine_income_et"
             android:layout_marginTop="@dimen/dp10"
             android:paddingStart="@dimen/dp30"
+            android:inputType="numberDecimal"
+            android:text="@={viewModel.withDrawMoney}"
             app:layout_constraintTop_toBottomOf="@+id/mine_income_title1"
             app:layout_constraintStart_toStartOf="@+id/mine_income_header"
             app:layout_constraintEnd_toEndOf="@+id/mine_change_role_image"
@@ -111,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
             android:layout_marginTop="@dimen/dp10"
-            android:text="可提现金额12.98元"
+            android:text="@{viewModel.withDrawMoneyText}"
             android:textSize="@dimen/sp12"
             app:layout_constraintStart_toStartOf="@+id/mine_change_role_image"
             app:layout_constraintTop_toBottomOf="@+id/mine_income_et" />
@@ -121,6 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="全部提现"
+            app:onClickCommand="@{viewModel.onWithDrawAll}"
             android:includeFontPadding="false"
             android:layout_marginStart="@dimen/dp10"
             android:textColor="#FF002B"

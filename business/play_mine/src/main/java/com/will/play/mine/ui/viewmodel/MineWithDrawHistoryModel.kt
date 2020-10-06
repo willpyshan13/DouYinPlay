@@ -19,7 +19,6 @@ import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
 import com.will.play.mine.BR
 import com.will.play.mine.repository.MineRepository
-import com.will.play.mine.ui.activity.MInePartnerActivity
 import com.will.play.mine.ui.activity.MineChangeRoleActivity
 import com.will.play.mine.ui.activity.MineSettingActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -51,6 +50,7 @@ class MineWithDrawHistoryModel(application: Application) : BaseListViewModel<Min
     }
 
     init {
+        setTitleText("提现记录")
         loadInit()
     }
 
@@ -79,7 +79,7 @@ class MineWithDrawHistoryModel(application: Application) : BaseListViewModel<Min
     override fun getItemBinding(): ItemBinding<ItemViewModel<*>> {
         return ItemBinding.of { binding, _, item ->
             when (item) {
-                is MineHomeDataItem -> binding.set(BR.viewModel, R.layout.fragment_mine_item)
+                is MineWithDrawHistoryItemViewModel -> binding.set(BR.viewModel, R.layout.mine_activity_with_draw_history_item_layout)
             }
         }
     }
@@ -90,7 +90,9 @@ class MineWithDrawHistoryModel(application: Application) : BaseListViewModel<Min
 
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
-
+            val data = model.getPointApplyIndex(pageIndex)
+            val dataList = data.dataLists.map { MineWithDrawHistoryItemViewModel(this,it) }
+            loadCallback.onSuccess(dataList,pageIndex,data.total)
         }, {
 
         })
