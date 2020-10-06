@@ -1,15 +1,12 @@
 package com.will.play.mine.ui.fragment
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import com.will.habit.base.BaseFragment
 import com.will.habit.utils.ClipboardUtils
 import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.dialog.ConfirmDialog
-import com.will.habit.widget.dialog.interfaces.ConfirmDialogInterface
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.FragmentMineBinding

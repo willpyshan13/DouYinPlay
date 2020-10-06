@@ -108,6 +108,7 @@
             android:layout_marginEnd="@dimen/dp46"
             android:background="@mipmap/base_vip_btn"
             android:gravity="center"
+            app:onClickCommand="@{viewModel.onVipClick}"
             android:text="续费会员"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mine_binding_head" />
