@@ -41,7 +41,7 @@
                 android:layout_marginStart="@dimen/dp26"
                 android:layout_marginTop="@dimen/dp10"
                 android:includeFontPadding="false"
-                android:text='@{viewModel.data.total+""}'
+                android:text='@{viewModel.data.sum_type41+""}'
                 android:textColor="@color/color_FF0D0D"
                 android:textSize="@dimen/sp20"
                 app:layout_constraintStart_toStartOf="parent"
