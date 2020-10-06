@@ -32,7 +32,8 @@
                 android:layout_width="@dimen/dp46"
                 android:layout_height="@dimen/dp46"
                 android:layout_margin="@dimen/dp20"
-                android:src="@mipmap/base_mine_header_icon"
+                app:imageUrl="@{viewModel.userHeader}"
+                android:src="@mipmap/logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

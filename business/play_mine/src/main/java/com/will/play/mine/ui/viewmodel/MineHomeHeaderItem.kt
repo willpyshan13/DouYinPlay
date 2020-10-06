@@ -19,10 +19,8 @@ import okhttp3.internal.notifyAll
  */
 class MineHomeHeaderItem(viewModel:MineViewModel) :ItemViewModel<MineViewModel>(viewModel) {
 
-
-
     val showLogin = ObservableInt(View.INVISIBLE)
-
+    val userHeader = ObservableField("")
     val userName = ObservableField("")
     val userVideo = ObservableField("")
     val userThing = ObservableField("")
@@ -36,6 +34,7 @@ class MineHomeHeaderItem(viewModel:MineViewModel) :ItemViewModel<MineViewModel>(
             userThing.set("0")
             userMoney.set("0")
         }else{
+            userHeader.set(userInfo.userInfo.avatar)
             userName.set(userInfo.userInfo.username)
             userVideo.set("${userInfo.userInfo.download_total}")
             userThing.set("${userInfo.userInfo.download_month_use}")

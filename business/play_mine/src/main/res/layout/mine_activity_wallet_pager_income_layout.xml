@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp3"
                 android:layout_marginEnd="@dimen/dp28"
+                app:onClickCommand="@{viewModel.onWithdrawClick}"
                 android:drawableStart="@mipmap/base_ic_wallet_withdraw"
                 android:src="@mipmap/wallet_ic_withdraw_30"
                 app:layout_constraintEnd_toEndOf="parent"

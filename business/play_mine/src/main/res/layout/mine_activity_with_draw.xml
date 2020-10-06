@@ -53,7 +53,7 @@
             app:layout_constraintStart_toStartOf="@+id/mine_income_title"
             android:layout_marginTop="@dimen/dp10"
             app:imageUrl="@{viewModel.imageUrl}"
-            android:src="@mipmap/base_bg_header_default"
+            android:src="@mipmap/logo"
             android:layout_width="@dimen/dp44"
             android:layout_height="@dimen/dp44"/>
 
