@@ -3,16 +3,12 @@ package com.will.play.mine.ui.activity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.will.habit.base.BaseActivity
-import com.will.habit.utils.ClipboardUtils
-import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.dialog.ConfirmDialog
-import com.will.play.aop.login.annotation.LoginFilter
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityAddressBinding
 import com.will.play.mine.ui.viewmodel.MineLoginViewModel
 import com.will.play.third.DouyinLogin
-import com.will.play.third.ThirdInit
 import kotlinx.android.synthetic.main.mine_activity_login.*
 
 /**

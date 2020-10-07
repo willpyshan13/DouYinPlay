@@ -6,15 +6,9 @@ import com.will.habit.utils.KLog
 import com.will.habit.utils.ToastUtils
 import com.will.play.mine.BR
 import com.will.play.mine.R
-import com.will.play.mine.databinding.MineActivityAddressBinding
 import com.will.play.mine.databinding.MineActivityWechatAuthBinding
-import com.will.play.mine.ui.viewmodel.MineAddressViewModel
-import com.will.play.mine.ui.viewmodel.MineChangeRoleViewModel
-import com.will.play.mine.ui.viewmodel.MineLoginViewModel
 import com.will.play.mine.ui.viewmodel.MineWechatAuthViewModel
-import com.will.play.pay.WillPay
 import com.will.play.pay.callback.IAuthCallback
-import com.will.play.pay.callback.IPayCallback
 import com.will.play.pay.wechat.wxpay.WXPay
 
 /**

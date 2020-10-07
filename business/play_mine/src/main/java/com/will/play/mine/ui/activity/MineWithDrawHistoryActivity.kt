@@ -3,7 +3,6 @@ package com.will.play.mine.ui.activity
 import android.os.Bundle
 import com.bigkoo.pickerview.builder.TimePickerBuilder
 import com.will.habit.base.BaseActivity
-import com.will.habit.utils.KLog
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityWithDrawHistoryBinding
