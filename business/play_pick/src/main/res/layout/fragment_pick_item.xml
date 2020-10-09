@@ -160,7 +160,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_item_price"
             android:layout_width="wrap_content"
-            android:text="@{@string/pick_good_detail_price+viewModel.data.max_commission_rate}"
+            android:text="@{@string/pick_good_detail_price+viewModel.data.zk_final_price}"
             android:textColor="@color/text_sticker_red_easy_photos"
             android:layout_marginStart="@dimen/dp14"
             android:layout_marginTop="@dimen/dp2"

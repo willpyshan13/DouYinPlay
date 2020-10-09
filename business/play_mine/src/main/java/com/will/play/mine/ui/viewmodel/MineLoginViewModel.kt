@@ -55,19 +55,19 @@ class MineLoginViewModel(application: Application) : BaseViewModel<MineLoginRepo
     val privateCheck = ObservableBoolean(false)
     val verifyHint = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_title_password))
 
-    val verifyText = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_verify))
+    val verifyText = ObservableField(StringUtils.getStringResource(R.string.mine_douyin_verify_title_password))
     val showPhoneCallDialog = SingleLiveEvent<Void>()
     val douyinLogin = SingleLiveEvent<Void>()
     val verifyTitleCLick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             if (verifyBtnVisible.get() == View.VISIBLE) {
                 verifyBtnVisible.set(View.GONE)
-                verifyText.set(StringUtils.getStringResource(R.string.mine_douyin_verify_title_password))
-                verifyHint.set(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_password))
-            } else {
-                verifyBtnVisible.set(View.VISIBLE)
                 verifyText.set(StringUtils.getStringResource(R.string.mine_douyin_verify_title_phone))
                 verifyHint.set(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_verify))
+            } else {
+                verifyBtnVisible.set(View.VISIBLE)
+                verifyText.set(StringUtils.getStringResource(R.string.mine_douyin_verify_title_password))
+                verifyHint.set(StringUtils.getStringResource(R.string.mine_douyin_verify_hint_password))
             }
         }
     })
