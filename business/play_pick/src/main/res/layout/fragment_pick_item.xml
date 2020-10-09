@@ -115,7 +115,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_item_money"
             android:layout_width="wrap_content"
-            android:text="@{@string/pick_good_detail_price+viewModel.data.max_commission_rate}"
+            android:text="@{@string/pick_good_detail_price+viewModel.data.max_commission}"
             android:textSize="@dimen/sp14"
             android:layout_marginTop="@dimen/dp12"
             android:textColor="@color/text_sticker_red_easy_photos"
@@ -160,7 +160,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_item_price"
             android:layout_width="wrap_content"
-            android:text="@{@string/pick_good_detail_price+viewModel.data.max_commission}"
+            android:text="@{@string/pick_good_detail_price+viewModel.data.max_commission_rate}"
             android:textColor="@color/text_sticker_red_easy_photos"
             android:layout_marginStart="@dimen/dp14"
             android:layout_marginTop="@dimen/dp2"

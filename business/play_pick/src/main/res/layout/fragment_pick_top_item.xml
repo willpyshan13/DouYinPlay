@@ -20,8 +20,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/data_icon_goods"
-            android:layout_width="@dimen/dp28"
-            android:layout_height="@dimen/dp28"
+            android:layout_width="@dimen/dp34"
+            android:layout_height="@dimen/dp34"
             android:src="@mipmap/base_pick_top_item"
             app:isCircle="@{true}"
             app:imageUrl="@{viewModel.data.headimg_text}"
