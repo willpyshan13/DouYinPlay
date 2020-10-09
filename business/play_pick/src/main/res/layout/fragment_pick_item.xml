@@ -106,6 +106,7 @@
             app:layout_constraintTop_toBottomOf="@+id/pick_item_get_video"
             android:background="@mipmap/base_pick_item_get_bg"
             android:padding="@dimen/dp2"
+            android:visibility="invisible"
             android:text="可领取实物"
             android:includeFontPadding="false"
             android:textSize="@dimen/sp10"
@@ -114,7 +115,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_item_money"
             android:layout_width="wrap_content"
-            android:text="@{@string/pick_good_detail_price+viewModel.data.zk_final_price}"
+            android:text="@{@string/pick_good_detail_price+viewModel.data.max_commission_rate_text}"
             android:textSize="@dimen/sp14"
             android:layout_marginTop="@dimen/dp12"
             android:textColor="@color/text_sticker_red_easy_photos"
@@ -137,7 +138,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pick_item_money_percent"
             android:layout_width="wrap_content"
-            android:text="@{viewModel.data.max_commission_rate_text}"
+            android:text="@{viewModel.data.zk_final_price}"
             android:textSize="@dimen/sp8"
             android:layout_marginTop="@dimen/dp6"
             android:layout_marginEnd="@dimen/dp14"
