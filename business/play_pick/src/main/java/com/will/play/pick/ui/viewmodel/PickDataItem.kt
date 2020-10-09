@@ -16,7 +16,7 @@ class PickDataItem(viewModel: BaseViewModel<*>, val data: DataRecommendDataEntit
 
     val videoCount = ObservableField("${data.total_download}个种草视频")
 
-    val videoLeft = ObservableField("视频剩余${data.remain_download / data.total_download}")
+    val videoLeft = ObservableField("视频剩余${data.remain_download}/${ data.total_download}")
 
     val onItemClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {

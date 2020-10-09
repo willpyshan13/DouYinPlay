@@ -65,7 +65,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/pick_top_bg"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp150"
             android:layout_marginStart="@dimen/dp14"
             android:layout_marginTop="@dimen/dp8"
             android:layout_marginEnd="@dimen/dp14"
