@@ -49,7 +49,6 @@ public class DetachableDialogOnClickListener implements DialogInterface.OnClickL
 
                     @Override
                     public void onWindowDetached() {
-                        Log.e("ddd", "ddd onWindowDetached");
                         delegateOrNull = null;
                         dialog.setOnShowListener(null);
                     }

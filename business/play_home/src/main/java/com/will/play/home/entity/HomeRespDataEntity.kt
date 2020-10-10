@@ -22,7 +22,7 @@ data class DataLists(
     val author_id: String,
     val avatar: String,
     val aweme_count: Int,
-    val aweme_count_text: Int,
+    val aweme_count_text: String,
     val code: String,
     val digg_incr: Int,
     val digg_incr_text: Any,

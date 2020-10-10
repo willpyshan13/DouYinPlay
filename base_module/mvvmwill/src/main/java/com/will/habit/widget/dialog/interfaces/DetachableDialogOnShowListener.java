@@ -51,7 +51,6 @@ public class DetachableDialogOnShowListener implements DialogInterface.OnShowLis
 
                     @Override
                     public void onWindowDetached() {
-                        Log.e("ddd", "ddd onWindowDetached");
                         onShowListener = null;
                         dialog.setOnShowListener(null);
                     }

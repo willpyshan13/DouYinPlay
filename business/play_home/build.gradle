@@ -31,5 +31,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.alibaba:arouter-api:1.5.0'
     kapt 'com.alibaba:arouter-compiler:1.2.2'
+    implementation 'com.github.AlexLiuSheng:CheckVersionLib:2.4_androidx'
     api project(':business:play_base')
 }

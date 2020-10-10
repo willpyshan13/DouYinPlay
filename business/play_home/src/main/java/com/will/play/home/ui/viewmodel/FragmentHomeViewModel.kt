@@ -1,7 +1,6 @@
 package com.will.play.home.ui.viewmodel
 
 import android.app.Application
-import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
@@ -9,7 +8,6 @@ import com.will.habit.base.ItemViewModel
 import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
-import com.will.play.aop.login.annotation.LoginFilter
 import com.will.play.home.R
 import com.will.play.home.BR
 import com.will.play.home.repository.HomeRepository
@@ -48,7 +46,7 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
         getUpdateInfo()
     }
 
-    private  fun getUpdateInfo(){
+    private fun getUpdateInfo(){
         launch({
             val data = model.getUpdateInfo()
             if (data.update){

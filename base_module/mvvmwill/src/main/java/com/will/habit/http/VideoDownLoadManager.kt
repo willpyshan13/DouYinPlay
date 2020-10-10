@@ -25,7 +25,7 @@ object VideoDownLoadManager {
                 intent.data = Uri.fromFile(File(fileUrl + fileName))
                 context.sendBroadcast(intent)
             }
-            downloadProgress.onSuccess()
+            downloadProgress.onSuccess(fileUrl + fileName)
         }
 
         override fun progress(progress: Long, total: Long) {
@@ -40,6 +40,6 @@ object VideoDownLoadManager {
 }
 
 abstract class DownloadProgress {
-    abstract fun onSuccess()
+    abstract fun onSuccess(url:String)
     abstract fun onFail()
 }

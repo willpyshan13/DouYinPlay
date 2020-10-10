@@ -173,7 +173,7 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
     }
 
     private val downloadProgress = object :DownloadProgress(){
-        override fun onSuccess() {
+        override fun onSuccess(url:String) {
             dismissDialog()
             showVideoCollect.set(View.VISIBLE)
             uiChange.showShareDialog.value = data!!.copy_url
