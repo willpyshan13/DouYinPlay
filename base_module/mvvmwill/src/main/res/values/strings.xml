@@ -14,7 +14,7 @@
     <string name="network_error_timeout">request timeout</string>
     <string name="network_error_login">no login</string>
     <string name="footer_loading">加载中</string>
-    <string name="footer_end">- 结束 -</string>
+    <string name="footer_end">- 非会员仅可见20名 -</string>
     <string name="common_wait_loading">请等待</string>
     <string name="base_dialog_cancel">取消</string>
     <string name="loading">loading&#8230;</string>

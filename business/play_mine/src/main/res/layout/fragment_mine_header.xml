@@ -33,7 +33,7 @@
                 android:layout_height="@dimen/dp46"
                 android:layout_margin="@dimen/dp20"
                 app:imageUrl="@{viewModel.userHeader}"
-                android:src="@mipmap/logo"
+                app:imagePlaceholder="@{@drawable/logo}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
