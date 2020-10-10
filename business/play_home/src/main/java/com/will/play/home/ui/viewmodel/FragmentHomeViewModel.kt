@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.aop.login.annotation.LoginFilter
@@ -27,6 +28,8 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRepository, ItemViewModel<*>>(application) {
 
+    val updateUrl = SingleLiveEvent<String>()
+
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {
@@ -42,6 +45,16 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
 
     init {
         loadInit()
+        getUpdateInfo()
+    }
+
+    private  fun getUpdateInfo(){
+        launch({
+            val data = model.getUpdateInfo()
+            if (data.update){
+                updateUrl.value = data.url
+            }
+        })
     }
 
     override fun showEmptyState() {

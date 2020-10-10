@@ -29,4 +29,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, FragmentHomeViewModel>() 
     override fun initVariableId(): Int {
         return BR.viewModel
     }
+
+    override fun initViewObservable() {
+        super.initViewObservable()
+        viewModel.updateUrl.observe(this,{
+
+        })
+    }
 }
