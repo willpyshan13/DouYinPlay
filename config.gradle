@@ -6,8 +6,8 @@ ext {
             applicationId    : "com.douqupai",
             minSdkVersion    : 19,
             targetSdkVersion : 30,
-            versionCode      : 3,
-            versionName      : "1.1.21",
+            versionCode      : 4,
+            versionName      : "1.1.22",
     ]
     //version配置
     versions = [

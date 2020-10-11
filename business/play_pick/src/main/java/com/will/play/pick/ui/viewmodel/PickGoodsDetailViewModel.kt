@@ -22,7 +22,6 @@ import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
 import com.will.habit.utils.ToastUtils
 import com.will.play.aop.permission.annotation.NeedPermission
-import com.will.play.base.utils.PackageUtils
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.pick.R
@@ -114,7 +113,16 @@ class PickGoodsDetailViewModel(application: Application, private val goodId: Str
      */
     val onCollectionClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            uiChange.showShareDialog.call()
+            ToastUtils.showShort("商家暂不支持")
+        }
+    })
+
+    /**
+     * 分享点击
+     */
+    val onShareClick = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            ToastUtils.showShort("商家暂不支持")
         }
     })
 

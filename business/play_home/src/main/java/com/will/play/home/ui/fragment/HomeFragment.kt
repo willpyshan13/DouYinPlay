@@ -8,9 +8,6 @@ import androidx.annotation.RequiresApi
 import com.allenliu.versionchecklib.v2.AllenVersionChecker
 import com.allenliu.versionchecklib.v2.builder.UIData
 import com.will.habit.base.BaseFragment
-import com.will.habit.utils.ClipboardUtils
-import com.will.habit.utils.ToastUtils
-import com.will.habit.widget.dialog.ConfirmDialog
 import com.will.play.home.BR
 import com.will.play.home.R
 import com.will.play.home.databinding.FragmentHomeBinding

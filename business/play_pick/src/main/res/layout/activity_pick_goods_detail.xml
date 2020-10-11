@@ -270,6 +270,7 @@
                     android:paddingEnd="@dimen/dp12"
                     android:paddingBottom="@dimen/dp7"
                     android:text="分享朋友圈"
+                    app:onClickCommand="@{viewModel.onShareClick}"
                     android:textSize="@dimen/sp15"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/pick_good_detail_vip_tv_get_good"
