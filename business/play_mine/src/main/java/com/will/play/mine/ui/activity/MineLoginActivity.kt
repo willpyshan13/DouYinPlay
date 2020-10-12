@@ -12,10 +12,8 @@ import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.will.habit.base.BaseActivity
-import com.will.habit.widget.dialog.ConfirmDialog
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
 import com.will.play.mine.BR
@@ -93,7 +91,7 @@ class MineLoginActivity : BaseActivity<MineActivityAddressBinding, MineLoginView
             val clickableSpan1: ClickableSpan = object : ClickableSpan() {
                 override fun onClick(view: View) {
                     val bundle = Bundle().apply {
-                        putString(WebViewPath.URL,"http://test.weizhiyx.com/api.php/Webpage/privacy")
+                        putString(WebViewPath.URL,"http://test.weizhiyx.com/api.php/Webpage/argument")
                     }
                     startActivity(WebViewActivity::class.java,bundle)
                 }
