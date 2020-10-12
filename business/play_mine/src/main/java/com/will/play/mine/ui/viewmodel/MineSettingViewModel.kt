@@ -16,6 +16,7 @@ import com.will.habit.extection.launch
 import com.will.habit.http.RetrofitClient
 import com.will.habit.utils.SPUtils
 import com.will.habit.utils.StringUtils
+import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
@@ -60,7 +61,7 @@ class MineSettingViewModel(application: Application) :BaseViewModel<MineReposito
 
     val onCheckUpdateClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-
+            ToastUtils.showShort("当前已经是最新版本")
         }
     })
 
