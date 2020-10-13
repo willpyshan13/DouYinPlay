@@ -26,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:visibility="invisible"
             android:id="@+id/home_image_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:src="@mipmap/base_bg_search_icon"
+            android:visibility="invisible"
             android:layout_marginStart="@dimen/dp22"
             app:layout_constraintStart_toStartOf="@id/home_image_search"
             app:layout_constraintBottom_toBottomOf="@id/home_image_search"
