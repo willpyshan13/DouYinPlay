@@ -43,6 +43,7 @@
             android:id="@+id/home_image_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginStart="@dimen/dp22"
             android:layout_marginTop="@dimen/dp37"
             android:layout_marginEnd="@dimen/dp22"
