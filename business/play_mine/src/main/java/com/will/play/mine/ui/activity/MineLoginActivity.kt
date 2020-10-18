@@ -1,6 +1,5 @@
 package com.will.play.mine.ui.activity
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
