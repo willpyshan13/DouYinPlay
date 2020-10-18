@@ -11,7 +11,7 @@ import com.will.play.ui.main.TabBarActivity
 class UserGuideActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+        setContentView(R.layout.activity_guide)
         go2Home()
         finish()
     }
