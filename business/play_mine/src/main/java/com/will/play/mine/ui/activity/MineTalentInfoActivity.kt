@@ -10,7 +10,7 @@ import com.will.play.mine.ui.viewmodel.MineTalentViewModel
 /**
  * Desc:达人信息
  *
- * Date: 2020-06-30
+ * Date: 2020-10-19
  * Update Time:
  * Update Comments:
  *
@@ -24,6 +24,10 @@ class MineTalentInfoActivity : BaseActivity<MineActivityTalentBinding, MineTalen
 
     override fun initVariableId(): Int {
         return BR.viewModel
+    }
+
+    override fun needToolBar(): Boolean {
+        return false
     }
 
 }
