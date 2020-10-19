@@ -20,6 +20,4 @@ class UserGuideActivity : Activity() {
     private fun go2Home(){
         startActivity(Intent(this,TabBarActivity::class.java))
     }
-
-
 }

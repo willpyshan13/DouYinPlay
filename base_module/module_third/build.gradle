@@ -41,5 +41,5 @@ dependencies {
     api project(':base_module:mvvmwill')
     implementation 'com.bytedance.ies.ugc.aweme:opensdk-china-external:0.1.1.0'
     implementation 'com.bytedance.ies.ugc.aweme:opensdk-common:0.1.1.0'
-
+    api project(':base_module:module_common_res')
 }

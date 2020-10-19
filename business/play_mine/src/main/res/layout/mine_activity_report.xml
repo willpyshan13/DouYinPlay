@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineReportViewModel" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp20"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="举报此用户"
+            android:textSize="@dimen/sp20" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20">
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/base_btn_4dp"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:padding="@dimen/dp10"
+                android:text="骗样品" />
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_weight="1"
+                android:background="@drawable/base_btn_4dp"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="@dimen/dp10"
+                android:text="假名片" />
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_weight="1.2"
+                android:background="@drawable/base_btn_4dp"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="@dimen/dp10"
+                android:text="广告引流" />
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_weight="1"
+                android:background="@drawable/base_btn_4dp"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="@dimen/dp10"
+                android:text="其他" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            android:text="填写举报原因" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp200"
+            android:background="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            android:text="上传图片截图" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            android:src="@mipmap/base_icon_image_add" />
+
+        <TextView
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp30"
+            android:background="@drawable/base_yellow_circle_btn"
+            android:gravity="center"
+            android:padding="@dimen/dp5"
+            android:text="提交"
+            android:textSize="@dimen/sp16" />
+    </LinearLayout>
+</layout>
