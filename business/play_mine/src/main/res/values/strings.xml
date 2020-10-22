@@ -5,7 +5,7 @@
     <string name="mine_volume_setting_title">声音设置</string>
     <string name="mine_info_edit">修改信息</string>
     <string name="mine_douyin_add">抖音账号添加</string>
-
+    <string name="mine_talent_title">达人库</string>
     <string name="mine_address">我的地址</string>
     <string name="mine_douyin_verify_title_phone">手机验证码登陆</string>
     <string name="mine_douyin_verify_title_password">密码登陆</string>

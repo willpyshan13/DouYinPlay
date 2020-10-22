@@ -33,17 +33,13 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 class MineCooperateViewModel(application: Application) : BaseViewModel<MineRepository>(application) {
 
 
-    val mDataList = arrayListOf("收入")
+    val mDataList = arrayListOf("申请中","合作中","合作完成")
 
-    val username = ObservableField("")
-    val userHeader = ObservableField("")
-    val userMoney = ObservableField("")
     val viewPagerObservableList = ObservableArrayList<Any>()
 
     var viewPagerItemBinding = ItemBinding.of<Any> { itemBinding, _, item ->
         when (item) {
-            is MineWalletWithdrawItemViewModel -> itemBinding.set(BR.viewModel, R.layout.mine_activity_wallet_pager_withdraw_layout)
-            is MineWalletIncomeItemViewModel -> itemBinding.set(BR.viewModel, R.layout.mine_activity_wallet_pager_income_layout)
+            is MineCooperateListViewModel -> itemBinding.set(BR.viewModel, R.layout.mine_activity_cooperate_list)
         }
     }
 
@@ -56,8 +52,6 @@ class MineCooperateViewModel(application: Application) : BaseViewModel<MineRepos
         launch({
             val userData = SPUtils.instance.getString(ConstantConfig.USER_INFO)?.parse<MineUserInfo>()
 
-            username.set(userData?.userInfo?.username)
-            userHeader.set(userData?.userInfo?.avatar)
             val data = model.getPointLog()
 //            viewPagerObservableList.add(MineWalletIncomeItemViewModel(this,data))
 

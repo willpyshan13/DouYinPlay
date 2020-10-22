@@ -17,82 +17,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp200"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/base_background_wallet"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/mine_icon_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp16"
-            android:layout_marginTop="@dimen/dp44"
-            android:src="@mipmap/base_icon_back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:onClickCommand="@{viewModel.backOnClick}"
-            tools:ignore="RtlCompat" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我的钱包"
-            android:textSize="@dimen/sp18"
-            app:layout_constraintBottom_toBottomOf="@id/mine_icon_left"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/mine_icon_left" />
-
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/mine_wallet_head_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp36"
-            android:layout_marginTop="@dimen/dp20"
-            android:src="@mipmap/base_wallet_head_icon"
-            app:imageUrl="@{viewModel.userHeader}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_icon_left"
-            tools:ignore="RtlCompat" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_wallet_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp20"
-            android:text="@{viewModel.username}"
-            android:textSize="@dimen/sp25"
-            app:layout_constraintStart_toEndOf="@+id/mine_wallet_head_icon"
-            app:layout_constraintTop_toTopOf="@+id/mine_wallet_head_icon"
-            tools:ignore="RtlCompat" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/mine_wallet_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp20"
-            android:text="每领取一个视频获取两元现金"
-            app:layout_constraintStart_toEndOf="@+id/mine_wallet_head_icon"
-            app:layout_constraintTop_toBottomOf="@+id/mine_wallet_name"
-            tools:ignore="RtlCompat" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp36"
-            android:layout_marginTop="@dimen/dp20"
-            android:layout_marginEnd="@dimen/dp36"
-            android:src="@mipmap/base_wallet_red_bag"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_icon_left"
-            tools:ignore="RtlCompat" />
-
 
         <net.lucode.hackware.magicindicator.MagicIndicator
             android:id="@+id/mine_wallet_indicator"
@@ -104,7 +28,7 @@
             app:isAdjustMode="@{true}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mine_wallet_activity"
+            app:layout_constraintTop_toTopOf="parent"
             app:setAdapterCount="@{viewModel.mDataList}"
             app:textColorNormal="@{R.color.color_000000}"
             app:textColorSelect="@{R.color.color_000000}"
