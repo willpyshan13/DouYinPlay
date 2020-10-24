@@ -14,12 +14,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp12"
         android:layout_marginTop="@dimen/dp6"
-        android:layout_marginEnd="@dimen/dp12"
         android:background="@drawable/home_item_bg"
         android:orientation="vertical"
+        android:paddingStart="@dimen/dp12"
+        android:paddingEnd="@dimen/dp12"
         android:paddingBottom="@dimen/dp8">
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/home_item_header"
@@ -33,34 +34,51 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlCompat" />
 
-        <TextView
-            android:id="@+id/home_item_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp8"
-            android:layout_marginEnd="@dimen/dp8"
-            android:text="@{viewModel.data.addtime_text}"
-            android:textSize="@dimen/sp8"
-            app:layout_constraintEnd_toEndOf="parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/home_item_level"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:visibility="@{viewModel.positionVisible}"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:resDrawable="@{viewModel.positionDrawable}"
             tools:ignore="RtlCompat" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/home_item_title"
+            android:layout_width="@dimen/dp100"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp8"
+            android:layout_marginEnd="@dimen/dp8"
+            android:lines="1"
+            android:ellipsize="end"
+            android:drawableStart="@mipmap/base_icon_home_item_right"
+            android:text="@{viewModel.data.addtime_text}"
+            android:textColor="@color/color_FFC905"
+            app:layout_constraintBottom_toBottomOf="@+id/home_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/home_name"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/home_name"
+            android:layout_width="@dimen/dp150"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:ellipsize="end"
+            android:lines="1"
             android:text="@{viewModel.data.nickname}"
-            app:layout_constraintEnd_toEndOf="@+id/home_item_header"
-            app:layout_constraintStart_toStartOf="@+id/home_item_header"
-            app:layout_constraintTop_toBottomOf="@+id/home_item_header" />
+            app:layout_constraintStart_toEndOf="@+id/home_item_header"
+            app:layout_constraintTop_toTopOf="@+id/home_item_header" />
 
         <LinearLayout
             android:id="@+id/home_layout_middle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
             app:layout_constraintEnd_toStartOf="@+id/home_item_icon_apply"
             app:layout_constraintStart_toEndOf="@+id/home_item_header"
-            app:layout_constraintTop_toBottomOf="@+id/home_item_title">
+            app:layout_constraintTop_toBottomOf="@+id/home_name">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -72,13 +90,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="456.1"
-                    android:textSize="@dimen/sp18" />
+                    android:drawableTop="@mipmap/base_icon_user_icon"
+                    android:text="粉丝" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="售价" />
+                    android:text="6666"
+                    android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
             <LinearLayout
@@ -91,13 +110,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="18%"
-                    android:textSize="@dimen/sp18" />
+                    android:drawableTop="@mipmap/base_icon_user_prise"
+                    android:text="点赞" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="佣金值" />
+                    android:text="15555W"
+                    android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
             <LinearLayout
@@ -110,13 +130,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="18"
-                    android:textSize="@dimen/sp18" />
+                    android:drawableTop="@mipmap/base_icon_user_video"
+                    android:text="视频" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="佣金" />
+                    android:text="8888"
+                    android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
         </LinearLayout>
@@ -130,22 +151,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/home_layout_middle" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/home_image_hot"
+            android:layout_width="@dimen/dp80"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp12"
+            android:layout_weight="1"
+            android:src="@mipmap/base_icon_talent_require"
+            app:layout_constraintBottom_toBottomOf="@+id/home_layout_bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_item_header" />
+
         <LinearLayout
             android:id="@+id/home_layout_bottom"
             android:layout_width="0dp"
-            android:gravity="center_vertical"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp5"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toStartOf="@+id/home_down"
+            app:layout_constraintStart_toEndOf="@+id/home_image_hot"
             app:layout_constraintTop_toBottomOf="@+id/home_item_header">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/home_image_hot"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@mipmap/base_icon_talent_require" />
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -156,13 +182,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="456.1"
-                    android:textSize="@dimen/sp18" />
+                    android:text="商品佣金" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="售价" />
+                    android:text=">%100"
+                    android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
             <LinearLayout
@@ -175,13 +201,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="18%"
-                    android:textSize="@dimen/sp18" />
+                    android:text="直播报价"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="佣金值" />
+                    android:text=">1000"
+                    android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
             <LinearLayout
@@ -194,22 +220,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="18"
-                    android:textSize="@dimen/sp18" />
+                    android:text="橱窗带货" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="佣金" />
+                    android:text="3000元/个"
+                    android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@mipmap/base_icon_low_100" />
         </LinearLayout>
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/home_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:src="@mipmap/base_icon_low_100"
+            app:layout_constraintBottom_toBottomOf="@+id/home_layout_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_item_header" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

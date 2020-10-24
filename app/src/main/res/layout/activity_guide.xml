@@ -10,20 +10,21 @@
         android:id="@+id/guide_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp50"
         android:layout_marginStart="@dimen/dp20"
         android:text="请选择您的角色"
         android:textSize="@dimen/sp24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/guide_person_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp50"
+        android:button="@null"
         android:layout_marginTop="@dimen/dp30"
-        android:src="@drawable/base_guide_person"
+        android:background="@drawable/base_guide_person"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guide_title" />
 
@@ -46,13 +47,15 @@
         app:layout_constraintTop_toBottomOf="@+id/guide_person_title" />
 
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/guide_merchant_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp30"
+        android:button="@null"
         android:layout_marginEnd="@dimen/dp50"
-        android:src="@drawable/base_guide_merchant"
+        android:checked="true"
+        android:background="@drawable/base_guide_merchant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guide_title" />
 
@@ -76,12 +79,15 @@
 
 
     <TextView
-        android:layout_width="@dimen/dp200"
+        android:id="@+id/guide_btn"
+        android:layout_width="@dimen/dp250"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:padding="@dimen/dp5"
+        android:textColor="@android:color/white"
         android:text="确认选择"
         android:layout_marginBottom="@dimen/dp20"
-        android:background="@drawable/base_yellow_circle_btn"
+        android:background="@drawable/base_blue_circle_btn"
         android:textSize="@dimen/sp20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

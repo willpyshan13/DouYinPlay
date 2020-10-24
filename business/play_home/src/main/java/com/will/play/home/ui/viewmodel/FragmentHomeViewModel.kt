@@ -82,7 +82,7 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
             }
 
             val listData = model.getHomeList(pageIndex)
-            val dataList = listData.dataLists.map { HomeDataItem(this,it) }.orEmpty()
+            val dataList = listData.dataLists.mapIndexed { index, dataLists -> HomeDataItem(this,dataLists,index) }
             viewModels.addAll(dataList)
 
             dismissDialog()
