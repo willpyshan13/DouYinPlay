@@ -45,16 +45,22 @@ class MineCooperateViewModel(application: Application) : BaseViewModel<MineRepos
 
     override fun onCreate() {
         super.onCreate()
-        getRecord()
+//        getRecord()
+        setTitleText("合作列表")
+    }
+
+    init {
+        viewPagerObservableList.add(MineCooperateListViewModel(this))
+        viewPagerObservableList.add(MineCooperateListViewModel(this))
+        viewPagerObservableList.add(MineCooperateListViewModel(this))
     }
 
     private fun getRecord(){
         launch({
-            val userData = SPUtils.instance.getString(ConstantConfig.USER_INFO)?.parse<MineUserInfo>()
-
             val data = model.getPointLog()
-//            viewPagerObservableList.add(MineWalletIncomeItemViewModel(this,data))
-
+            viewPagerObservableList.add(MineCooperateListViewModel(this))
+            viewPagerObservableList.add(MineCooperateListViewModel(this))
+            viewPagerObservableList.add(MineCooperateListViewModel(this))
         })
     }
 

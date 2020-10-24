@@ -40,6 +40,8 @@
             android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity android:name=".ui.activity.MineSaleRecordActivity"
             android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".ui.activity.MineCooperateActivity"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity android:name=".ui.activity.MineReportActivity"
             android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
     </application>

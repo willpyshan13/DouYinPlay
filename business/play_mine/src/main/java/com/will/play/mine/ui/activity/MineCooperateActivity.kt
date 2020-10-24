@@ -26,8 +26,4 @@ class MineCooperateActivity : BaseActivity<MineActivityCooperateBinding, MineCoo
     override fun initVariableId(): Int {
         return BR.viewModel
     }
-
-    override fun needToolBar(): Boolean {
-        return false
-    }
 }

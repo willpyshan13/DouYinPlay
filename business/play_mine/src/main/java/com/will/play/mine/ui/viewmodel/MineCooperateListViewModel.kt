@@ -16,7 +16,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * Date: 2020-10-22 22:19
  * @Author: pengyushan
  */
-class MineCooperateListViewModel(val viewModel:MineWalletViewModel,val data: MineRespRecordEntity):BaseListViewModel<MineRepository,MineTalentListItem>(viewModel.getApplication()) {
+class MineCooperateListViewModel(val viewModel:MineCooperateViewModel):BaseListViewModel<MineRepository,MineTalentListItem>(viewModel.getApplication()) {
 
     init {
         loadInit()

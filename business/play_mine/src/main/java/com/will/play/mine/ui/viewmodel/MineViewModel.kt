@@ -25,6 +25,7 @@ import com.will.play.mine.ui.activity.MineWalletActivity
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_binding_douyin
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_binding_taobao
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_contract
+import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_cooperate
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_course
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_custom_service
 import com.will.play.mine.ui.viewmodel.MineHomeDataItem.Companion.item_type_guide
@@ -107,6 +108,7 @@ class MineViewModel(application: Application) : BaseListViewModel<MineRepository
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_vip_icon, "我的会员", item_type_vip))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_wallet, "我的钱包", item_type_wallet))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_guide, "新手指引", item_type_guide))
+            viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_wallet, "我的合作", item_type_cooperate))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_contact, "联系我们", item_type_contract))
             viewModels.add(MineHomeDataItem(this, R.mipmap.base_mine_custom, "工人客服", item_type_custom_service))
             items.submit(viewModels,false)

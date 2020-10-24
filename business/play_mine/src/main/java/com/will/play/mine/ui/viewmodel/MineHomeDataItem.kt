@@ -33,6 +33,7 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
                 item_type_wallet -> gotoMineWalletActivity()
                 item_type_message -> gotoMineWalletActivity()
                 item_type_binding_taobao -> viewModel.startActivity(MineWalletActivity::class.java)
+                item_type_cooperate -> viewModel.startActivity(MineCooperateActivity::class.java)
                 item_type_binding_douyin -> viewModel.startActivity(MineAddDouyinActivity::class.java)
                 item_type_course -> viewModel.startActivity(MineWalletActivity::class.java)
                 item_type_guide -> {
@@ -74,5 +75,6 @@ class MineHomeDataItem(viewModel: MineViewModel, private val resIcon: Int, val t
         const val item_type_contract = 6
         const val item_type_custom_service = 7
         const val item_type_vip = 8
+        const val item_type_cooperate = 9
     }
 }
