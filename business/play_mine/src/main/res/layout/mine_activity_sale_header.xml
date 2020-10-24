@@ -13,8 +13,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_FFFFFF">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp8"
+        android:layout_margin="@dimen/dp8"
+        android:background="@drawable/home_item_bg">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_binding_head"
@@ -30,6 +32,7 @@
             android:layout_width="@dimen/dp150"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
+            android:includeFontPadding="false"
             android:ellipsize="end"
             android:lines="2"
             android:text="名称名称名称名称名称"
@@ -43,9 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
             android:src="@mipmap/base_icon_male"
-            app:layout_constraintBottom_toBottomOf="@+id/mine_binding_head"
             app:layout_constraintStart_toEndOf="@+id/mine_talent_title"
-            app:layout_constraintTop_toTopOf="@+id/mine_binding_head" />
+            app:layout_constraintTop_toTopOf="@+id/mine_talent_title" />
 
         <ImageView
             android:id="@+id/mine_talent_auth"
@@ -53,9 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
             android:src="@mipmap/base_icon_auth"
-            app:layout_constraintBottom_toBottomOf="@+id/mine_binding_head"
             app:layout_constraintStart_toEndOf="@+id/mine_talent_gender"
-            app:layout_constraintTop_toTopOf="@+id/mine_binding_head" />
+            app:layout_constraintTop_toTopOf="@+id/mine_talent_title" />
 
         <View
             android:layout_width="0dp"
@@ -253,6 +254,7 @@
             android:layout_marginStart="@dimen/dp20"
             app:layout_constraintTop_toBottomOf="@+id/talent_info_top1"
             android:text="过往销售记录"
+            android:background="@drawable/home_item_bg"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"

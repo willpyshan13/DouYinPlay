@@ -85,10 +85,11 @@ class MineSaleRecordViewModel(application: Application) : BaseListViewModel<Mine
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val itemList = mutableListOf<ItemViewModel<*>>()
+            itemList.add(MineSaleRecordHeaderViewModel(this))
             itemList.add(MineSaleRecordListItem(this))
             itemList.add(MineSaleRecordListItem(this))
             itemList.add(MineSaleRecordListItem(this))
-            items.submit(itemList,false)
+            loadCallback.onSuccess(itemList,pageIndex,1)
         })
     }
 

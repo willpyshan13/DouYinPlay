@@ -13,7 +13,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp20"
+        android:padding="@dimen/dp16"
         android:orientation="vertical">
 
         <TextView
@@ -79,9 +79,10 @@
             android:text="填写举报原因" />
 
         <EditText
+            android:layout_marginTop="@dimen/dp10"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp200"
-            android:background="@null" />
+            android:layout_height="@dimen/dp160"
+            android:background="@drawable/base_grey_btn" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,6 +104,7 @@
             android:background="@drawable/base_yellow_circle_btn"
             android:gravity="center"
             android:padding="@dimen/dp5"
+            app:onClickCommand="@{viewModel.onAddressClick}"
             android:text="提交"
             android:textSize="@dimen/sp16" />
     </LinearLayout>

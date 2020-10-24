@@ -37,23 +37,64 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/dp50"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_report"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_like"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp12"
+                android:layout_marginEnd="@dimen/dp12">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/talent_info_top_0"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp70"
+                    android:layout_marginTop="@dimen/dp50"
+                    android:background="@color/color_FFFFFF"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/talent_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="****"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/talent_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:src="@mipmap/base_icon_male"
+                        app:layout_constraintStart_toEndOf="@+id/talent_name"
+                        app:layout_constraintTop_toTopOf="@+id/talent_name" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:src="@mipmap/base_icon_auth"
+                        app:layout_constraintStart_toEndOf="@+id/talent_gender"
+                        app:layout_constraintTop_toTopOf="@+id/talent_name" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="@dimen/dp50"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:id="@+id/talent_info_top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/color_FFFFFF">
+                    android:background="@color/color_FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_top_0">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -85,7 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:drawableTop="@mipmap/base_icon_user_prise"
-                            android:text="粉丝" />
+                            android:text="点赞" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -104,7 +145,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:drawableTop="@mipmap/base_icon_user_video"
-                            android:text="粉丝" />
+                            android:text="视频" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -131,15 +172,16 @@
                             android:text="1188W" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/talent_info_top1"
-                    android:layout_marginTop="@dimen/dp20"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_top"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/color_FFFFFF">
+                    android:background="@color/color_FFFFFF"
+                    android:paddingTop="@dimen/dp20"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_top">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -156,7 +198,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1188W" />
+                            android:text="1~20s价"
+                            android:textColor="@color/color_868686" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -174,24 +217,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1188W" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="￥****" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1188W" />
+                            android:text="20~60s价"
+                            android:textColor="@color/color_868686" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -209,105 +236,188 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1188W" />
+                            android:text="橱窗带货/条"
+                            android:textColor="@color/color_868686" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="￥****" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="直播活动价/时"
+                            android:textColor="@color/color_868686" />
                     </LinearLayout>
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/talent_info_douyin_1"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_top1"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp100"
+                    android:background="@color/color_FFFFFF"
+                    android:paddingTop="@dimen/dp20"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_top1"></LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
-                    android:text="抖音号" />
+                    android:text="抖音号"
+                    app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_1" />
+
+                <ImageView
+                    android:id="@+id/talent_info_douyin_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/base_icon_talent_copy"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_top1" />
 
                 <ImageView
                     android:id="@+id/talent_info_douyin_2"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_1"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/dp10"
-                    android:src="@mipmap/base_icon_talent_test"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginTop="@dimen/dp10"
+                    android:src="@mipmap/base_icon_talent_contract"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_1" />
 
                 <TextView
                     android:id="@+id/talent_info_douyin_3"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_2"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/dp10"
                     android:layout_height="wrap_content"
-                    android:text="名称" />
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="名称"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_2" />
 
                 <TextView
                     android:id="@+id/talent_info_douyin_4"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_3"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/dp10"
                     android:layout_height="wrap_content"
-                    android:text="电话/微信" />
+                    android:text="电话/微信"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_copy"
+                    app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_copy" />
+
+                <ImageView
+                    android:id="@+id/talent_info_douyin_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:src="@mipmap/base_icon_talent_copy"
+                    app:layout_constraintEnd_toStartOf="@+id/talent_info_douyin_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_3" />
+
+                <ImageView
+                    android:id="@+id/talent_info_douyin_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/base_icon_talent_call"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_3" />
+
+                <ImageView
+                    android:id="@+id/talent_info_douyin_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:src="@mipmap/base_icon_talent_test"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="查看完整测评"
+                    android:drawableStart="@mipmap/base_icon_hot_info"
+                    android:textColor="@color/color_000000"
+                    app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_9" />
 
                 <ImageView
                     android:id="@+id/talent_info_douyin_5"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_4"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
                     android:src="@mipmap/base_icon_talent_data_info"
-                    android:layout_height="wrap_content"
-                    />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_9"
+                    app:onClickCommand="@{viewModel.onSaleRecordClick}" />
 
                 <ImageView
                     android:id="@+id/talent_info_douyin_6"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_5"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
                     android:src="@mipmap/base_icon_watch"
-                    android:layout_height="wrap_content"
-                    />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_5" />
 
                 <TextView
-                    tools:text="3333"
-                    app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_000000"
                     app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_6"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_6"
+                    tools:text="3333" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/talent_info_watch_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp20"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="8"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_6"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_6"
+                    app:spanCount="8" />
 
                 <ImageView
                     android:id="@+id/talent_info_douyin_7"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_watch_list"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
                     android:src="@mipmap/base_icon_talent_remark"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_watch_list" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginStart="@dimen/dp5"
+                    android:src="@mipmap/base_icon_remark_info"
+                    app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_7"
+                    app:layout_constraintStart_toEndOf="@+id/talent_info_douyin_7"
+                    app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_7" />
 
                 <TextView
-                    tools:text="3333"
-                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:paddingBottom="@dimen/dp30"
+                    android:text="所有名片属达人撰写，通告双方私下沟通谨防诈骗，如遇虚假名片，盗用他人名片，诈骗信息等不良行为，请立即向平台举报。"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
+                    app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_7" />
 
                 <ImageView
                     android:layout_width="@dimen/dp66"
@@ -317,34 +427,46 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
+
         <TextView
             android:id="@+id/bottom_report"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="0dp"
+            android:background="@color/color_FFFFFF"
+            android:drawableTop="@mipmap/base_icon_report"
+            android:gravity="center"
+            android:text="举报"
+            app:onClickCommand="@{viewModel.onReportClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:drawableTop="@mipmap/base_icon_report"
-            android:text="举报"
-            android:gravity="center"
-            android:layout_width="@dimen/dp60"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintTop_toTopOf="@+id/bottom_apply_btn" />
+
         <TextView
             android:id="@+id/bottom_like"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="0dp"
+            android:background="@color/color_FFFFFF"
+            android:drawableTop="@mipmap/base_icon_like"
+            android:gravity="center"
+            android:text="喜欢"
+            app:onClickCommand="@{viewModel.onLikeClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bottom_report"
-            android:drawableTop="@mipmap/base_icon_like"
-            android:text="喜欢"
-            android:gravity="center"
-            android:layout_width="@dimen/dp60"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintTop_toTopOf="@+id/bottom_apply_btn" />
+
         <TextView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bottom_like"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="申请带货"
-            android:padding="@dimen/dp5"
-            android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/sp16"
-            android:gravity="center"
+            android:id="@+id/bottom_apply_btn"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="44dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/base_yellow_btn"
+            android:gravity="center"
+            android:padding="@dimen/dp5"
+            android:text="申请带货"
+            app:onClickCommand="@{viewModel.onApplyClick}"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bottom_like" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

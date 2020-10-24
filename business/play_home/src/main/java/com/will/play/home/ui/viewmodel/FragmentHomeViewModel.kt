@@ -28,6 +28,12 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
 
     val updateUrl = SingleLiveEvent<String>()
 
+    val showConfirmMerchant = SingleLiveEvent<Void>()
+
+    val showChangeMerchant = SingleLiveEvent<Void>()
+
+    val showWechatMerchant = SingleLiveEvent<Void>()
+
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(oldItem: ItemViewModel<*>, newItem: ItemViewModel<*>): Boolean {

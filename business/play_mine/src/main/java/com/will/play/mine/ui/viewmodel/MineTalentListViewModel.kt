@@ -2,9 +2,14 @@ package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
 import android.view.View
+import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableInt
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
+import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
 import com.will.habit.extection.launch
 import com.will.habit.utils.StringUtils
 import com.will.habit.widget.recycleview.paging.LoadCallback
@@ -27,8 +32,9 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class MineTalentListViewModel(application: Application) :BaseListViewModel<MineRepository,MineTalentListItem>(application) {
 
+    val showMore = ObservableInt(View.GONE)
+
     init {
-        setRightIconVisible(View.VISIBLE)
         setTitleText(StringUtils.getStringResource(R.string.mine_talent_title))
         loadInit()
     }
@@ -45,6 +51,30 @@ class MineTalentListViewModel(application: Application) :BaseListViewModel<MineR
 
         }
     }
+
+    /**
+     * 过滤
+     */
+    val filterItemBinding = ItemBinding.of<Any> { itemBinding, _, item ->
+        when (item) {
+//            is DataDouyinItem -> itemBinding.set(BR.viewModel, R.layout.fragment_data_douyin_item)
+//            is DataTaobaoItem -> itemBinding.set(BR.viewModel, R.layout.fragment_data_taobao_item)
+        }
+    }
+
+    val filterItems = ObservableArrayList<ItemViewModel<*>>()
+
+
+    val onMoreClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            if (showMore.get() == View.VISIBLE){
+                showMore.set(View.GONE)
+            }else{
+                showMore.set(View.VISIBLE)
+            }
+        }
+
+    })
 
     override fun rightIconOnClick() {
         startActivity(MineDouyinBindingActivity::class.java)

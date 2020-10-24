@@ -13,34 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp20"
         android:background="@color/color_F0F0F0"
         android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/talent_list_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/base_icon_talent_classify"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp20"
-            android:text="日用百货"
-            app:layout_constraintBottom_toBottomOf="@+id/talent_list_top"
-            app:layout_constraintStart_toEndOf="@+id/talent_list_top"
-            app:layout_constraintTop_toTopOf="@+id/talent_list_top" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/base_icon_talent_more"
-            app:layout_constraintBottom_toBottomOf="@+id/talent_list_top"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/talent_list_top" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
@@ -58,45 +32,33 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone"
             android:layout_marginBottom="@dimen/dp30"
+            android:background="@color/color_FFFFFF"
+            android:paddingTop="@dimen/dp30"
+            android:visibility="@{viewModel.showMore}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/talent_list_top">
-
-            <ImageView
-                android:id="@+id/talent_filter_list_top"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/base_icon_talent_classify"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/base_icon_talent_more"
-                app:layout_constraintBottom_toBottomOf="@+id/talent_filter_list_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/talent_filter_list_top" />
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:overScrollMode="never"
-                app:itemBinding="@{viewModel.itemBinding}"
-                app:items="@{viewModel.items}"
+                app:itemBinding="@{viewModel.filterItemBinding}"
+                app:items="@{viewModel.filterItems}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toTopOf="@+id/talent_filter_sure"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/talent_filter_list_top" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/talent_filter_reset"
                 android:layout_width="0dp"
+                android:padding="@dimen/dp5"
                 android:layout_height="wrap_content"
+                android:background="@drawable/base_grey_btn"
                 android:gravity="center"
                 android:text="重置"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -107,7 +69,9 @@
                 android:id="@+id/talent_filter_sure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/base_yellow_btn"
                 android:gravity="center"
+                android:padding="@dimen/dp5"
                 android:text="确定"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -115,6 +79,34 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ImageView
+            android:id="@+id/talent_list_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp10"
+            android:src="@mipmap/base_icon_talent_classify"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp20"
+            android:text="日用百货"
+            app:layout_constraintBottom_toBottomOf="@+id/talent_list_top"
+            app:layout_constraintStart_toEndOf="@+id/talent_list_top"
+            app:layout_constraintTop_toTopOf="@+id/talent_list_top" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20"
+            android:src="@mipmap/base_icon_talent_more"
+            app:layout_constraintBottom_toBottomOf="@+id/talent_list_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/talent_list_top"
+            app:onClickCommand="@{viewModel.onMoreClick}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

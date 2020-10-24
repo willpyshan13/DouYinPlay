@@ -5,7 +5,7 @@ import com.will.habit.base.BaseActivity
 import com.will.play.mine.BR
 import com.will.play.mine.R
 import com.will.play.mine.databinding.MineActivityReportBinding
-import com.will.play.mine.ui.viewmodel.MineAddressViewModel
+import com.will.play.mine.ui.viewmodel.MineReportViewModel
 
 /**
  * Desc:举报
@@ -16,7 +16,7 @@ import com.will.play.mine.ui.viewmodel.MineAddressViewModel
  *
  * @Author: pengyushan
  */
-class MineReportActivity : BaseActivity<MineActivityReportBinding, MineAddressViewModel>() {
+class MineReportActivity : BaseActivity<MineActivityReportBinding, MineReportViewModel>() {
 
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.mine_activity_report

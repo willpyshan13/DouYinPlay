@@ -34,23 +34,14 @@ import org.json.JSONArray
 class MineReportViewModel(application: Application) : BaseViewModel<MineRepository>(application) {
     val showPickerView = SingleLiveEvent<Void>()
     val userName = ObservableField("")
-    val userPhone = ObservableField("")
-    val userArea = ""
-    val userAddress = ObservableField("")
-
 
     init {
-        setTitleText(StringUtils.getStringResource(R.string.mine_address))
-
+        setTitleText("举报")
     }
 
     val onAddressClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
             showPickerView.call()
         }
-
     })
-
-
-
 }

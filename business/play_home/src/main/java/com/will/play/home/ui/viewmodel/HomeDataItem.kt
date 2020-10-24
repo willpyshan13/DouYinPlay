@@ -5,7 +5,11 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
+import com.alibaba.android.arouter.launcher.ARouter
 import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
+import com.will.play.base.constant.Constants
 import com.will.play.home.R
 import com.will.play.home.entity.DataLists
 
@@ -30,6 +34,21 @@ class HomeDataItem(viewModel:FragmentHomeViewModel,val data: DataLists,val index
                 positionVisible.set(View.GONE)
             }
         }
-
     }
+
+    val onItemClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            ARouter.getInstance().build("/mine/talentinfo")
+                    .withString(Constants.COMMON_ID,"${data.id}")
+                    .navigation()
+        }
+
+    })
+
+    val onApplyClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            viewModel.showConfirmMerchant.call()
+        }
+
+    })
 }

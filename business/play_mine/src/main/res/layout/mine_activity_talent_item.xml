@@ -13,14 +13,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp8"
+        android:layout_marginTop="@dimen/dp10"
         android:background="@drawable/home_item_bg"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mine_binding_head"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp70"
+            android:layout_height="@dimen/dp70"
             android:layout_marginStart="@dimen/dp10"
             android:src="@mipmap/base_mine_header_icon"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,108 +39,115 @@
 
         <TextView
             android:id="@+id/mine_talent_title"
-            android:layout_marginStart="@dimen/dp10"
-            app:layout_constraintTop_toTopOf="@+id/mine_binding_head"
-            app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
-            android:text="名称名称名称名称名称"
-            android:maxEms="6"
-            android:lines="1"
-            android:ellipsize="end"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxEms="6"
+            android:text="名称名称名称名称名称"
+            app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
+            app:layout_constraintTop_toTopOf="@+id/mine_binding_head" />
 
         <TextView
             android:id="@+id/mine_talent_time"
-            android:layout_marginStart="@dimen/dp10"
-            app:layout_constraintTop_toTopOf="@+id/mine_binding_head"
-            app:layout_constraintStart_toEndOf="@+id/mine_talent_title"
-            android:text="2020-08-08"
-            android:maxEms="10"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:maxEms="10"
+            android:text="2020-08-08"
+            app:layout_constraintStart_toEndOf="@+id/mine_talent_title"
+            app:layout_constraintTop_toTopOf="@+id/mine_binding_head" />
 
         <ImageView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@mipmap/base_icon_talent_douyin"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:src="@mipmap/base_icon_talent_douyin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            app:layout_constraintTop_toBottomOf="@+id/mine_talent_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
-            android:layout_marginStart="@dimen/dp40"
-            app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
+            app:layout_constraintTop_toBottomOf="@+id/mine_talent_title">
+
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:drawableTop="@mipmap/base_icon_user_icon"
-                    android:text="粉丝"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:text="1188W"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                    android:text="粉丝" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1188W" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:drawableTop="@mipmap/base_icon_user_prise"
-                    android:text="粉丝"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:text="粉丝" />
+
                 <TextView
-                    android:text="1188W"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="1188W" />
             </LinearLayout>
+
             <LinearLayout
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:drawableTop="@mipmap/base_icon_user_video"
-                    android:text="粉丝"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:text="粉丝" />
+
                 <TextView
-                    android:text="1188W"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="1188W" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:drawableTop="@mipmap/base_icon_check_more"
-                    android:text="查看详情"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:text="查看详情" />
+
                 <TextView
-                    android:layout_gravity="center_vertical"
-                    android:text="中部达人"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="中部达人" />
             </LinearLayout>
 
         </LinearLayout>

@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp6"
+        app:onClickCommand="@{viewModel.onItemClick}"
         android:background="@drawable/home_item_bg"
         android:orientation="vertical"
         android:paddingStart="@dimen/dp12"
@@ -46,9 +47,8 @@
 
         <TextView
             android:id="@+id/home_item_title"
-            android:layout_width="@dimen/dp100"
+            android:layout_width="@dimen/dp90"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp8"
             android:layout_marginEnd="@dimen/dp8"
             android:lines="1"
             android:ellipsize="end"
@@ -147,6 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/base_icon_apply"
+            app:onClickCommand="@{viewModel.onApplyClick}"
             app:layout_constraintBottom_toBottomOf="@+id/home_layout_middle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/home_layout_middle" />

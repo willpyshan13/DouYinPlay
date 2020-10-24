@@ -88,6 +88,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/base_icon_hourse"
                 android:gravity="center"
+                app:onClickCommand="@{viewModel.onTalentClick}"
                 android:text="日用家居" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -95,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/base_icon_devices"
+                app:onClickCommand="@{viewModel.onTalentClick}"
                 android:gravity="center"
                 android:text="数码电器" />
 
@@ -103,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/base_icon_makeup"
+                app:onClickCommand="@{viewModel.onTalentClick}"
                 android:gravity="center"
                 android:text="美妆护肤" />
 
@@ -111,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/base_icon_shorts"
+                app:onClickCommand="@{viewModel.onTalentClick}"
                 android:gravity="center"
                 android:text="服装饰品" />
 
@@ -119,6 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/base_icon_food"
+                app:onClickCommand="@{viewModel.onTalentClick}"
                 android:gravity="center"
                 android:text="美食" />
         </LinearLayout>
@@ -144,18 +149,21 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:onClickCommand="@{viewModel.onTalentClick}"
                 android:layout_weight="1"
                 android:src="@mipmap/base_icon_level_top" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:onClickCommand="@{viewModel.onTalentClick}"
                 android:layout_weight="1"
                 android:src="@mipmap/base_icon_level_middle" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:onClickCommand="@{viewModel.onTalentClick}"
                 android:layout_weight="1"
                 android:src="@mipmap/base_icon_level_last" />
         </LinearLayout>

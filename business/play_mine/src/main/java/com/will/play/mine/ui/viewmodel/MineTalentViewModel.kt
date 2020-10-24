@@ -17,6 +17,8 @@ import com.will.habit.utils.Utils
 import com.will.play.mine.R
 import com.will.play.mine.entity.JsonBean
 import com.will.play.mine.repository.MineRepository
+import com.will.play.mine.ui.activity.MineReportActivity
+import com.will.play.mine.ui.activity.MineSaleRecordActivity
 import com.will.play.mine.utils.JsonParseUtils
 import org.json.JSONArray
 
@@ -32,4 +34,29 @@ import org.json.JSONArray
  * @Author: pengyushan
  */
 class MineTalentViewModel(application: Application) : BaseViewModel<MineRepository>(application) {
+    val onSaleRecordClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            startActivity(MineSaleRecordActivity::class.java)
+        }
+
+    })
+
+    val onApplyClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+        }
+
+    })
+
+    val onReportClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            startActivity(MineReportActivity::class.java)
+        }
+
+    })
+
+    val onLikeClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+        }
+
+    })
 }

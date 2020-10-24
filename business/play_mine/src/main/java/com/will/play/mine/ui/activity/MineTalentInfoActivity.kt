@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.activity
 
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.will.habit.base.BaseActivity
 import com.will.play.mine.BR
 import com.will.play.mine.R
@@ -16,6 +17,7 @@ import com.will.play.mine.ui.viewmodel.MineTalentViewModel
  *
  * @Author: pengyushan
  */
+@Route(path = "/mine/talentinfo")
 class MineTalentInfoActivity : BaseActivity<MineActivityTalentBinding, MineTalentViewModel>() {
 
     override fun initContentView(savedInstanceState: Bundle?): Int {
