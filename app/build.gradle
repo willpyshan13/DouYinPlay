@@ -46,6 +46,7 @@ android {
             signingConfig signingConfigs.release
             multiDexEnabled true
             minifyEnabled false
+            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

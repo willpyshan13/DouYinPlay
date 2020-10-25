@@ -47,6 +47,11 @@ class MineRepository : BaseModel<Any>() {
     suspend fun getPointApply() = mineService.getPointApply().check()
 
     /**
+     * 配置
+     */
+    suspend fun getDarenConfig() = mineService.getDarenConfig().check()
+
+    /**
      * 提现检测
      */
     suspend fun getPointApplyAdd(money:String?) = mineService.getPointApplyAdd(money).check()

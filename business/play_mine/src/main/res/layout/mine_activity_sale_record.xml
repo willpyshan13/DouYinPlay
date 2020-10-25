@@ -41,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp20"
             android:layout_marginTop="@dimen/dp40"
+            app:onClickCommand="@{viewModel.onBackClick}"
             android:src="@mipmap/base_icon_talent_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

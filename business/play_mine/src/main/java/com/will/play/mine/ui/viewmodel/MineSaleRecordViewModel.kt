@@ -61,6 +61,13 @@ class MineSaleRecordViewModel(application: Application,val talentId:String) : Ba
         }
     }
 
+    val onBackClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            finish()
+        }
+
+    })
+
     override fun rightIconOnClick() {
         startActivity(MineDouyinBindingActivity::class.java)
     }

@@ -64,6 +64,10 @@ interface MineService {
     @POST("$BASE_API/PointApply/check")
     suspend fun getPointApply(): BaseResponse<MineRespRecordEntity>
 
+    @POST("$BASE_API/Daren/config")
+    suspend fun getDarenConfig(): BaseResponse<MineConfigEntity>
+
+
     @POST("$BASE_API/PointApply/add")
     suspend fun getPointApplyAdd(@Query("amount") amount: String?): BaseResponse<MineRespRecordEntity>
 

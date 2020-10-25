@@ -52,17 +52,21 @@ class MineTalentListViewModel(application: Application) :BaseListViewModel<MineR
         }
     }
 
+    override fun onCreate() {
+        super.onCreate()
+        getConfig()
+    }
+
     /**
      * 过滤
      */
     val filterItemBinding = ItemBinding.of<Any> { itemBinding, _, item ->
         when (item) {
-//            is DataDouyinItem -> itemBinding.set(BR.viewModel, R.layout.fragment_data_douyin_item)
-//            is DataTaobaoItem -> itemBinding.set(BR.viewModel, R.layout.fragment_data_taobao_item)
+            is MineTalentListFilterItem -> itemBinding.set(BR.viewModel, R.layout.mine_activity_talent_filter_item)
         }
     }
 
-    val filterItems = ObservableArrayList<ItemViewModel<*>>()
+    val filterItems = ObservableArrayList<MineTalentListFilterItem>()
 
 
     val onMoreClick = BindingCommand<Any>(object :BindingAction{
@@ -75,6 +79,13 @@ class MineTalentListViewModel(application: Application) :BaseListViewModel<MineR
         }
 
     })
+
+    private fun getConfig(){
+        launch({
+            val data = model.getDarenConfig()
+
+        })
+    }
 
     override fun rightIconOnClick() {
         startActivity(MineDouyinBindingActivity::class.java)

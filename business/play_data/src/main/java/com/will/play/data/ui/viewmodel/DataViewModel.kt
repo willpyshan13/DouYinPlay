@@ -1,6 +1,7 @@
 package com.will.play.data.ui.viewmodel
 
 import android.app.Application
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.DiffUtil
@@ -19,11 +20,11 @@ import com.will.play.base.entity.PickDouyinEntity
 import com.will.play.base.entity.PickTaobaoEntity
 import com.will.play.base.web.WebViewActivity
 import com.will.play.base.web.WebViewPath
-import com.will.play.data.R
 import com.will.play.data.BR
+import com.will.play.data.R
 import com.will.play.data.repository.DataRepository
+import com.will.play.third.ui.activity.DouyinInfoActivity
 import me.tatarka.bindingcollectionadapter2.ItemBinding
-import java.lang.Exception
 
 /**
  * Desc:首页
@@ -86,19 +87,20 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
         }
     }
 
-    fun getDouyinUserinfo(authCode:String){
+    fun getDouyinUserinfo(authCode: String){
         launch({
             val data = model.douyinAuth(authCode)
             callReload(false)
-        },{
-            if (it is AuthException){
-                if(it.message!=null) {
+            startActivity(DouyinInfoActivity::class.java)
+        }, {
+            if (it is AuthException) {
+                if (it.message != null) {
                     ToastUtils.showShort(it.message!!)
                 }
                 val bundle = Bundle().apply {
-                    putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
+                    putString(WebViewPath.URL, "${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
                 }
-                startActivity(WebViewActivity::class.java,bundle)
+                startActivity(WebViewActivity::class.java, bundle)
             }
         })
     }
@@ -106,11 +108,11 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
     private fun getDouyinVideo(){
         launch({
             val data = model.getDouyinVideoIndex()
-            if (items.isNotEmpty()&&items[0] is DataHeaderItem){
+            if (items.isNotEmpty() && items[0] is DataHeaderItem) {
                 (items[0] as DataHeaderItem).updateDouyinData(data)
             }
-        },{
-            Log.d("","")
+        }, {
+            Log.d("", "")
         })
     }
 
@@ -127,21 +129,21 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
             try {
                 taobaoData = model.getTaobaoOrderIndex()
                 douyinData = model.getDouyinVideoIndex()
-            }catch (e:Exception){
-                if (e is AuthException){
-                    if(e.message!=null) {
+            } catch (e: Exception) {
+                if (e is AuthException) {
+                    if (e.message != null) {
                         ToastUtils.showShort(e.message!!)
                     }
                     val bundle = Bundle().apply {
-                        putString(WebViewPath.URL,"${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
+                        putString(WebViewPath.URL, "${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
                     }
-                    startActivity(WebViewActivity::class.java,bundle)
+                    startActivity(WebViewActivity::class.java, bundle)
                 }
             }
 
-            viewModels.add(DataHeaderItem(this, banner,douyinData,taobaoData))
+            viewModels.add(DataHeaderItem(this, banner, douyinData, taobaoData))
             viewModels.add(DataTitleItem(this))
-            viewModels.add(DataItem(this,data))
+            viewModels.add(DataItem(this, data))
             loadCallback.onSuccess(viewModels, pageIndex, 1)
             dismissDialog()
         }, {

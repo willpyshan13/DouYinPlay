@@ -7,7 +7,6 @@ data class MineDouyinEntity(
         val state: String
 )
 
-
 data class DouyinUserInfo(
         val access_token: String,
         val avatar: String,

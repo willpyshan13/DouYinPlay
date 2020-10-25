@@ -44,7 +44,6 @@ public class DouYinEntryActivity extends Activity implements IApiEventHandler {
                 Toast.makeText(this, "授权成功",
                         Toast.LENGTH_LONG).show();
                 DouyinLogin.INSTANCE.getAuthSuccess().setValue(response.authCode);
-                startActivity(new Intent(this, DouyinInfoActivity.class));
             } else {
                 Toast.makeText(this, "授权失败" + response.grantedPermissions,
                         Toast.LENGTH_LONG).show();
