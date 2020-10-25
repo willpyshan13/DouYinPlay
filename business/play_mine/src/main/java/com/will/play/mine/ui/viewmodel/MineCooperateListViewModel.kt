@@ -16,7 +16,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * Date: 2020-10-22 22:19
  * @Author: pengyushan
  */
-class MineCooperateListViewModel(val viewModel:MineCooperateViewModel):BaseListViewModel<MineRepository,MineTalentListItem>(viewModel.getApplication()) {
+class MineCooperateListViewModel(val viewModel:MineCooperateViewModel,val status:String):BaseListViewModel<MineRepository,MineTalentListItem>(viewModel.getApplication()) {
 
     init {
         loadInit()
@@ -48,9 +48,9 @@ class MineCooperateListViewModel(val viewModel:MineCooperateViewModel):BaseListV
 
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<MineTalentListItem>) {
         viewModel.launch({
-//            val itemList = data.dataLists.map { MineWalletIncomeDataItemViewModel(viewModel,it) }
-//            items.addAll(itemList)
-//            loadCallback.onSuccess(itemList,pageIndex,1)
+            val data = model.getDarenApply(pageIndex,status)
+            val itemList = data.dataLists.map { MineTalentListItem(viewModel,it) }
+            loadCallback.onSuccess(itemList,pageIndex,data.total)
         })
     }
 

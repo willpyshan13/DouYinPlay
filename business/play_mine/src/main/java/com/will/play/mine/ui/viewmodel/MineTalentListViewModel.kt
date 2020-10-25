@@ -95,11 +95,9 @@ class MineTalentListViewModel(application: Application) :BaseListViewModel<MineR
 
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<MineTalentListItem>) {
         launch({
-            val itemList = mutableListOf<MineTalentListItem>()
-            itemList.add(MineTalentListItem(this))
-            itemList.add(MineTalentListItem(this))
-            itemList.add(MineTalentListItem(this))
-            items.submit(itemList,false)
+            val listData = model.getHomeList(pageIndex)
+            val dataList = listData.dataLists.map { MineTalentListItem(this,it) }
+            loadCallback.onSuccess(dataList,pageIndex,listData.total)
         })
     }
 

@@ -4,6 +4,7 @@
 
     <data>
 
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.will.play.mine.ui.viewmodel.MineTalentListItem" />
@@ -14,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp10"
+        android:padding="@dimen/dp10"
         android:background="@drawable/home_item_bg"
         android:orientation="vertical">
 
@@ -22,6 +24,8 @@
             android:layout_width="@dimen/dp70"
             android:layout_height="@dimen/dp70"
             android:layout_marginStart="@dimen/dp10"
+            app:isCircle="@{true}"
+            app:imageUrl="@{viewModel.data.avatar}"
             android:src="@mipmap/base_mine_header_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,6 +36,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/base_icon_auth"
+            android:visibility="@{viewModel.data.auth_id ==1 ?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="@+id/mine_binding_head"
+            app:layout_constraintStart_toStartOf="@+id/mine_binding_head"
+            app:layout_constraintTop_toBottomOf="@+id/mine_binding_head"
+            tools:ignore="RtlCompat" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mine_address_tv_name_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/base_icon_unauth"
+            android:visibility="@{viewModel.data.auth_id ==1 ?View.GONE:View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="@+id/mine_binding_head"
             app:layout_constraintStart_toStartOf="@+id/mine_binding_head"
             app:layout_constraintTop_toBottomOf="@+id/mine_binding_head"
@@ -45,7 +61,7 @@
             android:ellipsize="end"
             android:lines="1"
             android:maxEms="6"
-            android:text="名称名称名称名称名称"
+            android:text="@{viewModel.data.nickname}"
             app:layout_constraintStart_toEndOf="@+id/mine_binding_head"
             app:layout_constraintTop_toTopOf="@+id/mine_binding_head" />
 
@@ -55,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
             android:maxEms="10"
-            android:text="2020-08-08"
+            android:text="@{viewModel.data.time_join_text}"
             app:layout_constraintStart_toEndOf="@+id/mine_talent_title"
             app:layout_constraintTop_toTopOf="@+id/mine_binding_head" />
 
@@ -90,7 +106,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1188W" />
+                    android:text="@{viewModel.data.fans_num_str}" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,12 +120,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableTop="@mipmap/base_icon_user_prise"
-                    android:text="粉丝" />
+                    android:text="点赞" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1188W" />
+                    android:text="@{viewModel.data.digg_num_str}" />
             </LinearLayout>
 
             <LinearLayout
@@ -123,12 +139,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableTop="@mipmap/base_icon_user_video"
-                    android:text="粉丝" />
+                    android:text="视频" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1188W" />
+                    android:text="@{viewModel.data.video_num_str}" />
             </LinearLayout>
 
             <LinearLayout
@@ -147,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="中部达人" />
+                    android:text="@{viewModel.data.level_text}" />
             </LinearLayout>
 
         </LinearLayout>

@@ -62,6 +62,10 @@ class MineRepository : BaseModel<Any>() {
      */
     suspend fun getDarenOrderInfo(pageNum:Int,id:String?) = mineService.getDarenOrder(page = pageNum,daren_id = id).check()
 
+    /**
+     * 获取详细信息
+     */
+    suspend fun getDarenApply(pageNum:Int,id:String?) = mineService.getDarenApply(page = pageNum,status = id).check()
 
     /**
      * 微信授权
@@ -73,6 +77,8 @@ class MineRepository : BaseModel<Any>() {
      * 提现记录
      */
     suspend fun getPointApplyIndex(page:Int,dateFrom:String="",dateTo:String="") = mineService.getPointApplyIndex(page,dateFrom,dateTo).check()
+
+    suspend fun  getHomeList(pageNum:Int)=mineService.getHomeDaren(pageNum).check();
 
     /**
      * 修改个人信息

@@ -32,7 +32,6 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class MineCooperateViewModel(application: Application) : BaseViewModel<MineRepository>(application) {
 
-
     val mDataList = arrayListOf("申请中","合作中","合作完成")
 
     val viewPagerObservableList = ObservableArrayList<Any>()
@@ -45,24 +44,13 @@ class MineCooperateViewModel(application: Application) : BaseViewModel<MineRepos
 
     override fun onCreate() {
         super.onCreate()
-//        getRecord()
         setTitleText("合作列表")
     }
 
     init {
-        viewPagerObservableList.add(MineCooperateListViewModel(this))
-        viewPagerObservableList.add(MineCooperateListViewModel(this))
-        viewPagerObservableList.add(MineCooperateListViewModel(this))
+        viewPagerObservableList.add(MineCooperateListViewModel(this,"1"))
+        viewPagerObservableList.add(MineCooperateListViewModel(this,"2"))
+        viewPagerObservableList.add(MineCooperateListViewModel(this,"3"))
     }
-
-    private fun getRecord(){
-        launch({
-            val data = model.getPointLog()
-            viewPagerObservableList.add(MineCooperateListViewModel(this))
-            viewPagerObservableList.add(MineCooperateListViewModel(this))
-            viewPagerObservableList.add(MineCooperateListViewModel(this))
-        })
-    }
-
 
 }
