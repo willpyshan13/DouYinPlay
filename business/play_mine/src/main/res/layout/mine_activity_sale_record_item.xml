@@ -15,6 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp8"
+        android:paddingTop="@dimen/dp15"
+        android:paddingBottom="@dimen/dp15"
         android:background="@drawable/home_item_bg"
         android:orientation="vertical">
 
