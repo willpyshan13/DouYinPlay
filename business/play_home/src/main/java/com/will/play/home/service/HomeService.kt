@@ -31,6 +31,9 @@ interface HomeService {
     @POST("api.php/User/android")
     suspend fun getUpdateInfo(@Query("VerChar") VerChar: String): BaseResponse<RespUpdateEntity>
 
+    @POST("api.php/DarenApply/add")
+    suspend fun getDarenApply(@Query("daren_id") daren_id: String): BaseResponse<RespUpdateEntity>
+
     @GET("api.php/FaAuthor/index")
     suspend fun getHomeFaAuthor(@Query("pageNum") pageNum: Int, @Query("keyWord") keyWord: String?, @Query("sort_id") sort_id: Int?, @Query("pageSize") pageSize: Int): BaseResponse<HomeRespListEntity>
 

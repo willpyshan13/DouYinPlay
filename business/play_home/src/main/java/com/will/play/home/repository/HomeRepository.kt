@@ -30,4 +30,6 @@ class HomeRepository : BaseModel<Any>() {
     suspend fun  getUpdateInfo()=homeService.getUpdateInfo(AppUtils.getAppVersionName()).check();
 
     suspend fun  getHomeList(pageNum:Int)=homeService.getHomeDaren(pageNum).check();
+
+    suspend fun  getDarenApply(id:String)=homeService.getDarenApply(id).check();
 }

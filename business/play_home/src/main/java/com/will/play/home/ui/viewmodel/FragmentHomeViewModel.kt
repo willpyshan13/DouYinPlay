@@ -28,7 +28,7 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
 
     val updateUrl = SingleLiveEvent<String>()
 
-    val showConfirmMerchant = SingleLiveEvent<Void>()
+    val showConfirmMerchant = SingleLiveEvent<String>()
 
     val showChangeMerchant = SingleLiveEvent<Void>()
 
@@ -45,6 +45,12 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
             }
 
         }
+    }
+
+    fun updateMerchant(id:String){
+        launch({
+            model.getDarenApply(id)
+        })
     }
 
     init {

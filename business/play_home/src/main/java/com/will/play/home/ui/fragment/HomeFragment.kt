@@ -58,7 +58,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, FragmentHomeViewModel>() 
         })
 
         viewModel.showConfirmMerchant.observe(this,{
-            showConfirm()
+            if (it!=null) {
+                showConfirm(it)
+            }
         })
 
         viewModel.showWechatMerchant.observe(this,{
@@ -66,7 +68,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, FragmentHomeViewModel>() 
         })
     }
 
-    private fun showConfirm(){
+    private fun showConfirm(id:String){
         ConfirmDialog(requireContext(), true)
                 .setTtitle("确认身份")
                 .setMessage("当前身份为非付费商家，暂不支持此权限")
@@ -75,7 +77,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, FragmentHomeViewModel>() 
                 .setNegativeButton("取消") { p0, p1 -> }
                 .setPositiveButton("升级商家") { p0, p1 ->
                     p0.dismiss()
-                    showWechatConfirm()
+                    viewModel.updateMerchant(id)
                 }.create().show();
     }
 

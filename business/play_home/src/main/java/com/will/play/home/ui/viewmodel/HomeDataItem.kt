@@ -48,7 +48,7 @@ class HomeDataItem(viewModel:FragmentHomeViewModel, val data: HomeFilterDataList
 
     val onApplyClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
-            viewModel.showConfirmMerchant.call()
+            viewModel.updateMerchant("${data.id}")
         }
 
     })
