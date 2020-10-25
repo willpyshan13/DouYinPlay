@@ -66,4 +66,11 @@ interface MineService {
 
     @POST("$BASE_API/Wechat/oauthCallback")
     suspend fun getWechAtoauthCallback(@Query("code") amount: String?): BaseResponse<MineRespRecordEntity>
+
+    @POST("$BASE_API/Daren/detail")
+    suspend fun getDarenDetail(@Query("id") id: String?): BaseResponse<MineTalentInfoEntity>
+
+    @POST("$BASE_API/DarenOrder/index")
+    suspend fun getDarenOrder(@Query("page") page: Int,@Query("pagesize") pagesize: Int=20,@Query("daren_id") daren_id: String?): BaseResponse<MineTalentRecordEntity>
+
 }

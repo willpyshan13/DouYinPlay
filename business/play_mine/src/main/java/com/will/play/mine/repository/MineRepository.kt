@@ -51,6 +51,18 @@ class MineRepository : BaseModel<Any>() {
      */
     suspend fun getPointApplyAdd(money:String?) = mineService.getPointApplyAdd(money).check()
 
+
+    /**
+     * 获取详细信息
+     */
+    suspend fun getDetailInfo(id:String?) = mineService.getDarenDetail(id).check()
+
+    /**
+     * 获取详细信息
+     */
+    suspend fun getDarenOrderInfo(pageNum:Int,id:String?) = mineService.getDarenOrder(page = pageNum,daren_id = id).check()
+
+
     /**
      * 微信授权
      */

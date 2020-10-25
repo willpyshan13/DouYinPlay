@@ -59,7 +59,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dp220"
+            android:layout_marginTop="@dimen/dp100"
             android:overScrollMode="never"
             app:itemBinding="@{viewModel.itemBinding}"
             app:items="@{viewModel.items}"

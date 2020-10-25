@@ -41,11 +41,10 @@ import org.json.JSONArray
  *
  * @Author: pengyushan
  */
-class MineSaleRecordViewModel(application: Application) : BaseListViewModel<MineRepository, ItemViewModel<*>>(application) {
+class MineSaleRecordViewModel(application: Application,val talentId:String) : BaseListViewModel<MineRepository, ItemViewModel<*>>(application) {
 
     init {
         setRightIconVisible(View.VISIBLE)
-        setTitleText(StringUtils.getStringResource(R.string.mine_douyin_add))
         loadInit()
     }
 
@@ -84,12 +83,14 @@ class MineSaleRecordViewModel(application: Application) : BaseListViewModel<Mine
 
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
+            val data = model.getDarenOrderInfo(pageIndex,talentId)
             val itemList = mutableListOf<ItemViewModel<*>>()
-            itemList.add(MineSaleRecordHeaderViewModel(this))
-            itemList.add(MineSaleRecordListItem(this))
-            itemList.add(MineSaleRecordListItem(this))
-            itemList.add(MineSaleRecordListItem(this))
-            loadCallback.onSuccess(itemList,pageIndex,1)
+            if (pageIndex ==1) {
+                itemList.add(MineSaleRecordHeaderViewModel(this, data.darenInfo))
+            }
+            val recordList = data.dataLists.map { MineSaleRecordListItem(this,it) }
+            itemList.addAll(recordList)
+            loadCallback.onSuccess(itemList,pageIndex,data.total)
         })
     }
 

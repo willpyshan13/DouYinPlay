@@ -63,7 +63,7 @@
                         android:id="@+id/talent_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="****"
+                        android:text="@{viewModel.dataInfo.name}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +112,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1188W" />
+                            android:text="@{viewModel.dataInfo.fans_num_str}" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -131,7 +131,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1188W" />
+                            android:text="@{viewModel.dataInfo.digg_num_str}" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -150,7 +150,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1188W" />
+                            android:text="@{viewModel.dataInfo.video_num_str}" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -169,7 +169,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1188W" />
+                            android:text="@{viewModel.dataInfo.commission}" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -193,7 +193,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="￥****" />
+                            android:text="@{viewModel.dataInfo.price1_text}" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -212,7 +212,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="￥****" />
+                            android:text="@{viewModel.dataInfo.price2_text}" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -231,7 +231,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="￥****" />
+                            android:text="@{viewModel.dataInfo.price3_text}" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -250,7 +250,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="￥****" />
+                            android:text="@{viewModel.dataInfo.price4_text}" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -270,13 +270,22 @@
                     app:layout_constraintTop_toBottomOf="@+id/talent_info_top1"></LinearLayout>
 
                 <TextView
+                    android:id="@+id/info_douyin_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
-                    android:text="抖音号"
+                    android:text="抖音号:"
                     app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.dataInfo.douyin_no_text}"
+                    app:layout_constraintBottom_toBottomOf="@+id/info_douyin_title"
+                    app:layout_constraintStart_toEndOf="@+id/info_douyin_title"
+                    app:layout_constraintTop_toTopOf="@+id/info_douyin_title" />
 
                 <ImageView
                     android:id="@+id/talent_info_douyin_1"
@@ -300,18 +309,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
-                    android:text="名称"
+                    android:text="名称:"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_2" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.dataInfo.name_text}"
+                    app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_3"
+                    app:layout_constraintStart_toEndOf="@+id/talent_info_douyin_3"
+                    app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_3" />
 
                 <TextView
                     android:id="@+id/talent_info_douyin_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="电话/微信"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="电话/微信:"
                     app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_copy"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_copy" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.dataInfo.mobile_text}"
+                    app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_4"
+                    app:layout_constraintStart_toEndOf="@+id/talent_info_douyin_4"
+                    app:layout_constraintTop_toTopOf="@+id/talent_info_douyin_4" />
 
                 <ImageView
                     android:id="@+id/talent_info_douyin_copy"
@@ -343,8 +369,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
-                    android:text="查看完整测评"
                     android:drawableStart="@mipmap/base_icon_hot_info"
+                    android:text="查看完整测评"
                     android:textColor="@color/color_000000"
                     app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_9"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -422,6 +448,7 @@
                 <ImageView
                     android:layout_width="@dimen/dp66"
                     android:layout_height="@dimen/dp66"
+                    app:imageUrl="@{viewModel.dataInfo.avatar}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -436,10 +463,10 @@
             android:drawableTop="@mipmap/base_icon_report"
             android:gravity="center"
             android:text="举报"
-            app:onClickCommand="@{viewModel.onReportClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/bottom_apply_btn" />
+            app:layout_constraintTop_toTopOf="@+id/bottom_apply_btn"
+            app:onClickCommand="@{viewModel.onReportClick}" />
 
         <TextView
             android:id="@+id/bottom_like"
@@ -449,10 +476,10 @@
             android:drawableTop="@mipmap/base_icon_like"
             android:gravity="center"
             android:text="喜欢"
-            app:onClickCommand="@{viewModel.onLikeClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bottom_report"
-            app:layout_constraintTop_toTopOf="@+id/bottom_apply_btn" />
+            app:layout_constraintTop_toTopOf="@+id/bottom_apply_btn"
+            app:onClickCommand="@{viewModel.onLikeClick}" />
 
         <TextView
             android:id="@+id/bottom_apply_btn"
@@ -463,10 +490,10 @@
             android:gravity="center"
             android:padding="@dimen/dp5"
             android:text="申请带货"
-            app:onClickCommand="@{viewModel.onApplyClick}"
             android:textSize="@dimen/sp16"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bottom_like" />
+            app:layout_constraintStart_toEndOf="@+id/bottom_like"
+            app:onClickCommand="@{viewModel.onApplyClick}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

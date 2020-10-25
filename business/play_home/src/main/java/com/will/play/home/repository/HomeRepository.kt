@@ -10,7 +10,7 @@ import com.will.play.home.entity.HomeRespDataEntity
 import com.will.play.home.service.HomeService
 
 /**
- * Desc:
+ * Desc:首页数据仓库
  *
  * Date: 2020-06-22
  * Copyright: Copyright (c) 2018-2020
@@ -29,5 +29,5 @@ class HomeRepository : BaseModel<Any>() {
 
     suspend fun  getUpdateInfo()=homeService.getUpdateInfo(AppUtils.getAppVersionName()).check();
 
-    suspend fun  getHomeList(pageNum:Int)=homeService.getHomeFaAuthor(pageNum,null,null,10).check();
+    suspend fun  getHomeList(pageNum:Int)=homeService.getHomeDaren(pageNum).check();
 }

@@ -10,10 +10,11 @@ import com.will.habit.base.ItemViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.play.base.constant.Constants
+import com.will.play.base.entity.HomeFilterDataList
 import com.will.play.home.R
 import com.will.play.home.entity.DataLists
 
-class HomeDataItem(viewModel:FragmentHomeViewModel,val data: DataLists,val index:Int) :ItemViewModel<FragmentHomeViewModel>(viewModel) {
+class HomeDataItem(viewModel:FragmentHomeViewModel, val data: HomeFilterDataList, val index:Int) :ItemViewModel<FragmentHomeViewModel>(viewModel) {
     val positionDrawable = ObservableField<Drawable>()
     val positionVisible = ObservableInt(View.VISIBLE)
     init {

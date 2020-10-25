@@ -53,7 +53,7 @@
             android:lines="1"
             android:ellipsize="end"
             android:drawableStart="@mipmap/base_icon_home_item_right"
-            android:text="@{viewModel.data.addtime_text}"
+            android:text="橱窗已开通"
             android:textColor="@color/color_FFC905"
             app:layout_constraintBottom_toBottomOf="@+id/home_name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +96,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6666"
+                    android:text="@{viewModel.data.fans_num_str}"
                     android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
@@ -116,7 +116,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15555W"
+                    android:text="@{viewModel.data.digg_num_str}"
                     android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
@@ -136,7 +136,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8888"
+                    android:text="@{viewModel.data.video_num_str}"
                     android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
@@ -188,7 +188,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=">%100"
+                    android:text="@{viewModel.data.commission}"
                     android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
@@ -207,7 +207,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=">1000"
+                    android:text="@{viewModel.data.price4_text}"
                     android:textColor="@color/color_0047FF" />
             </LinearLayout>
 
@@ -226,7 +226,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3000元/个"
+                    android:text="@{viewModel.data.price3_text}"
                     android:textColor="@color/color_0047FF" />
             </LinearLayout>
 

@@ -1,6 +1,7 @@
 package com.will.play.mine.ui.viewmodel
 
 import com.will.habit.base.ItemViewModel
+import com.will.play.mine.entity.MineDarenInfoEntity
 
 /**
  * Desc:我的地址页面
@@ -13,5 +14,5 @@ import com.will.habit.base.ItemViewModel
  *
  * @Author: pengyushan
  */
-class MineSaleRecordHeaderViewModel(viewModel: MineSaleRecordViewModel): ItemViewModel<MineSaleRecordViewModel>(viewModel) {
+class MineSaleRecordHeaderViewModel(viewModel: MineSaleRecordViewModel,val data: MineDarenInfoEntity): ItemViewModel<MineSaleRecordViewModel>(viewModel) {
 }
