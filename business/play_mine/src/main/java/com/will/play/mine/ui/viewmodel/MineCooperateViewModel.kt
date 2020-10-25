@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.BaseViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.extection.launch
 import com.will.habit.extection.parse
@@ -32,13 +33,24 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  */
 class MineCooperateViewModel(application: Application) : BaseViewModel<MineRepository>(application) {
 
+    val showConfirmMerchant = SingleLiveEvent<String>()
+
     val mDataList = arrayListOf("申请中","合作中","合作完成")
+
+    var isShowConfirm = false
 
     val viewPagerObservableList = ObservableArrayList<Any>()
 
     var viewPagerItemBinding = ItemBinding.of<Any> { itemBinding, _, item ->
         when (item) {
             is MineCooperateListViewModel -> itemBinding.set(BR.viewModel, R.layout.mine_activity_cooperate_list)
+        }
+    }
+
+    fun showConfirm(){
+        if (!isShowConfirm){
+            isShowConfirm = true
+            showConfirmMerchant.call()
         }
     }
 

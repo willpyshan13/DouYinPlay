@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.bus.event.SingleLiveEvent
+import com.will.habit.extection.PermissionException
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.home.R
@@ -50,6 +51,10 @@ class FragmentHomeViewModel(application: Application) :BaseListViewModel<HomeRep
     fun updateMerchant(id:String){
         launch({
             model.getDarenApply(id)
+        },{
+            if(it is PermissionException){
+                showConfirmMerchant.call()
+            }
         })
     }
 

@@ -3,6 +3,7 @@ package com.will.play.mine.service
 import com.will.habit.http.BaseResponse
 import com.will.play.base.constant.Constants.BASE_API
 import com.will.play.base.entity.HomeFilterEntity
+import com.will.play.base.entity.RespUpdateEntity
 import com.will.play.constant.WxInfo
 import com.will.play.mine.entity.*
 import retrofit2.http.GET
@@ -71,6 +72,16 @@ interface MineService {
 
     @POST("$BASE_API/Daren/detail")
     suspend fun getDarenDetail(@Query("id") id: String?): BaseResponse<MineTalentInfoEntity>
+
+    @POST("$BASE_API/DarenFav/add")
+    suspend fun getCollectDaren(@Query("daren_id") id: String?): BaseResponse<List<String>>
+
+
+    @POST("$BASE_API/DarenFav/del")
+    suspend fun getUnCollectDaren(@Query("daren_id") id: String?): BaseResponse<List<String>>
+
+    @POST("api.php/DarenApply/add")
+    suspend fun addDarenApply(@Query("daren_id") daren_id: String?): BaseResponse<RespUpdateEntity>
 
     @POST("$BASE_API/DarenOrder/index")
     suspend fun getDarenOrder(@Query("page") page: Int,@Query("pagesize") pagesize: Int=20,@Query("daren_id") daren_id: String?): BaseResponse<MineTalentRecordEntity>

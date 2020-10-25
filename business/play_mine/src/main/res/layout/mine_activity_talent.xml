@@ -399,6 +399,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{viewModel.watcherNum}"
                     android:textColor="@color/color_000000"
                     app:layout_constraintBottom_toBottomOf="@+id/talent_info_douyin_6"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -411,6 +412,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp20"
+                    app:itemBinding="@{viewModel.itemBinding}"
+                    app:items="@{viewModel.items}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -448,6 +451,7 @@
                 <ImageView
                     android:layout_width="@dimen/dp66"
                     android:layout_height="@dimen/dp66"
+                    app:isCircle="@{true}"
                     app:imageUrl="@{viewModel.dataInfo.avatar}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -455,31 +459,57 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 
-        <TextView
+        <LinearLayout
             android:id="@+id/bottom_report"
             android:layout_width="@dimen/dp60"
-            android:layout_height="0dp"
-            android:background="@color/color_FFFFFF"
-            android:drawableTop="@mipmap/base_icon_report"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="举报"
+            android:orientation="vertical"
+            android:background="@color/color_FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/bottom_apply_btn"
-            app:onClickCommand="@{viewModel.onReportClick}" />
+            app:onClickCommand="@{viewModel.onReportClick}">
 
-        <TextView
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/base_icon_report" />
+
+            <TextView
+                android:layout_width="@dimen/dp60"
+                android:layout_height="wrap_content"
+                android:background="@color/color_FFFFFF"
+                android:gravity="center"
+                android:text="举报" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/bottom_like"
             android:layout_width="@dimen/dp60"
-            android:layout_height="0dp"
-            android:background="@color/color_FFFFFF"
-            android:drawableTop="@mipmap/base_icon_like"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="喜欢"
+            android:background="@color/color_FFFFFF"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bottom_report"
             app:layout_constraintTop_toTopOf="@+id/bottom_apply_btn"
-            app:onClickCommand="@{viewModel.onLikeClick}" />
+            app:onClickCommand="@{viewModel.onLikeClick}">
+
+            <CheckBox
+                android:button="@null"
+                android:layout_width="wrap_content"
+                android:checked="@{viewModel.collect}"
+                android:layout_height="wrap_content"
+                android:background="@drawable/base_btn_like" />
+
+            <TextView
+                android:layout_width="@dimen/dp60"
+                android:layout_height="wrap_content"
+                android:background="@color/color_FFFFFF"
+                android:gravity="center"
+                android:text="喜欢" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/bottom_apply_btn"

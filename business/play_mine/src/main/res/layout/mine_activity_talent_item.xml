@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp10"
         android:padding="@dimen/dp10"
+        app:onClickCommand="@{viewModel.itemClick}"
         android:background="@drawable/home_item_bg"
         android:orientation="vertical">
 

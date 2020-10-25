@@ -3,6 +3,7 @@ package com.will.play.mine.ui.viewmodel
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.will.habit.base.BaseListViewModel
+import com.will.habit.extection.PermissionException
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import com.will.play.mine.R
@@ -51,6 +52,10 @@ class MineCooperateListViewModel(val viewModel:MineCooperateViewModel,val status
             val data = model.getDarenApply(pageIndex,status)
             val itemList = data.dataLists.map { MineTalentListItem(viewModel,it) }
             loadCallback.onSuccess(itemList,pageIndex,data.total)
+        },{
+            if(it is PermissionException){
+                viewModel.showConfirm()
+            }
         })
     }
 

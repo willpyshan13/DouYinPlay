@@ -68,10 +68,24 @@ class MineRepository : BaseModel<Any>() {
     suspend fun getDarenApply(pageNum:Int,id:String?) = mineService.getDarenApply(page = pageNum,status = id).check()
 
     /**
+     * 授权
+     */
+    suspend fun authDarenApply(id:String?) = mineService.addDarenApply(id).check()
+
+    /**
      * 微信授权
      */
     suspend fun getWechAtoauthCallback(code:String?) = mineService.getWechAtoauthCallback(code).check()
 
+    /**
+     * 收藏
+     */
+    suspend fun collectUser(code:String?) = mineService.getCollectDaren(code).check()
+
+    /**
+     * 取消收藏
+     */
+    suspend fun unCollectUser(code:String?) = mineService.getUnCollectDaren(code).check()
 
     /**
      * 提现记录

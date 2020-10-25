@@ -1,31 +1,24 @@
 package com.will.play.mine.ui.viewmodel
 
 import android.app.Application
-import android.graphics.Color
 import android.os.Bundle
-import android.provider.SyncStateContract
-import android.widget.Toast
+import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
-import com.bigkoo.pickerview.builder.OptionsPickerBuilder
-import com.bigkoo.pickerview.listener.OnOptionsSelectListener
-import com.bigkoo.pickerview.view.OptionsPickerView
-import com.google.gson.Gson
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
+import com.will.habit.extection.PermissionException
 import com.will.habit.extection.launch
-import com.will.habit.utils.StringUtils
-import com.will.habit.utils.Utils
 import com.will.play.base.constant.Constants
 import com.will.play.mine.R
-import com.will.play.mine.entity.JsonBean
+import com.will.play.mine.BR
 import com.will.play.mine.entity.MineTalentDataInfoEntity
 import com.will.play.mine.repository.MineRepository
 import com.will.play.mine.ui.activity.MineReportActivity
 import com.will.play.mine.ui.activity.MineSaleRecordActivity
-import com.will.play.mine.utils.JsonParseUtils
-import org.json.JSONArray
+import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
  * Desc:我的地址页面
@@ -39,8 +32,17 @@ import org.json.JSONArray
  * @Author: pengyushan
  */
 class MineTalentViewModel(application: Application,val talentId:String) : BaseViewModel<MineRepository>(application) {
-    val headUrl = ObservableField("")
+    val watcherNum = ObservableField("")
     val name = ObservableField("")
+    val collect = ObservableBoolean(false)
+    val showConfirmMerchant = SingleLiveEvent<String>()
+
+    /**
+     * 顶部数据
+     */
+    val itemBinding = ItemBinding.of<MineTalentVisitListItem>(BR.viewModel, R.layout.mine_activity_talent_info_visit_item)
+    val items = ObservableArrayList<MineTalentVisitListItem>()
+
 
     val dataInfo = ObservableField<MineTalentDataInfoEntity>()
     val onSaleRecordClick = BindingCommand<Any>(object :BindingAction{
@@ -66,6 +68,14 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
             showDialog()
             val data = model.getDetailInfo(talentId)
             dataInfo.set(data.dataInfo)
+            watcherNum.set("${data.visit_count}")
+            //1 表示关注
+            collect.set(data.dataInfo.daren_fav_status == 1)
+            if (data.visitLists.isNotEmpty()){
+                val visitList = data.visitLists.map { MineTalentVisitListItem(this,it) }
+                items.addAll(visitList)
+                items.add(MineTalentVisitListItem(this,""))
+            }
             dismissDialog()
         },{
             dismissDialog()
@@ -75,20 +85,49 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
 
     val onApplyClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
+            updateMerchant()
         }
-
     })
 
     val onReportClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
             startActivity(MineReportActivity::class.java)
         }
-
     })
+
+    /**
+     *
+     * Desc:升级商家
+     * <p>
+     * Author: pengyushan
+     * Date: 2020-10-25
+     */
+    fun updateMerchant(){
+        launch({
+            model.authDarenApply(talentId)
+        },{
+            if(it is PermissionException){
+                showConfirmMerchant.call()
+            }
+        })
+    }
+
 
     val onLikeClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
+            collect()
         }
-
     })
+
+    private fun collect(){
+        launch({
+            if (collect.get()){
+                collect.set(false)
+                model.unCollectUser(talentId)
+            }else{
+                collect.set(true)
+                model.collectUser(talentId)
+            }
+        })
+    }
 }

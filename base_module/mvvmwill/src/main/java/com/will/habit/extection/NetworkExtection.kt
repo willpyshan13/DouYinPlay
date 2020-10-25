@@ -40,6 +40,9 @@ fun <T> BaseResponse<T>.check(): T {
         }
         throw ResponseException(-1, "response data is null")
     }
+    if (status == 36|| status == 46){
+        throw PermissionException(status,error)
+    }
     throw ResponseException(status, error)
 }
 
