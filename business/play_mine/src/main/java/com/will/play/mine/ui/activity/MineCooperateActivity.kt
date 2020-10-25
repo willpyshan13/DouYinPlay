@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat
 import com.will.habit.base.BaseActivity
 import com.will.habit.utils.ClipboardUtils
 import com.will.habit.utils.SPUtils
+import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.dialog.ConfirmDialog
 import com.will.play.mine.BR
 import com.will.play.mine.R
@@ -68,12 +69,14 @@ class MineCooperateActivity : BaseActivity<MineActivityCooperateBinding, MineCoo
     private fun showWechatConfirm(){
         ConfirmDialog(this, true)
                 .setTtitle("添加客服转换身份")
-                .setMessage("微信号码hjksadadhsadjk23\n复制到微信添加")
+                .setMessage("微信号码a18030144436\n复制到微信添加")
                 .setNegativeButtonColor(ContextCompat.getColor(this,R.color.color_E7E7E7))
                 .setPositiveButtonColor(ContextCompat.getColor(this,R.color.color_FFEA00))
                 .setNegativeButton("取消") { p0, p1 -> }
                 .setPositiveButton("复制") { p0, p1 ->
-                    ClipboardUtils.copyText("")
+                    ClipboardUtils.copyText("a18030144436")
+                    ToastUtils.showLong("微信已复制到剪贴板")
+                    p0.dismiss()
                 }.create().show();
     }
 

@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp20"
             android:layout_marginTop="@dimen/dp40"
+            app:onClickCommand="@{viewModel.onFinishClick}"
             android:src="@mipmap/base_icon_talent_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -63,7 +64,7 @@
                         android:id="@+id/talent_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.dataInfo.name}"
+                        android:text="@{viewModel.dataInfo.nickname}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:button="@null"
                         android:textSize="2sp"
-                        android:checked="@{viewModel.dataInfo.sex_id ==1 ?true:false}"
+                        android:checked="@{viewModel.dataInfo.sex_id ==2 ?true:false}"
                         android:layout_marginStart="10dp"
                         android:background="@drawable/base_btn_gender"
                         app:layout_constraintStart_toEndOf="@+id/talent_name"
@@ -297,6 +298,7 @@
                     android:id="@+id/talent_info_douyin_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:onClickCommand="@{viewModel.onDouyinCopyClick}"
                     android:src="@mipmap/base_icon_talent_copy"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/talent_info_top1" />
@@ -350,6 +352,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/dp10"
+                    app:onClickCommand="@{viewModel.onWechatCopyClick}"
                     android:src="@mipmap/base_icon_talent_copy"
                     app:layout_constraintEnd_toStartOf="@+id/talent_info_douyin_phone"
                     app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_3" />
@@ -359,6 +362,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/base_icon_talent_call"
+                    app:onClickCommand="@{viewModel.onCallClick}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_3" />
 

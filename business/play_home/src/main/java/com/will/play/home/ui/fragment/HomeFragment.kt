@@ -11,6 +11,7 @@ import com.allenliu.versionchecklib.v2.builder.UIData
 import com.will.habit.base.BaseFragment
 import com.will.habit.utils.ClipboardUtils
 import com.will.habit.utils.SPUtils
+import com.will.habit.utils.ToastUtils
 import com.will.habit.widget.dialog.ConfirmDialog
 import com.will.play.home.BR
 import com.will.play.home.R
@@ -94,12 +95,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, FragmentHomeViewModel>() 
     private fun showWechatConfirm() {
         ConfirmDialog(requireContext(), true)
                 .setTtitle("添加客服转换身份")
-                .setMessage("微信号码hjksadadhsadjk23\n复制到微信添加")
+                .setMessage("微信号码a18030144436\n复制到微信添加")
                 .setNegativeButtonColor(ContextCompat.getColor(requireContext(), R.color.color_E7E7E7))
                 .setPositiveButtonColor(ContextCompat.getColor(requireContext(), R.color.color_FFEA00))
                 .setNegativeButton("取消") { p0, p1 -> }
                 .setPositiveButton("复制") { p0, p1 ->
-                    ClipboardUtils.copyText("")
+                    ClipboardUtils.copyText("a18030144436")
+                    ToastUtils.showLong("微信已复制到剪贴板")
+                    p0.dismiss()
                 }.create().show();
     }
 }

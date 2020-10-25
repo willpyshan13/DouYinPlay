@@ -49,7 +49,7 @@
                 android:button="@null"
                 android:textSize="2sp"
                 android:background="@drawable/base_btn_gender"
-                android:checked="@{viewModel.data.sex_id ==1 ?true:false}"
+                android:checked="@{viewModel.data.sex_id ==2 ?true:false}"
                 app:layout_constraintStart_toEndOf="@+id/mine_talent_title"
                 app:layout_constraintTop_toTopOf="@+id/mine_talent_title" />
 

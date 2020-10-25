@@ -27,9 +27,54 @@ class HomeHeaderItem(viewModel:FragmentHomeViewModel, private val homeData:HomeR
 
     val onTalentClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {
-            ARouter.getInstance().build("/mine/talentlist").navigation()
+            gotoList("日用家居")
         }
-
     })
+
+    val onTalent1Click = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            gotoList("数码电器")
+        }
+    })
+
+    val onTalent2Click = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            gotoList("美妆护肤")
+        }
+    })
+
+    val onTalent3Click = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            gotoList("服装饰品")
+        }
+    })
+
+    val onTalent4Click = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            gotoList("美食")
+        }
+    })
+
+    val onTalent6Click = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            gotoList("头部达人")
+        }
+    })
+
+    val onTalent7Click = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            gotoList("中部达人")
+        }
+    })
+
+    val onTalent8Click = BindingCommand<Any>(object : BindingAction {
+        override fun call() {
+            gotoList("尾部达人")
+        }
+    })
+
+    private fun gotoList(name:String){
+        ARouter.getInstance().build("/mine/talentlist").withString("name",name).navigation()
+    }
 
 }

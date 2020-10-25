@@ -1,16 +1,23 @@
 package com.will.play.mine.ui.viewmodel
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Application
 import android.os.Bundle
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
+import com.blankj.utilcode.constant.PermissionConstants
+import com.blankj.utilcode.util.PhoneUtils
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
 import com.will.habit.bus.event.SingleLiveEvent
 import com.will.habit.extection.PermissionException
 import com.will.habit.extection.launch
+import com.will.habit.utils.ClipboardUtils
+import com.will.habit.utils.ToastUtils
+import com.will.play.aop.permission.annotation.NeedPermission
 import com.will.play.base.constant.Constants
 import com.will.play.mine.R
 import com.will.play.mine.BR
@@ -84,10 +91,41 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
         })
     }
 
-
     val onApplyClick = BindingCommand<Any>(object :BindingAction{
         override fun call() {
             updateMerchant()
+        }
+    })
+
+    val onCallClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            callPhone()
+        }
+    })
+
+    val onFinishClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            finish()
+        }
+    })
+
+    @SuppressLint("MissingPermission")
+    @NeedPermission(value = [Manifest.permission.CALL_PHONE])
+    private fun callPhone(){
+        PhoneUtils.call(dataInfo.get()?.mobile)
+    }
+
+    val onWechatCopyClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            ClipboardUtils.copyText(dataInfo.get()?.douyin_no_text)
+            ToastUtils.showLong("微信已复制到剪贴板")
+        }
+    })
+
+    val onDouyinCopyClick = BindingCommand<Any>(object :BindingAction{
+        override fun call() {
+            ClipboardUtils.copyText(dataInfo.get()?.wechat_no_text)
+            ToastUtils.showLong("抖音号已复制到剪贴板")
         }
     })
 
