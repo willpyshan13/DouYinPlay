@@ -36,7 +36,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dp50"
+            android:layout_marginTop="@dimen/dp60"
             app:layout_constraintBottom_toTopOf="@+id/bottom_like"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,20 +69,26 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/talent_gender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textSize="2sp"
+                        android:checked="@{viewModel.dataInfo.sex_id ==1 ?true:false}"
                         android:layout_marginStart="10dp"
-                        android:src="@mipmap/base_icon_male"
+                        android:background="@drawable/base_btn_gender"
                         app:layout_constraintStart_toEndOf="@+id/talent_name"
                         app:layout_constraintTop_toTopOf="@+id/talent_name" />
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp10"
-                        android:src="@mipmap/base_icon_auth"
+                        android:textSize="2sp"
+                        android:button="@null"
+                        android:checked="@{viewModel.dataInfo.auth_id ==1 ?true:false}"
+                        android:background="@drawable/base_btn_auth"
                         app:layout_constraintStart_toEndOf="@+id/talent_gender"
                         app:layout_constraintTop_toTopOf="@+id/talent_name" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -499,6 +505,8 @@
             <CheckBox
                 android:button="@null"
                 android:layout_width="wrap_content"
+                android:focusable="false"
+                android:clickable="false"
                 android:checked="@{viewModel.collect}"
                 android:layout_height="wrap_content"
                 android:background="@drawable/base_btn_like" />
@@ -519,7 +527,7 @@
             android:background="@drawable/base_yellow_btn"
             android:gravity="center"
             android:padding="@dimen/dp5"
-            android:text="申请带货"
+            android:text="@{viewModel.applyStatus}"
             android:textSize="@dimen/sp16"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

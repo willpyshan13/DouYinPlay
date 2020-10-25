@@ -41,21 +41,27 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_goneMarginStart="@dimen/dp100" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/mine_talent_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp10"
-                android:src="@mipmap/base_icon_male"
+                android:button="@null"
+                android:textSize="2sp"
+                android:background="@drawable/base_btn_gender"
+                android:checked="@{viewModel.data.sex_id ==1 ?true:false}"
                 app:layout_constraintStart_toEndOf="@+id/mine_talent_title"
                 app:layout_constraintTop_toTopOf="@+id/mine_talent_title" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/mine_talent_auth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp10"
-                android:src="@mipmap/base_icon_auth"
+                android:button="@null"
+                android:textSize="2sp"
+                android:checked="@{viewModel.data.auth_id ==1 ?true:false}"
+                android:background="@drawable/base_btn_auth"
                 app:layout_constraintStart_toEndOf="@+id/mine_talent_gender"
                 app:layout_constraintTop_toTopOf="@+id/mine_talent_title" />
 

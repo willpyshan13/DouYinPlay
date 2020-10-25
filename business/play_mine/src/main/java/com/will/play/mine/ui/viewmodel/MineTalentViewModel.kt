@@ -37,6 +37,7 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
     val collect = ObservableBoolean(false)
     val showConfirmMerchant = SingleLiveEvent<String>()
 
+    val applyStatus = ObservableField("申请带货")
     /**
      * 顶部数据
      */
@@ -71,6 +72,7 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
             watcherNum.set("${data.visit_count}")
             //1 表示关注
             collect.set(data.dataInfo.daren_fav_status == 1)
+//            applyStatus.set(data.dataInfo.daren_apply_status_name)
             if (data.visitLists.isNotEmpty()){
                 val visitList = data.visitLists.map { MineTalentVisitListItem(this,it) }
                 items.addAll(visitList)
@@ -105,6 +107,7 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
     fun updateMerchant(){
         launch({
             model.authDarenApply(talentId)
+            applyStatus.set("等待同意")
         },{
             if(it is PermissionException){
                 showConfirmMerchant.call()
