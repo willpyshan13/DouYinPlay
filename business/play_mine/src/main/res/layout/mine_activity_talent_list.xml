@@ -61,6 +61,7 @@
                 android:background="@drawable/base_grey_btn"
                 android:gravity="center"
                 android:text="重置"
+                app:onClickCommand="@{viewModel.onResetClick}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/talent_filter_sure"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -73,6 +74,7 @@
                 android:gravity="center"
                 android:padding="@dimen/dp5"
                 android:text="确定"
+                app:onClickCommand="@{viewModel.onConfirmClick}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/talent_filter_reset" />

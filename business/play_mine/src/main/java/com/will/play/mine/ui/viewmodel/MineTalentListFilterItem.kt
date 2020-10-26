@@ -32,11 +32,9 @@ class MineTalentListFilterItem(viewModel: MineTalentListViewModel, val data:List
 
     val itemBinding: ItemBinding<MineTalentListFilterChoiceItem> = ItemBinding.of(BR.viewModel, R.layout.mine_activity_talent_filter_choice_item)
 
-    val itemClick = BindingCommand<Any>(object : BindingAction {
-        override fun call() {
-
-        }
-    })
+    fun resetSelect(){
+        trainModeFreeSelect.set(mutableSetOf(0))
+    }
 
     init {
         trainModeFreeSelect.set(mutableSetOf(0))
@@ -46,9 +44,21 @@ class MineTalentListFilterItem(viewModel: MineTalentListViewModel, val data:List
         override fun call(t: Set<Int>) {
             if (t.isNotEmpty()) {
                 selectPosition = t.first()
+                setViewModelType()
             }
         }
     }
+
+    private fun setViewModelType(){
+        when(title){
+            "达人级别" -> viewModel.levelId = items[selectPosition].data.id
+            "平台" -> viewModel.platformId = items[selectPosition].data.id
+            "性别" -> viewModel.genderId = items[selectPosition].data.id
+            "粉丝量" -> viewModel.fansId = items[selectPosition].data.id
+            else -> viewModel.authId = items[selectPosition].data.id
+        }
+    }
+
 
 
     init {
