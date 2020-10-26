@@ -22,13 +22,15 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
         BindingMethod(type = TagFlowLayout::class, attribute = "tagRevertEnable", method = "setDate"),
         BindingMethod(type = TagFlowLayout::class, attribute = "tagChangeCommand", method = "setMethod"),
         BindingMethod(type = TagFlowLayout::class, attribute = "selectData", method = "setMethod"),
+        BindingMethod(type = TagFlowLayout::class, attribute = "singleCheck", method = "setMethod"),
         BindingMethod(type = TagFlowLayout::class, attribute = "singleLine", method = "setMethod"),
         BindingMethod(type = TagFlowLayout::class, attribute = "selectDataAttrChanged", method = "setMethod")
 )
 class FlowLayoutViewAdapter
 
 @BindingAdapter(
-        value = ["itemBinding", "items", "tagEnable", "tagRevertEnable", "tagChangeCommand", "selectData", "singleLine", "selectDataAttrChanged"],
+        value = ["itemBinding", "items", "tagEnable", "tagRevertEnable", "tagChangeCommand",
+            "selectData", "singleLine", "selectDataAttrChanged","singleCheck"],
         requireAll = false
 )
 fun <T> TagFlowLayout.setAdapter(
@@ -38,14 +40,18 @@ fun <T> TagFlowLayout.setAdapter(
         revertCheckEnable: Boolean?,
         dateChangeAction: BindingConsumer<Set<Int>>?,
         selectData: Set<Int>?, singleLine: Boolean?,
-        selectDataAttrChanged: InverseBindingListener?
+        selectDataAttrChanged: InverseBindingListener?,
+        singleCheck: Boolean?
 ) {
     if (itemBinding == null) {
         return
     }
-    this.isEnabled = enable ?: false
+    this.isEnabled = enable ?: true
     this.setSingleLine(singleLine ?: false)
     this.setRevertCheckEnable(revertCheckEnable ?: true)
+    if (singleCheck!=null&&singleCheck){
+        this.setMaxSelectCount(1)
+    }
     if (items != null && items.isNotEmpty()) {
         val adapter = BindingFlowLayoutAdapter(items)
         adapter.itemBinding = itemBinding

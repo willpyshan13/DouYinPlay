@@ -77,12 +77,16 @@ class MineTalentListViewModel(application: Application) :BaseListViewModel<MineR
                 showMore.set(View.VISIBLE)
             }
         }
-
     })
 
     private fun getConfig(){
         launch({
             val data = model.getDarenConfig()
+            filterItems.add(MineTalentListFilterItem(this,data.levelLists))
+            filterItems.add(MineTalentListFilterItem(this,data.platformLists))
+            filterItems.add(MineTalentListFilterItem(this,data.sexLists))
+            filterItems.add(MineTalentListFilterItem(this,data.fansLists))
+            filterItems.add(MineTalentListFilterItem(this,data.authLists))
 
         })
     }

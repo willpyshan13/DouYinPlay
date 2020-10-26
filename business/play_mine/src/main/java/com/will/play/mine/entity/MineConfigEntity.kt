@@ -1,11 +1,11 @@
 package com.will.play.mine.entity
 
 data class MineConfigEntity(
-    val authLists: List<AuthLists>,
+    val authLists: List<FansLists>,
     val fansLists: List<FansLists>,
-    val levelLists: List<LevelLists>,
-    val platformLists: List<PlatformLists>,
-    val reasonLists: List<ReasonLists>,
-    val sexLists: List<SexLists>,
+    val levelLists: List<FansLists>,
+    val platformLists: List<FansLists>,
+    val reasonLists: List<FansLists>,
+    val sexLists: List<FansLists>,
     val typeLists: List<TypeLists>
 )
