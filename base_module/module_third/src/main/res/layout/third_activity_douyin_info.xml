@@ -16,247 +16,320 @@
         android:background="@color/color_F0F0F0">
 
         <androidx.core.widget.NestedScrollView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="0dp"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_margin="@dimen/dp10"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/dp10"
+                android:orientation="vertical">
+
                 <LinearLayout
-                    android:gravity="center_horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
                     <androidx.appcompat.widget.AppCompatImageView
-                        app:imageUrl="@{viewModel.imageUrl}"
-                        app:isCircle="@{true}"
                         android:layout_width="@dimen/dp66"
-                        android:layout_height="@dimen/dp66"/>
+                        android:layout_height="@dimen/dp66"
+                        app:imageUrl="@{viewModel.imageUrl}"
+                        app:isCircle="@{true}" />
+
                 </LinearLayout>
 
                 <LinearLayout
-                    app:layout_constraintTop_toBottomOf="@+id/info_header_icon"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/info_header_icon">
+
+
                     <TextView
+                        android:id="@+id/mine_talent_title"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:ellipsize="end"
+                        android:includeFontPadding="false"
+                        android:lines="2"
+                        android:text="@{viewModel.userName}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_goneMarginStart="@dimen/dp100" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/mine_talent_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp12"
+                        android:background="@drawable/base_btn_gender"
+                        android:button="@null"
+                        android:checked="@{viewModel.sex_id ==2 ?true:false}"
+                        android:textSize="2sp"
+                        app:layout_constraintStart_toEndOf="@+id/mine_talent_title"
+                        app:layout_constraintTop_toTopOf="@+id/mine_talent_title"
+                        tools:ignore="RtlCompat" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/mine_talent_auth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp12"
+                        android:background="@drawable/base_btn_auth"
+                        android:button="@null"
+                        android:checked="@{viewModel.auth_id ==1 ?true:false}"
+                        android:textSize="2sp"
+                        app:layout_constraintStart_toEndOf="@+id/mine_talent_gender"
+                        app:layout_constraintTop_toTopOf="@+id/mine_talent_title"
+                        tools:ignore="RtlCompat" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_weight="1"
                         android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:drawableTop="@mipmap/base_icon_user_icon"
-                            android:text="粉丝"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:text="@{viewModel.follow}"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content">
+                            android:text="粉丝" />
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.follow}" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:drawableTop="@mipmap/base_icon_user_prise"
-                            android:text="点赞"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:text="点赞" />
+
                         <TextView
-                            android:text="@{viewModel.praise}"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.praise}" />
                     </LinearLayout>
+
                     <LinearLayout
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:drawableTop="@mipmap/base_icon_user_video"
-                            android:text="视频"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:text="视频" />
+
                         <TextView
-                            android:text="@{viewModel.video}"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.video}" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <ImageView
-                    android:layout_marginTop="@dimen/dp20"
-                    android:src="@mipmap/base_icon_user_cour"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:src="@mipmap/base_icon_user_cour" />
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/dp20"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="1-20S报价"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:background="@null"
-                        android:text="@={viewModel.valueOne}"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
+
                     <TextView
-                        android:text="20-60S报价"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:text="1-20S报价" />
+
                     <EditText
-                        android:background="@null"
-                        android:text="@={viewModel.valueTwo}"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/dp20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="橱窗带货"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <EditText
+                        android:layout_height="wrap_content"
                         android:background="@null"
-                        android:text="@={viewModel.valueThree}"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/dp20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="直播活动价"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:background="@null"
-                        android:text="@={viewModel.value4}"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/dp20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="佣金"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:background="@null"
-                        android:text="@={viewModel.value5}"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/dp20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="行业"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:background="@null"
-                        android:text="@={viewModel.value6}"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/dp20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="真实姓名"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:background="@null"
-                        android:text="@={viewModel.value7}"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/dp20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="抖音号"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:background="@null"
-                        android:text="@={viewModel.value8}"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:text="@={viewModel.valueOne}" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/dp20"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:orientation="vertical">
+
                     <TextView
-                        android:text="联系人"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:text="20-60S报价" />
+
                     <EditText
-                        android:background="@null"
-                        android:text="@={viewModel.value9}"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewModel.valueTwo}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="橱窗带货" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewModel.valueThree}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="直播活动价" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewModel.value4}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="佣金" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewModel.value5}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="行业" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewModel.value6}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="真实姓名" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewModel.value7}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="抖音号" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewModel.value8}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系人" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@={viewModel.value9}" />
                 </LinearLayout>
 
                 <TextView
-                    android:text="提交"
-                    android:padding="@dimen/dp5"
-                    app:onClickCommand="@{viewModel.onSubmit}"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="@dimen/sp16"
-                    android:gravity="center"
-                    android:background="@drawable/base_yellow_circle_btn"
                     android:layout_width="@dimen/dp200"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/base_yellow_circle_btn"
+                    android:gravity="center"
+                    android:padding="@dimen/dp5"
+                    android:text="提交"
+                    android:textSize="@dimen/sp16"
+                    app:onClickCommand="@{viewModel.onSubmit}" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

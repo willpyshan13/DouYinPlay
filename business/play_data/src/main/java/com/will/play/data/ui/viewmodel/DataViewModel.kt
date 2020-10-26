@@ -128,6 +128,19 @@ class DataViewModel(application: Application) : BaseListViewModel<DataRepository
             val data = model.getTaskRecommend()
             try {
                 taobaoData = model.getTaobaoOrderIndex()
+            } catch (e: Exception) {
+                if (e is AuthException) {
+                    if (e.message != null) {
+                        ToastUtils.showShort(e.message!!)
+                    }
+                    val bundle = Bundle().apply {
+                        putString(WebViewPath.URL, "${RetrofitClient.baseTbkUrl}${SPUtils.instance.getString(ConstantConfig.TOKEN)}${RetrofitClient.baseTbkUrlView}")
+                    }
+                    startActivity(WebViewActivity::class.java, bundle)
+                }
+            }
+
+            try {
                 douyinData = model.getDouyinVideoIndex()
             } catch (e: Exception) {
                 if (e is AuthException) {

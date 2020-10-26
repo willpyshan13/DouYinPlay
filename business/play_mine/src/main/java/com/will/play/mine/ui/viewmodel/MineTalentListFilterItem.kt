@@ -18,7 +18,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 /**
  * 绑定抖音  item
  */
-class MineTalentListFilterItem(viewModel: MineTalentListViewModel, val data:List<FansLists>) : ItemViewModel<MineTalentListViewModel>(viewModel) {
+class MineTalentListFilterItem(viewModel: MineTalentListViewModel, val data:List<FansLists>,val title:String) : ItemViewModel<MineTalentListViewModel>(viewModel) {
 
     /**
      * 选中的值

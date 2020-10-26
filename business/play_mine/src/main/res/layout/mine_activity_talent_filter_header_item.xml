@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.will.play.mine.ui.viewmodel.MineTalentListFilterHeaderItem" />
+
+    </data>
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/dp10"
+        android:layout_height="wrap_content">
+
+    </RadioGroup>
+</layout>

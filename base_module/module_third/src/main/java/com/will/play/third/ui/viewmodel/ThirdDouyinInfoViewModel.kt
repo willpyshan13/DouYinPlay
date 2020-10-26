@@ -2,6 +2,7 @@ package com.will.play.third.ui.viewmodel
 
 import android.app.Application
 import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import com.will.habit.base.BaseViewModel
 import com.will.habit.binding.command.BindingAction
 import com.will.habit.binding.command.BindingCommand
@@ -22,6 +23,9 @@ import com.will.play.third.repository.ThirdRepository
 class ThirdDouyinInfoViewModel(application: Application) :BaseViewModel<ThirdRepository>(application) {
 
     val imageUrl = ObservableField("")
+    val userName = ObservableField("")
+    val sex_id = ObservableInt(0)
+    val auth_id = ObservableInt(0)
     val follow = ObservableField("")
     val praise = ObservableField("")
     val video = ObservableField("")
@@ -49,10 +53,22 @@ class ThirdDouyinInfoViewModel(application: Application) :BaseViewModel<ThirdRep
         }
     })
 
+    override fun onCreate() {
+        super.onCreate()
+        setTitleText("")
+        getDouyinInfo()
+    }
+
     private fun getDouyinInfo(){
         launch({
             val data = model.getUserIndex()
-
+            imageUrl.set(data.douyinUserInfo.avatar)
+            userName.set(data.douyinUserInfo.nickname)
+            follow.set(data.douyinUserInfo.all_fans_num)
+            praise.set(data.douyinUserInfo.count_douyin_digg_count)
+            video.set(data.douyinUserInfo.count_douyin_video)
+            sex_id.set(data.douyinUserInfo.gender)
+//            auth_id.set(data.douyinUserInfo.)
         })
     }
 

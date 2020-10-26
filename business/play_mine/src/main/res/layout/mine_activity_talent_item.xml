@@ -26,7 +26,7 @@
             android:layout_height="@dimen/dp70"
             android:layout_marginStart="@dimen/dp10"
             app:isCircle="@{true}"
-            app:imageUrl="@{viewModel.data.avatar}"
+            app:imageUrl="@{viewModel.data.avatar_text}"
             android:src="@mipmap/base_mine_header_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

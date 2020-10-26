@@ -66,7 +66,7 @@ class MineTalentListViewModel(application: Application) :BaseListViewModel<MineR
         }
     }
 
-    val filterItems = ObservableArrayList<MineTalentListFilterItem>()
+    val filterItems = ObservableArrayList<Any>()
 
 
     val onMoreClick = BindingCommand<Any>(object :BindingAction{
@@ -82,11 +82,11 @@ class MineTalentListViewModel(application: Application) :BaseListViewModel<MineR
     private fun getConfig(){
         launch({
             val data = model.getDarenConfig()
-            filterItems.add(MineTalentListFilterItem(this,data.levelLists))
-            filterItems.add(MineTalentListFilterItem(this,data.platformLists))
-            filterItems.add(MineTalentListFilterItem(this,data.sexLists))
-            filterItems.add(MineTalentListFilterItem(this,data.fansLists))
-            filterItems.add(MineTalentListFilterItem(this,data.authLists))
+            filterItems.add(MineTalentListFilterItem(this,data.levelLists,"达人级别"))
+            filterItems.add(MineTalentListFilterItem(this,data.platformLists,"平台"))
+            filterItems.add(MineTalentListFilterItem(this,data.sexLists,"性别"))
+            filterItems.add(MineTalentListFilterItem(this,data.fansLists,"粉丝量"))
+            filterItems.add(MineTalentListFilterItem(this,data.authLists,"实名情况"))
 
         })
     }
