@@ -4,9 +4,11 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Application
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import com.blankj.utilcode.constant.PermissionConstants
 import com.blankj.utilcode.util.PhoneUtils
 import com.will.habit.base.BaseViewModel
@@ -44,6 +46,8 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
     val collect = ObservableBoolean(false)
     val showConfirmMerchant = SingleLiveEvent<String>()
 
+    val showCall = ObservableInt(View.VISIBLE)
+
     val applyStatus = ObservableField("申请带货")
     /**
      * 顶部数据
@@ -79,6 +83,7 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
             watcherNum.set("${data.visit_count}")
             //1 表示关注
             collect.set(data.dataInfo.daren_fav_status == 1)
+            showCall.set(if (data.dataInfo.daren_times>0) View.VISIBLE else View.GONE)
 //            applyStatus.set(data.dataInfo.daren_apply_status_name)
             if (data.visitLists.isNotEmpty()){
                 val visitList = data.visitLists.map { MineTalentVisitListItem(this,it) }

@@ -65,6 +65,7 @@ data class MineTalentDataInfoEntity(
     val time_create: Int,
     val time_create_text: String,
     val time_edit: Int,
+    val daren_times:Int,
     val time_edit_text: String,
     val time_join: String,
     val union_id: Any,

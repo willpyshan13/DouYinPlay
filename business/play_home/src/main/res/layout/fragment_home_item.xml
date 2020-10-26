@@ -30,7 +30,7 @@
             android:layout_marginStart="@dimen/dp12"
             android:layout_marginTop="@dimen/dp12"
             android:src="@mipmap/base_bg_header"
-            app:imageUrl="@{viewModel.data.avatar}"
+            app:imageUrl="@{viewModel.data.avatar_text}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlCompat" />

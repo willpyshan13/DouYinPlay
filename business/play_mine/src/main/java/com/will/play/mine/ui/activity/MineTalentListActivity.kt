@@ -34,7 +34,7 @@ class MineTalentListActivity : BaseActivity<MineActivityTalentListBinding, MineT
 
     override fun initData() {
         super.initData()
-        binding.talentListTitle.text = intent.extras?.getString("name")
+        viewModel.talentName.set(intent.extras?.getString("name"))
         bindingToolBar?.ivRightIcon?.setImageResource(R.mipmap.base_mine_add_douyin)
     }
 

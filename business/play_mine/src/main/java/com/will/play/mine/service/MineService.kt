@@ -97,7 +97,7 @@ interface MineService {
     suspend fun getHomeDaren(@Query("pageNum") pageNum: Int,
                              @Query("daren_type_id") daren_type_id: Int?=0, @Query("level_id") level_id: Int?=0,
                              @Query("sex_id") sex_id: Int?=0, @Query("auth_id") auth_id: Int?=0,@Query("platform_id") platform: Int?=0,
-                             @Query("fans_id") fans: Int?=0,@Query("sort_id") sort_id: Int?=0, @Query("pageSize") pageSize: Int=20): BaseResponse<HomeFilterEntity>
+                             @Query("fans_id") fans: Int?=0,@Query("sort_id") sort_id: Int?=0, @Query("pageSize") pageSize: Int=2000): BaseResponse<HomeFilterEntity>
 
 
 }

@@ -275,7 +275,7 @@
             android:layout_marginStart="@dimen/dp20"
             android:layout_marginTop="@dimen/dp100"
             android:src="@mipmap/base_icon_talent_back"
-            app:imageUrl="@{viewModel.data.avatar}"
+            app:imageUrl="@{viewModel.data.avatar_text}"
             app:isCircle="@{true}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

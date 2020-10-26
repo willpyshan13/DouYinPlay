@@ -363,6 +363,7 @@
                     android:layout_height="wrap_content"
                     android:src="@mipmap/base_icon_talent_call"
                     app:onClickCommand="@{viewModel.onCallClick}"
+                    android:visibility="@{viewModel.showCall}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/talent_info_douyin_3" />
 
@@ -462,7 +463,7 @@
                     android:layout_width="@dimen/dp66"
                     android:layout_height="@dimen/dp66"
                     app:isCircle="@{true}"
-                    app:imageUrl="@{viewModel.dataInfo.avatar}"
+                    app:imageUrl="@{viewModel.dataInfo.avatar_text}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

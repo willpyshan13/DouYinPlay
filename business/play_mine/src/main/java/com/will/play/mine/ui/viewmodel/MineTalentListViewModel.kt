@@ -3,6 +3,7 @@ package com.will.play.mine.ui.viewmodel
 import android.app.Application
 import android.view.View
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -31,6 +32,8 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
  * @Author: pengyushan
  */
 class MineTalentListViewModel(application: Application, type: Int?, level: Int?) : BaseListViewModel<MineRepository, MineTalentListItem>(application) {
+
+    val talentName = ObservableField("")
 
     val showMore = ObservableInt(View.GONE)
 
@@ -83,7 +86,6 @@ class MineTalentListViewModel(application: Application, type: Int?, level: Int?)
     }
 
     val filterItems = ObservableArrayList<Any>()
-
 
     val onMoreClick = BindingCommand<Any>(object : BindingAction {
         override fun call() {

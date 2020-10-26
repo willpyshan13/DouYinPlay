@@ -17,6 +17,7 @@ class MineTalentListFilterHeaderImageItem(viewModel: MineTalentListViewModel,val
             headerItem.resetSelect()
             viewModel.typeId = data.id
             showSelect.set(View.VISIBLE)
+            viewModel.talentName.set(data.disable_name)
         }
     })
 }

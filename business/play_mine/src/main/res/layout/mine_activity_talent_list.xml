@@ -96,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp20"
-            android:text="日用百货"
+            android:text="@{viewModel.talentName}"
             app:layout_constraintBottom_toBottomOf="@+id/talent_list_top"
             app:layout_constraintStart_toEndOf="@+id/talent_list_top"
             app:layout_constraintTop_toTopOf="@+id/talent_list_top" />
