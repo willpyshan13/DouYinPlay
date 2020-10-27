@@ -25,7 +25,7 @@
             android:layout_width="@dimen/dp80"
             android:layout_height="@dimen/dp80"
             android:layout_marginStart="@dimen/dp10"
-            app:imageUrl="@{viewModel.data.goods_image}"
+            app:imageUrl="@{viewModel.data.goods_image_text}"
             android:src="@mipmap/base_mine_header_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

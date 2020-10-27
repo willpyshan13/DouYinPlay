@@ -83,7 +83,7 @@ class MineTalentViewModel(application: Application,val talentId:String) : BaseVi
             watcherNum.set("${data.visit_count}")
             //1 表示关注
             collect.set(data.dataInfo.daren_fav_status == 1)
-            showCall.set(if (data.dataInfo.daren_times>0) View.VISIBLE else View.GONE)
+            showCall.set(if (data.dataInfo.daren_view_status>0) View.VISIBLE else View.GONE)
 //            applyStatus.set(data.dataInfo.daren_apply_status_name)
             if (data.visitLists.isNotEmpty()){
                 val visitList = data.visitLists.map { MineTalentVisitListItem(this,it) }
