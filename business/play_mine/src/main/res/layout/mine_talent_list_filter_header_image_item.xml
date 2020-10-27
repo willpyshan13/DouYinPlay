@@ -17,6 +17,7 @@
         app:onClickCommand="@{viewModel.onItemClick}"
         tools:ignore="RtlCompat">
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_image"
             android:layout_width="@dimen/dp40"
             app:imageUrl="@{viewModel.data.img_text}"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +31,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:visibility="@{viewModel.showSelect}"
             android:src="@mipmap/base_icon_filter_selected"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="@dimen/dp10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.data.name}"
+            app:layout_constraintTop_toBottomOf="@+id/item_image"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

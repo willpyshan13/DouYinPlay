@@ -32,7 +32,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/dp30"
+            android:paddingBottom="@dimen/dp30"
             android:background="@color/color_FFFFFF"
             android:paddingTop="@dimen/dp30"
             android:visibility="@{viewModel.showMore}"
