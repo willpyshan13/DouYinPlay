@@ -3,21 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:background="@color/color_4D4D4D"
     android:orientation="vertical">
 
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/welcome_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
     <ImageView
-        android:id="@+id/welcome_logo"
-        android:src="@mipmap/base_icon_launch"
-        android:scaleType="centerCrop"
-        tools:visibility="gone"
+        android:id="@+id/welcome_image"
+        android:src="@mipmap/logo"
+        android:scaleType="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

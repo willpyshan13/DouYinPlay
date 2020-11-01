@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * Update Comments:
  *
  */
-public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
+public class BaseFragmentPagerAdapter extends FragmentStatePagerAdapter {
     /**
      * ViewPager要填充的fragment列表
      */
