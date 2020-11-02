@@ -22,7 +22,7 @@ allprojects {
         jcenter()
         google()
         maven { url 'https://dl.bintray.com/aweme-open-sdk-team/public' }
-        flatDir{
+        flatDir {
             dirs 'libs'
         }
     }

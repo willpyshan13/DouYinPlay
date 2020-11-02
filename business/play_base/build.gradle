@@ -58,7 +58,7 @@ android {
     }
     repositories {
         flatDir {
-            dirs 'libs'
+            dirs 'libs', '../../base_module/module_base/libs'
         }
     }
     dataBinding {

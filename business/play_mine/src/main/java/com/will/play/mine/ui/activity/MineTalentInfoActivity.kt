@@ -74,18 +74,6 @@ class MineTalentInfoActivity : BaseActivity<MineActivityTalentBinding, MineTalen
                 }.create().show();
     }
 
-    private fun showMerchantConfirm(){
-        ConfirmDialog(this, true)
-                .setTtitle("确认身份")
-                .setMessage("每个身份只有一次选择机会，请慎重考虑")
-                .setNegativeButtonColor(ContextCompat.getColor(this,R.color.color_E7E7E7))
-                .setPositiveButtonColor(ContextCompat.getColor(this,R.color.color_FFEA00))
-                .setNegativeButton("取消") { p0, p1 -> }
-                .setPositiveButton("转换为商家") { p0, p1 ->
-                    SPUtils.instance.put("first_init",false)
-                }.create().show();
-    }
-
     private fun showWechatConfirm(){
         ConfirmDialog(this, true)
                 .setTtitle("添加客服转换身份")

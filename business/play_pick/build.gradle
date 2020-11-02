@@ -25,7 +25,11 @@ android {
     androidExtensions {
         experimental = true
     }
-
+    repositories {
+        flatDir {
+            dirs 'libs', '../../base_module/module_base/libs'
+        }
+    }
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
