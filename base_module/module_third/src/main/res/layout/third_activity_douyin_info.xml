@@ -264,12 +264,13 @@
                         android:layout_height="wrap_content"
                         android:text="行业" />
 
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp10"
+                        app:onClickCommand="@{viewModel.onTypeClick}"
                         android:background="@drawable/base_grey_btn"
-                        android:text="@={viewModel.value6}" />
+                        android:text="@{viewModel.value6}" />
                 </LinearLayout>
 
                 <LinearLayout

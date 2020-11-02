@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="douyin_info">
+        <item>日用家居</item>
+        <item>数码电器</item>
+        <item>美妆护肤</item>
+        <item>服装饰品</item>
+        <item>美食</item>
+    </string-array>
+
+</resources>
