@@ -3,9 +3,9 @@ package com.will.play.ui.viewmodel
 import android.app.Application
 import androidx.databinding.ObservableArrayList
 import com.will.habit.base.BaseViewModel
+import com.will.play.R
+import com.will.play.BR
 import com.will.play.home.repository.HomeRepository
-import com.will.play.mine.BR
-import com.will.play.mine.R
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 class WelcomeViewModel(application: Application) :BaseViewModel<HomeRepository>(application){
