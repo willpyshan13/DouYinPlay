@@ -19,6 +19,16 @@
 
 10、常用绑定事件
 
+
+部分效果
+
+
+![avatar](https://github.com/willpyshan13/DouYinPlay/0.png)
+![avatar](https://github.com/willpyshan13/DouYinPlay/1.png)
+![avatar](https://github.com/willpyshan13/DouYinPlay/2.png)
+![avatar](https://github.com/willpyshan13/DouYinPlay/3.png)
+![avatar](https://github.com/willpyshan13/DouYinPlay/4.png)
+
 git 提交注释示例
 
 Feat: 新功能
